@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller1;
+package tpgr32;
 import java.util.HashMap;
 import java.util.Map;
 //import java.util.Iterator;
@@ -48,10 +48,7 @@ public class ManejadorUsuario {
     
     public void listarUsuarios() {
         
-        for(String key : this.conjUsuarios.keySet()) {
-            Usuario usuario = this.conjUsuarios.get(key);
-            usuario.imprimirUsuario();
-        }
+        //No puede listar directamente, deberia retornar un set(DataUsuario) - Nico
         
     }
    

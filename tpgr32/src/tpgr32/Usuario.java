@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller1;
+package tpgr32;
 
 /**
  *
@@ -52,12 +52,5 @@ public class Usuario {
         this.correoElec = ce;
     }
     
-    public void imprimirUsuario() {
-        System.out.print("Nombre :"+this.nombre+"/n");
-        System.out.print("Apellido :"+this.apellido+"/n"); 
-        System.out.print("NickName :"+this.nickname+"/n");
-        System.out.print("Correo Electronico :"+this.correoElec+"/n");
-        
-    }
     
 }

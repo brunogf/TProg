@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller1;
+package tpgr32;
 
-import javax.swing.JOptionPane;
 
 public class ControladorA {
         
@@ -24,7 +23,7 @@ public class ControladorA {
     
     public void imprimirDatos() {
         String nombre = this.mUsuario.getUsuario(this.nick).getNombre();
-        JOptionPane.showConfirmDialog(null,"El usuario "+nombre+" ha sido registrado con exito","Mensaje",JOptionPane.PLAIN_MESSAGE);    
+	//deberia retornar datos, supongamos un DataUsuario, o DataCliente... - Nico
     }
     
 }

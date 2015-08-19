@@ -7,7 +7,7 @@ package tpgr32;
 
 /**
  *
- * @author nicol
+ * @author Nicolás Rostán
  */
 public class Interfaz extends javax.swing.JFrame {
 
