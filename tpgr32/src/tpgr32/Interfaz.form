@@ -73,7 +73,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="PanelCentral" pref="430" max="32767" attributes="0"/>
+              <Component id="PanelCentral" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -107,64 +107,72 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RegUsuarioNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegUsuarioApellidoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegUsuarioCorreoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegUsuarioFechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegUsuarioSeleccionarImagenButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="RegUsuarioNicknameLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RegUsuarioLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                  <Component id="RegUsuarioNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegUsuarioApellidoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegUsuarioCorreoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegUsuarioFechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegUsuarioSeleccionarImagenButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="RegUsuarioNicknameLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="RegUsuarioLabel" min="-2" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="RegUsuarioDiaComboBox" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="RegUsuarioMesComboBox" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                                  <Component id="RegUsuarioAnioComboBox" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" attributes="0">
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="RegUsuarioDiaComboBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="RegUsuarioMesComboBox" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                          <Component id="RegUsuarioAnioComboBox" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Group type="102" alignment="1" attributes="0">
+                                                          <Component id="RegUsuarioClienteRadioButton" min="-2" max="-2" attributes="0"/>
+                                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                          <Component id="RegUsuarioProveedorRadioButton" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                  </Group>
                                               </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="RegUsuarioClienteRadioButton" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="RegUsuarioProveedorRadioButton" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                      <Component id="RegUsuarioApellidoTextField" pref="190" max="32767" attributes="0"/>
+                                                      <Component id="RegUsuarioNombreTextField" max="32767" attributes="0"/>
+                                                      <Component id="RegUsuarioNicknameTextField" max="32767" attributes="0"/>
+                                                      <Component id="RegUsuarioCorreoTextField" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
                                               </Group>
                                           </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="RegUsuarioApellidoTextField" pref="190" max="32767" attributes="0"/>
-                                              <Component id="RegUsuarioNombreTextField" max="32767" attributes="0"/>
-                                              <Component id="RegUsuarioNicknameTextField" max="32767" attributes="0"/>
-                                              <Component id="RegUsuarioCorreoTextField" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="RegUsuarioNombreEmpresaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="RegUsuarioURLLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                              <Component id="RegUsuarioAceptar" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="RegUsuarioCancelar" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="RegUsuarioNombreEmpresaTextField" max="32767" attributes="0"/>
+                                              <Component id="RegUsuarioURLTextField" pref="190" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="RegUsuarioNombreEmpresaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="RegUsuarioURLLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="128" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="RegUsuarioNombreEmpresaTextField" max="32767" attributes="0"/>
-                                      <Component id="RegUsuarioURLTextField" pref="190" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                      <Component id="RegUsuarioAceptar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="RegUsuarioCancelar" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
+                              <Component id="RegUsuarioErrorLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="58" max="32767" attributes="0"/>
@@ -221,7 +229,9 @@
                           <Component id="RegUsuarioURLLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegUsuarioURLTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="150" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="RegUsuarioErrorLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="118" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="RegUsuarioAceptar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegUsuarioCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -388,6 +398,14 @@
             <Component class="javax.swing.JButton" name="RegUsuarioCancelar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegUsuarioErrorLabel">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="cc" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="LABEL PARA INDICIAR ERRORES"/>
               </Properties>
             </Component>
           </SubComponents>
