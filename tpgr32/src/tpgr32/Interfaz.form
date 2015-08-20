@@ -460,7 +460,9 @@
                               <Component id="ConsultaUsuarioImagePanel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioBuscarButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -473,6 +475,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="ConsultaUsuarioNicknameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ConsultaUsuarioTextFieldLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuarioBuscarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="ConsultaUsuarioApellidoNombreLabel" min="-2" max="-2" attributes="0"/>
@@ -490,7 +493,7 @@
                       <Component id="ConsultaUsuarioURLLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="ConsultaUsuarioImagePanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -576,6 +579,14 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JButton" name="ConsultaUsuarioBuscarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioBuscarButtonActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

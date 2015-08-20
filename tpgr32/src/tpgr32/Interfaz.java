@@ -76,6 +76,7 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaUsuarioURLLabel = new javax.swing.JLabel();
         ConsultaUsuarioImagePanel = new javax.swing.JPanel();
         ConsultaUsuarioNoImgLabel = new javax.swing.JLabel();
+        ConsultaUsuarioBuscarButton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -231,6 +232,13 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
+        ConsultaUsuarioBuscarButton.setText("Buscar");
+        ConsultaUsuarioBuscarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaUsuarioBuscarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout ConsultaUsuarioFrameLayout = new javax.swing.GroupLayout(ConsultaUsuarioFrame.getContentPane());
         ConsultaUsuarioFrame.getContentPane().setLayout(ConsultaUsuarioFrameLayout);
         ConsultaUsuarioFrameLayout.setHorizontalGroup(
@@ -259,7 +267,9 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(ConsultaUsuarioBuscarButton)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         ConsultaUsuarioFrameLayout.setVerticalGroup(
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,7 +279,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaUsuarioNicknameLabel)
-                    .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaUsuarioBuscarButton))
                 .addGap(18, 18, 18)
                 .addComponent(ConsultaUsuarioApellidoNombreLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -286,7 +297,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(ConsultaUsuarioURLLabel)
                 .addGap(18, 18, 18)
                 .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
@@ -387,7 +398,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
 
     private void ConsultaUsuarioTextFieldLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioTextFieldLabelActionPerformed
-        
+	ConsultaUsuarioBuscarButton.doClick();
     }//GEN-LAST:event_ConsultaUsuarioTextFieldLabelActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -424,6 +435,10 @@ public class Interfaz extends javax.swing.JFrame {
 	    //Muestra el error
 	}
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
+
+    private void ConsultaUsuarioBuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioBuscarButtonActionPerformed
+        
+    }//GEN-LAST:event_ConsultaUsuarioBuscarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -468,6 +483,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.JLabel ConsultaUsuarioApellidoNombreLabel;
+    private javax.swing.JButton ConsultaUsuarioBuscarButton;
     private javax.swing.JLabel ConsultaUsuarioCorreoLabel;
     private javax.swing.JLabel ConsultaUsuarioEmpresaLabel;
     private javax.swing.JLabel ConsultaUsuarioFechaLabel;
