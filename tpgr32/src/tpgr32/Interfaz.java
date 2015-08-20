@@ -48,9 +48,9 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioNombreTextField = new javax.swing.JTextField();
         RegUsuarioApellidoTextField = new javax.swing.JTextField();
         RegUsuarioCorreoTextField = new javax.swing.JTextField();
-        RegUsuarioDiaComboBox = new javax.swing.JComboBox();
-        RegUsuarioMesComboBox = new javax.swing.JComboBox();
-        RegUsuarioAnioComboBox = new javax.swing.JComboBox();
+        RegUsuarioDiaComboBox = new javax.swing.JComboBox<Integer>();
+        RegUsuarioMesComboBox = new javax.swing.JComboBox<Integer>();
+        RegUsuarioAnioComboBox = new javax.swing.JComboBox<Integer>();
         RegUsuarioClienteRadioButton = new javax.swing.JRadioButton();
         RegUsuarioProveedorRadioButton = new javax.swing.JRadioButton();
         RegUsuarioNombreEmpresaLabel = new javax.swing.JLabel();
@@ -76,18 +76,25 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.setLayout(new java.awt.CardLayout());
 
         RegistrarUsuarioFrame.setVisible(false);
+        RegistrarUsuarioFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegUsuarioLabel.setText("Registrar Usuario");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 11, -1, -1));
 
         RegUsuarioNicknameLabel.setText("Nickname:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 39, -1, -1));
 
         RegUsuarioNombreLabel.setText("Nombre:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         RegUsuarioApellidoLabel.setText("Apellido:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 101, -1, -1));
 
         RegUsuarioCorreoLabel.setText("Correo:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, -1, -1));
 
         RegUsuarioFechaLabel.setText("Fecha de Nacimiento:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
 
         RegUsuarioSeleccionarImagenButton.setText("Seleccionar Imagen");
         RegUsuarioSeleccionarImagenButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +102,11 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioSeleccionarImagenButtonActionPerformed(evt);
             }
         });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioSeleccionarImagenButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 198, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 190, -1));
 
         RegUsuarioDiaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
         RegUsuarioDiaComboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -102,10 +114,13 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioDiaComboBoxActionPerformed(evt);
             }
         });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioDiaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
 
         RegUsuarioMesComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioMesComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
 
         RegUsuarioAnioComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015" }));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAnioComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 80, -1));
 
         RegUsuarioClienteRadioButton.setSelected(true);
         RegUsuarioClienteRadioButton.setText("Cliente");
@@ -114,6 +129,7 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioClienteRadioButtonActionPerformed(evt);
             }
         });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 198, -1, -1));
 
         RegUsuarioProveedorRadioButton.setText("Proveedor");
         RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -121,125 +137,30 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioProveedorRadioButtonActionPerformed(evt);
             }
         });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 198, -1, -1));
 
         RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, -1, -1));
 
         RegUsuarioURLLabel.setText("URL:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 267, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 190, -1));
 
         RegUsuarioAceptar.setText("Aceptar");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
 
         RegUsuarioCancelar.setText("Cancelar");
+        RegUsuarioCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioCancelarActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
 
         RegUsuarioErrorLabel.setForeground(new java.awt.Color(204, 0, 0));
         RegUsuarioErrorLabel.setText("LABEL PARA INDICIAR ERRORES");
-
-        javax.swing.GroupLayout RegistrarUsuarioFrameLayout = new javax.swing.GroupLayout(RegistrarUsuarioFrame.getContentPane());
-        RegistrarUsuarioFrame.getContentPane().setLayout(RegistrarUsuarioFrameLayout);
-        RegistrarUsuarioFrameLayout.setHorizontalGroup(
-            RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RegUsuarioNombreLabel)
-                            .addComponent(RegUsuarioApellidoLabel)
-                            .addComponent(RegUsuarioCorreoLabel)
-                            .addComponent(RegUsuarioFechaLabel)
-                            .addComponent(RegUsuarioSeleccionarImagenButton)
-                            .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                .addComponent(RegUsuarioNicknameLabel)
-                                .addGap(92, 92, 92)
-                                .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(RegUsuarioLabel)
-                                    .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                            .addGap(48, 48, 48)
-                                            .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                                    .addComponent(RegUsuarioDiaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(RegUsuarioMesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                    .addComponent(RegUsuarioAnioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                                    .addComponent(RegUsuarioClienteRadioButton)
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(RegUsuarioProveedorRadioButton))))
-                                        .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                            .addGap(10, 10, 10)
-                                            .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(RegUsuarioApellidoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                                .addComponent(RegUsuarioNombreTextField)
-                                                .addComponent(RegUsuarioNicknameTextField)
-                                                .addComponent(RegUsuarioCorreoTextField))))))
-                            .addComponent(RegUsuarioNombreEmpresaLabel)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                .addComponent(RegUsuarioURLLabel)
-                                .addGap(128, 128, 128)
-                                .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                                        .addGap(31, 31, 31)
-                                        .addComponent(RegUsuarioAceptar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(RegUsuarioCancelar))
-                                    .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(RegUsuarioNombreEmpresaTextField)
-                                        .addComponent(RegUsuarioURLTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))))))
-                    .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(RegUsuarioErrorLabel)))
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
-        RegistrarUsuarioFrameLayout.setVerticalGroup(
-            RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                        .addComponent(RegUsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RegUsuarioNicknameLabel)
-                            .addComponent(RegUsuarioNicknameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RegUsuarioNombreLabel)
-                            .addComponent(RegUsuarioNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RegUsuarioApellidoLabel)
-                            .addComponent(RegUsuarioApellidoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RegUsuarioCorreoLabel)
-                            .addComponent(RegUsuarioCorreoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RegUsuarioFechaLabel)
-                            .addComponent(RegUsuarioDiaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RegUsuarioMesComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(RegUsuarioAnioComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(RegUsuarioSeleccionarImagenButton)
-                            .addComponent(RegUsuarioClienteRadioButton)
-                            .addComponent(RegUsuarioProveedorRadioButton))
-                        .addGap(18, 18, 18)
-                        .addComponent(RegUsuarioNombreEmpresaLabel))
-                    .addComponent(RegUsuarioNombreEmpresaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegUsuarioURLLabel)
-                    .addComponent(RegUsuarioURLTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(RegUsuarioErrorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
-                .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegUsuarioAceptar)
-                    .addComponent(RegUsuarioCancelar))
-                .addGap(20, 20, 20))
-        );
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 302, -1, -1));
 
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
@@ -276,8 +197,8 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(PanelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -286,12 +207,9 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarUsuarioActionPerformed
-        DefaultComboBoxModel cbm;
-	cbm = (DefaultComboBoxModel) RegUsuarioAnioComboBox.getModel();
-	cbm.removeAllElements();
+
 	for (int i = 2015; i > 1900; i--) //genera los años
-	    cbm.addElement(i);
-	RegUsuarioAnioComboBox.setModel(cbm); //carga los años en el combobox
+	    RegUsuarioAnioComboBox.addItem(i);
 	ClienteOProveedor.add(RegUsuarioClienteRadioButton);
 	ClienteOProveedor.add(RegUsuarioProveedorRadioButton);
 	RegUsuarioNombreEmpresaLabel.setVisible(false);
@@ -327,6 +245,10 @@ public class Interfaz extends javax.swing.JFrame {
 	RegUsuarioNombreEmpresaTextField.setVisible(true);
 	RegUsuarioURLTextField.setVisible(true);
     }//GEN-LAST:event_RegUsuarioProveedorRadioButtonActionPerformed
+
+    private void RegUsuarioCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,18 +298,18 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenu MenuRegistros;
     private javax.swing.JPanel PanelCentral;
     private javax.swing.JButton RegUsuarioAceptar;
-    private javax.swing.JComboBox RegUsuarioAnioComboBox;
+    private javax.swing.JComboBox<Integer> RegUsuarioAnioComboBox;
     private javax.swing.JLabel RegUsuarioApellidoLabel;
     private javax.swing.JTextField RegUsuarioApellidoTextField;
     private javax.swing.JButton RegUsuarioCancelar;
     private javax.swing.JRadioButton RegUsuarioClienteRadioButton;
     private javax.swing.JLabel RegUsuarioCorreoLabel;
     private javax.swing.JTextField RegUsuarioCorreoTextField;
-    private javax.swing.JComboBox RegUsuarioDiaComboBox;
+    private javax.swing.JComboBox<Integer> RegUsuarioDiaComboBox;
     private javax.swing.JLabel RegUsuarioErrorLabel;
     private javax.swing.JLabel RegUsuarioFechaLabel;
     private javax.swing.JLabel RegUsuarioLabel;
-    private javax.swing.JComboBox RegUsuarioMesComboBox;
+    private javax.swing.JComboBox<Integer> RegUsuarioMesComboBox;
     private javax.swing.JLabel RegUsuarioNicknameLabel;
     private javax.swing.JTextField RegUsuarioNicknameTextField;
     private javax.swing.JLabel RegUsuarioNombreEmpresaLabel;
