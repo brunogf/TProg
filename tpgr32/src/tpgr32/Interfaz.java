@@ -5,7 +5,10 @@
  */
 package tpgr32;
 
-import javax.swing.DefaultComboBoxModel;
+import java.util.*;
+import java.text.*;
+import java.util.Locale;
+
 
 /**
  *
@@ -162,6 +165,11 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 190, -1));
 
         RegUsuarioAceptar.setText("Aceptar");
+        RegUsuarioAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioAceptarActionPerformed(evt);
+            }
+        });
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
 
         RegUsuarioCancelar.setText("Cancelar");
@@ -397,6 +405,25 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
+        try
+	{
+	    ControladorA ctrlA = new ControladorA();
+	    Calendar cal = Calendar.getInstance();
+	    cal.set(Calendar.YEAR, (Integer)(RegUsuarioAnioComboBox.getSelectedItem()));
+	    cal.set(Calendar.MONTH, (Integer)(RegUsuarioMesComboBox.getSelectedItem()));
+	    cal.set(Calendar.DAY_OF_MONTH, (Integer)(RegUsuarioDiaComboBox.getSelectedItem()));
+	    Date d = cal.getTime();
+	    if(RegUsuarioClienteRadioButton.isSelected())
+	    {
+		ctrlA.registrarCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , RegUsuarioCorreoTextField.getText(), d);
+	    }
+	}catch(Exception ex)
+	{
+	    //Muestra el error
+	}
+    }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
     /**
      * @param args the command line arguments
