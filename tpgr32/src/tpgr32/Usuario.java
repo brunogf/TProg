@@ -52,5 +52,6 @@ public class Usuario {
         this.correoElec = ce;
     }
     
-    
+ 
+   
 }
