@@ -5,6 +5,8 @@
  */
 package tpgr32;
 
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Nicolás Rostán
@@ -32,9 +34,10 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        ClienteOProveedor = new javax.swing.ButtonGroup();
         PanelCentral = new javax.swing.JPanel();
         RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
-        jLabel1 = new javax.swing.JLabel();
+        RegUsuarioLabel = new javax.swing.JLabel();
         RegUsuarioNicknameLabel = new javax.swing.JLabel();
         RegUsuarioNombreLabel = new javax.swing.JLabel();
         RegUsuarioApellidoLabel = new javax.swing.JLabel();
@@ -53,9 +56,9 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioNombreEmpresaLabel = new javax.swing.JLabel();
         RegUsuarioURLLabel = new javax.swing.JLabel();
         RegUsuarioNombreEmpresaTextField = new javax.swing.JTextField();
-        RegUsuarioURLEmpresaTextField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        RegUsuarioURLTextField = new javax.swing.JTextField();
+        RegUsuarioAceptar = new javax.swing.JButton();
+        RegUsuarioCancelar = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -73,7 +76,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegistrarUsuarioFrame.setVisible(false);
 
-        jLabel1.setText("Registrar Usuario");
+        RegUsuarioLabel.setText("Registrar Usuario");
 
         RegUsuarioNicknameLabel.setText("Nickname:");
 
@@ -105,16 +108,26 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegUsuarioClienteRadioButton.setSelected(true);
         RegUsuarioClienteRadioButton.setText("Cliente");
+        RegUsuarioClienteRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioClienteRadioButtonActionPerformed(evt);
+            }
+        });
 
         RegUsuarioProveedorRadioButton.setText("Proveedor");
+        RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioProveedorRadioButtonActionPerformed(evt);
+            }
+        });
 
         RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
 
         RegUsuarioURLLabel.setText("URL:");
 
-        jButton1.setText("Aceptar");
+        RegUsuarioAceptar.setText("Aceptar");
 
-        jButton2.setText("Cancelar");
+        RegUsuarioCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout RegistrarUsuarioFrameLayout = new javax.swing.GroupLayout(RegistrarUsuarioFrame.getContentPane());
         RegistrarUsuarioFrame.getContentPane().setLayout(RegistrarUsuarioFrameLayout);
@@ -132,7 +145,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegUsuarioNicknameLabel)
                         .addGap(92, 92, 92)
                         .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(RegUsuarioLabel)
                             .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarUsuarioFrameLayout.createSequentialGroup()
                                     .addGap(48, 48, 48)
@@ -161,13 +174,13 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(RegUsuarioNombreEmpresaTextField)
-                                .addComponent(RegUsuarioURLEmpresaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
+                                .addComponent(RegUsuarioURLTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
                             .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
                                 .addGap(31, 31, 31)
-                                .addComponent(jButton1)
+                                .addComponent(RegUsuarioAceptar)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                                .addComponent(RegUsuarioCancelar)))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         RegistrarUsuarioFrameLayout.setVerticalGroup(
             RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +188,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(RegistrarUsuarioFrameLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RegUsuarioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(RegUsuarioNicknameLabel)
@@ -209,11 +222,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegUsuarioURLLabel)
-                    .addComponent(RegUsuarioURLEmpresaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                    .addComponent(RegUsuarioURLTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(RegistrarUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(RegUsuarioAceptar)
+                    .addComponent(RegUsuarioCancelar))
                 .addGap(20, 20, 20))
         );
 
@@ -245,14 +258,14 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 402, Short.MAX_VALUE)
+                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
+                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 507, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -262,7 +275,19 @@ public class Interfaz extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarUsuarioActionPerformed
-        PanelCentral.removeAll();
+        DefaultComboBoxModel cbm;
+	cbm = (DefaultComboBoxModel) RegUsuarioAnioComboBox.getModel();
+	cbm.removeAllElements();
+	for (int i = 2015; i > 1900; i--) //genera los años
+	    cbm.addElement(i);
+	RegUsuarioAnioComboBox.setModel(cbm); //carga los años en el combobox
+	ClienteOProveedor.add(RegUsuarioClienteRadioButton);
+	ClienteOProveedor.add(RegUsuarioProveedorRadioButton);
+	RegUsuarioNombreEmpresaLabel.setVisible(false);
+	RegUsuarioURLLabel.setVisible(false);
+	RegUsuarioNombreEmpresaTextField.setVisible(false);
+	RegUsuarioURLTextField.setVisible(false);
+	PanelCentral.removeAll();
 	PanelCentral.add(RegistrarUsuarioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
@@ -276,6 +301,20 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegUsuarioDiaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioDiaComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RegUsuarioDiaComboBoxActionPerformed
+
+    private void RegUsuarioClienteRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioClienteRadioButtonActionPerformed
+        RegUsuarioNombreEmpresaLabel.setVisible(false);
+	RegUsuarioURLLabel.setVisible(false);
+	RegUsuarioNombreEmpresaTextField.setVisible(false);
+	RegUsuarioURLTextField.setVisible(false);
+    }//GEN-LAST:event_RegUsuarioClienteRadioButtonActionPerformed
+
+    private void RegUsuarioProveedorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioProveedorRadioButtonActionPerformed
+        RegUsuarioNombreEmpresaLabel.setVisible(true);
+	RegUsuarioURLLabel.setVisible(true);
+	RegUsuarioNombreEmpresaTextField.setVisible(true);
+	RegUsuarioURLTextField.setVisible(true);
+    }//GEN-LAST:event_RegUsuarioProveedorRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,19 +357,23 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
+    private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuInicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
     private javax.swing.JMenu MenuRegistros;
     private javax.swing.JPanel PanelCentral;
+    private javax.swing.JButton RegUsuarioAceptar;
     private javax.swing.JComboBox RegUsuarioAnioComboBox;
     private javax.swing.JLabel RegUsuarioApellidoLabel;
     private javax.swing.JTextField RegUsuarioApellidoTextField;
+    private javax.swing.JButton RegUsuarioCancelar;
     private javax.swing.JRadioButton RegUsuarioClienteRadioButton;
     private javax.swing.JLabel RegUsuarioCorreoLabel;
     private javax.swing.JTextField RegUsuarioCorreoTextField;
     private javax.swing.JComboBox RegUsuarioDiaComboBox;
     private javax.swing.JLabel RegUsuarioFechaLabel;
+    private javax.swing.JLabel RegUsuarioLabel;
     private javax.swing.JComboBox RegUsuarioMesComboBox;
     private javax.swing.JLabel RegUsuarioNicknameLabel;
     private javax.swing.JTextField RegUsuarioNicknameTextField;
@@ -340,11 +383,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField RegUsuarioNombreTextField;
     private javax.swing.JRadioButton RegUsuarioProveedorRadioButton;
     private javax.swing.JButton RegUsuarioSeleccionarImagenButton;
-    private javax.swing.JTextField RegUsuarioURLEmpresaTextField;
     private javax.swing.JLabel RegUsuarioURLLabel;
+    private javax.swing.JTextField RegUsuarioURLTextField;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
