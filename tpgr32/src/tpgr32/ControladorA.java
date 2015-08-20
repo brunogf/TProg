@@ -5,21 +5,23 @@
  */
 package tpgr32;
 
+import java.util.Date;
+
 
 public class ControladorA {
         
     private ManejadorUsuario mUsuario;
     private String nick;
-        
     public ControladorA() {
         
     }
           
-    public void registrarCliente(String nombre,String apellido,String nickName,String correoElec) {
+    public void registrarCliente(String nombre,String apellido,String nickName,String correoElec, Date f) {
         this.mUsuario = ManejadorUsuario.getInstance();
         this.nick = nickName;
-        this.mUsuario.agregarUsuario(nombre, apellido, nickName, correoElec);        
+        this.mUsuario.agregarCliente(nombre, apellido, nickName, correoElec, f);        
     }
+    
     
     public void imprimirDatos() {
         String nombre = this.mUsuario.getUsuario(this.nick).getNombre();

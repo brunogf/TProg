@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tpgr32;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 //import java.util.Iterator;
@@ -26,10 +27,10 @@ public class ManejadorUsuario {
         return mUsuario;
     }
     
-    public void agregarUsuario(String nom, String apellido, String nickName, String cElec) {
-        Usuario u = new Usuario(nom,apellido,nickName,cElec);
+    public void agregarCliente(String nom, String apellido, String nickName, String cElec, Date f) {
+        Usuario u = new Cliente(nom,apellido,nickName,cElec,f);
         this.conjUsuarios.put(nickName, u);
-
+	
     }
     
     public Usuario getUsuario(String nickName) {

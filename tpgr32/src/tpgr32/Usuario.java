@@ -4,24 +4,31 @@
  * and open the template in the editor.
  */
 package tpgr32;
-
+import java.util.Date;
 /**
  *
  * @author esteban
  */
-public class Usuario {
+public abstract class Usuario {
     
     protected String nombre;
     protected String apellido;
     protected String nickname;
     protected String correoElec;
     protected String imagenes;
+    protected Date fechaNacimiento;
+    
+    public Usuario()//Default Constructor
+    {
+	
+    }
       
-    public Usuario(String nom, String apellido, String nickName, String cElec) {
+    public Usuario(String nom, String apellido, String nickName, String cElec, Date f) {
         this.nombre = nom;
         this.apellido = apellido;
         this.nickname = nickName;
         this.correoElec = cElec;
+	fechaNacimiento = f;
     }
     
     public String getNombre() {
