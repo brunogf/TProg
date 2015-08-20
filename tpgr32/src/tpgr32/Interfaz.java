@@ -60,11 +60,25 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioAceptar = new javax.swing.JButton();
         RegUsuarioCancelar = new javax.swing.JButton();
         RegUsuarioErrorLabel = new javax.swing.JLabel();
+        ConsultaUsuarioFrame = new javax.swing.JInternalFrame();
+        ConsultaUsuarioVerInfoLabel = new javax.swing.JLabel();
+        ConsultaUsuarioNicknameLabel = new javax.swing.JLabel();
+        ConsultaUsuarioTextFieldLabel = new javax.swing.JTextField();
+        ConsultaUsuarioApellidoNombreLabel = new javax.swing.JLabel();
+        ConsultaUsuarioTipoLabel = new javax.swing.JLabel();
+        ConsultaUsuarioNickLabel = new javax.swing.JLabel();
+        ConsultaUsuarioCorreoLabel = new javax.swing.JLabel();
+        ConsultaUsuarioFechaLabel = new javax.swing.JLabel();
+        ConsultaUsuarioEmpresaLabel = new javax.swing.JLabel();
+        ConsultaUsuarioURLLabel = new javax.swing.JLabel();
+        ConsultaUsuarioImagePanel = new javax.swing.JPanel();
+        ConsultaUsuarioNoImgLabel = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
         MenuRegistrarUsuario = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
@@ -164,6 +178,111 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
+        ConsultaUsuarioFrame.setVisible(true);
+
+        ConsultaUsuarioVerInfoLabel.setText("Ver Informacion de Usuario");
+
+        ConsultaUsuarioNicknameLabel.setText("Nickname:");
+
+        ConsultaUsuarioTextFieldLabel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaUsuarioTextFieldLabelActionPerformed(evt);
+            }
+        });
+
+        ConsultaUsuarioApellidoNombreLabel.setText("Apellido, Nombre");
+
+        ConsultaUsuarioTipoLabel.setText("Tipo: Proveedor");
+
+        ConsultaUsuarioNickLabel.setText("Nickname: Nickname");
+
+        ConsultaUsuarioCorreoLabel.setText("Correo: Correo");
+
+        ConsultaUsuarioFechaLabel.setText("Fecha de Nacimiento: 10/10/1950");
+
+        ConsultaUsuarioEmpresaLabel.setText("Empresa: Nombre Empresa");
+
+        ConsultaUsuarioURLLabel.setText("URL: www.empresa.com");
+
+        ConsultaUsuarioNoImgLabel.setText("No hay imagen disponible");
+
+        javax.swing.GroupLayout ConsultaUsuarioImagePanelLayout = new javax.swing.GroupLayout(ConsultaUsuarioImagePanel);
+        ConsultaUsuarioImagePanel.setLayout(ConsultaUsuarioImagePanelLayout);
+        ConsultaUsuarioImagePanelLayout.setHorizontalGroup(
+            ConsultaUsuarioImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaUsuarioImagePanelLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(ConsultaUsuarioNoImgLabel)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+        ConsultaUsuarioImagePanelLayout.setVerticalGroup(
+            ConsultaUsuarioImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaUsuarioImagePanelLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(ConsultaUsuarioNoImgLabel)
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout ConsultaUsuarioFrameLayout = new javax.swing.GroupLayout(ConsultaUsuarioFrame.getContentPane());
+        ConsultaUsuarioFrame.getContentPane().setLayout(ConsultaUsuarioFrameLayout);
+        ConsultaUsuarioFrameLayout.setHorizontalGroup(
+            ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(ConsultaUsuarioVerInfoLabel))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(ConsultaUsuarioApellidoNombreLabel))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConsultaUsuarioTipoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addComponent(ConsultaUsuarioNicknameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ConsultaUsuarioNickLabel)
+                            .addComponent(ConsultaUsuarioCorreoLabel)
+                            .addComponent(ConsultaUsuarioFechaLabel)
+                            .addComponent(ConsultaUsuarioEmpresaLabel)
+                            .addComponent(ConsultaUsuarioURLLabel)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(110, Short.MAX_VALUE))
+        );
+        ConsultaUsuarioFrameLayout.setVerticalGroup(
+            ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ConsultaUsuarioVerInfoLabel)
+                .addGap(18, 18, 18)
+                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultaUsuarioNicknameLabel)
+                    .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(ConsultaUsuarioApellidoNombreLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ConsultaUsuarioTipoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConsultaUsuarioNickLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConsultaUsuarioCorreoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConsultaUsuarioFechaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConsultaUsuarioEmpresaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ConsultaUsuarioURLLabel)
+                .addGap(18, 18, 18)
+                .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+
+        PanelCentral.add(ConsultaUsuarioFrame, "card3");
+
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
 
@@ -180,6 +299,15 @@ public class Interfaz extends javax.swing.JFrame {
         BarraMenu.add(MenuRegistros);
 
         MenuConsultas.setText("Consultas");
+
+        jMenuItem1.setText("Ver informacion de usuario");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(jMenuItem1);
+
         BarraMenu.add(MenuConsultas);
 
         setJMenuBar(BarraMenu);
@@ -250,6 +378,26 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
 
+    private void ConsultaUsuarioTextFieldLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioTextFieldLabelActionPerformed
+        
+    }//GEN-LAST:event_ConsultaUsuarioTextFieldLabelActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ConsultaUsuarioApellidoNombreLabel.setVisible(false);
+	ConsultaUsuarioTipoLabel.setVisible(false);
+	ConsultaUsuarioNickLabel.setVisible(false);
+	ConsultaUsuarioCorreoLabel.setVisible(false);
+	ConsultaUsuarioFechaLabel.setVisible(false);
+	ConsultaUsuarioEmpresaLabel.setVisible(false);
+	ConsultaUsuarioURLLabel.setVisible(false);
+	ConsultaUsuarioImagePanel.setVisible(false);
+	ConsultaUsuarioNoImgLabel.setVisible(false);
+	PanelCentral.removeAll();
+	PanelCentral.add(ConsultaUsuarioFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -292,6 +440,19 @@ public class Interfaz extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.ButtonGroup ClienteOProveedor;
+    private javax.swing.JLabel ConsultaUsuarioApellidoNombreLabel;
+    private javax.swing.JLabel ConsultaUsuarioCorreoLabel;
+    private javax.swing.JLabel ConsultaUsuarioEmpresaLabel;
+    private javax.swing.JLabel ConsultaUsuarioFechaLabel;
+    private javax.swing.JInternalFrame ConsultaUsuarioFrame;
+    private javax.swing.JPanel ConsultaUsuarioImagePanel;
+    private javax.swing.JLabel ConsultaUsuarioNickLabel;
+    private javax.swing.JLabel ConsultaUsuarioNicknameLabel;
+    private javax.swing.JLabel ConsultaUsuarioNoImgLabel;
+    private javax.swing.JTextField ConsultaUsuarioTextFieldLabel;
+    private javax.swing.JLabel ConsultaUsuarioTipoLabel;
+    private javax.swing.JLabel ConsultaUsuarioURLLabel;
+    private javax.swing.JLabel ConsultaUsuarioVerInfoLabel;
     private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuInicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
@@ -321,5 +482,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegUsuarioURLLabel;
     private javax.swing.JTextField RegUsuarioURLTextField;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

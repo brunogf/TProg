@@ -30,6 +30,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultas"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver informacion de usuario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
@@ -401,6 +411,168 @@
                 </Constraint>
               </Constraints>
             </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="ConsultaUsuarioFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card3"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioApellidoNombreLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ConsultaUsuarioTipoLabel" min="-2" pref="88" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="ConsultaUsuarioNicknameLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="ConsultaUsuarioTextFieldLabel" min="-2" pref="200" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="ConsultaUsuarioNickLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ConsultaUsuarioCorreoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ConsultaUsuarioFechaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ConsultaUsuarioEmpresaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="ConsultaUsuarioURLLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioImagePanel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="110" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultaUsuarioNicknameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuarioTextFieldLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioApellidoNombreLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioTipoLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioNickLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioCorreoLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioFechaLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioEmpresaLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioURLLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioImagePanel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioVerInfoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver Informacion de Usuario"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioNicknameLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nickname:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultaUsuarioTextFieldLabel">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioTextFieldLabelActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioApellidoNombreLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Apellido, Nombre"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioTipoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo: Proveedor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioNickLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nickname: Nickname"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioCorreoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Correo: Correo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioFechaLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha de Nacimiento: 10/10/1950"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioEmpresaLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Empresa: Nombre Empresa"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioURLLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="URL: www.empresa.com"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="ConsultaUsuarioImagePanel">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuarioNoImgLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="37" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuarioNoImgLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="79" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="ConsultaUsuarioNoImgLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="No hay imagen disponible"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
