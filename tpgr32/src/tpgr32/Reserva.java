@@ -30,19 +30,19 @@ public class Reserva {
     //getters
     
     public int getNumero(){
-        return this.numero_;
+        return numero_;
     }
     
     public Estado getEstado(){
-        return this.estado_;
+        return estado_;
     }
     
     public Date getFechaCreacion(){
-        return this.fecha_creacion_;
+        return fecha_creacion_;
     }
     
     public float getPrecioTotal(){
-        return this.precio_total_;
+        return precio_total_;
     }
     
     //setters
