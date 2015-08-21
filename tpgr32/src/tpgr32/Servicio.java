@@ -9,7 +9,7 @@ package tpgr32;
  *
  * @author piñe
  */
-public class Servicio {
+public class Servicio extends Publicacion {
     
     private String descripcion_;
     private String[] imagenes_;
@@ -20,6 +20,25 @@ public class Servicio {
         
     }
     
+    public Servicio(String nombre, String descripcion, String[] imagenes, float precio){
+        super(nombre);
+        this.descripcion_ = descripcion;
+        this.imagenes_ = imagenes;
+        this.precio_ = precio;
+    }
+    
+    public void setDescripcion(String descripcion){
+        this.descripcion_ = descripcion;
+    }
+    
+    /*public void setImagenes(){
+        
+    }*/
+    
+    public void setPrecio(float precio){
+        this.precio_ = precio;
+    }
+            
     public String getDescripcion(){
         
         return descripcion_;

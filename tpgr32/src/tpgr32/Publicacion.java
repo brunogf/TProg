@@ -1,0 +1,31 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+/**
+ *
+ * @author spesamosca
+ */
+public abstract class Publicacion {
+    
+    private String nombre_;
+    
+    public Publicacion(){
+        
+    }
+    
+    public Publicacion(String nombre){
+        this.nombre_ = nombre;
+    }
+    
+    public void setNombre(String nombre){
+        this.nombre_ = nombre;
+    }
+    
+    public String getNombre(){
+        return this.nombre_;
+    }
+}
