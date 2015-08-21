@@ -5,6 +5,9 @@
  */
 package tpgr32;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author spesamosca
@@ -12,6 +15,7 @@ package tpgr32;
 public abstract class Publicacion {
     
     private String nombre_;
+    private Set<ReservaPublicacion> rp_;
     
     public Publicacion(){
         
@@ -19,6 +23,7 @@ public abstract class Publicacion {
     
     public Publicacion(String nombre){
         this.nombre_ = nombre;
+        this.rp_ = new HashSet<>();
     }
     
     public void setNombre(String nombre){

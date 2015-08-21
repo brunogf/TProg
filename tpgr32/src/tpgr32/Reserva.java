@@ -16,7 +16,7 @@ public class Reserva {
     private Estado estado_;
     private float precio_total_;
     private Cliente cliente_;
-    //tipo asociativo reservapublicacion
+    private Set<ReservaPublicacion> rp_;
     //coleccion de publicaciones ---> accede a traves del tipo asociativo
     
     
