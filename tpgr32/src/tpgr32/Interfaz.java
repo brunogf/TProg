@@ -420,7 +420,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
         try
 	{
-	    ControladorA ctrlA = new ControladorA();
+	    ControladorUsuario ctrlUsr = new ControladorUsuario();
 	    Calendar cal = Calendar.getInstance();
 	    cal.set(Calendar.YEAR, (Integer)(RegUsuarioAnioComboBox.getSelectedItem()));
 	    cal.set(Calendar.MONTH, (Integer)(RegUsuarioMesComboBox.getSelectedItem()));
@@ -428,7 +428,7 @@ public class Interfaz extends javax.swing.JFrame {
 	    Date d = cal.getTime();
 	    if(RegUsuarioClienteRadioButton.isSelected())
 	    {
-		ctrlA.registrarCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , RegUsuarioCorreoTextField.getText(), d);
+		ctrlUsr.registrarCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , RegUsuarioCorreoTextField.getText(), d);
 	    }
 	}catch(Exception ex)
 	{
