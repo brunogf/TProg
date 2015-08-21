@@ -5,6 +5,7 @@
  */
 package tpgr32;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -26,6 +27,8 @@ public class Categoria {
     public Categoria(String nombre, String padre){
         this.nombre_ = nombre;
         this.padre_ = padre;
+        this.conjSubCategorias_ = new HashMap<>();
+        this.conjServicios_ = new HashMap<>();
     }
     
     public void setNombre(String nombre){
@@ -37,10 +40,10 @@ public class Categoria {
         this.conjSubCategorias_.put(Cat.getNombre(), Cat);       
     }
     
-  /*  public agregarServicio(Servicio Ser)
+    public void agregarServicio(Servicio Ser)
     {
         this.conjServicios_.put(Ser.getNombre(), Ser);
-    }*/
+    }
     
     public void setPadre(String padre){
         this.padre_ = padre;
