@@ -18,7 +18,6 @@ public class Promocion extends Publicacion {
     private float descuento_;
     private float precioTotal_;
     private Map<String, Servicio> conjServicios_;
-    
     public Promocion(){
         
     }
