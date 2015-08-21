@@ -14,16 +14,18 @@ public class DataReserva {
     private int cantidad_;
     private Date ini_;
     private Date fin_;
-    private String publicacion_;
+    private float precio_total_;
+    private Set<String> publicaciones_;
     
     public DataReserva(){
     }
     
-    public DataReserva(int cant, Date ini, Date fin, String pub){
+    public DataReserva(int cant, Date ini, Date fin, float total, Set<String> pub){
         cantidad_=cant;
         ini_=ini;
         fin_=fin;
-        publicacion_=pub;
+        precio_total_=total;
+        publicaciones_=pub;
     }
     
     public int getCantidad(){
@@ -38,7 +40,7 @@ public class DataReserva {
         return this.fin_;
     }
     
-    public String getNombrePublicacion(){
-        return this.publicacion_;
+    public Set<String> getPublicaciones(){
+        return this.publicaciones_;
     }
 }
