@@ -6,6 +6,7 @@
 package tpgr32;
 
 import java.util.Date;
+import java.util.Map;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.util.Date;
 public class Proveedor extends Usuario {
     private String nomEmpresa_;
     private String url_;
+    private Map<String, Publicacion> publicaciones_;
     
     public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url)
     {
