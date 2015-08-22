@@ -11,13 +11,13 @@ import java.util.Map;
 
 public class ManejadorUsuario {
     
-    private Map<String,Usuario> conjUsuarios = new HashMap<String,Usuario>();
+    private Map<String,Usuario> conjUsuarios;
     private static ManejadorUsuario mUsuario = null;   
     //private Usuario u;
     
     private ManejadorUsuario() {
         //this.u = null;
-    
+      conjUsuarios = new HashMap<String,Usuario>();
     }
     
     static ManejadorUsuario getInstance() {
