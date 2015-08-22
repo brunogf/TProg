@@ -5,9 +5,9 @@
  */
 package tpgr32;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -17,7 +17,7 @@ public class Promocion extends Publicacion {
     
     private float descuento_;
     private float precioTotal_;
-    private Map<String, Servicio> conjServicios_;
+    private Set<Servicio> conjServicios_;
     public Promocion(){
         
     }
@@ -26,16 +26,15 @@ public class Promocion extends Publicacion {
         super(nombre);
         descuento_ = descuento;
         precioTotal_ = 0;
-        conjServicios_ = new HashMap<>();
+        conjServicios_ = new HashSet<>();
     }
     
     public void setDescuento(float descuento){
         descuento_ = descuento;
     }
-    
-    
+        
     public void agregarServicioaPromocion(Servicio serv){
-        conjServicios_.put(serv.getNombre(), serv);
+        conjServicios_.add(serv);
         precioTotal_ = precioTotal_ + serv.getPrecio();      
     }
     
@@ -47,7 +46,7 @@ public class Promocion extends Publicacion {
         return precioTotal_;
     }
     
-    public Map<String, Servicio> getConjServicios(){
+    public Set<Servicio> getConjServicios(){
         return conjServicios_;
     }
     
