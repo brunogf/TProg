@@ -355,6 +355,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void MenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarUsuarioActionPerformed
 
+	RegUsuarioAnioComboBox.removeAllItems();
 	for (int i = 2015; i > 1900; i--) //genera los años
 	    RegUsuarioAnioComboBox.addItem(i);
 	ClienteOProveedor.add(RegUsuarioClienteRadioButton);
