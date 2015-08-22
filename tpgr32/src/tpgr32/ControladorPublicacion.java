@@ -9,7 +9,7 @@ package tpgr32;
  *
  * @author piñe
  */
-public class ControladorPublicacion {
+public class ControladorPublicacion implements IControladorPublicacion{
     
     public ControladorPublicacion(){
         

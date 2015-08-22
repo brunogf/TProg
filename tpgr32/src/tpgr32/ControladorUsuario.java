@@ -8,7 +8,7 @@ package tpgr32;
 import java.util.Date;
 
 
-public class ControladorUsuario {
+public class ControladorUsuario implements IControladorUsuario{
         
     private ManejadorUsuario mUsuario;
     private String nick;

@@ -9,7 +9,7 @@ package tpgr32;
  *
  * @author piñe
  */
-public class ControladorReserva {
+public class ControladorReserva implements IControladorReserva{
     
     public ControladorReserva(){
         
