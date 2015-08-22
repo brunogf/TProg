@@ -11,22 +11,25 @@ import java.util.*;
  * @author bruno
  */
 public class Reserva {
+    private static int id=1;
+    
     private int numero_; 
     private Date fecha_creacion_; 
     private Estado estado_;
     private float precio_total_;
     private Cliente cliente_;
     private Set<ReservaPublicacion> rp_;
-    //coleccion de publicaciones ---> accede a traves del tipo asociativo
     
     
     public Reserva(Estado estado, float precio_total, Cliente cliente){
-        this.numero_=(int) (Math.random()*10000+1);//entero autogenerado entre 1 y 10000
+        this.numero_=id;
         this.fecha_creacion_=new Date();
         this.estado_=estado;
         this.precio_total_=precio_total;
         this.cliente_=cliente;
-        //reservapublicacion
+        this.rp_=new HashSet<>();
+        
+        id++;
     }
     
     //getters
@@ -51,6 +54,14 @@ public class Reserva {
     
     public void setEstado(Estado e){
         this.estado_=e;
+    }
+    
+    public void agregarReservaPublicacion(ReservaPublicacion rp){
+        this.rp_.add(rp);
+    }
+    
+    public Set<ReservaPublicacion> obtenerReservasPublicaciones(){
+        return this.rp_;
     }
     
     //agregar Publicacion (servicio o promocion)
