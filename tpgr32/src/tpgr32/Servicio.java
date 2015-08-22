@@ -5,6 +5,8 @@
  */
 package tpgr32;
 
+import java.awt.Image;
+
 /**
  *
  * @author piñe
@@ -12,7 +14,7 @@ package tpgr32;
 public class Servicio extends Publicacion {
     
     private String descripcion_;
-    private String[] imagenes_;
+    private Image[] imagenes_;
     private float precio_;
     private Ciudad ciudadOrigen_;
     private Ciudad ciudadDestino_;
@@ -21,7 +23,7 @@ public class Servicio extends Publicacion {
         
     }
     
-    public Servicio(String nombre, String descripcion, String[] imagenes, float precio, Ciudad origen){
+    public Servicio(String nombre, String descripcion, Image[] imagenes, float precio, Ciudad origen){
         super(nombre);
         this.descripcion_ = descripcion;
         this.imagenes_ = imagenes;
@@ -29,7 +31,7 @@ public class Servicio extends Publicacion {
         this.ciudadOrigen_ = origen;
     }
     
-    public Servicio(String nombre, String descripcion, String[] imagenes, float precio, Ciudad origen,
+    public Servicio(String nombre, String descripcion, Image[] imagenes, float precio, Ciudad origen,
                     Ciudad destino){
         super(nombre);
         this.descripcion_ = descripcion;
@@ -43,9 +45,9 @@ public class Servicio extends Publicacion {
         this.descripcion_ = descripcion;
     }
     
-    /*public void setImagenes(){
-        
-    }*/
+    public void setImagenes(Image[] imagenes){
+        imagenes_ = imagenes;
+    }
     
     public void setPrecio(float precio){
         this.precio_ = precio;
@@ -56,7 +58,7 @@ public class Servicio extends Publicacion {
         return descripcion_;
     }
     
-    public String[] getImagenes(){
+    public Image[] getImagenes(){
         
         return imagenes_;
     }
