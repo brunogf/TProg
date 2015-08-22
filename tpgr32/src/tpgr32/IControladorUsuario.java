@@ -9,6 +9,6 @@ package tpgr32;
  *
  * @author spesamosca
  */
-public class IControladorUsuario {
+interface IControladorUsuario {
     
 }
