@@ -17,7 +17,7 @@ public class ManejadorUsuario {
     
     private ManejadorUsuario() {
         //this.u = null;
-      conjUsuarios = new HashMap<String,Usuario>();
+      conjUsuarios = new HashMap<>();
     }
     
     static ManejadorUsuario getInstance() {
