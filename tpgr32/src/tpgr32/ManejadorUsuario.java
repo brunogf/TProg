@@ -7,8 +7,11 @@ package tpgr32;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
+import java.io.IOException;
+
 //import java.util.Iterator;
 
 public class ManejadorUsuario {
@@ -29,13 +32,35 @@ public class ManejadorUsuario {
         return mUsuario;
     }
     
-    public void agregarUsuario(String nickName,Usuario u) {
-        this.conjUsuarios.put(nickName, u);
+    public void agregarUsuario(Usuario u) throws Exception {
+        if (this.conjUsuarios.containsKey(u.getNickname())) {
+            Exception e = new Exception("El nickName ingresado ya esta utilizado");
+            throw e;
+        }
+        else {
+            boolean existeCElec = false;
+            Iterator it = this.conjUsuarios.keySet().iterator();
+            while ((it.hasNext()) && (!existeCElec)) {
+                String key = it.next().toString();
+                if (u.getCorreoElectronico().equals(this.conjUsuarios.get(key).getCorreoElectronico())) {
+                    existeCElec = true;
+                }
+            }
+            
+            if (!existeCElec) {
+                 this.conjUsuarios.put(u.getNickname(), u);
+            }
+            else { 
+                Exception e = new Exception("El Correo Electronico ingresado ya esta utilizado");
+                throw e;               
+            }
+        }        
     }
     
     public Usuario encontrarUsuario(String nickName) {
         /*if (this.conjUsuarios.containsKey(nickName)) {
-            
+            Exception e = new Exception("El nickName ingresado no existe");
+            throw e;
         }
         else {
             return this.conjUsuarios.get(nickName);

@@ -8,7 +8,7 @@ package tpgr32;
 import java.util.*;
 import java.text.*;
 import java.util.Locale;
-
+import javax.swing.DefaultListModel;
 
 /**
  *
@@ -77,19 +77,21 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaUsuarioImagePanel = new javax.swing.JPanel();
         ConsultaUsuarioNoImgLabel = new javax.swing.JLabel();
         ConsultaUsuarioBuscarButton = new javax.swing.JButton();
+        ConsultaUsuarioNicknameLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        listaClientes = new javax.swing.JList();
+        jButton1 = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
         MenuRegistrarUsuario = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        infoCliente = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
-        setLocation(new java.awt.Point(0, 0));
         setPreferredSize(new java.awt.Dimension(450, 550));
         setResizable(false);
-        setSize(new java.awt.Dimension(450, 550));
 
         PanelCentral.setLayout(new java.awt.CardLayout());
 
@@ -191,7 +193,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         ConsultaUsuarioVerInfoLabel.setText("Ver Informacion de Usuario");
 
-        ConsultaUsuarioNicknameLabel.setText("Nickname:");
+        ConsultaUsuarioNicknameLabel.setText("Clientes:");
 
         ConsultaUsuarioTextFieldLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,16 +222,16 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaUsuarioImagePanelLayout.setHorizontalGroup(
             ConsultaUsuarioImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioImagePanelLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(58, 58, 58)
                 .addComponent(ConsultaUsuarioNoImgLabel)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         ConsultaUsuarioImagePanelLayout.setVerticalGroup(
             ConsultaUsuarioImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioImagePanelLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
+                .addGap(51, 51, 51)
                 .addComponent(ConsultaUsuarioNoImgLabel)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         ConsultaUsuarioBuscarButton.setText("Buscar");
@@ -239,65 +241,95 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        ConsultaUsuarioNicknameLabel1.setText("Nickname:");
+
+        ControladorUsuario contU = new ControladorUsuario();
+        Set <DataUsuario> clientes = contU.listarClientes();
+        for(DataUsuario c : clientes) {
+            listaClientes.setName(c.getNombre());
+        }
+        jScrollPane1.setViewportView(listaClientes);
+
+        jButton1.setText("Seleccionar Imagen");
+
         javax.swing.GroupLayout ConsultaUsuarioFrameLayout = new javax.swing.GroupLayout(ConsultaUsuarioFrame.getContentPane());
         ConsultaUsuarioFrame.getContentPane().setLayout(ConsultaUsuarioFrameLayout);
         ConsultaUsuarioFrameLayout.setHorizontalGroup(
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addGap(142, 142, 142)
-                        .addComponent(ConsultaUsuarioVerInfoLabel))
-                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addGap(162, 162, 162)
-                        .addComponent(ConsultaUsuarioApellidoNombreLabel))
-                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ConsultaUsuarioTipoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                .addComponent(ConsultaUsuarioNicknameLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(ConsultaUsuarioNickLabel)
-                            .addComponent(ConsultaUsuarioCorreoLabel)
-                            .addComponent(ConsultaUsuarioFechaLabel)
-                            .addComponent(ConsultaUsuarioEmpresaLabel)
-                            .addComponent(ConsultaUsuarioURLLabel)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(ConsultaUsuarioBuscarButton)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                            .addGap(170, 170, 170)
+                            .addComponent(ConsultaUsuarioVerInfoLabel))
+                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                            .addGap(51, 51, 51)
+                            .addComponent(ConsultaUsuarioNicknameLabel1)
+                            .addGap(18, 18, 18)
+                            .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(ConsultaUsuarioBuscarButton))
+                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                            .addGap(35, 35, 35)
+                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(ConsultaUsuarioEmpresaLabel)
+                                .addComponent(ConsultaUsuarioURLLabel)
+                                .addComponent(ConsultaUsuarioFechaLabel)
+                                .addComponent(ConsultaUsuarioCorreoLabel)
+                                .addComponent(ConsultaUsuarioNickLabel)
+                                .addComponent(ConsultaUsuarioTipoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ConsultaUsuarioApellidoNombreLabel)
+                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                    .addGap(15, 15, 15)
+                                    .addComponent(jButton1)
+                                    .addGap(44, 44, 44)
+                                    .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(ConsultaUsuarioNicknameLabel)
+                        .addGap(49, 49, 49)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ConsultaUsuarioFrameLayout.setVerticalGroup(
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ConsultaUsuarioVerInfoLabel)
-                .addGap(18, 18, 18)
-                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ConsultaUsuarioNicknameLabel)
-                    .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ConsultaUsuarioBuscarButton))
-                .addGap(18, 18, 18)
-                .addComponent(ConsultaUsuarioApellidoNombreLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ConsultaUsuarioTipoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConsultaUsuarioNickLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConsultaUsuarioCorreoLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConsultaUsuarioFechaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConsultaUsuarioEmpresaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ConsultaUsuarioURLLabel)
-                .addGap(18, 18, 18)
-                .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ConsultaUsuarioTextFieldLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ConsultaUsuarioBuscarButton)
+                            .addComponent(ConsultaUsuarioNicknameLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaUsuarioApellidoNombreLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaUsuarioTipoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaUsuarioNickLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaUsuarioCorreoLabel)
+                        .addGap(7, 7, 7)
+                        .addComponent(ConsultaUsuarioFechaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaUsuarioEmpresaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaUsuarioURLLabel)
+                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ConsultaUsuarioImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(jButton1))))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(ConsultaUsuarioNicknameLabel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
@@ -319,13 +351,13 @@ public class Interfaz extends javax.swing.JFrame {
 
         MenuConsultas.setText("Consultas");
 
-        jMenuItem1.setText("Ver informacion de usuario");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        infoCliente.setText("Ver Informacion de Cliente");
+        infoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                infoClienteActionPerformed(evt);
             }
         });
-        MenuConsultas.add(jMenuItem1);
+        MenuConsultas.add(infoCliente);
 
         BarraMenu.add(MenuConsultas);
 
@@ -395,14 +427,14 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegUsuarioProveedorRadioButtonActionPerformed
 
     private void RegUsuarioCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioCancelarActionPerformed
-        // TODO add your handling code here:
+        this.RegUsuarioCancelar.doClick();
     }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
 
     private void ConsultaUsuarioTextFieldLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioTextFieldLabelActionPerformed
 	ConsultaUsuarioBuscarButton.doClick();
     }//GEN-LAST:event_ConsultaUsuarioTextFieldLabelActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void infoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoClienteActionPerformed
         ConsultaUsuarioApellidoNombreLabel.setVisible(false);
 	ConsultaUsuarioTipoLabel.setVisible(false);
 	ConsultaUsuarioNickLabel.setVisible(false);
@@ -416,7 +448,7 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.add(ConsultaUsuarioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_infoClienteActionPerformed
 
     private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
         try
@@ -429,8 +461,12 @@ public class Interfaz extends javax.swing.JFrame {
 	    Date d = cal.getTime();
 	    if(RegUsuarioClienteRadioButton.isSelected())
 	    {
-		//ctrlUsr.registrarCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , RegUsuarioCorreoTextField.getText(), d);
+                ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
+                        RegUsuarioCorreoTextField.getText(), d);
+                
 	    }
+            this.RegistrarUsuarioFrame.setClosed(true);
+            
 	}catch(Exception ex)
 	{
 	    //Muestra el error
@@ -492,6 +528,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel ConsultaUsuarioImagePanel;
     private javax.swing.JLabel ConsultaUsuarioNickLabel;
     private javax.swing.JLabel ConsultaUsuarioNicknameLabel;
+    private javax.swing.JLabel ConsultaUsuarioNicknameLabel1;
     private javax.swing.JLabel ConsultaUsuarioNoImgLabel;
     private javax.swing.JTextField ConsultaUsuarioTextFieldLabel;
     private javax.swing.JLabel ConsultaUsuarioTipoLabel;
@@ -526,6 +563,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegUsuarioURLLabel;
     private javax.swing.JTextField RegUsuarioURLTextField;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem infoCliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList listaClientes;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,7 +17,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
     private Promocion instPromocion;
     
     
-    
+  
     
     
     

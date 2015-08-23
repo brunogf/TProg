@@ -15,13 +15,13 @@ import java.util.Set;
  */
 interface IControladorUsuario {
     
-    void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac);
+    void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac) throws Exception;
 
-    void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,Image img);
+    void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,Image img) throws Exception;
     
-    void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url);
+    void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url) throws Exception;
          
-    void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,Image img);
+    void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,Image img) throws Exception;
 
     DataUsuario infoCliente(String nickname); 
 

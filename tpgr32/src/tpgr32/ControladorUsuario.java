@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Set;
 
 
+
 public class ControladorUsuario implements IControladorUsuario{
         
     private ManejadorUsuario mUsuario;
@@ -18,34 +19,51 @@ public class ControladorUsuario implements IControladorUsuario{
         
     }
           
-    public void altaCliente(String nombre,String apellido,String nickName,String correoElec, Date f) {
-        Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
-        this.mUsuario = ManejadorUsuario.getInstance();
-        this.mUsuario.agregarUsuario(nickName,c);     
+    public void altaCliente(String nombre,String apellido,String nickName,String correoElec,
+            Date f) throws Exception {
+        try {     
+            Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
+            this.mUsuario = ManejadorUsuario.getInstance();
+            this.mUsuario.agregarUsuario(c);
+        } catch (Exception ex) {
+            throw ex;
+        }
     }
-    
-   
-    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,Image img) {
-        Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
-        this.mUsuario = ManejadorUsuario.getInstance();
-        this.mUsuario.agregarUsuario(nickname,c);
+      
+    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
+            Date fnac,Image img) throws Exception {    
+        try {
+            Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
+            this.mUsuario = ManejadorUsuario.getInstance();
+            this.mUsuario.agregarUsuario(c);
+        } catch (Exception ex) {
+            throw ex;
+        }
     }
     
     public void altaProveedor(String nickname, String nombre,
                               String apellido, String correo,Date fecha,
-                              String nombreEmp, String url){
+                              String nombreEmp, String url) throws Exception {
         
-        
-        Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fecha,nombreEmp,url);
-        this.mUsuario = ManejadorUsuario.getInstance();
-        this.mUsuario.agregarUsuario(nickname,c);   
-        
+        try {   
+            Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fecha,nombreEmp,url);
+            this.mUsuario = ManejadorUsuario.getInstance();
+            this.mUsuario.agregarUsuario(c);
+        } catch (Exception ex) {
+            throw ex;
+        }       
     }
     
-      public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,Image img) {
-        Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
-        this.mUsuario = ManejadorUsuario.getInstance();
-        this.mUsuario.agregarUsuario(nickname,c); 
+    public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
+            Date fnac,String nombreEmp,String url,Image img) throws Exception {
+        
+        try { 
+            Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
+            this.mUsuario = ManejadorUsuario.getInstance();
+            this.mUsuario.agregarUsuario(c);
+        } catch (Exception ex) {
+            throw ex;
+        }
     }
 
     public DataUsuario infoCliente(String nickname) {
@@ -55,8 +73,7 @@ public class ControladorUsuario implements IControladorUsuario{
     
       public Set<DataUsuario> listarClientes() {
         this.mUsuario = ManejadorUsuario.getInstance();
-        return this.mUsuario.listarClientes();
-    }
+        return this.mUsuario.listarClientes();    }
 
     public Set<DataUsuario> listarProveedores() {
         this.mUsuario = ManejadorUsuario.getInstance();
