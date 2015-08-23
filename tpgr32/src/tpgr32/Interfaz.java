@@ -429,7 +429,7 @@ public class Interfaz extends javax.swing.JFrame {
 	    Date d = cal.getTime();
 	    if(RegUsuarioClienteRadioButton.isSelected())
 	    {
-		ctrlUsr.registrarCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , RegUsuarioCorreoTextField.getText(), d);
+		//ctrlUsr.registrarCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , RegUsuarioCorreoTextField.getText(), d);
 	    }
 	}catch(Exception ex)
 	{

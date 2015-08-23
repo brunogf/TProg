@@ -59,7 +59,8 @@ public class ControladorUsuario implements IControladorUsuario{
     }
 
     public Set<DataUsuario> listarProveedores() {
-      
+        this.mUsuario = ManejadorUsuario.getInstance();
+        return this.mUsuario.listarProveedores();
     }
     
 }

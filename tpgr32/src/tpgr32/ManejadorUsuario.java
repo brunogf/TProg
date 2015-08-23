@@ -33,7 +33,7 @@ public class ManejadorUsuario {
         this.conjUsuarios.put(nickName, u);
     }
     
-    public Usuario getUsuario(String nickName) {
+    public Usuario encontrarUsuario(String nickName) {
         /*if (this.conjUsuarios.containsKey(nickName)) {
             
         }
