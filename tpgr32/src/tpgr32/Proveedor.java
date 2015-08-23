@@ -43,4 +43,9 @@ public class Proveedor extends Usuario {
     {
 	url_ = u;
     }
+    
+     public DataUsuario infoUsuario() {
+        return new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
+        this.nomEmpresa_,this.url_);     
+    }
 }

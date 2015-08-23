@@ -41,11 +41,9 @@ public class ControladorUsuario implements IControladorUsuario{
     
     public Set<DataProveedor> listarProveedores(){
         
+        
     }
         
-    public void imprimirDatos() {
-        String nombre = this.mUsuario.getUsuario(this.nick).getNombre();
-	//deberia retornar datos, supongamos un DataUsuario, o DataCliente... - Nico
-    }
+   
     
 }

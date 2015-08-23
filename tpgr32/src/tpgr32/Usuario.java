@@ -59,6 +59,6 @@ public abstract class Usuario {
         this.correoElec = ce;
     }
     
- 
+      public abstract DataUsuario infoUsuario();
    
 }

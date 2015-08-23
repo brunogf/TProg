@@ -15,4 +15,8 @@ public class Cliente extends Usuario{
         super(nom,apellido,nickName,cElec,f);//llama constructor de Usuario
     }
     
+    public DataUsuario infoUsuario() {
+        return new DataCliente(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento);     
+    }
+    
 }
