@@ -19,31 +19,47 @@ public class ControladorUsuario implements IControladorUsuario{
     }
           
     public void altaCliente(String nombre,String apellido,String nickName,String correoElec, Date f) {
+        Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
         this.mUsuario = ManejadorUsuario.getInstance();
-        this.nick = nickName;
-        this.mUsuario.agregarCliente(nombre, apellido, nickName, correoElec, f);        
+        this.mUsuario.agregarUsuario(nickName,c);     
     }
     
    
+    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,Image img) {
+        Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
+        this.mUsuario = ManejadorUsuario.getInstance();
+        this.mUsuario.agregarUsuario(nickname,c);
+    }
+    
     public void altaProveedor(String nickname, String nombre,
                               String apellido, String correo,Date fecha,
-                              String nombreEmp, String url, Image imagen){
+                              String nombreEmp, String url){
+        
+        
+        Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fecha,nombreEmp,url);
+        this.mUsuario = ManejadorUsuario.getInstance();
+        this.mUsuario.agregarUsuario(nickname,c);   
         
     }
     
-    public DataCliente infoCliente(String nickname){
-        
+      public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,Image img) {
+        Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
+        this.mUsuario = ManejadorUsuario.getInstance();
+        this.mUsuario.agregarUsuario(nickname,c); 
+    }
+
+    public DataUsuario infoCliente(String nickname) {
+        this.mUsuario = ManejadorUsuario.getInstance();
+        return this.mUsuario.encontrarUsuario(nickname).infoUsuario();
     }
     
-    public DataCliente listarClientes(){
-        
+      public Set<DataUsuario> listarClientes() {
+        this.mUsuario = ManejadorUsuario.getInstance();
+        return this.mUsuario.listarClientes();
     }
-    
-    public Set<DataProveedor> listarProveedores(){
-        
-        
+
+    public Set<DataUsuario> listarProveedores() {
+      
     }
-        
-   
     
 }

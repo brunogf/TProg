@@ -6,7 +6,9 @@
 package tpgr32;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 //import java.util.Iterator;
 
 public class ManejadorUsuario {
@@ -27,10 +29,8 @@ public class ManejadorUsuario {
         return mUsuario;
     }
     
-    public void agregarCliente(String nom, String apellido, String nickName, String cElec, Date f) {
-        Usuario u = new Cliente(nom,apellido,nickName,cElec,f);
+    public void agregarUsuario(String nickName,Usuario u) {
         this.conjUsuarios.put(nickName, u);
-	
     }
     
     public Usuario getUsuario(String nickName) {
@@ -47,12 +47,28 @@ public class ManejadorUsuario {
         return this.conjUsuarios;
     }
     
-    public void listarUsuarios() {
+    public Set<DataUsuario> listarClientes() {
         
-        //No puede listar directamente, deberia retornar un set(DataUsuario) - Nico
-        
+        Set<DataUsuario> conjDtUsuario = new HashSet<>();
+        for(String key : this.conjUsuarios.keySet()) {
+            Usuario usuario = this.conjUsuarios.get(key);
+            if (usuario instanceof Cliente) {
+                conjDtUsuario.add(usuario.infoUsuario());
+            }
+        }
+        return conjDtUsuario;
     }
    
-    
+    public Set<DataUsuario> listarProveedores() {
+        
+        Set<DataUsuario> conjDtProveedores = new HashSet<>();
+        for(String key : this.conjUsuarios.keySet()) {
+            Usuario usuario = this.conjUsuarios.get(key);
+            if (usuario instanceof Proveedor) {
+                conjDtProveedores.add(usuario.infoUsuario());
+            }
+        }
+        return conjDtProveedores;
+    }
     
 }
