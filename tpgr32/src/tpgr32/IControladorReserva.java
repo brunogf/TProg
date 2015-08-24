@@ -9,6 +9,6 @@ package tpgr32;
  *
  * @author spesamosca
  */
-interface IControladorReserva {
+public interface IControladorReserva {
     
 }

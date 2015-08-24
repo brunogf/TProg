@@ -9,7 +9,7 @@ package tpgr32;
  *
  * @author spesamosca
  */
-interface IControladorPublicacion {
+public interface IControladorPublicacion {
     
     
 
