@@ -49,11 +49,41 @@ public class ControladorReserva implements IControladorReserva{
     }
     
     public void seleccionarCliente(String cliente){
-        
+        ManejadorUsuario mu = ManejadorUsuario.getInstance();
+	try
+	{
+	    cliente_ = mu.encontrarCliente(cliente);
+	}catch(Exception ex)
+	{
+	    //ex.getMessage();
+	    throw ex;
+	}
     }
     
     public void seleccionarPublicacion(String nombre, String proveedor,
                                        int cantidad, Date inicio, Date fin){
+	
+	ManejadorUsuario mu = ManejadorUsuario.getInstance();
+	Proveedor p;
+	try
+	{
+	     p = mu.encontrarProveedor(proveedor);
+	     Publicacion pub = p.encontrarPublicacion(nombre);
+	     if (pub == null)
+		 throw new IllegalArgumentException("No se encontro la publicacion");
+	     DataDisponibilidad dd = new DataDisponibilidad(cantidad, inicio, fin);
+	     boolean disponible = pub.disponible(dd);
+	     if (disponible)
+		 colPub_.add(pub);
+	     else
+		 throw new IllegalArgumentException("La publicacion no está disponible");	     
+	}catch(Exception ex)
+	{
+	    //ex.getMessage();
+	    throw ex;
+	}
+	
+	
         
     }
 }
