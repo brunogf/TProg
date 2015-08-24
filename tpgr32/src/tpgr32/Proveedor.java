@@ -44,8 +44,17 @@ public class Proveedor extends Usuario {
 	url_ = u;
     }
     
+    public Publicacion encontrarPublicacion(String pub)
+    {
+	Publicacion p = publicaciones_.get(pub);
+	return p;
+    }
+    
+    @Override
      public DataUsuario infoUsuario() {
         return new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
         this.nomEmpresa_,this.url_);     
     }
+     
+     
 }
