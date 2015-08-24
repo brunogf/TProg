@@ -6,6 +6,7 @@
 package tpgr32;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -36,15 +37,15 @@ public class ControladorReserva implements IControladorReserva{
     }
     
     public DataReserva infoReserva(int nro){
-        
+       return new DataReserva();         
     }
     
     public Set<DataReserva> listarReservas(){
-        
+    return new HashSet<>(); 
     }
     
     public Set<DataReserva> listarReservasEliminables(){
-        
+	return new HashSet<>(); 
     }
     
     public void seleccionarCliente(String cliente){

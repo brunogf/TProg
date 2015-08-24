@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.Set;
 import java.awt.Image;
+import java.util.HashSet;
 /**
  *
  * @author piñe
@@ -23,7 +24,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
     
     
     public ControladorPublicacion(){
-        
+    
     }
     
    public void agregarCategoria(String cat){
@@ -45,28 +46,28 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public DataPromocion infoPromocion(String proveedor, String promo){
-       
+              return new DataPromocion(); 
    }
    
    public DataServicio infoServicio(String proveedor, String servicio){
-       
+       return new DataServicio();
    }
       
    
    public Set<String> listarCategoria(){
-       
+       return new HashSet<>(); 
    }
    
    public Set<DataPromocion> listarPromociones(){
-       
+       return new HashSet<>(); 
    }
    
    public Set<DataServicio> listarServicios(){
-       
+       return new HashSet<>(); 
    }
    
    public Set<DataServicio> listarServiciosDeCategoria(String cat){
-       
+       return new HashSet<>();
    }
    
    public void modificarDescripcionServicio(String nuevaDescripcion){
