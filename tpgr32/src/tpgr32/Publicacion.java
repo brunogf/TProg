@@ -18,8 +18,9 @@ public abstract class Publicacion {
     private Set<ReservaPublicacion> rp_;
     
     public Publicacion(){
-        
+         
     }
+    
     
     public Publicacion(String nombre){
         this.nombre_ = nombre;
@@ -32,5 +33,12 @@ public abstract class Publicacion {
     
     public String getNombre(){
         return this.nombre_;
+    }
+    
+    public boolean disponible(DataDisponibilidad dd)
+    {
+	
+	//Cuando esta disponible la Publicacion?
+	return true;
     }
 }
