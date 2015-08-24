@@ -96,4 +96,20 @@ public class ManejadorUsuario {
         return conjDtProveedores;
     }
     
+    public Cliente encontrarCliente(String cliente)
+    {
+	Usuario usr = encontrarUsuario(cliente);
+	if (!(usr instanceof Cliente))//SI O SI ANTES DE HACER DOWNCAST HACER CHECKEO QUE ES ESA CLASE!
+	    throw new IllegalArgumentException("No se encontro el cliente");
+	return (Cliente) usr;
+    }
+    
+    public Proveedor encontrarProveedor(String proveedor)
+    {
+	Usuario usr = encontrarUsuario(proveedor);
+	if (!(usr instanceof Proveedor))//SI O SI ANTES DE HACER DOWNCAST HACER CHECKEO QUE ES ESA CLASE!
+	    throw new IllegalArgumentException("No se encontro el proveedor");
+	return (Proveedor) usr;
+    }
+    
 }
