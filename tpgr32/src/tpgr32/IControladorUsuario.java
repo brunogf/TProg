@@ -13,7 +13,7 @@ import java.util.Set;
  *
  * @author spesamosca
  */
-interface IControladorUsuario {
+public interface IControladorUsuario {
     
     void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac) throws Exception;
 
