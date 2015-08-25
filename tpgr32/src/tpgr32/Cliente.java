@@ -13,7 +13,6 @@ import java.util.Set;
  */
 public class Cliente extends Usuario{
 
-
     private Set<Reserva> reservas_;
 
     
@@ -30,6 +29,9 @@ public class Cliente extends Usuario{
     {
 	reservas_.add(r);
     }
-
     
+    public Set<Reserva> getReservas() {
+        return this.reservas_;
+    }
+   
 }
