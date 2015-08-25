@@ -93,4 +93,9 @@ public abstract class DataUsuario {
     {
 	img_ = i;
     }
+    
+     public String toString (){
+        String mensaje= ""+this.nombre_+" "+this.apellido_;
+        return mensaje;
+    }
 }
