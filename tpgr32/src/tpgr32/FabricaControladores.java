@@ -20,21 +20,17 @@ public class FabricaControladores {
         if (instancia_==null){
             instancia_=new FabricaControladores();
         }
-        
         return instancia_;
     }
     
     public ControladorUsuario getControladorUsuario(){
-        ControladorUsuario cu = new ControladorUsuario();
-        return cu;
+        return new ControladorUsuario();
     }
     
     public ControladorReserva getControladorReserva(){
-        ControladorReserva cr = new ControladorReserva();
-        return cr;
+        return new ControladorReserva(); 
     }
     public ControladorPublicacion getControladorPublicacion(){
-        ControladorPublicacion cp = new ControladorPublicacion();
-        return cp;
+        return new ControladorPublicacion();
     }
 }
