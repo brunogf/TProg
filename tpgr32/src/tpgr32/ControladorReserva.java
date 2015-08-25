@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Set;
 public class ControladorReserva implements IControladorReserva{
     
     private Cliente cliente_;
-    private Set<Publicacion> colPub_;
+    private Set<ParPD> colPub_;
     
     
     
@@ -32,8 +33,26 @@ public class ControladorReserva implements IControladorReserva{
         
     }
     
-    public void confirmarReserva(){
-        
+    public void confirmarReserva()
+    {
+        Reserva r = new Reserva(Estado.Registrada, cliente_);
+	Iterator<ParPD> it = colPub_.iterator();
+	ReservaPublicacion rp;
+	ParPD par;
+	while(it.hasNext())
+	{
+	     par = it.next();
+	     rp = new ReservaPublicacion(r,par.getPublicacion(),par.getDisponibilidad());
+	     //agrega la publicacion a la reserva
+	     r.agregarReservaPublicacion(rp);
+	     //agrega la reserva a la publicacion
+	     par.getPublicacion().agregarReservaPublicacion(rp);
+	}
+	//agrega la reserva al cliente
+	cliente_.agregarReserva(r);
+	
+	
+	
     }
     
     public DataReserva infoReserva(int nro){
@@ -74,7 +93,7 @@ public class ControladorReserva implements IControladorReserva{
 	     DataDisponibilidad dd = new DataDisponibilidad(cantidad, inicio, fin);
 	     boolean disponible = pub.disponible(dd);
 	     if (disponible)
-		 colPub_.add(pub);
+		 colPub_.add(new ParPD(pub,dd));//Guarda el PAR de la publicaicon y su disponibilidad
 	     else
 		 throw new IllegalArgumentException("La publicacion no está disponible");	     
 	}catch(Exception ex)

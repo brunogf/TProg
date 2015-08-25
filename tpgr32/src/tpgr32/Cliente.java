@@ -5,26 +5,31 @@
  */
 package tpgr32;
 import java.util.Date;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author Nicolás Rostán
  */
 public class Cliente extends Usuario{
-    
-    private Map<Integer,Reserva> conjReservas;
+
+
+    private Set<Reserva> reservas_;
+
     
     public Cliente(String nom, String apellido, String nickName, String cElec, Date f) {
         super(nom,apellido,nickName,cElec,f);//llama constructor de Usuario
+	reservas_ = new HashSet<>();
     }
     
     public DataUsuario infoUsuario() {
         return new DataCliente(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento);     
     }
     
-    public void agregarReserva (Reserva r) {
-        this.conjReservas.put(r.getNumero(), r);
+    public void agregarReserva(Reserva r)
+    {
+	reservas_.add(r);
     }
-    
+
     
 }
