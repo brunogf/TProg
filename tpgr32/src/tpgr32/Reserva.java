@@ -16,16 +16,16 @@ public class Reserva {
     private int numero_; 
     private Date fecha_creacion_; 
     private Estado estado_;
-    private float precio_total_;
+    private float precio_total_; //calculado
     private Cliente cliente_;
     private Set<ReservaPublicacion> rp_;
     
     
-    public Reserva(Estado estado, float precio_total, Cliente cliente){
+    public Reserva(Estado estado, Cliente cliente){
         this.numero_=id;
         this.fecha_creacion_=new Date();
         this.estado_=estado;
-        this.precio_total_=precio_total;
+        this.precio_total_=0;//se calcula cada vez que se agrega una publicacion
         this.cliente_=cliente;
         this.rp_=new HashSet<>();
         
@@ -57,6 +57,7 @@ public class Reserva {
     }
     
     public void agregarReservaPublicacion(ReservaPublicacion rp){
+	precio_total_ = precio_total_ + rp.getPrecioTotal();
         this.rp_.add(rp);
     }
     

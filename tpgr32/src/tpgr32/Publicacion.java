@@ -41,4 +41,9 @@ public abstract class Publicacion {
 	//Cuando esta disponible la Publicacion?
 	return true;
     }
+    
+    public void agregarReservaPublicacion(ReservaPublicacion rp)
+    {
+	rp_.add(rp);
+    }
 }

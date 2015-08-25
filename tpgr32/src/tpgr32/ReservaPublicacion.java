@@ -20,6 +20,28 @@ public class ReservaPublicacion {
     private Reserva res_;
     
     
+    public ReservaPublicacion()
+    {
+	//default constructor
+    }
+    
+    public ReservaPublicacion(Reserva r, Publicacion p, Date inicio, Date fin, int cant)
+    {
+	//FALTA IMPLEMENTAR
+    }
+    
+    public ReservaPublicacion(Reserva r, Publicacion p, DataDisponibilidad d)
+    {
+	this(r,p,d.getFechaIni(),d.getFechaFin(),d.getCant());
+    }
+    
+    
+    public float getPrecioTotal()
+    {
+	return 0; //DEBERIA RETORNA EL PRECIO CALCULADO DE LA PUBLICACION x CANTIDAD
+    }
+    
+    
     
     
 }
