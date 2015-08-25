@@ -22,15 +22,20 @@ public class ControladorReserva implements IControladorReserva{
     
     
     public ControladorReserva(){
-        
+        colPub_=new HashSet<>();        
     }
     
     public void actualizarEstado(int nro, Estado estado){
-        
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        r.setEstado(estado);
     }
     
     public void bajaReserva(int nro){
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
         
+        //TO DO
     }
     
     public void confirmarReserva()
@@ -60,7 +65,7 @@ public class ControladorReserva implements IControladorReserva{
     }
     
     public Set<DataReserva> listarReservas(){
-    return new HashSet<>(); 
+        return new HashSet<>(); 
     }
     
     public Set<DataReserva> listarReservasEliminables(){
