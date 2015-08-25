@@ -115,12 +115,46 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioProveedorComboBox = new javax.swing.JComboBox();
         RegistrarServicioCiudadDestinoComboBox = new javax.swing.JComboBox();
         RegistrarServicioCiudadOrigenComboBox = new javax.swing.JComboBox();
+        RegistrarPromocionFrame = new javax.swing.JInternalFrame();
+        RegistrarPromocionLabel = new javax.swing.JLabel();
+        RegistrarPromocionProveedorLabel = new javax.swing.JLabel();
+        RegistrarPromocionProveedorComboBox = new javax.swing.JComboBox();
+        RegistrarPromocionServiciosLabel = new javax.swing.JLabel();
+        RegistrarPromocionServiciosScrollPane = new javax.swing.JScrollPane();
+        RegistrarPromocionServiciosList = new javax.swing.JList();
+        RegistrarPromocionPrecioTotalLabel = new javax.swing.JLabel();
+        RegistrarPromocionPrecioTotalTextField = new javax.swing.JTextField();
+        RegistrarPromocionAceptarButton = new javax.swing.JButton();
+        RegistrarPromocionCancelarButton = new javax.swing.JButton();
+        ActualizarServicioFrame = new javax.swing.JInternalFrame();
+        ActualizarServicioLabel = new javax.swing.JLabel();
+        ActualizarServicioServicioLabel = new javax.swing.JLabel();
+        ActualizarServicioServicioScrollPane = new javax.swing.JScrollPane();
+        ActualizarServicioServicioList = new javax.swing.JList();
+        ActualizarServicioDescripcionLabel = new javax.swing.JLabel();
+        ActualizarServicioDescripcionTextField = new javax.swing.JTextField();
+        ActualizarServicioVerImagenesButton = new javax.swing.JButton();
+        ActualizarServicioModificarImagenesButton = new javax.swing.JButton();
+        ActualizarServicioCiudadOrigenLabel = new javax.swing.JLabel();
+        ActualizarServicioCiudadOrigenScrollPane = new javax.swing.JScrollPane();
+        ActualizarServicioCiudadOrigenList = new javax.swing.JList();
+        ActualizarServicioCiudadDestinoLabel = new javax.swing.JLabel();
+        ActualizaServicioCiudadDestinoScrollPane = new javax.swing.JScrollPane();
+        ActualizarServicioCiudadDestinoList = new javax.swing.JList();
+        ActualizarServicioCategoriasLabel = new javax.swing.JLabel();
+        ActualizarServicioCategoriasScrollPane = new javax.swing.JScrollPane();
+        ActualizarServicioCategoriasList = new javax.swing.JList();
+        ActualizarServicioAceptarButton = new javax.swing.JButton();
+        ActualizarServicioCancelarButton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
         MenuRegistrarUsuario = new javax.swing.JMenuItem();
         MenuRegistrarCategoria = new javax.swing.JMenuItem();
         MenuRegistrarServicio = new javax.swing.JMenuItem();
+        MenuRegistrarPromocion = new javax.swing.JMenuItem();
+        MenuActualizaciones = new javax.swing.JMenu();
+        MenuActualizarServicio = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         infoCliente = new javax.swing.JMenuItem();
 
@@ -559,7 +593,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(RegistrarServicioCiudadOrigenLabel)
                                 .addGap(26, 26, 26)
                                 .addComponent(RegistrarServicioCiudadOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 148, Short.MAX_VALUE))))
+                        .addGap(0, 33, Short.MAX_VALUE))))
         );
         RegistrarServicioFrameLayout.setVerticalGroup(
             RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -607,6 +641,209 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(RegistrarServicioFrame, "card5");
 
+        RegistrarPromocionFrame.setVisible(true);
+
+        RegistrarPromocionLabel.setText("Registrar Promoción");
+
+        RegistrarPromocionProveedorLabel.setText("Proveedor");
+
+        RegistrarPromocionServiciosLabel.setText("Servicios");
+
+        RegistrarPromocionServiciosScrollPane.setViewportView(RegistrarPromocionServiciosList);
+
+        RegistrarPromocionPrecioTotalLabel.setText("Precio Total");
+
+        RegistrarPromocionPrecioTotalTextField.setText("PT");
+        RegistrarPromocionPrecioTotalTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarPromocionPrecioTotalTextFieldActionPerformed(evt);
+            }
+        });
+
+        RegistrarPromocionAceptarButton.setText("Aceptar");
+
+        RegistrarPromocionCancelarButton.setText("Cancelar");
+
+        javax.swing.GroupLayout RegistrarPromocionFrameLayout = new javax.swing.GroupLayout(RegistrarPromocionFrame.getContentPane());
+        RegistrarPromocionFrame.getContentPane().setLayout(RegistrarPromocionFrameLayout);
+        RegistrarPromocionFrameLayout.setHorizontalGroup(
+            RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarPromocionFrameLayout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarPromocionFrameLayout.createSequentialGroup()
+                        .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RegistrarPromocionProveedorLabel)
+                            .addComponent(RegistrarPromocionServiciosLabel)
+                            .addComponent(RegistrarPromocionPrecioTotalLabel))
+                        .addGap(39, 39, 39)
+                        .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(RegistrarPromocionLabel)
+                                .addComponent(RegistrarPromocionProveedorComboBox, 0, 150, Short.MAX_VALUE)
+                                .addComponent(RegistrarPromocionServiciosScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addComponent(RegistrarPromocionPrecioTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(103, 103, 103))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarPromocionFrameLayout.createSequentialGroup()
+                        .addComponent(RegistrarPromocionAceptarButton)
+                        .addGap(52, 52, 52)
+                        .addComponent(RegistrarPromocionCancelarButton)
+                        .addGap(39, 39, 39))))
+        );
+        RegistrarPromocionFrameLayout.setVerticalGroup(
+            RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarPromocionFrameLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(RegistrarPromocionLabel)
+                .addGap(31, 31, 31)
+                .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegistrarPromocionProveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RegistrarPromocionProveedorLabel))
+                .addGap(18, 18, 18)
+                .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RegistrarPromocionServiciosLabel)
+                    .addComponent(RegistrarPromocionServiciosScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegistrarPromocionPrecioTotalLabel)
+                    .addComponent(RegistrarPromocionPrecioTotalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(72, 72, 72)
+                .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegistrarPromocionAceptarButton)
+                    .addComponent(RegistrarPromocionCancelarButton))
+                .addContainerGap(163, Short.MAX_VALUE))
+        );
+
+        PanelCentral.add(RegistrarPromocionFrame, "card6");
+
+        ActualizarServicioFrame.setVisible(true);
+
+        ActualizarServicioLabel.setText("Actualizar Servicio");
+
+        ActualizarServicioServicioLabel.setText("Servicio");
+
+        ActualizarServicioServicioScrollPane.setViewportView(ActualizarServicioServicioList);
+
+        ActualizarServicioDescripcionLabel.setText("Descripción");
+
+        ActualizarServicioVerImagenesButton.setText("Ver imágenes");
+        ActualizarServicioVerImagenesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarServicioVerImagenesButtonActionPerformed(evt);
+            }
+        });
+
+        ActualizarServicioModificarImagenesButton.setText("Modificar imágenes");
+
+        ActualizarServicioCiudadOrigenLabel.setText("Ciudad de origen");
+
+        ActualizarServicioCiudadOrigenList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "<Ciudad Actual>" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        ActualizarServicioCiudadOrigenScrollPane.setViewportView(ActualizarServicioCiudadOrigenList);
+
+        ActualizarServicioCiudadDestinoLabel.setText("Ciudad de destino");
+
+        ActualizarServicioCiudadDestinoList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "<Ciudad Actual>" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        ActualizaServicioCiudadDestinoScrollPane.setViewportView(ActualizarServicioCiudadDestinoList);
+
+        ActualizarServicioCategoriasLabel.setText("Categorías");
+
+        ActualizarServicioCategoriasScrollPane.setViewportView(ActualizarServicioCategoriasList);
+
+        ActualizarServicioAceptarButton.setText("Aceptar");
+
+        ActualizarServicioCancelarButton.setText("Cancelar");
+
+        javax.swing.GroupLayout ActualizarServicioFrameLayout = new javax.swing.GroupLayout(ActualizarServicioFrame.getContentPane());
+        ActualizarServicioFrame.getContentPane().setLayout(ActualizarServicioFrameLayout);
+        ActualizarServicioFrameLayout.setHorizontalGroup(
+            ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                        .addComponent(ActualizarServicioCategoriasLabel)
+                        .addGap(38, 38, 38)
+                        .addComponent(ActualizarServicioCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                        .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ActualizarServicioServicioLabel)
+                            .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                                    .addGap(90, 90, 90)
+                                    .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ActualizarServicioLabel)
+                                        .addComponent(ActualizarServicioServicioScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                                .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                                    .addComponent(ActualizarServicioDescripcionLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ActualizarServicioDescripcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ActualizarServicioVerImagenesButton)
+                                    .addComponent(ActualizarServicioCiudadOrigenLabel)
+                                    .addComponent(ActualizarServicioCiudadOrigenScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(ActualizarServicioCiudadDestinoLabel)
+                                    .addComponent(ActualizarServicioModificarImagenesButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ActualizaServicioCiudadDestinoScrollPane))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                .addGap(147, 147, 147)
+                .addComponent(ActualizarServicioAceptarButton)
+                .addGap(50, 50, 50)
+                .addComponent(ActualizarServicioCancelarButton)
+                .addGap(0, 71, Short.MAX_VALUE))
+        );
+        ActualizarServicioFrameLayout.setVerticalGroup(
+            ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ActualizarServicioLabel)
+                .addGap(11, 11, 11)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ActualizarServicioServicioLabel)
+                    .addComponent(ActualizarServicioServicioScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarServicioDescripcionLabel)
+                    .addComponent(ActualizarServicioDescripcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarServicioVerImagenesButton)
+                    .addComponent(ActualizarServicioModificarImagenesButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarServicioCiudadOrigenLabel)
+                    .addComponent(ActualizarServicioCiudadDestinoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                        .addComponent(ActualizaServicioCiudadDestinoScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ActualizarServicioCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ActualizarServicioFrameLayout.createSequentialGroup()
+                        .addComponent(ActualizarServicioCiudadOrigenScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ActualizarServicioCategoriasLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarServicioAceptarButton)
+                    .addComponent(ActualizarServicioCancelarButton))
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+
+        PanelCentral.add(ActualizarServicioFrame, "card7");
+
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
 
@@ -636,7 +873,27 @@ public class Interfaz extends javax.swing.JFrame {
         });
         MenuRegistros.add(MenuRegistrarServicio);
 
+        MenuRegistrarPromocion.setText("Registrar Promocion");
+        MenuRegistrarPromocion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRegistrarPromocionActionPerformed(evt);
+            }
+        });
+        MenuRegistros.add(MenuRegistrarPromocion);
+
         BarraMenu.add(MenuRegistros);
+
+        MenuActualizaciones.setText("Actualizaciones");
+
+        MenuActualizarServicio.setText("Actualizar Servicio");
+        MenuActualizarServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuActualizarServicioActionPerformed(evt);
+            }
+        });
+        MenuActualizaciones.add(MenuActualizarServicio);
+
+        BarraMenu.add(MenuActualizaciones);
 
         MenuConsultas.setText("Consultas");
 
@@ -658,7 +915,7 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -799,6 +1056,26 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.revalidate();
     }//GEN-LAST:event_MenuRegistrarServicioActionPerformed
 
+    private void MenuRegistrarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarPromocionActionPerformed
+        PanelCentral.add(RegistrarPromocionFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+    }//GEN-LAST:event_MenuRegistrarPromocionActionPerformed
+
+    private void RegistrarPromocionPrecioTotalTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionPrecioTotalTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarPromocionPrecioTotalTextFieldActionPerformed
+
+    private void MenuActualizarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActualizarServicioActionPerformed
+        PanelCentral.add(ActualizarServicioFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+    }//GEN-LAST:event_MenuActualizarServicioActionPerformed
+
+    private void ActualizarServicioVerImagenesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarServicioVerImagenesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ActualizarServicioVerImagenesButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -839,6 +1116,26 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane ActualizaServicioCiudadDestinoScrollPane;
+    private javax.swing.JButton ActualizarServicioAceptarButton;
+    private javax.swing.JButton ActualizarServicioCancelarButton;
+    private javax.swing.JLabel ActualizarServicioCategoriasLabel;
+    private javax.swing.JList ActualizarServicioCategoriasList;
+    private javax.swing.JScrollPane ActualizarServicioCategoriasScrollPane;
+    private javax.swing.JLabel ActualizarServicioCiudadDestinoLabel;
+    private javax.swing.JList ActualizarServicioCiudadDestinoList;
+    private javax.swing.JLabel ActualizarServicioCiudadOrigenLabel;
+    private javax.swing.JList ActualizarServicioCiudadOrigenList;
+    private javax.swing.JScrollPane ActualizarServicioCiudadOrigenScrollPane;
+    private javax.swing.JLabel ActualizarServicioDescripcionLabel;
+    private javax.swing.JTextField ActualizarServicioDescripcionTextField;
+    private javax.swing.JInternalFrame ActualizarServicioFrame;
+    private javax.swing.JLabel ActualizarServicioLabel;
+    private javax.swing.JButton ActualizarServicioModificarImagenesButton;
+    private javax.swing.JLabel ActualizarServicioServicioLabel;
+    private javax.swing.JList ActualizarServicioServicioList;
+    private javax.swing.JScrollPane ActualizarServicioServicioScrollPane;
+    private javax.swing.JButton ActualizarServicioVerImagenesButton;
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.ButtonGroup ConPadreOSinPadre;
@@ -860,9 +1157,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultaUsuarioTipoLabel;
     private javax.swing.JLabel ConsultaUsuarioURLLabel;
     private javax.swing.JLabel ConsultaUsuarioVerInfoLabel;
+    private javax.swing.JMenu MenuActualizaciones;
+    private javax.swing.JMenuItem MenuActualizarServicio;
     private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuInicio;
     private javax.swing.JMenuItem MenuRegistrarCategoria;
+    private javax.swing.JMenuItem MenuRegistrarPromocion;
     private javax.swing.JMenuItem MenuRegistrarServicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
     private javax.swing.JMenu MenuRegistros;
@@ -902,6 +1202,17 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegUsuarioURLLabel;
     private javax.swing.JTextField RegUsuarioURLTextField;
     private javax.swing.JInternalFrame RegistrarCategoriaFrame;
+    private javax.swing.JButton RegistrarPromocionAceptarButton;
+    private javax.swing.JButton RegistrarPromocionCancelarButton;
+    private javax.swing.JInternalFrame RegistrarPromocionFrame;
+    private javax.swing.JLabel RegistrarPromocionLabel;
+    private javax.swing.JLabel RegistrarPromocionPrecioTotalLabel;
+    private javax.swing.JTextField RegistrarPromocionPrecioTotalTextField;
+    private javax.swing.JComboBox RegistrarPromocionProveedorComboBox;
+    private javax.swing.JLabel RegistrarPromocionProveedorLabel;
+    private javax.swing.JLabel RegistrarPromocionServiciosLabel;
+    private javax.swing.JList RegistrarPromocionServiciosList;
+    private javax.swing.JScrollPane RegistrarPromocionServiciosScrollPane;
     private javax.swing.JLabel RegistrarServcioPrecioLabel;
     private javax.swing.JButton RegistrarServicioAceptarButton;
     private javax.swing.JButton RegistrarServicioCancelarButton;
