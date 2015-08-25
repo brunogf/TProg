@@ -7,6 +7,8 @@ package tpgr32;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
+import java.util.HashSet;
 
 /**
  *
@@ -14,13 +16,12 @@ import java.util.Map;
  */
 public class ManejadorReserva {
     
-    private Map<Integer,Usuario> conjReservas_;
+    private Map<Integer,Reserva> conjReservas_;
     private static ManejadorReserva instancia_ = null;
     
     
     private ManejadorReserva() {
         //this.u = null;
-      conjReservas_ = new HashMap<>();
     }
     
     
@@ -29,5 +30,13 @@ public class ManejadorReserva {
             instancia_ = new ManejadorReserva();
         }
         return instancia_;
+    }
+    
+    public Reserva encontrarReserva(int nro){
+        return conjReservas_.get(nro);
+    }
+    
+    public Set<DataReserva> listarReservas(){
+        return new HashSet<>();
     }
 }
