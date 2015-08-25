@@ -19,7 +19,7 @@ public class Reserva {
     private float precio_total_; //calculado
     private Cliente cliente_;
     private Set<ReservaPublicacion> rp_;
-    
+      
     
     public Reserva(Estado estado, Cliente cliente){
         this.numero_=id;
@@ -65,6 +65,13 @@ public class Reserva {
         return this.rp_;
     }
     
+    public DataReserva infoReserva(){
+        return new DataReserva();
+    }
+    
+    public boolean esEliminable(){
+        return true;
+    }   
     //agregar Publicacion (servicio o promocion)
     
     
