@@ -34,8 +34,9 @@ public class ControladorReserva implements IControladorReserva{
     public void bajaReserva(int nro){
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
+            
         
-        //TO DO
+        //TO DO CancelarReserva
     }
     
     public void confirmarReserva()
@@ -66,6 +67,8 @@ public class ControladorReserva implements IControladorReserva{
     
     public Set<DataReserva> listarReservas(){
         return new HashSet<>(); 
+        
+        //TO DO
     }
     
     public Set<DataReserva> listarReservasEliminables(){
