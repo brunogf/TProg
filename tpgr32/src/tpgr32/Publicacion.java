@@ -15,6 +15,7 @@ import java.util.Set;
 public abstract class Publicacion {
     
     private String nombre_;
+    private Usuario proveedor_;
     private Set<ReservaPublicacion> rp_;
     
     public Publicacion(){
@@ -35,6 +36,10 @@ public abstract class Publicacion {
         return this.nombre_;
     }
     
+    public Usuario getProveedor(){
+        return proveedor_;
+    }
+    
     public boolean disponible(DataDisponibilidad dd)
     {
 	
@@ -46,4 +51,7 @@ public abstract class Publicacion {
     {
 	rp_.add(rp);
     }
+    
+    public abstract DataPublicacion infoPublicacion();
+
 }
