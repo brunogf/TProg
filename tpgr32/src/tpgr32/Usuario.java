@@ -4,58 +4,61 @@
  * and open the template in the editor.
  */
 package tpgr32;
-
 import java.util.Date;
-import java.awt.Image;
 /**
  *
- * @author Nicolás Rostán
+ * @author esteban
  */
 public abstract class Usuario {
-    private String nickname_;
-    private String nombre_;
-    private String apellido_;
-    private String correo_;
-    private Date fecha_nac_;
-    private Image imagen_;
     
-    public Usuario(String nick, String nombre, String apellido, String correo, Date fecha, Image img)
+    protected String nombre;
+    protected String apellido;
+    protected String nickname;
+    protected String correoElec;
+    protected String imagenes;
+    protected Date fechaNacimiento;
+    
+    public Usuario()//Default Constructor
     {
-	nickname_ = nick;
-	nombre_ = nombre; 
-	apellido_ = apellido;
-	correo_ = correo;
-	fecha_nac_ = fecha;
-	imagen_ = img;
+	
+    }
+      
+    public Usuario(String nom, String apellido, String nickName, String cElec, Date f) {
+        this.nombre = nom;
+        this.apellido = apellido;
+        this.nickname = nickName;
+        this.correoElec = cElec;
+	fechaNacimiento = f;
     }
     
-    public String getNickname()
-    {
-	return nickname_;
+    public String getNombre() {
+        return this.nombre;
+    }
+    public void setNombre(String n) {
+        this.nombre = n;
     }
     
-    public String getNombre()
-    {
-	return nombre_;
+    public String getApellido() {
+        return this.apellido;
+    }
+    public void setApellido(String a) {
+        this.apellido = a;
     }
     
-    public String getApellido()
-    {
-	return apellido_;
+    public String getNickname() {
+        return this.nickname;
+    }
+    public void setNickname(String nickN) {
+        this.nickname = nickN;
     }
     
-    public String getCorreo()
-    {
-	return correo_;
+    public String getCorreoElectronico() {
+        return this.correoElec;
+    }
+    public void setCorreoElectronico(String ce) {
+        this.correoElec = ce;
     }
     
-    public Date getFechaNac()
-    {
-	return fecha_nac_;
-    }
-    
-    public Image getImagen()
-    {
-	return imagen_;
-    }
+      public abstract DataUsuario infoUsuario();
+   
 }
