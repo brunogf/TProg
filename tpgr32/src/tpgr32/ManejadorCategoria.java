@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ManejadorCategoria {
     
-    private Map<String,Usuario> conjCategorias_;
+    private Map<String,Categoria> conjCategorias_;
     private static ManejadorCategoria instancia_ = null;
     
     
