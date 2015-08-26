@@ -16,9 +16,9 @@ public class DataPromocion extends DataPublicacion{
     private Set<DataServicio> servicios_;
 
     public DataPromocion(){}
-    public DataPromocion(String nombre, float descuento)
+    public DataPromocion(String nombre, float descuento, String proveedor)
     {
-	super(nombre);
+	super(nombre, proveedor);
 	descuento_ = descuento;
 	precioTotal_ = 0;
 	servicios_ = new HashSet<>();

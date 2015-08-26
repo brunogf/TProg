@@ -12,7 +12,6 @@ package tpgr32;
 public class DataServicio extends DataPublicacion {
     private String descripcion_;
     private float precio_;
-    private String proveedor_;
     
     public DataServicio()
     {
@@ -20,10 +19,10 @@ public class DataServicio extends DataPublicacion {
     }
     public DataServicio(String nombre, String descripcion, float precio, String proveedor)
     {
-	super(nombre);
+	super(nombre, proveedor);
 	descripcion_ = descripcion;
 	precio_ = precio;
-	proveedor_ = proveedor;
+	
     }
     
     
@@ -39,11 +38,6 @@ public class DataServicio extends DataPublicacion {
 	return precio_;
     }
     
-    public String getProveedor()
-    {
-	return proveedor_;
-    }
-    
     //setters
     
     
@@ -57,8 +51,4 @@ public class DataServicio extends DataPublicacion {
 	precio_ = precio;
     }
     
-    public void setProveedor(String proveedor)
-    {
-	proveedor_ = proveedor;
-    }
 }
