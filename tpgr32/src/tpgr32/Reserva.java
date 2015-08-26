@@ -50,8 +50,12 @@ public class Reserva {
         return precio_total_;
     }
     
-    //setters
+    public Cliente getCliente(){
+        return cliente_;
+    }
     
+    //setters
+            
     public void setEstado(Estado e){
         this.estado_=e;
     }
@@ -66,7 +70,15 @@ public class Reserva {
     }
     
     public DataReserva infoReserva(){
-        return new DataReserva();
+        DataReserva dr=new DataReserva();
+        Set<String> publicaciones=new HashSet<>();
+        for (ReservaPublicacion rp:rp_){
+            publicaciones.add(rp.getNombrePublicacion());
+        }
+        //para cada Publicacion asociada hay una fecha de inicio, fecha de fin y cant,
+        //esto debería estar reflejado en DataReserva
+        
+        return dr;
     }
     
     public boolean esEliminable(){
@@ -76,4 +88,3 @@ public class Reserva {
     
     
 }
-

@@ -11,25 +11,30 @@ import java.util.*;
  * @author bruno
  */
 public class DataReserva {
-    private int cantidad_;
+    private int num_;
+    private Date creacion_;
+    private Estado estado_;
+    private float precio_total_;
     private Date ini_;
     private Date fin_;
-    private float precio_total_;
     private Set<String> publicaciones_;
     
     public DataReserva(){
     }
     
-    public DataReserva(int cant, Date ini, Date fin, float total, Set<String> pub){
-        cantidad_=cant;
+    public DataReserva(int num, Date creacion, Estado estado, float total, Date ini, 
+            Date fin, Set<String> pub){
+        num_=num;
+        creacion_=creacion;
+        estado_=estado;
         ini_=ini;
         fin_=fin;
         precio_total_=total;
         publicaciones_=pub;
     }
     
-    public int getCantidad(){
-        return this.cantidad_;
+    public int getNumero(){
+        return this.num_;
     }
     
     public Date getFechaIni(){
@@ -42,5 +47,9 @@ public class DataReserva {
     
     public Set<String> getPublicaciones(){
         return this.publicaciones_;
+    }
+    
+    public void agregarPublicacion(String pub){
+        publicaciones_.add(pub);
     }
 }
