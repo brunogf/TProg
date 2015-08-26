@@ -51,7 +51,7 @@ public class Promocion extends Publicacion {
     }
     
     public DataPromocion infoPublicacion(){
-        DataPromocion dp=new DataPromocion(super.getNombre(), descuento_);
+        DataPromocion dp=new DataPromocion(super.getNombre(), descuento_, super.getProveedor().getNombre());
         for (Servicio s:conjServicios_){
             DataServicio ds=s.infoPublicacion();
             dp.agregarServicio(ds);
