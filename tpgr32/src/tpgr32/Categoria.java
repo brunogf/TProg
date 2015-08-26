@@ -17,14 +17,14 @@ public class Categoria {
     private String nombre_;
     private Map<String, Categoria> conjSubCategorias_;
     private Map<String, Servicio> conjServicios_;
-    private String padre_;
+    private Categoria padre_;
             
         
     public Categoria(){
         
     }
      
-    public Categoria(String nombre, String padre){
+    public Categoria(String nombre, Categoria padre){
         this.nombre_ = nombre;
         this.padre_ = padre;
         this.conjSubCategorias_ = new HashMap<>();
@@ -45,7 +45,7 @@ public class Categoria {
         this.conjServicios_.put(Ser.getNombre(), Ser);
     }
     
-    public void setPadre(String padre){
+    public void setPadre(Categoria padre){
         this.padre_ = padre;
     }
     
@@ -61,7 +61,7 @@ public class Categoria {
         return this.conjServicios_;
     }
     
-    public String getPadre(){
+    public Categoria getPadre(){
         return this.padre_;
     }
     
