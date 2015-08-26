@@ -108,8 +108,5 @@ public class ControladorReserva implements IControladorReserva{
 	    //ex.getMessage();
 	    throw ex;
 	}
-	
-	
-        
     }
 }
