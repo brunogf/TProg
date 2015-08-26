@@ -19,8 +19,7 @@ public class ControladorReserva implements IControladorReserva{
     private Cliente cliente_;
     private Set<ParPD> colPub_;
     
-    
-    
+       
     public ControladorReserva(){
         colPub_=new HashSet<>();        
     }
@@ -34,7 +33,6 @@ public class ControladorReserva implements IControladorReserva{
     public void bajaReserva(int nro){
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
-            
         
         //TO DO CancelarReserva
     }
@@ -66,9 +64,10 @@ public class ControladorReserva implements IControladorReserva{
     }
     
     public Set<DataReserva> listarReservas(){
-        return new HashSet<>(); 
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Set<DataReserva> lista=mr.listarReservas();
         
-        //TO DO
+        return lista;      
     }
     
     public Set<DataReserva> listarReservasEliminables(){
