@@ -70,13 +70,13 @@ public class Reserva {
     }
     
     public DataReserva infoReserva(){
-        DataReserva dr=new DataReserva();
-        Set<String> publicaciones=new HashSet<>();
+        Set<ParDPD> conjDPD=new HashSet<>();
         for (ReservaPublicacion rp:rp_){
-            publicaciones.add(rp.getNombrePublicacion());
+            ParDPD dpd=rp.infoReservaPublicacion();
+            conjDPD.add(dpd);
         }
-        //para cada Publicacion asociada hay una fecha de inicio, fecha de fin y cant,
-        //esto debería estar reflejado en DataReserva
+        DataReserva dr=new DataReserva(numero_, fecha_creacion_, estado_, 
+            precio_total_, conjDPD);
         
         return dr;
     }
