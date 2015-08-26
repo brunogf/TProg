@@ -51,5 +51,15 @@ public class ReservaPublicacion {
     {
 	return 0; //DEBERIA RETORNA EL PRECIO CALCULADO DE LA PUBLICACION x CANTIDAD
     }
+    
+    public ParDPD infoReservaPublicacion(){
+        DataDisponibilidad d=new DataDisponibilidad(cant_, fechaIni_, fechaFin_);
+        DataPublicacion dp=pub_.infoPublicacion();
+        
+        ParDPD dpd=new ParDPD(dp, d);
+        return dpd;
+    }
 
 }
+
+
