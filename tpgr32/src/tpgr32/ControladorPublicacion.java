@@ -27,7 +27,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
     
     }
     
-   public void agregarCategoria(String cat){
+   public void agregarCategoriaServicio(String cat){
        
    }
    
@@ -54,8 +54,8 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
       
    
-   public Set<String> listarCategoria(){
-       return new HashSet<>(); 
+   public TreeCategoria listarCategorias(){
+       return new TreeCategoria(); 
    }
    
    public Set<DataPromocion> listarPromociones(){
