@@ -29,4 +29,28 @@ public class ManejadorCategoria {
         return instancia_;
     }
     
+    public void agregarCategoria(String nombre){
+       Categoria c = new Categoria(nombre); 
+       conjCategorias_.put(c.getNombre(),c); 
+    }
+    
+    public void agregarCategoria(String nombre, String padre){
+        if (this.conjCategorias_.containsKey(padre)){
+            Categoria p = encontrarCategoria(padre);
+            Categoria c = new Categoria(nombre, p);
+            conjCategorias_.put(c.getNombre(),c);
+            p.agregarSubCategoria(c);
+        }
+        
+    }
+ 
+    public Categoria encontrarCategoria(String nombre){
+        if (this.conjCategorias_.containsKey(nombre)) {
+            return this.conjCategorias_.get(nombre);
+        }
+        else {
+            throw new IllegalArgumentException("La categoría" + nombre + "no existe");
+        }    
+    }
+    
 }

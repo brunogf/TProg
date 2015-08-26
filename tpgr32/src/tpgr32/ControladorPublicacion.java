@@ -16,16 +16,11 @@ public class ControladorPublicacion implements IControladorPublicacion{
     
     private Servicio instServicio;
     private Promocion instPromocion;
+    private ManejadorCategoria mCategoria;
     
+   public ControladorPublicacion(){
     
-  
-    
-    
-    
-    
-    public ControladorPublicacion(){
-    
-    }
+   } 
     
    public void agregarCategoriaServicio(String cat){
        
@@ -86,8 +81,14 @@ public class ControladorPublicacion implements IControladorPublicacion{
        
    }
    
+   public void registrarCategoria(String nombre){
+       mCategoria = ManejadorCategoria.getInstance();
+       mCategoria.agregarCategoria(nombre);
+   }
+   
    public void registrarCategoria(String nombre, String padre){
-       
+       mCategoria = ManejadorCategoria.getInstance();
+       mCategoria.agregarCategoria(nombre, padre);
    }
    
    public void seleccionarServicio(String proveedor, String nombre){

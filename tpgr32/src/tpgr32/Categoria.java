@@ -23,7 +23,13 @@ public class Categoria {
     public Categoria(){
         
     }
-     
+    
+    public Categoria(String nombre){    
+        this.nombre_ = nombre;
+        this.conjSubCategorias_ = new HashMap<>();
+        this.conjServicios_ = new HashMap<>();
+    }
+    
     public Categoria(String nombre, Categoria padre){
         this.nombre_ = nombre;
         this.padre_ = padre;

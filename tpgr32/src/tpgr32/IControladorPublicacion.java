@@ -29,7 +29,8 @@ public interface IControladorPublicacion {
     void modificarImagenesServicio(Set<Image> imgs);
     void modificarOrigenServicio(String origen);
     void modificarPrecioServicio(float precio);
+    void registrarCategoria(String nombre);
     void registrarCategoria(String nombre, String padre);
     void seleccionarServicio(String proveedor, String nombre);    
-
+    
 }
