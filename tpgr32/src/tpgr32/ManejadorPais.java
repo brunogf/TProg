@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ManejadorPais {
     
-    private Map<String,Usuario> conjPaises_;
+    private Map<String,Pais> conjPaises_;
     private static ManejadorPais instancia_ = null;
     
     
