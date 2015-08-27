@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.Set;
 import java.awt.Image;
 import java.util.HashSet;
+
 /**
  *
  * @author piñe
