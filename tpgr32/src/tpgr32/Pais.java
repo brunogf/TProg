@@ -5,8 +5,8 @@
  */
 package tpgr32;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -15,7 +15,7 @@ import java.util.Set;
 public class Pais {
     
     private String nombre_;
-    private Set<Ciudad> ciudades_;
+    private Map<String,Ciudad> ciudades_;
     
     
     public Pais(){
@@ -24,7 +24,7 @@ public class Pais {
     
     public Pais(String nombre){
         nombre_ = nombre;
-        ciudades_ = new HashSet<>();
+        ciudades_ = new HashMap<>();
     }
     
     public void setNombre(String nombre){
@@ -32,15 +32,19 @@ public class Pais {
     }
     
     public void agregarCiudadAPais(Ciudad c){
-        ciudades_.add(c);
+        ciudades_.put(c.getNombre(),c);
     }
     
     public String getNombre(){
         return nombre_;
     }
     
-    public  Set<Ciudad> getCiudades(){
+    public  Map<String,Ciudad> getCiudades(){
         return ciudades_;
+    }
+    
+    public Ciudad encontrarCiudad(String nombre){
+        return ciudades_.get(nombre);
     }
 }
 
