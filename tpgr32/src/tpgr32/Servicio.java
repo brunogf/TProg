@@ -6,6 +6,9 @@
 package tpgr32;
 
 import java.awt.Image;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -14,16 +17,17 @@ import java.awt.Image;
 public class Servicio extends Publicacion {
     
     private String descripcion_;
-    private Image[] imagenes_;
+    private Set<Image> imagenes_;
     private float precio_;
     private Ciudad ciudadOrigen_;
     private Ciudad ciudadDestino_;
+    private Map<String,Categoria> categorias_;
     
     public Servicio(){
         
     }
     
-    public Servicio(String nombre, String descripcion, Image[] imagenes, float precio, Ciudad origen){
+    public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Ciudad origen){
         super(nombre);
         this.descripcion_ = descripcion;
         this.imagenes_ = imagenes;
@@ -31,21 +35,44 @@ public class Servicio extends Publicacion {
         this.ciudadOrigen_ = origen;
     }
     
-    public Servicio(String nombre, String descripcion, Image[] imagenes, float precio, Ciudad origen,
-                    Ciudad destino){
-        super(nombre);
-        this.descripcion_ = descripcion;
-        this.imagenes_ = imagenes;
-        this.precio_ = precio;
-        this.ciudadOrigen_ = origen;
-        this.ciudadDestino_ = destino;
+    public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String> categorias, DataUbicacion origen,
+            DataUbicacion destino){
+       super(nombre);
+       this.descripcion_ = descripcion;
+       this.imagenes_ = imagenes;
+       this.precio_ = precio;
+       
+       ManejadorCategoria mc;
+       mc = ManejadorCategoria.getInstance();
+       
+       
+       for(String cat: categorias){
+           Categoria c;
+           c = mc.encontrarCategoria(cat);
+           categorias_.put(cat, c);
+           
+           c.agregarServicio(this); 
+       }
+       
+       ManejadorPais mp;
+       mp = ManejadorPais.getInstance();
+       
+       Pais porigen = mp.encontrarPais(origen.getPais());
+       Ciudad corigen = porigen.encontrarCiudad(origen.getCiudad());
+       
+       Pais pdestino = mp.encontrarPais(destino.getPais());
+       Ciudad cdestino = pdestino.encontrarCiudad(destino.getCiudad());
+       
+       ciudadOrigen_ = corigen;
+       ciudadDestino_ = cdestino;
     }
+    
     
     public void setDescripcion(String descripcion){
         this.descripcion_ = descripcion;
     }
     
-    public void setImagenes(Image[] imagenes){
+    public void setImagenes(Set<Image> imagenes){
         imagenes_ = imagenes;
     }
     
@@ -58,7 +85,7 @@ public class Servicio extends Publicacion {
         return descripcion_;
     }
     
-    public Image[] getImagenes(){
+    public Set<Image> getImagenes(){
         
         return imagenes_;
     }
