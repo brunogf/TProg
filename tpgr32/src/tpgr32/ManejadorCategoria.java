@@ -53,4 +53,15 @@ public class ManejadorCategoria {
         }    
     }
     
+    public boolean sinPadre(String nombre){
+        if (this.conjCategorias_.containsKey(nombre)){
+            return (this.conjCategorias_.get(nombre) == null);
+        }
+        else {
+            throw new IllegalArgumentException("La categoría" + nombre + "no existe");
+        }
+    }
+    
+    
+    
 }
