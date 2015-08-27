@@ -29,4 +29,8 @@ public class ManejadorPais {
         }
         return instancia_;
     }
+    
+    public Pais encontrarPais(String nombre){
+        return conjPaises_.get(nombre);
+    }
 }
