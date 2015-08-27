@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.Set;
 import java.awt.Image;
 import java.util.HashSet;
+
 /**
  *
  * @author piñe
@@ -35,10 +36,17 @@ public class ControladorPublicacion implements IControladorPublicacion{
        
    }
    
+ 
    public void altaServicio(String nombre, String descripcion,
-           Set<Image> imagenes, float precio, Set<String> categorias,
-           String proveedor, DataUbicacion origen, DataUbicacion destino){
+                          Set<Image> imagenes, float precio, Set<String>categorias,
+                          String proveedor, DataUbicacion origen, DataUbicacion destino){
        
+       ManejadorUsuario mu;
+       mu = ManejadorUsuario.getInstance();
+       
+       Proveedor p = mu.encontrarProveedor(proveedor);
+       Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino);
+       p.agregarPublicacion(serv);
    }
    
    public void eliminarCategoriaServicio(String cat){
