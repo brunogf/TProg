@@ -29,4 +29,8 @@ public class ManejadorCategoria {
         return instancia_;
     }
     
+    
+    public Categoria encontrarCategoria(String cat){
+        return conjCategorias_.get(cat);
+    }
 }
