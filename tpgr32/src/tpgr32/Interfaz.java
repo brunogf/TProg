@@ -151,8 +151,8 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarUsuFNacimiento = new javax.swing.JTextField();
         ConsultaUsuBotonAtras1 = new javax.swing.JButton();
         ActualizarEstadoReservaFrame = new javax.swing.JInternalFrame();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        ActualizarEstadoReservaList = new javax.swing.JList();
+        ReservasScrollPane = new javax.swing.JScrollPane();
+        ReservasList = new javax.swing.JList();
         SeleccionarEstadoLabel = new javax.swing.JLabel();
         ActualizarEstadoReservaLabel1 = new javax.swing.JLabel();
         SeleccionarEstadoComboBox = new javax.swing.JComboBox();
@@ -885,9 +885,11 @@ public class Interfaz extends javax.swing.JFrame {
         ActualizarEstadoReservaFrame.setVisible(true);
         ActualizarEstadoReservaFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jScrollPane3.setViewportView(ActualizarEstadoReservaList);
+        ReservasList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
+        ReservasList.setVisibleRowCount(6);
+        ReservasScrollPane.setViewportView(ReservasList);
 
-        ActualizarEstadoReservaFrame.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 190, -1));
+        ActualizarEstadoReservaFrame.getContentPane().add(ReservasScrollPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 190, 130));
 
         SeleccionarEstadoLabel.setText("Seleccione un estado: ");
         ActualizarEstadoReservaFrame.getContentPane().add(SeleccionarEstadoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 198, -1));
@@ -1198,6 +1200,30 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.add(ActualizarEstadoReservaFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
+        
+              
+        FabricaControladores fabrica=FabricaControladores.getInstancia();
+        IControladorReserva cr=fabrica.getControladorReserva();
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        
+        /*PRUEBA  
+        Date d=new Date();
+        
+        Cliente c=new Cliente("nombre", "apellido", "nickname", "celec", d);
+        Reserva r=new Reserva(Estado.Registrada, c);
+        cr.confirmarReserva();*/
+        
+        Set<DataReserva> dr=cr.listarReservas();
+        
+        DefaultListModel modelo = new DefaultListModel();
+        
+        //llena la lista de reservas
+        Iterator<DataReserva> it=dr.iterator();
+        while (it.hasNext()){
+            modelo.addElement(it.next().getNum_());
+        }
+        
+        ReservasList.setModel(modelo);
     }//GEN-LAST:event_MenuActualizarEstadoReservaActionPerformed
 
     /**
@@ -1243,7 +1269,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane ActualizaServicioCiudadDestinoScrollPane;
     private javax.swing.JInternalFrame ActualizarEstadoReservaFrame;
     private javax.swing.JLabel ActualizarEstadoReservaLabel1;
-    private javax.swing.JList ActualizarEstadoReservaList;
     private javax.swing.JButton ActualizarServicioAceptarButton;
     private javax.swing.JButton ActualizarServicioCancelarButton;
     private javax.swing.JLabel ActualizarServicioCategoriasLabel;
@@ -1362,6 +1387,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton RegistrarServicioSelecImagenesButton;
     private javax.swing.JTextField RegistrarServicioTextField;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
+    private javax.swing.JList ReservasList;
+    private javax.swing.JScrollPane ReservasScrollPane;
     private javax.swing.JComboBox SeleccionarEstadoComboBox;
     private javax.swing.JLabel SeleccionarEstadoLabel;
     private javax.swing.JLabel SeleccionarReservaLabel1;
@@ -1371,7 +1398,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList nombreClientes;
     // End of variables declaration//GEN-END:variables
 }
