@@ -57,4 +57,8 @@ public class Proveedor extends Usuario {
     }
      
      
+    public void agregarPublicacion(Publicacion p){
+        publicaciones_.put(p.getNombre(), p);
+    }
+     
 }
