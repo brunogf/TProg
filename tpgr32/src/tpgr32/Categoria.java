@@ -28,6 +28,7 @@ public class Categoria {
         this.nombre_ = nombre;
         this.conjSubCategorias_ = new HashMap<>();
         this.conjServicios_ = new HashMap<>();
+        this.padre_ = null;
     }
     
     public Categoria(String nombre, Categoria padre){
@@ -71,5 +72,8 @@ public class Categoria {
         return this.padre_;
     }
     
+    public boolean sinPadre(){
+        return (padre_ == null);
+    }
 }
 
