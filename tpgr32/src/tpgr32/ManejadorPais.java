@@ -6,7 +6,11 @@
 package tpgr32;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 /**
  *
@@ -38,5 +42,18 @@ public class ManejadorPais {
     public Pais encontrarPais(String nombre)
     {
         return conjPaises_.get(nombre);
+    }
+    
+    public Set<String> listarPaises()
+    {
+        Set<String> r;
+        r = new HashSet<>();
+        Entry thisE;
+        for(Iterator it = conjPaises_.entrySet().iterator();it.hasNext();)
+        {
+             thisE = (Entry) it.next();
+             r.add((String)thisE.getKey());
+        }
+        return r;
     }
 }

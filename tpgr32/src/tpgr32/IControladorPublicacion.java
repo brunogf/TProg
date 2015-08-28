@@ -33,5 +33,6 @@ public interface IControladorPublicacion {
     void seleccionarServicio(String proveedor, String nombre);    
     void altaPais(String nombre);
     void altaCiudad(String pais, String nombre);
+    Set<String> listarPaises();
 
 }

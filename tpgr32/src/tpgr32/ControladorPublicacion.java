@@ -108,4 +108,10 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Ciudad c = new Ciudad(nombre,p);
        p.agregarCiudadAPais(c);
    }
+   
+   public Set<String> listarPaises()
+   {
+       ManejadorPais mp = ManejadorPais.getInstance();
+       return mp.listarPaises();
+   }
 }
