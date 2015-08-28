@@ -5,8 +5,8 @@
  */
 package tpgr32;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -14,12 +14,12 @@ import java.util.Set;
  */
 public class ManejadorPais {
     
-    private Set<Pais> conjPaises_;
+    private Map<String, Pais> conjPaises_;
     private static ManejadorPais instancia_ = null;
     
     
     public ManejadorPais(){
-        conjPaises_ = new HashSet<>();
+        conjPaises_ = new HashMap<>();
     }
     
     
@@ -32,6 +32,11 @@ public class ManejadorPais {
     
     public void agregarPais(Pais p)
     {
-        conjPaises_.add(p);
+        conjPaises_.put(p.getNombre(), p);
+    }
+    
+    public Pais encontrarPais(String nombre)
+    {
+        return conjPaises_.get(nombre);
     }
 }

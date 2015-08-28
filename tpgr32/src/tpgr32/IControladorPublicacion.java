@@ -31,5 +31,7 @@ public interface IControladorPublicacion {
     void modificarPrecioServicio(float precio);
     void registrarCategoria(String nombre, String padre);
     void seleccionarServicio(String proveedor, String nombre);    
+    void altaPais(String nombre);
+    void altaCiudad(String pais, String nombre);
 
 }

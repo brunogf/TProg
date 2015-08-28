@@ -97,5 +97,15 @@ public class ControladorPublicacion implements IControladorPublicacion{
    public void altaPais(String nombre)
    {
        Pais p = new Pais(nombre);
+       ManejadorPais mp = ManejadorPais.getInstance();
+       mp.agregarPais(p);
+   }
+   
+   public void altaCiudad(String pais, String nombre)
+   {
+       ManejadorPais mp = ManejadorPais.getInstance();
+       Pais p = mp.encontrarPais(pais);
+       Ciudad c = new Ciudad(nombre,p);
+       p.agregarCiudadAPais(c);
    }
 }
