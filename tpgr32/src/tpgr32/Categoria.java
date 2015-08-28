@@ -18,7 +18,6 @@ public class Categoria {
     private Map<String, Categoria> conjSubCategorias_;
     private Map<String, Servicio> conjServicios_;
     private Categoria padre_;
-    private int nivel_;
             
         
     public Categoria(){
@@ -30,7 +29,6 @@ public class Categoria {
         this.conjSubCategorias_ = new HashMap<>();
         this.conjServicios_ = new HashMap<>();
         this.padre_ = null;
-        this.nivel_ = 0;
     }
     
     public Categoria(String nombre, Categoria padre){
@@ -38,7 +36,6 @@ public class Categoria {
         this.padre_ = padre;
         this.conjSubCategorias_ = new HashMap<>();
         this.conjServicios_ = new HashMap<>();
-        this.nivel_ = this.padre_.getNivel() + 1;
     }
     
     public void setNombre(String nombre){
@@ -75,9 +72,6 @@ public class Categoria {
         return this.padre_;
     }
     
-    public int getNivel(){
-        return nivel_;
-    }
     
 }
 

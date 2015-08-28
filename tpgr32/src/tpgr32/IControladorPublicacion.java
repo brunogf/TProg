@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.Set;
 import java.awt.Image;
+import javax.swing.tree.DefaultTreeModel;
 /**
  *
  * @author spesamosca
@@ -21,7 +22,7 @@ public interface IControladorPublicacion {
     void eliminarCategoriaServicio(String cat);
     DataPromocion infoPromocion(String proveedor, String promo);
     DataServicio infoServicio(String proveedor, String servicio);
-    TreeCategoria listarCategorias();
+    DefaultTreeModel listarCategorias();
     Set<DataPromocion> listarPromociones();
     Set<DataServicio> listarServicios();
     Set<DataServicio> listarServiciosDeCategoria(String cat);

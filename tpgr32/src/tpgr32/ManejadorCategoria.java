@@ -6,8 +6,10 @@
 package tpgr32;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
@@ -18,11 +20,14 @@ import javax.swing.tree.DefaultTreeModel;
 public class ManejadorCategoria {
     
     private Map<String,Categoria> conjCategorias_;
+    private Set<Categoria> conjCategoriasPadre_;
     private static ManejadorCategoria instancia_ = null;
-    
+    private DefaultTreeModel arbol_;
     
     public ManejadorCategoria(){
         conjCategorias_ = new HashMap<>();
+        conjCategoriasPadre_ = new HashSet<>();
+        arbol_ = null;
     }
     
     static ManejadorCategoria getInstance() {
@@ -34,7 +39,8 @@ public class ManejadorCategoria {
     
     public void agregarCategoria(String nombre){
        Categoria c = new Categoria(nombre); 
-       conjCategorias_.put(c.getNombre(),c); 
+       conjCategorias_.put(c.getNombre(),c);
+       conjCategoriasPadre_.add(c);
     }
     
     public void agregarCategoria(String nombre, String padre){
@@ -56,86 +62,34 @@ public class ManejadorCategoria {
         }    
     }
     
-    public boolean sinPadre(String nombre){
-        if (this.conjCategorias_.containsKey(nombre)){
-            return (this.conjCategorias_.get(nombre) == null);
-        }
-        else {
-            throw new IllegalArgumentException("La categoría" + nombre + "no existe");
+    public void agregarHijos(DefaultMutableTreeNode nodoPadre, Categoria c){
+        Iterator it = c.getConjSubCategorias().keySet().iterator();
+        int pos = 0;
+        while (it.hasNext()){
+            String key = it.next().toString();
+            DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(key);
+            arbol_.insertNodeInto(nodo, nodoPadre, pos);    
+            pos = pos+1;
+            agregarHijos(nodo, conjCategorias_.get(key));
+            it.next();
         }
     }
     
-    private class ListaOrdenada {
-    
-        class Nodo {
-            int nivel;
-            Categoria cat;
-            Nodo sig;
-        }
-
-        private Nodo raiz;
-
-        public ListaOrdenada() {
-            raiz=null;
-        }
-
-        void insertar(int x, Categoria c)
-        {
-            Nodo nuevo = new Nodo ();
-            nuevo.nivel = x;
-            nuevo.cat = c;
-            if (raiz==null) {
-                raiz=nuevo;
-            } else {
-                if (x<raiz.nivel) {
-                    nuevo.sig=raiz;
-                    raiz=nuevo;
-                } else {
-                    Nodo reco=raiz;
-                    Nodo atras=raiz;
-                    while (x>=reco.nivel && reco.sig!=null) {
-                        atras=reco;
-                        reco=reco.sig;
-                    }
-                    if (x>=reco.nivel) {
-                        reco.sig=nuevo;
-                    } else {
-                        nuevo.sig=reco;
-                        atras.sig=nuevo;
-                    }
-                }
-            }
-        }
-        
-        public DefaultTreeModel insTree (DefaultTreeModel mod) {
-        Nodo reco = raiz;
-        while (reco != null) {
-            DefaultMutableTreeNode nodo1 = new DefaultMutableTreeNode(getDato(reco).getNombre());
-            DefaultMutableTreeNode nodo2 = new DefaultMutableTreeNode(getDato(reco).getPadre().getNombre());
-            mod.insertNodeInto(nodo1, nodo2, 0);
-            reco = reco.sig;
-        }
-        return mod;
-        }
-        
-        public Categoria getDato(Nodo n){
-            return n.cat;
-        }
-        
-    }   
-            
-    public DefaultTreeModel crearTreeCategorias(){
+    public void crearArbolCategorias(){
        DefaultMutableTreeNode nodoRaiz = new DefaultMutableTreeNode("Categorias");
        DefaultTreeModel modelo = new DefaultTreeModel(nodoRaiz);
-       Iterator it = conjCategorias_.keySet().iterator();
-       ListaOrdenada lista = new ListaOrdenada();
+       Iterator it = conjCategoriasPadre_.iterator();
+       int pos = 0;
        while (it.hasNext()){
             String key = it.next().toString();
-            lista.insertar(conjCategorias_.get(key).getNivel(),conjCategorias_.get(key));                   
-       }
-       DefaultTreeModel modeloFinal = lista.insTree(modelo);
-       return modeloFinal;
-       }
-   
+            DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(key);
+            arbol_.insertNodeInto(nodo, nodoRaiz, pos);
+            pos = pos + 1;
+            agregarHijos(nodo, conjCategorias_.get(key));
+       }       
+    }
     
+    public DefaultTreeModel getArbol(){
+        return arbol_;
+    }
 }

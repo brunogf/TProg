@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.Set;
 import java.awt.Image;
 import java.util.HashSet;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -50,8 +51,10 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
       
    
-   public TreeCategoria listarCategorias(){
-       return new TreeCategoria(); 
+   public DefaultTreeModel listarCategorias(){
+       mCategoria = ManejadorCategoria.getInstance();
+       mCategoria.crearArbolCategorias();
+       return mCategoria.getArbol();
    }
    
    public Set<DataPromocion> listarPromociones(){
