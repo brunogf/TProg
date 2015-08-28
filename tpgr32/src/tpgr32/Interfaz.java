@@ -9,6 +9,7 @@ import java.util.*;
 import java.text.*;
 import java.util.Locale;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,10 @@ public class Interfaz extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz
      */
+    private FabricaControladores fabrica;
     public Interfaz() {
 	initComponents();
+        fabrica = new FabricaControladores();
 	setLocationRelativeTo(null); //Centra el MainFrame en la pantalla
 	PanelCentral.removeAll();
 	PanelCentral.repaint();
@@ -149,6 +152,17 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarUsuCorreoElec = new javax.swing.JTextField();
         ConsultarUsuFNacimiento = new javax.swing.JTextField();
         ConsultaUsuBotonAtras1 = new javax.swing.JButton();
+        AltaPaisFrame = new javax.swing.JInternalFrame();
+        AltaPaisLabel = new javax.swing.JLabel();
+        AltaPaisNombreTextField = new javax.swing.JTextField();
+        AltaPaisAgregarButton = new javax.swing.JButton();
+        AltaCiudadFrame = new javax.swing.JInternalFrame();
+        AltaCiudadLabel = new javax.swing.JLabel();
+        AltaCiudadPaisComboBox = new javax.swing.JComboBox();
+        AltaCiudadPaisLabel = new javax.swing.JLabel();
+        AltaCiudadNombreLabel = new javax.swing.JLabel();
+        AltaCiudadTextField = new javax.swing.JTextField();
+        AltaCiudadAgregarButton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -160,6 +174,9 @@ public class Interfaz extends javax.swing.JFrame {
         MenuActualizarServicio = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         infoCliente = new javax.swing.JMenuItem();
+        MenuCargarDatos = new javax.swing.JMenu();
+        MenuAltaPais = new javax.swing.JMenuItem();
+        MenuAltaCiudad = new javax.swing.JMenuItem();
 
         ConsultaUsuBotonAtras.setText("Atras");
         ConsultaUsuBotonAtras.addActionListener(new java.awt.event.ActionListener() {
@@ -783,45 +800,43 @@ public class Interfaz extends javax.swing.JFrame {
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(ConsultaUsuarioSelecImagenButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(clientesSistema)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(123, 123, 123)
-                                    .addComponent(ConsultaUsuarioVerInfoLabel))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(165, 165, 165)
-                                    .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(46, 46, 46)
-                                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ConsultaUsuApellido)
-                                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                                    .addComponent(ConsultaUsuNick)
-                                                    .addGap(61, 61, 61))
-                                                .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(ConsultaUsuFNac)))
-                                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                            .addComponent(ConsultaUsuNom)
-                                            .addGap(76, 76, 76)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ConsultaUsuarioSelecImagenButton))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(clientesSistema)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(ConsultaUsuarioVerInfoLabel))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 35, Short.MAX_VALUE)))
+                                        .addComponent(ConsultaUsuApellido)
+                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                                .addComponent(ConsultaUsuNick)
+                                                .addGap(61, 61, 61))
+                                            .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ConsultaUsuFNac)))
+                                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                        .addComponent(ConsultaUsuNom)
+                                        .addGap(76, 76, 76)))
+                                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 49, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -870,6 +885,113 @@ public class Interfaz extends javax.swing.JFrame {
         );
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
+
+        AltaPaisFrame.setVisible(true);
+
+        AltaPaisLabel.setText("Alta de Pais");
+
+        AltaPaisAgregarButton.setText("Agregar");
+        AltaPaisAgregarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AltaPaisAgregarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AltaPaisFrameLayout = new javax.swing.GroupLayout(AltaPaisFrame.getContentPane());
+        AltaPaisFrame.getContentPane().setLayout(AltaPaisFrameLayout);
+        AltaPaisFrameLayout.setHorizontalGroup(
+            AltaPaisFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AltaPaisFrameLayout.createSequentialGroup()
+                .addGroup(AltaPaisFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AltaPaisFrameLayout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(AltaPaisNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AltaPaisFrameLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(AltaPaisAgregarButton))
+                    .addGroup(AltaPaisFrameLayout.createSequentialGroup()
+                        .addGap(175, 175, 175)
+                        .addComponent(AltaPaisLabel)))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+        AltaPaisFrameLayout.setVerticalGroup(
+            AltaPaisFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AltaPaisFrameLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(AltaPaisLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(AltaPaisNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(AltaPaisAgregarButton)
+                .addContainerGap(341, Short.MAX_VALUE))
+        );
+
+        PanelCentral.add(AltaPaisFrame, "card8");
+
+        AltaCiudadFrame.setVisible(true);
+
+        AltaCiudadLabel.setText("Alta de Ciudad");
+
+        AltaCiudadPaisComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        AltaCiudadPaisLabel.setText("Seleccione un Pais:");
+
+        AltaCiudadNombreLabel.setText("Ingrese el nombre de la ciudad");
+
+        AltaCiudadAgregarButton.setText("Agregar");
+        AltaCiudadAgregarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AltaCiudadAgregarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AltaCiudadFrameLayout = new javax.swing.GroupLayout(AltaCiudadFrame.getContentPane());
+        AltaCiudadFrame.getContentPane().setLayout(AltaCiudadFrameLayout);
+        AltaCiudadFrameLayout.setHorizontalGroup(
+            AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                .addGroup(AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(AltaCiudadLabel))
+                    .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                                .addComponent(AltaCiudadPaisLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AltaCiudadNombreLabel)
+                                .addGap(47, 47, 47))
+                            .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(AltaCiudadPaisComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addGroup(AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(AltaCiudadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(AltaCiudadAgregarButton)))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        AltaCiudadFrameLayout.setVerticalGroup(
+            AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AltaCiudadFrameLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(AltaCiudadLabel)
+                .addGap(27, 27, 27)
+                .addGroup(AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AltaCiudadPaisLabel)
+                    .addComponent(AltaCiudadNombreLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AltaCiudadFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AltaCiudadPaisComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AltaCiudadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addComponent(AltaCiudadAgregarButton)
+                .addContainerGap(283, Short.MAX_VALUE))
+        );
+
+        PanelCentral.add(AltaCiudadFrame, "card9");
 
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
@@ -933,6 +1055,26 @@ public class Interfaz extends javax.swing.JFrame {
         MenuConsultas.add(infoCliente);
 
         BarraMenu.add(MenuConsultas);
+
+        MenuCargarDatos.setText("Cargar Datos");
+
+        MenuAltaPais.setText("Alta Pais");
+        MenuAltaPais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAltaPaisActionPerformed(evt);
+            }
+        });
+        MenuCargarDatos.add(MenuAltaPais);
+
+        MenuAltaCiudad.setText("Alta Ciudad");
+        MenuAltaCiudad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuAltaCiudadActionPerformed(evt);
+            }
+        });
+        MenuCargarDatos.add(MenuAltaCiudad);
+
+        BarraMenu.add(MenuCargarDatos);
 
         setJMenuBar(BarraMenu);
 
@@ -1149,6 +1291,58 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.remove(this.ConsultaUsuarioFrame);
     }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
 
+    private void MenuAltaPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAltaPaisActionPerformed
+        PanelCentral.removeAll();
+        PanelCentral.add(AltaPaisFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
+    }//GEN-LAST:event_MenuAltaPaisActionPerformed
+
+    private void MenuAltaCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAltaCiudadActionPerformed
+        IControladorPublicacion cp = fabrica.getControladorPublicacion();
+        Set<String> paises = cp.listarPaises();
+        AltaCiudadPaisComboBox.removeAllItems();
+        for(String s : paises)
+        {
+            AltaCiudadPaisComboBox.addItem(s);
+        }
+        PanelCentral.removeAll();
+        PanelCentral.add(AltaCiudadFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
+    }//GEN-LAST:event_MenuAltaCiudadActionPerformed
+
+    private void AltaPaisAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaPaisAgregarButtonActionPerformed
+        IControladorPublicacion cp = fabrica.getControladorPublicacion();
+        try
+        {
+            cp.altaPais(AltaPaisNombreTextField.getText());
+            JOptionPane.showMessageDialog(this, "El Pais se agrego correctamente");
+            AltaPaisNombreTextField.setText("");
+        }
+        catch(Exception ex)
+        {
+            //do something
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_AltaPaisAgregarButtonActionPerformed
+
+    private void AltaCiudadAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaCiudadAgregarButtonActionPerformed
+        IControladorPublicacion cp = fabrica.getControladorPublicacion();
+         try
+        {
+            cp.altaCiudad((String) AltaCiudadPaisComboBox.getSelectedItem(), AltaCiudadTextField.getText());
+            JOptionPane.showMessageDialog(this, "La ciudad se agregó correctamente");
+            AltaCiudadTextField.setText("");
+        }
+        catch(Exception ex)
+        {
+            //do something
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        
+    }//GEN-LAST:event_AltaCiudadAgregarButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1209,6 +1403,17 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JList ActualizarServicioServicioList;
     private javax.swing.JScrollPane ActualizarServicioServicioScrollPane;
     private javax.swing.JButton ActualizarServicioVerImagenesButton;
+    private javax.swing.JButton AltaCiudadAgregarButton;
+    private javax.swing.JInternalFrame AltaCiudadFrame;
+    private javax.swing.JLabel AltaCiudadLabel;
+    private javax.swing.JLabel AltaCiudadNombreLabel;
+    private javax.swing.JComboBox AltaCiudadPaisComboBox;
+    private javax.swing.JLabel AltaCiudadPaisLabel;
+    private javax.swing.JTextField AltaCiudadTextField;
+    private javax.swing.JButton AltaPaisAgregarButton;
+    private javax.swing.JInternalFrame AltaPaisFrame;
+    private javax.swing.JLabel AltaPaisLabel;
+    private javax.swing.JTextField AltaPaisNombreTextField;
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.ButtonGroup ConPadreOSinPadre;
@@ -1232,6 +1437,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField ConsultarUsuNomCliente;
     private javax.swing.JMenu MenuActualizaciones;
     private javax.swing.JMenuItem MenuActualizarServicio;
+    private javax.swing.JMenuItem MenuAltaCiudad;
+    private javax.swing.JMenuItem MenuAltaPais;
+    private javax.swing.JMenu MenuCargarDatos;
     private javax.swing.JMenu MenuConsultas;
     private javax.swing.JMenu MenuInicio;
     private javax.swing.JMenuItem MenuRegistrarCategoria;
