@@ -94,4 +94,8 @@ public class ControladorPublicacion implements IControladorPublicacion{
        
    }
    
+   public void altaPais(String nombre)
+   {
+       Pais p = new Pais(nombre);
+   }
 }
