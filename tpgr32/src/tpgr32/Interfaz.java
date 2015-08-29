@@ -9,6 +9,9 @@ import java.util.*;
 import java.text.*;
 import java.util.Locale;
 import javax.swing.DefaultListModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTree;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -19,8 +22,10 @@ public class Interfaz extends javax.swing.JFrame {
     /**
      * Creates new form Interfaz
      */
+    private FabricaControladores fabrica;
     public Interfaz() {
 	initComponents();
+        fabrica = new FabricaControladores();
 	setLocationRelativeTo(null); //Centra el MainFrame en la pantalla
 	PanelCentral.removeAll();
 	PanelCentral.repaint();
@@ -75,10 +80,10 @@ public class Interfaz extends javax.swing.JFrame {
         RegCategoriaSinPadreRadioButton = new javax.swing.JRadioButton();
         RegCategoriaConPadreRadioButton = new javax.swing.JRadioButton();
         RegCategoriaSelecCategoriaPadreLabel = new javax.swing.JLabel();
-        RegCategoriaListarCategoriasScrollPane = new javax.swing.JScrollPane();
-        RegCategoriaListarCategoriasTree = new javax.swing.JTree();
         RegCategoriaAceptarButton = new javax.swing.JButton();
         RegCategoriaCancelarButton = new javax.swing.JButton();
+        RegCategoriaScrollPane = new javax.swing.JScrollPane();
+        RegCategoriaTree = new javax.swing.JTree();
         RegistrarServicioFrame = new javax.swing.JInternalFrame();
         RegistrarServicioLabel = new javax.swing.JLabel();
         RegistrarServicioNomServicioLabel = new javax.swing.JLabel();
@@ -289,6 +294,11 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
         RegistrarCategoriaFrame.setVisible(true);
+        RegistrarCategoriaFrame.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                RegistrarCategoriaFrameComponentAdded(evt);
+            }
+        });
 
         RegCategoriaLabel.setText("Registrar Categoria");
 
@@ -313,11 +323,21 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegCategoriaSelecCategoriaPadreLabel.setText("Selecciona la categoria padre");
 
-        RegCategoriaListarCategoriasScrollPane.setViewportView(RegCategoriaListarCategoriasTree);
-
         RegCategoriaAceptarButton.setText("Aceptar");
+        RegCategoriaAceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegCategoriaAceptarButtonActionPerformed(evt);
+            }
+        });
 
         RegCategoriaCancelarButton.setText("Cancelar");
+        RegCategoriaCancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegCategoriaCancelarButtonActionPerformed(evt);
+            }
+        });
+
+        RegCategoriaScrollPane.setViewportView(RegCategoriaTree);
 
         javax.swing.GroupLayout RegistrarCategoriaFrameLayout = new javax.swing.GroupLayout(RegistrarCategoriaFrame.getContentPane());
         RegistrarCategoriaFrame.getContentPane().setLayout(RegistrarCategoriaFrameLayout);
@@ -330,7 +350,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegCategoriaNomCategoriaLabel)
                         .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                                 .addComponent(RegCategoriaLabel)
                                 .addGap(158, 158, 158))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
@@ -339,12 +359,12 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegCategoriaConPadreRadioButton)
                                     .addComponent(RegCategoriaNombreCategoriaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                        .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarCategoriaFrameLayout.createSequentialGroup()
+                        .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addComponent(RegCategoriaSelecCategoriaPadreLabel)
-                                .addGap(38, 38, 38)
-                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(RegCategoriaScrollPane))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RegCategoriaAceptarButton)
@@ -353,9 +373,8 @@ public class Interfaz extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(RegCategoriaSinPadreRadioButton)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RegCategoriaCancelarButton)
-                                .addGap(14, 14, 14)))
-                        .addGap(34, 34, 34))))
+                                .addComponent(RegCategoriaCancelarButton)))
+                        .addGap(48, 48, 48))))
         );
         RegistrarCategoriaFrameLayout.setVerticalGroup(
             RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,8 +393,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                    .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaAceptarButton)
                     .addComponent(RegCategoriaCancelarButton))
@@ -783,45 +802,43 @@ public class Interfaz extends javax.swing.JFrame {
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(ConsultaUsuarioSelecImagenButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(clientesSistema)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(123, 123, 123)
-                                    .addComponent(ConsultaUsuarioVerInfoLabel))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(165, 165, 165)
-                                    .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(46, 46, 46)
-                                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ConsultaUsuApellido)
-                                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                                    .addComponent(ConsultaUsuNick)
-                                                    .addGap(61, 61, 61))
-                                                .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(ConsultaUsuFNac)))
-                                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                            .addComponent(ConsultaUsuNom)
-                                            .addGap(76, 76, 76)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ConsultaUsuarioSelecImagenButton))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(clientesSistema)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(ConsultaUsuarioVerInfoLabel))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 35, Short.MAX_VALUE)))
+                                        .addComponent(ConsultaUsuApellido)
+                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                                .addComponent(ConsultaUsuNick)
+                                                .addGap(61, 61, 61))
+                                            .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ConsultaUsuFNac)))
+                                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                        .addComponent(ConsultaUsuNom)
+                                        .addGap(76, 76, 76)))
+                                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 49, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1051,12 +1068,14 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
     private void MenuRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarCategoriaActionPerformed
-        
+        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+        DefaultTreeModel modelo = ctrlPublic.listarCategorias();
+        RegCategoriaTree.setModel(modelo);
         ConPadreOSinPadre.add(RegCategoriaSinPadreRadioButton);
         ConPadreOSinPadre.add(RegCategoriaConPadreRadioButton);
-        
         RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-        RegCategoriaListarCategoriasScrollPane.setVisible(false);
+        RegCategoriaScrollPane.setVisible(false);
+        PanelCentral.removeAll();
         PanelCentral.add(RegistrarCategoriaFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
@@ -1065,12 +1084,12 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegCategoriaConPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaConPadreRadioButtonActionPerformed
         RegCategoriaSelecCategoriaPadreLabel.setVisible(true);
-        RegCategoriaListarCategoriasScrollPane.setVisible(true);
+        RegCategoriaScrollPane.setVisible(true);
     }//GEN-LAST:event_RegCategoriaConPadreRadioButtonActionPerformed
 
     private void RegCategoriaSinPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaSinPadreRadioButtonActionPerformed
         RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-        RegCategoriaListarCategoriasScrollPane.setVisible(false);
+        RegCategoriaScrollPane.setVisible(false);
     }//GEN-LAST:event_RegCategoriaSinPadreRadioButtonActionPerformed
 
     private void RegistrarServicioNomServicioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioNomServicioTextFieldActionPerformed
@@ -1149,6 +1168,34 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.remove(this.ConsultaUsuarioFrame);
     }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
 
+    private void RegCategoriaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaAceptarButtonActionPerformed
+        try
+	{
+	    ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+	    if(RegCategoriaConPadreRadioButton.isSelected())
+	    {                
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());               
+	    }
+            else{
+                
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());
+            }           
+            this.RegCategoriaNombreCategoriaTextField.setText(null);
+            PanelCentral.remove(RegistrarCategoriaFrame);  
+	}catch(Exception ex)
+	{
+	}
+    }//GEN-LAST:event_RegCategoriaAceptarButtonActionPerformed
+
+    private void RegCategoriaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaCancelarButtonActionPerformed
+        this.RegCategoriaNombreCategoriaTextField.setText(null);
+        PanelCentral.remove(RegistrarCategoriaFrame);  
+    }//GEN-LAST:event_RegCategoriaCancelarButtonActionPerformed
+
+    private void RegistrarCategoriaFrameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_RegistrarCategoriaFrameComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarCategoriaFrameComponentAdded
+
     /**
      * @param args the command line arguments
      */
@@ -1179,7 +1226,6 @@ public class Interfaz extends javax.swing.JFrame {
 	    java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 	}
         //</editor-fold>
-
 	/* Create and display the form */
 	java.awt.EventQueue.invokeLater(new Runnable() {
 	    public void run() {
@@ -1187,7 +1233,8 @@ public class Interfaz extends javax.swing.JFrame {
 	    }
 	});
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ActualizaServicioCiudadDestinoScrollPane;
     private javax.swing.JButton ActualizarServicioAceptarButton;
@@ -1245,12 +1292,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegCategoriaCategoriaPadreLabel;
     private javax.swing.JRadioButton RegCategoriaConPadreRadioButton;
     private javax.swing.JLabel RegCategoriaLabel;
-    private javax.swing.JScrollPane RegCategoriaListarCategoriasScrollPane;
-    private javax.swing.JTree RegCategoriaListarCategoriasTree;
     private javax.swing.JLabel RegCategoriaNomCategoriaLabel;
     private javax.swing.JTextField RegCategoriaNombreCategoriaTextField;
+    private javax.swing.JScrollPane RegCategoriaScrollPane;
     private javax.swing.JLabel RegCategoriaSelecCategoriaPadreLabel;
     private javax.swing.JRadioButton RegCategoriaSinPadreRadioButton;
+    private javax.swing.JTree RegCategoriaTree;
     private javax.swing.JButton RegUsuarioAceptar;
     private javax.swing.JComboBox<Integer> RegUsuarioAnioComboBox;
     private javax.swing.JLabel RegUsuarioApellidoLabel;

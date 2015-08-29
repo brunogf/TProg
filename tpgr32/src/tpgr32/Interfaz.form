@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.7" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="ClienteOProveedor">
       <AuxValues>
@@ -496,6 +496,9 @@
           <Properties>
             <Property name="visible" type="boolean" value="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="RegistrarCategoriaFrameComponentAdded"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="card4"/>
@@ -512,7 +515,7 @@
                               <Component id="RegCategoriaNomCategoriaLabel" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace pref="36" max="32767" attributes="0"/>
+                                      <EmptySpace pref="46" max="32767" attributes="0"/>
                                       <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                                   </Group>
@@ -526,14 +529,14 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="RegCategoriaListarCategoriasScrollPane" pref="82" max="32767" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="RegCategoriaScrollPane" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="RegCategoriaAceptarButton" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
@@ -544,10 +547,9 @@
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="RegCategoriaCancelarButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -569,12 +571,12 @@
                           <Component id="RegCategoriaSinPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegCategoriaConPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaListarCategoriasScrollPane" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaScrollPane" min="-2" pref="185" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
+                      <EmptySpace pref="58" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="RegCategoriaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegCategoriaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -624,27 +626,33 @@
                 <Property name="text" type="java.lang.String" value="Selecciona la categoria padre"/>
               </Properties>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="RegCategoriaListarCategoriasScrollPane">
+            <Component class="javax.swing.JButton" name="RegCategoriaAceptarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaAceptarButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegCategoriaCancelarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaCancelarButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="RegCategoriaScrollPane">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTree" name="RegCategoriaListarCategoriasTree">
+                <Component class="javax.swing.JTree" name="RegCategoriaTree">
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="RegCategoriaAceptarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="RegCategoriaCancelarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-              </Properties>
-            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JInternalFrame" name="RegistrarServicioFrame">
@@ -1291,58 +1299,55 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ConsultaUsuarioSelecImagenButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                                          <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                                          <Component id="ConsultaUsuarioBuscarButton" min="-2" pref="109" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="ConsultaUsuApellido" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="ConsultaUsuNick" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="ConsultaUsuCElec" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="ConsultaUsuFNac" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioSelecImagenButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="ConsultaUsuarioBuscarButton" min="-2" pref="109" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="ConsultaUsuApellido" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="ConsultaUsuNick" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                                   </Group>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="ConsultaUsuNom" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                                  <Component id="ConsultaUsuCElec" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ConsultaUsuFNac" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="ConsultarUsuNickName" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuApellido" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuNomCliente" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuCorreoElec" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuFNacimiento" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="ConsultaUsuNom" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                           </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ConsultarUsuNickName" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuApellido" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuNomCliente" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuCorreoElec" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuFNacimiento" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
                               </Group>
+                              <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>

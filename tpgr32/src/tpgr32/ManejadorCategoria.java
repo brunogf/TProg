@@ -41,6 +41,7 @@ public class ManejadorCategoria {
        Categoria c = new Categoria(nombre); 
        conjCategorias_.put(c.getNombre(),c);
        conjCategoriasPadre_.add(c);
+       System.out.println("Se agrego la categoria");
     }
     
     public void agregarCategoria(String nombre, String padre){
@@ -71,22 +72,24 @@ public class ManejadorCategoria {
             arbol_.insertNodeInto(nodo, nodoPadre, pos);    
             pos = pos+1;
             agregarHijos(nodo, conjCategorias_.get(key));
-            it.next();
         }
     }
     
     public void crearArbolCategorias(){
+       arbol_ = null;
        DefaultMutableTreeNode nodoRaiz = new DefaultMutableTreeNode("Categorias");
        DefaultTreeModel modelo = new DefaultTreeModel(nodoRaiz);
-       Iterator it = conjCategoriasPadre_.iterator();
+       Iterator<Categoria> it = conjCategoriasPadre_.iterator();
        int pos = 0;
        while (it.hasNext()){
-            String key = it.next().toString();
+            String key = it.next().getNombre();
             DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(key);
-            arbol_.insertNodeInto(nodo, nodoRaiz, pos);
+            modelo.insertNodeInto(nodo, nodoRaiz, pos);
             pos = pos + 1;
             agregarHijos(nodo, conjCategorias_.get(key));
-       }       
+            
+       }   
+       arbol_ = modelo;
     }
     
     public DefaultTreeModel getArbol(){
