@@ -83,7 +83,16 @@ public class Reserva {
     
     public boolean esEliminable(){
         return true;
-    }   
+    }
+    
+    public void destroy(){
+        Cliente c=this.cliente_;
+        c.eliminarReserva(this);
+        
+        for (ReservaPublicacion rp:this.rp_){
+            rp.destroy();
+        }
+    }
     //agregar Publicacion (servicio o promocion)
     
     

@@ -59,6 +59,11 @@ public class ReservaPublicacion {
         ParDPD dpd=new ParDPD(dp, d);
         return dpd;
     }
+    
+    public void destroy(){
+        this.pub_.eliminarReservaPublicacion(this);
+        this.res_=null;        
+    }
 
 }
 

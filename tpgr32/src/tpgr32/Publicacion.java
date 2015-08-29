@@ -52,6 +52,10 @@ public abstract class Publicacion {
 	rp_.add(rp);
     }
     
+    public void eliminarReservaPublicacion(ReservaPublicacion rp){
+        this.rp_.remove(rp);
+    }
+    
     public abstract DataPublicacion infoPublicacion();
 
 }

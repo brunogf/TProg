@@ -27,12 +27,16 @@ public class ControladorReserva implements IControladorReserva{
     public void actualizarEstado(int nro, Estado estado){
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
+        
         r.setEstado(estado);
     }
     
     public void bajaReserva(int nro){
         ManejadorReserva mr=ManejadorReserva.getInstance();
+        
         Reserva r=mr.encontrarReserva(nro);
+        
+        r.destroy();
         
         //TO DO CancelarReserva
     }
@@ -60,7 +64,10 @@ public class ControladorReserva implements IControladorReserva{
     }
     
     public DataReserva infoReserva(int nro){
-       return new DataReserva();         
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        
+        return r.infoReserva();
     }
     
     public Set<DataReserva> listarReservas(){
