@@ -5,11 +5,17 @@
  */
 package tpgr32;
 
+import java.awt.Image;
+import java.io.File;
 import java.util.*;
 import java.text.*;
 import java.util.Locale;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -152,6 +158,8 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarUsuCorreoElec = new javax.swing.JTextField();
         ConsultarUsuFNacimiento = new javax.swing.JTextField();
         ConsultaUsuBotonAtras1 = new javax.swing.JButton();
+        ConsultaUsuarioBuscarButton1 = new javax.swing.JButton();
+        ConsultarUsuarioImagenLabel = new javax.swing.JLabel();
         AltaPaisFrame = new javax.swing.JInternalFrame();
         AltaPaisLabel = new javax.swing.JLabel();
         AltaPaisNombreTextField = new javax.swing.JTextField();
@@ -163,6 +171,27 @@ public class Interfaz extends javax.swing.JFrame {
         AltaCiudadNombreLabel = new javax.swing.JLabel();
         AltaCiudadTextField = new javax.swing.JTextField();
         AltaCiudadAgregarButton = new javax.swing.JButton();
+        ConsultarInfoProveedor = new javax.swing.JInternalFrame();
+        ConsultaProveedorLabel2 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        nombreProveedores2 = new javax.swing.JList();
+        proveedoresSistema2 = new javax.swing.JButton();
+        ConsultaProveedor = new javax.swing.JButton();
+        ConsultaProvNomLabel = new javax.swing.JLabel();
+        ConsultaProvApellidoLabel = new javax.swing.JLabel();
+        ConsultaProvNickLabel = new javax.swing.JLabel();
+        ConsultaProvCElecLabel = new javax.swing.JLabel();
+        ConsultaProvFNacLabel = new javax.swing.JLabel();
+        ConsultaProvNomEmpLabel = new javax.swing.JLabel();
+        ConsultaProvLinkLabel = new javax.swing.JLabel();
+        ConsultarProveedorNombre = new javax.swing.JTextField();
+        ConsultarProveedorApellido = new javax.swing.JTextField();
+        ConsultarProveedorNickName = new javax.swing.JTextField();
+        ConsultarProveedorCorreoElec = new javax.swing.JTextField();
+        ConsultarProveedorFNacimiento = new javax.swing.JTextField();
+        ConsultarProveedorNombreEmp = new javax.swing.JTextField();
+        ConsultarProveedorLink = new javax.swing.JTextField();
+        ConsultaProveedorBotonAtras = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -174,6 +203,7 @@ public class Interfaz extends javax.swing.JFrame {
         MenuActualizarServicio = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         infoCliente = new javax.swing.JMenuItem();
+        consultarInformacionProv = new javax.swing.JMenuItem();
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
@@ -770,7 +800,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        ConsultaUsuarioBuscarButton.setText("Informacion");
+        ConsultaUsuarioBuscarButton.setText("Informacion Cliente");
         ConsultaUsuarioBuscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaUsuarioBuscarButtonActionPerformed(evt);
@@ -794,51 +824,62 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        ConsultaUsuarioBuscarButton1.setText("Informacion Reservas");
+        ConsultaUsuarioBuscarButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaUsuarioBuscarButton1ActionPerformed(evt);
+            }
+        });
+
+        ConsultarUsuarioImagenLabel.setText("   No hay Imagen");
+
         javax.swing.GroupLayout ConsultaUsuarioFrameLayout = new javax.swing.GroupLayout(ConsultaUsuarioFrame.getContentPane());
         ConsultaUsuarioFrame.getContentPane().setLayout(ConsultaUsuarioFrameLayout);
         ConsultaUsuarioFrameLayout.setHorizontalGroup(
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ConsultaUsuarioSelecImagenButton))
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(ConsultaUsuarioVerInfoLabel))
                             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                                 .addGap(16, 16, 16)
                                 .addComponent(clientesSistema)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(ConsultaUsuarioVerInfoLabel))
+                                .addGap(53, 53, 53)
+                                .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(ConsultaUsuarioBuscarButton1))
                             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                .addGap(46, 46, 46)
+                                .addGap(28, 28, 28)
                                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(ConsultaUsuarioSelecImagenButton)
                                     .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(ConsultaUsuNick)
+                                        .addComponent(ConsultaUsuCElec)
                                         .addComponent(ConsultaUsuApellido)
-                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                                .addComponent(ConsultaUsuNick)
-                                                .addGap(61, 61, 61))
-                                            .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(ConsultaUsuFNac)))
-                                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                                         .addComponent(ConsultaUsuNom)
-                                        .addGap(76, 76, 76)))
+                                        .addComponent(ConsultaUsuFNac)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 49, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(52, 52, 52))
+                                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ConsultarUsuarioImagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -850,9 +891,12 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clientesSistema))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ConsultaUsuarioBuscarButton)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addComponent(clientesSistema)
+                        .addGap(25, 25, 25)))
+                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultaUsuarioBuscarButton)
+                    .addComponent(ConsultaUsuarioBuscarButton1))
                 .addGap(12, 12, 12)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -873,15 +917,17 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsultaUsuFNac))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addGap(0, 29, Short.MAX_VALUE)
                         .addComponent(ConsultaUsuarioSelecImagenButton)
-                        .addGap(0, 67, Short.MAX_VALUE))
+                        .addGap(7, 7, 7)
+                        .addComponent(ConsultaUsuBotonAtras1))
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ConsultaUsuBotonAtras1)))
-                .addContainerGap())
+                        .addComponent(ConsultarUsuarioImagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(24, 24, 24)))
+                .addGap(28, 28, 28))
         );
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
@@ -993,6 +1039,156 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(AltaCiudadFrame, "card9");
 
+        ConsultarInfoProveedor.setVisible(true);
+
+        ConsultaProveedorLabel2.setText("Ver Informacion de Proveedor");
+
+        nombreProveedores2.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = {};
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(nombreProveedores2);
+
+        proveedoresSistema2.setText("Proveedores");
+        proveedoresSistema2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                proveedoresSistema2ActionPerformed(evt);
+            }
+        });
+
+        ConsultaProveedor.setText("Informacion");
+        ConsultaProveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaProveedorActionPerformed(evt);
+            }
+        });
+
+        ConsultaProvNomLabel.setText("Nombre:");
+
+        ConsultaProvApellidoLabel.setText("Apellido:");
+
+        ConsultaProvNickLabel.setText("NickName:");
+
+        ConsultaProvCElecLabel.setText("Correo Electronico:");
+
+        ConsultaProvFNacLabel.setText("Fecha Nacimiento:");
+
+        ConsultaProvNomEmpLabel.setText("Nombre Empresa:");
+
+        ConsultaProvLinkLabel.setText("Link:");
+
+        ConsultaProveedorBotonAtras.setText("Atras");
+        ConsultaProveedorBotonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ConsultaProveedorBotonAtrasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ConsultarInfoProveedorLayout = new javax.swing.GroupLayout(ConsultarInfoProveedor.getContentPane());
+        ConsultarInfoProveedor.getContentPane().setLayout(ConsultarInfoProveedorLayout);
+        ConsultarInfoProveedorLayout.setHorizontalGroup(
+            ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(ConsultaProveedorLabel2))
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addComponent(proveedoresSistema2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(ConsultaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConsultaProvApellidoLabel)
+                            .addComponent(ConsultaProvNickLabel)
+                            .addComponent(ConsultaProvCElecLabel)
+                            .addComponent(ConsultaProvFNacLabel)
+                            .addComponent(ConsultaProvNomEmpLabel)
+                            .addComponent(ConsultaProvLinkLabel)))
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addComponent(ConsultaProvNomLabel)
+                        .addGap(76, 76, 76)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ConsultarProveedorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProveedorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProveedorNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProveedorCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProveedorFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProveedorNombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultarProveedorLink, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultarInfoProveedorLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ConsultaProveedorBotonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        ConsultarInfoProveedorLayout.setVerticalGroup(
+            ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ConsultaProveedorLabel2)
+                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(proveedoresSistema2))
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ConsultaProveedor)
+                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                                .addComponent(ConsultaProvNomLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(ConsultaProvApellidoLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(ConsultaProvNickLabel))
+                            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(ConsultaProvCElecLabel)))
+                        .addGap(18, 18, 18)
+                        .addComponent(ConsultaProvFNacLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaProvNomEmpLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ConsultaProvLinkLabel))
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(ConsultarProveedorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsultarProveedorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsultarProveedorNickName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsultarProveedorCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsultarProveedorFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsultarProveedorNombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConsultarProveedorLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(ConsultaProveedorBotonAtras)
+                .addContainerGap())
+        );
+
+        PanelCentral.add(ConsultarInfoProveedor, "card10");
+
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
 
@@ -1054,6 +1250,14 @@ public class Interfaz extends javax.swing.JFrame {
         });
         MenuConsultas.add(infoCliente);
 
+        consultarInformacionProv.setText("Ver Informacion de Proveedor");
+        consultarInformacionProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarInformacionProvActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(consultarInformacionProv);
+
         BarraMenu.add(MenuConsultas);
 
         MenuCargarDatos.setText("Cargar Datos");
@@ -1084,7 +1288,7 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -1120,7 +1324,30 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRegistrarUsuarioActionPerformed
 
     private void RegUsuarioSeleccionarImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
-        // TODO add your handling code here:
+        
+        JFileChooser selector=new JFileChooser();
+        FileNameExtensionFilter filtroImagen=new FileNameExtensionFilter("JPG yPNG","jpg","png");
+        selector.setFileFilter(filtroImagen);
+        int resultado = selector.showOpenDialog(null);
+        
+        if(resultado ==JFileChooser.APPROVE_OPTION){
+            try {   
+                //guardo el archivo que selecciono el usuario
+                File f = selector.getSelectedFile(); 
+                ImageIcon img = new ImageIcon(f.toString());
+                //agusto la imagen para que entre en la label
+                Icon icono = new ImageIcon(img.getImage().getScaledInstance(this.ConsultarUsuarioImagenLabel.getWidth(),this.ConsultarUsuarioImagenLabel.getHeight(),Image.SCALE_DEFAULT));
+              
+                /*  //saco el texto de la label
+                this.ConsultarUsuarioImagenLabel.setText(null);
+                //pongo la imagen en la label
+                this.ConsultarUsuarioImagenLabel.setIcon(icono);*/
+            }      
+            catch (Exception ex) {
+                // TODO Auto-generated catch block
+                //e1.printStackTrace();
+             }
+        }
     }//GEN-LAST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
 
     private void RegUsuarioDiaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioDiaComboBoxActionPerformed
@@ -1154,8 +1381,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void infoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoClienteActionPerformed
         
-	ConsultaUsuarioImagePanel.setVisible(false);
-	ConsultaUsuarioNoImgLabel.setVisible(false);
+	
 	PanelCentral.removeAll();
 	PanelCentral.add(ConsultaUsuarioFrame);
 	PanelCentral.repaint();
@@ -1246,7 +1472,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ActualizarServicioVerImagenesButtonActionPerformed
 
     private void clientesSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesSistemaActionPerformed
-        ControladorUsuario cU = new ControladorUsuario();
+        ControladorUsuario cU = fabrica.getControladorUsuario();
         DefaultListModel modelo = new DefaultListModel();
         Set<DataUsuario> datosClientes = cU.listarClientes();
         for (DataUsuario dtU : datosClientes) {
@@ -1277,8 +1503,32 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.remove(this.ConsultaUsuarioFrame);
     }//GEN-LAST:event_ConsultaUsuBotonAtrasActionPerformed
 
+    
+    File fichero;
     private void ConsultaUsuarioSelecImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
-        // TODO add your handling code here:
+        
+        /*JFileChooser selector=new JFileChooser();
+        FileNameExtensionFilter filtroImagen=new FileNameExtensionFilter("JPG yPNG","jpg","png");
+        selector.setFileFilter(filtroImagen);
+        int resultado = selector.showOpenDialog(null);
+        
+        if(resultado ==JFileChooser.APPROVE_OPTION){
+            try {   
+                //guardo el archivo que selecciono el usuario
+                File f = selector.getSelectedFile(); 
+                ImageIcon img = new ImageIcon(f.toString());
+                //agusto la imagen para que entre en la label
+                Icon icono = new ImageIcon(img.getImage().getScaledInstance(this.ConsultarUsuarioImagenLabel.getWidth(),this.ConsultarUsuarioImagenLabel.getHeight(),Image.SCALE_DEFAULT));
+                //saco el texto de la label
+                this.ConsultarUsuarioImagenLabel.setText(null);
+                //pongo la imagen en la label
+                this.ConsultarUsuarioImagenLabel.setIcon(icono);
+            }      
+            catch (Exception ex) {
+                // TODO Auto-generated catch block
+                //e1.printStackTrace();
+             }
+        }*/
     }//GEN-LAST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
 
     private void ConsultaUsuBotonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtras1ActionPerformed
@@ -1342,6 +1592,30 @@ public class Interfaz extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_AltaCiudadAgregarButtonActionPerformed
+
+    private void ConsultaUsuarioBuscarButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioBuscarButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultaUsuarioBuscarButton1ActionPerformed
+
+    private void consultarInformacionProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarInformacionProvActionPerformed
+        
+	PanelCentral.removeAll();
+	PanelCentral.add(this.ConsultarInfoProveedor);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+    }//GEN-LAST:event_consultarInformacionProvActionPerformed
+
+    private void proveedoresSistema2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedoresSistema2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_proveedoresSistema2ActionPerformed
+
+    private void ConsultaProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultaProveedorActionPerformed
+
+    private void ConsultaProveedorBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorBotonAtrasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ConsultaProveedorBotonAtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1417,6 +1691,16 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuBar BarraMenu;
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.ButtonGroup ConPadreOSinPadre;
+    private javax.swing.JLabel ConsultaProvApellidoLabel;
+    private javax.swing.JLabel ConsultaProvCElecLabel;
+    private javax.swing.JLabel ConsultaProvFNacLabel;
+    private javax.swing.JLabel ConsultaProvLinkLabel;
+    private javax.swing.JLabel ConsultaProvNickLabel;
+    private javax.swing.JLabel ConsultaProvNomEmpLabel;
+    private javax.swing.JLabel ConsultaProvNomLabel;
+    private javax.swing.JButton ConsultaProveedor;
+    private javax.swing.JButton ConsultaProveedorBotonAtras;
+    private javax.swing.JLabel ConsultaProveedorLabel2;
     private javax.swing.JLabel ConsultaUsuApellido;
     private javax.swing.JButton ConsultaUsuBotonAtras;
     private javax.swing.JButton ConsultaUsuBotonAtras1;
@@ -1425,16 +1709,26 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultaUsuNick;
     private javax.swing.JLabel ConsultaUsuNom;
     private javax.swing.JButton ConsultaUsuarioBuscarButton;
+    private javax.swing.JButton ConsultaUsuarioBuscarButton1;
     private javax.swing.JInternalFrame ConsultaUsuarioFrame;
     private javax.swing.JPanel ConsultaUsuarioImagePanel;
     private javax.swing.JLabel ConsultaUsuarioNoImgLabel;
     private javax.swing.JButton ConsultaUsuarioSelecImagenButton;
     private javax.swing.JLabel ConsultaUsuarioVerInfoLabel;
+    private javax.swing.JInternalFrame ConsultarInfoProveedor;
+    private javax.swing.JTextField ConsultarProveedorApellido;
+    private javax.swing.JTextField ConsultarProveedorCorreoElec;
+    private javax.swing.JTextField ConsultarProveedorFNacimiento;
+    private javax.swing.JTextField ConsultarProveedorLink;
+    private javax.swing.JTextField ConsultarProveedorNickName;
+    private javax.swing.JTextField ConsultarProveedorNombre;
+    private javax.swing.JTextField ConsultarProveedorNombreEmp;
     private javax.swing.JTextField ConsultarUsuApellido;
     private javax.swing.JTextField ConsultarUsuCorreoElec;
     private javax.swing.JTextField ConsultarUsuFNacimiento;
     private javax.swing.JTextField ConsultarUsuNickName;
     private javax.swing.JTextField ConsultarUsuNomCliente;
+    private javax.swing.JLabel ConsultarUsuarioImagenLabel;
     private javax.swing.JMenu MenuActualizaciones;
     private javax.swing.JMenuItem MenuActualizarServicio;
     private javax.swing.JMenuItem MenuAltaCiudad;
@@ -1516,9 +1810,13 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField RegistrarServicioTextField;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
     private javax.swing.JButton clientesSistema;
+    private javax.swing.JMenuItem consultarInformacionProv;
     private javax.swing.JMenuItem infoCliente;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JList nombreClientes;
+    private javax.swing.JList nombreProveedores2;
+    private javax.swing.JButton proveedoresSistema2;
     // End of variables declaration//GEN-END:variables
 }
