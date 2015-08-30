@@ -10,6 +10,7 @@ import java.text.*;
 import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -168,12 +169,12 @@ public class Interfaz extends javax.swing.JFrame {
         RegReservaSigButton = new javax.swing.JButton();
         RegReservaCancelarButton = new javax.swing.JButton();
         RegReservaSeleccionarProveedorPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        RegReservaTitleLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        RegReservaSPTable = new javax.swing.JTable();
+        RegReservaSPSigButton = new javax.swing.JButton();
         RegReservaSPAtrasButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        RegReservaSPCancelButton = new javax.swing.JButton();
         RegReservaSeleccionarPublicacionPanel = new javax.swing.JPanel();
         RegReservaSPubTitleLabel = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -1034,9 +1035,15 @@ public class Interfaz extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        RegReservaClientesTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         RegReservaClienteTableScrollPane.setViewportView(RegReservaClientesTable);
 
         RegReservaSigButton.setText("Siguiente");
+        RegReservaSigButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaSigButtonActionPerformed(evt);
+            }
+        });
 
         RegReservaCancelarButton.setText("Cancelar");
 
@@ -1075,9 +1082,9 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegistrarReservaFrame.getContentPane().add(RegReservaSeleccionarClientePanel, "card4");
 
-        jLabel1.setText("Seleccione el proveedor");
+        RegReservaTitleLabel.setText("Seleccione el proveedor");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        RegReservaSPTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"José", "Google", "google.com", "jose@gmail.com"}
             },
@@ -1100,9 +1107,14 @@ public class Interfaz extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable1);
+        jScrollPane3.setViewportView(RegReservaSPTable);
 
-        jButton1.setText("Siguiente");
+        RegReservaSPSigButton.setText("Siguiente");
+        RegReservaSPSigButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaSPSigButtonActionPerformed(evt);
+            }
+        });
 
         RegReservaSPAtrasButton.setText("Atrás");
         RegReservaSPAtrasButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1111,7 +1123,12 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cancelar");
+        RegReservaSPCancelButton.setText("Cancelar");
+        RegReservaSPCancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaSPCancelButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RegReservaSeleccionarProveedorPanelLayout = new javax.swing.GroupLayout(RegReservaSeleccionarProveedorPanel);
         RegReservaSeleccionarProveedorPanel.setLayout(RegReservaSeleccionarProveedorPanelLayout);
@@ -1119,7 +1136,7 @@ public class Interfaz extends javax.swing.JFrame {
             RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
                 .addGap(144, 144, 144)
-                .addComponent(jLabel1)
+                .addComponent(RegReservaTitleLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1128,25 +1145,25 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(RegReservaSPCancelButton)
                         .addGap(18, 18, 18)
                         .addComponent(RegReservaSPAtrasButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(RegReservaSPSigButton)
                         .addGap(61, 61, 61))))
         );
         RegReservaSeleccionarProveedorPanelLayout.setVerticalGroup(
             RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(RegReservaTitleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(RegReservaSPSigButton)
                     .addComponent(RegReservaSPAtrasButton)
-                    .addComponent(jButton2))
+                    .addComponent(RegReservaSPCancelButton))
                 .addGap(86, 86, 86))
         );
 
@@ -1764,12 +1781,23 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegReservaSPAtrasButtonActionPerformed
 
     private void RegReservaConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaConfirmarButtonActionPerformed
-        // TODO add your handling code here:
+        MenuRegistrarReserva.doClick();
     }//GEN-LAST:event_RegReservaConfirmarButtonActionPerformed
 
     private void MenuRegistrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarReservaActionPerformed
         PanelCentral.removeAll();
 	PanelCentral.add(RegistrarReservaFrame);
+        IControladorUsuario cUsr = fabrica.getControladorUsuario();
+        Set<DataUsuario> clientes = cUsr.listarClientes();
+        DefaultTableModel tClientesModel = (DefaultTableModel) RegReservaClientesTable.getModel();
+        while(tClientesModel.getRowCount() > 0)
+        {
+            tClientesModel.removeRow(0);
+        }
+        for(DataUsuario c : clientes)
+        {
+            tClientesModel.addRow(new Object[]{c.getNickname(),c.getNombre(),c.getApellido(),c.getCorreo()});
+        }
         RegReservaSeleccionarClientePanel.setVisible(true);
         RegReservaSeleccionarProveedorPanel.setVisible(false);
         RegReservaSeleccionarPublicacionPanel.setVisible(false);
@@ -1777,6 +1805,32 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
     }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
+
+    private void RegReservaSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSigButtonActionPerformed
+        IControladorReserva cReserva = fabrica.getControladorReserva();
+        if(RegReservaClientesTable.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un cliente","Warning",JOptionPane.WARNING_MESSAGE);
+        else
+        {
+            cReserva.seleccionarCliente((String)RegReservaClientesTable.getValueAt(RegReservaClientesTable.getSelectedRow(),0));
+            
+            RegReservaSeleccionarClientePanel.setVisible(false);
+            RegReservaSeleccionarProveedorPanel.setVisible(true);
+            RegReservaSeleccionarPublicacionPanel.setVisible(false);
+            RegReservaConfirmarPanel.setVisible(false);
+        }
+    }//GEN-LAST:event_RegReservaSigButtonActionPerformed
+
+    private void RegReservaSPCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPCancelButtonActionPerformed
+        RegReservaSeleccionarClientePanel.setVisible(false);
+        RegReservaSeleccionarProveedorPanel.setVisible(false);
+        RegReservaSeleccionarPublicacionPanel.setVisible(false);
+        RegReservaConfirmarPanel.setVisible(false);
+    }//GEN-LAST:event_RegReservaSPCancelButtonActionPerformed
+
+    private void RegReservaSPSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPSigButtonActionPerformed
+        
+    }//GEN-LAST:event_RegReservaSPSigButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1911,6 +1965,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTable RegReservaConfirmarPubTable;
     private javax.swing.JLabel RegReservaConfirmarTitleLabel;
     private javax.swing.JButton RegReservaSPAtrasButton;
+    private javax.swing.JButton RegReservaSPCancelButton;
+    private javax.swing.JButton RegReservaSPSigButton;
+    private javax.swing.JTable RegReservaSPTable;
     private javax.swing.JButton RegReservaSPubAgregarButton;
     private javax.swing.JButton RegReservaSPubAtrasButton;
     private javax.swing.JButton RegReservaSPubCancelarButton;
@@ -1924,6 +1981,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel RegReservaSeleccionarProveedorPanel;
     private javax.swing.JPanel RegReservaSeleccionarPublicacionPanel;
     private javax.swing.JButton RegReservaSigButton;
+    private javax.swing.JLabel RegReservaTitleLabel;
     private javax.swing.JButton RegUsuarioAceptar;
     private javax.swing.JComboBox<Integer> RegUsuarioAnioComboBox;
     private javax.swing.JLabel RegUsuarioApellidoLabel;
@@ -1983,16 +2041,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JTable jTable1;
     private javax.swing.JList nombreClientes;
     // End of variables declaration//GEN-END:variables
 }

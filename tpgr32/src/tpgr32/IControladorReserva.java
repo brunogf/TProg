@@ -21,7 +21,8 @@ public interface IControladorReserva {
     public Set<DataReserva> listarReservas();
     public Set<DataReserva> listarReservasEliminables();
     public void seleccionarCliente(String nickname);
-    public void seleccionarPublicacion(String nombre, String nombreProveedor,
-            int cantidad, Date inicio, Date fin);    
+    public void seleccionarPublicacion(String nombre,
+            int cantidad, Date inicio, Date fin); 
+    public void seleccionarProveedor(String nickname);
     
 }
