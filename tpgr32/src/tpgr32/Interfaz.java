@@ -42,9 +42,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         ClienteOProveedor = new javax.swing.ButtonGroup();
         ConPadreOSinPadre = new javax.swing.ButtonGroup();
-        ConsultaUsuBotonAtras = new javax.swing.JButton();
-        ConsultaUsuarioImagePanel = new javax.swing.JPanel();
-        ConsultaUsuarioNoImgLabel = new javax.swing.JLabel();
         PanelCentral = new javax.swing.JPanel();
         RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
         RegUsuarioLabel = new javax.swing.JLabel();
@@ -163,6 +160,47 @@ public class Interfaz extends javax.swing.JFrame {
         AltaCiudadNombreLabel = new javax.swing.JLabel();
         AltaCiudadTextField = new javax.swing.JTextField();
         AltaCiudadAgregarButton = new javax.swing.JButton();
+        RegistrarReservaFrame = new javax.swing.JInternalFrame();
+        RegReservaSeleccionarClientePanel = new javax.swing.JPanel();
+        RegReservaSeleccClienteLabel = new javax.swing.JLabel();
+        RegReservaClienteTableScrollPane = new javax.swing.JScrollPane();
+        RegReservaClientesTable = new javax.swing.JTable();
+        RegReservaSigButton = new javax.swing.JButton();
+        RegReservaCancelarButton = new javax.swing.JButton();
+        RegReservaSeleccionarProveedorPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        RegReservaSPAtrasButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        RegReservaSeleccionarPublicacionPanel = new javax.swing.JPanel();
+        RegReservaSPubTitleLabel = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        RegReservaSPubSeleccionarTable = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        RegReservaSPubSeleccionadasTable = new javax.swing.JTable();
+        RegReservaSPubAgregarButton = new javax.swing.JButton();
+        RegReservaSPubRemoveButton = new javax.swing.JButton();
+        RegReservaSPubSiguienteButton = new javax.swing.JButton();
+        RegReservaSPubAtrasButton = new javax.swing.JButton();
+        RegReservaSPubCancelarButton = new javax.swing.JButton();
+        RegReservaConfirmarPanel = new javax.swing.JPanel();
+        RegReservaConfirmarTitleLabel = new javax.swing.JLabel();
+        RegReservaConfirmarClienteLabel = new javax.swing.JLabel();
+        RegReservaConfirmarProveedorLabel = new javax.swing.JLabel();
+        RegReservaConfirmarCNicknameLabel = new javax.swing.JLabel();
+        RegReservaConfirmarCNombreLabel = new javax.swing.JLabel();
+        RegReservaConfirmarCApellidoLabel = new javax.swing.JLabel();
+        RegReservaConfirmarPNicknameLabel = new javax.swing.JLabel();
+        RegReservaConfirmarPNombreLabel = new javax.swing.JLabel();
+        RegReservaConfirmarPApellidoLabel = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        RegReservaConfirmarPubTable = new javax.swing.JTable();
+        RegReservaConfirmarPubLabel = new javax.swing.JLabel();
+        RegReservaConfirmarButton = new javax.swing.JButton();
+        RegReservaConfirmarAtrasButton = new javax.swing.JButton();
+        RegReservaConfirmarCancelarButton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -170,6 +208,7 @@ public class Interfaz extends javax.swing.JFrame {
         MenuRegistrarCategoria = new javax.swing.JMenuItem();
         MenuRegistrarServicio = new javax.swing.JMenuItem();
         MenuRegistrarPromocion = new javax.swing.JMenuItem();
+        MenuRegistrarReserva = new javax.swing.JMenuItem();
         MenuActualizaciones = new javax.swing.JMenu();
         MenuActualizarServicio = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
@@ -177,32 +216,6 @@ public class Interfaz extends javax.swing.JFrame {
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
-
-        ConsultaUsuBotonAtras.setText("Atras");
-        ConsultaUsuBotonAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultaUsuBotonAtrasActionPerformed(evt);
-            }
-        });
-
-        ConsultaUsuarioNoImgLabel.setText("No hay imagen disponible");
-
-        javax.swing.GroupLayout ConsultaUsuarioImagePanelLayout = new javax.swing.GroupLayout(ConsultaUsuarioImagePanel);
-        ConsultaUsuarioImagePanel.setLayout(ConsultaUsuarioImagePanelLayout);
-        ConsultaUsuarioImagePanelLayout.setHorizontalGroup(
-            ConsultaUsuarioImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultaUsuarioImagePanelLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(ConsultaUsuarioNoImgLabel)
-                .addContainerGap(61, Short.MAX_VALUE))
-        );
-        ConsultaUsuarioImagePanelLayout.setVerticalGroup(
-            ConsultaUsuarioImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ConsultaUsuarioImagePanelLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(ConsultaUsuarioNoImgLabel)
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
@@ -361,7 +374,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addComponent(RegCategoriaSelecCategoriaPadreLabel)
                                 .addGap(38, 38, 38)
-                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RegCategoriaAceptarButton)
@@ -392,7 +405,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaAceptarButton)
                     .addComponent(RegCategoriaCancelarButton))
@@ -993,6 +1006,405 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(AltaCiudadFrame, "card9");
 
+        RegistrarReservaFrame.setVisible(true);
+        RegistrarReservaFrame.getContentPane().setLayout(new java.awt.CardLayout());
+
+        RegReservaSeleccClienteLabel.setText("Seleccione un cliente");
+
+        RegReservaClientesTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"nick", "John", "Doe", "j_doe@fing.edu.uy"}
+            },
+            new String [] {
+                "Nickname", "Nombre", "Apellido", "Correo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        RegReservaClienteTableScrollPane.setViewportView(RegReservaClientesTable);
+
+        RegReservaSigButton.setText("Siguiente");
+
+        RegReservaCancelarButton.setText("Cancelar");
+
+        javax.swing.GroupLayout RegReservaSeleccionarClientePanelLayout = new javax.swing.GroupLayout(RegReservaSeleccionarClientePanel);
+        RegReservaSeleccionarClientePanel.setLayout(RegReservaSeleccionarClientePanelLayout);
+        RegReservaSeleccionarClientePanelLayout.setHorizontalGroup(
+            RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addComponent(RegReservaSeleccClienteLabel)
+                .addContainerGap(166, Short.MAX_VALUE))
+            .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RegReservaCancelarButton)
+                .addGap(29, 29, 29)
+                .addComponent(RegReservaSigButton)
+                .addGap(46, 46, 46))
+        );
+        RegReservaSeleccionarClientePanelLayout.setVerticalGroup(
+            RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(RegReservaSeleccClienteLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addGroup(RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaSigButton)
+                    .addComponent(RegReservaCancelarButton))
+                .addGap(71, 71, 71))
+        );
+
+        RegistrarReservaFrame.getContentPane().add(RegReservaSeleccionarClientePanel, "card4");
+
+        jLabel1.setText("Seleccione el proveedor");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"José", "Google", "google.com", "jose@gmail.com"}
+            },
+            new String [] {
+                "Nickname", "Empresa", "URL", "Correo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable1);
+
+        jButton1.setText("Siguiente");
+
+        RegReservaSPAtrasButton.setText("Atrás");
+        RegReservaSPAtrasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaSPAtrasButtonActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
+
+        javax.swing.GroupLayout RegReservaSeleccionarProveedorPanelLayout = new javax.swing.GroupLayout(RegReservaSeleccionarProveedorPanel);
+        RegReservaSeleccionarProveedorPanel.setLayout(RegReservaSeleccionarProveedorPanelLayout);
+        RegReservaSeleccionarProveedorPanelLayout.setHorizontalGroup(
+            RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(RegReservaSPAtrasButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(61, 61, 61))))
+        );
+        RegReservaSeleccionarProveedorPanelLayout.setVerticalGroup(
+            RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaSeleccionarProveedorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(RegReservaSPAtrasButton)
+                    .addComponent(jButton2))
+                .addGap(86, 86, 86))
+        );
+
+        RegistrarReservaFrame.getContentPane().add(RegReservaSeleccionarProveedorPanel, "card2");
+
+        RegReservaSPubTitleLabel.setText("Seleccione las publicaciones");
+
+        RegReservaSPubSeleccionarTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Tipo", "Nombre", "Precio", "Descripcion"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(RegReservaSPubSeleccionarTable);
+
+        RegReservaSPubSeleccionadasTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Tipo", "Nombre", "Precio", "Descripcion"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(RegReservaSPubSeleccionadasTable);
+
+        RegReservaSPubAgregarButton.setText("Agregar");
+
+        RegReservaSPubRemoveButton.setText("Remover");
+
+        RegReservaSPubSiguienteButton.setText("Siguiente");
+
+        RegReservaSPubAtrasButton.setText("Atrás");
+
+        RegReservaSPubCancelarButton.setText("Cancelar");
+
+        javax.swing.GroupLayout RegReservaSeleccionarPublicacionPanelLayout = new javax.swing.GroupLayout(RegReservaSeleccionarPublicacionPanel);
+        RegReservaSeleccionarPublicacionPanel.setLayout(RegReservaSeleccionarPublicacionPanelLayout);
+        RegReservaSeleccionarPublicacionPanelLayout.setHorizontalGroup(
+            RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                .addGap(0, 83, Short.MAX_VALUE)
+                .addComponent(RegReservaSPubRemoveButton)
+                .addGap(90, 90, 90)
+                .addComponent(RegReservaSPubAgregarButton)
+                .addGap(95, 95, 95))
+            .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(RegReservaSPubCancelarButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(RegReservaSPubAtrasButton)
+                        .addGap(18, 18, 18)
+                        .addComponent(RegReservaSPubSiguienteButton))
+                    .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                            .addGap(136, 136, 136)
+                            .addComponent(RegReservaSPubTitleLabel))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        RegReservaSeleccionarPublicacionPanelLayout.setVerticalGroup(
+            RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(RegReservaSPubTitleLabel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaSPubAgregarButton)
+                    .addComponent(RegReservaSPubRemoveButton))
+                .addGap(17, 17, 17)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaSPubSiguienteButton)
+                    .addComponent(RegReservaSPubAtrasButton)
+                    .addComponent(RegReservaSPubCancelarButton))
+                .addGap(32, 32, 32))
+        );
+
+        RegistrarReservaFrame.getContentPane().add(RegReservaSeleccionarPublicacionPanel, "card3");
+
+        RegReservaConfirmarTitleLabel.setText("Confirmacion de la reserva");
+
+        RegReservaConfirmarClienteLabel.setText("Cliente:");
+
+        RegReservaConfirmarProveedorLabel.setText("Proveedor: ");
+
+        RegReservaConfirmarCNicknameLabel.setText("nickname");
+
+        RegReservaConfirmarCNombreLabel.setText("nombre");
+
+        RegReservaConfirmarCApellidoLabel.setText("apellido");
+
+        RegReservaConfirmarPNicknameLabel.setText("nickname");
+
+        RegReservaConfirmarPNombreLabel.setText("nombre");
+
+        RegReservaConfirmarPApellidoLabel.setText("apellido");
+
+        RegReservaConfirmarPubTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null}
+            },
+            new String [] {
+                "Tipo", "Nombre", "Precio", "Descripción"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane6.setViewportView(RegReservaConfirmarPubTable);
+
+        RegReservaConfirmarPubLabel.setText("Publicaciones");
+
+        RegReservaConfirmarButton.setText("Confirmar");
+        RegReservaConfirmarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaConfirmarButtonActionPerformed(evt);
+            }
+        });
+
+        RegReservaConfirmarAtrasButton.setText("Atrás");
+
+        RegReservaConfirmarCancelarButton.setText("Cancelar");
+
+        javax.swing.GroupLayout RegReservaConfirmarPanelLayout = new javax.swing.GroupLayout(RegReservaConfirmarPanel);
+        RegReservaConfirmarPanel.setLayout(RegReservaConfirmarPanelLayout);
+        RegReservaConfirmarPanelLayout.setHorizontalGroup(
+            RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                        .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                                .addGap(139, 139, 139)
+                                .addComponent(RegReservaConfirmarTitleLabel))
+                            .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegReservaConfirmarPanelLayout.createSequentialGroup()
+                                        .addComponent(RegReservaConfirmarProveedorLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(RegReservaConfirmarPNicknameLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(RegReservaConfirmarPNombreLabel))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegReservaConfirmarPanelLayout.createSequentialGroup()
+                                        .addComponent(RegReservaConfirmarClienteLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(RegReservaConfirmarCNicknameLabel)
+                                        .addGap(35, 35, 35)
+                                        .addComponent(RegReservaConfirmarCNombreLabel)))
+                                .addGap(31, 31, 31)
+                                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(RegReservaConfirmarCApellidoLabel)
+                                    .addComponent(RegReservaConfirmarPApellidoLabel))))
+                        .addGap(0, 137, Short.MAX_VALUE))
+                    .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaConfirmarPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(RegReservaConfirmarCancelarButton)
+                .addGap(18, 18, 18)
+                .addComponent(RegReservaConfirmarAtrasButton)
+                .addGap(18, 18, 18)
+                .addComponent(RegReservaConfirmarButton)
+                .addGap(30, 30, 30))
+            .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(RegReservaConfirmarPubLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        RegReservaConfirmarPanelLayout.setVerticalGroup(
+            RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(RegReservaConfirmarTitleLabel)
+                .addGap(18, 18, 18)
+                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaConfirmarClienteLabel)
+                    .addComponent(RegReservaConfirmarCNicknameLabel)
+                    .addComponent(RegReservaConfirmarCNombreLabel)
+                    .addComponent(RegReservaConfirmarCApellidoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaConfirmarProveedorLabel)
+                    .addComponent(RegReservaConfirmarPNicknameLabel)
+                    .addComponent(RegReservaConfirmarPNombreLabel)
+                    .addComponent(RegReservaConfirmarPApellidoLabel))
+                .addGap(32, 32, 32)
+                .addComponent(RegReservaConfirmarPubLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaConfirmarButton)
+                    .addComponent(RegReservaConfirmarAtrasButton)
+                    .addComponent(RegReservaConfirmarCancelarButton))
+                .addGap(39, 39, 39))
+        );
+
+        RegistrarReservaFrame.getContentPane().add(RegReservaConfirmarPanel, "card5");
+
+        PanelCentral.add(RegistrarReservaFrame, "card10");
+
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
 
@@ -1029,6 +1441,14 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         MenuRegistros.add(MenuRegistrarPromocion);
+
+        MenuRegistrarReserva.setText("Registrar Reserva");
+        MenuRegistrarReserva.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuRegistrarReservaActionPerformed(evt);
+            }
+        });
+        MenuRegistros.add(MenuRegistrarReserva);
 
         BarraMenu.add(MenuRegistros);
 
@@ -1154,8 +1574,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void infoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoClienteActionPerformed
         
-	ConsultaUsuarioImagePanel.setVisible(false);
-	ConsultaUsuarioNoImgLabel.setVisible(false);
 	PanelCentral.removeAll();
 	PanelCentral.add(ConsultaUsuarioFrame);
 	PanelCentral.repaint();
@@ -1267,16 +1685,6 @@ public class Interfaz extends javax.swing.JFrame {
         //this.ConsultarUsuFNacimiento.setText(dtCliente.getFecha().toString());
     }//GEN-LAST:event_ConsultaUsuarioBuscarButtonActionPerformed
 
-    private void ConsultaUsuBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtrasActionPerformed
-        //limpia los datos de cada jText
-        this.ConsultarUsuNomCliente.setText(null);
-        this.ConsultarUsuApellido.setText(null);
-        this.ConsultarUsuNickName.setText(null);
-        this.ConsultarUsuCorreoElec.setText(null);
-        //faltaria limpiar los datos del Jlist nombreClientes
-        PanelCentral.remove(this.ConsultaUsuarioFrame);
-    }//GEN-LAST:event_ConsultaUsuBotonAtrasActionPerformed
-
     private void ConsultaUsuarioSelecImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
@@ -1342,6 +1750,25 @@ public class Interfaz extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_AltaCiudadAgregarButtonActionPerformed
+
+    private void RegReservaSPAtrasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPAtrasButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegReservaSPAtrasButtonActionPerformed
+
+    private void RegReservaConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaConfirmarButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegReservaConfirmarButtonActionPerformed
+
+    private void MenuRegistrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarReservaActionPerformed
+        PanelCentral.removeAll();
+	PanelCentral.add(RegistrarReservaFrame);
+        RegReservaSeleccionarClientePanel.setVisible(true);
+        RegReservaSeleccionarProveedorPanel.setVisible(false);
+        RegReservaSeleccionarPublicacionPanel.setVisible(false);
+        RegReservaConfirmarPanel.setVisible(false);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+    }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1418,7 +1845,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.ButtonGroup ConPadreOSinPadre;
     private javax.swing.JLabel ConsultaUsuApellido;
-    private javax.swing.JButton ConsultaUsuBotonAtras;
     private javax.swing.JButton ConsultaUsuBotonAtras1;
     private javax.swing.JLabel ConsultaUsuCElec;
     private javax.swing.JLabel ConsultaUsuFNac;
@@ -1426,8 +1852,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultaUsuNom;
     private javax.swing.JButton ConsultaUsuarioBuscarButton;
     private javax.swing.JInternalFrame ConsultaUsuarioFrame;
-    private javax.swing.JPanel ConsultaUsuarioImagePanel;
-    private javax.swing.JLabel ConsultaUsuarioNoImgLabel;
     private javax.swing.JButton ConsultaUsuarioSelecImagenButton;
     private javax.swing.JLabel ConsultaUsuarioVerInfoLabel;
     private javax.swing.JTextField ConsultarUsuApellido;
@@ -1444,6 +1868,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenu MenuInicio;
     private javax.swing.JMenuItem MenuRegistrarCategoria;
     private javax.swing.JMenuItem MenuRegistrarPromocion;
+    private javax.swing.JMenuItem MenuRegistrarReserva;
     private javax.swing.JMenuItem MenuRegistrarServicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
     private javax.swing.JMenu MenuRegistros;
@@ -1459,6 +1884,38 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField RegCategoriaNombreCategoriaTextField;
     private javax.swing.JLabel RegCategoriaSelecCategoriaPadreLabel;
     private javax.swing.JRadioButton RegCategoriaSinPadreRadioButton;
+    private javax.swing.JButton RegReservaCancelarButton;
+    private javax.swing.JScrollPane RegReservaClienteTableScrollPane;
+    private javax.swing.JTable RegReservaClientesTable;
+    private javax.swing.JButton RegReservaConfirmarAtrasButton;
+    private javax.swing.JButton RegReservaConfirmarButton;
+    private javax.swing.JLabel RegReservaConfirmarCApellidoLabel;
+    private javax.swing.JLabel RegReservaConfirmarCNicknameLabel;
+    private javax.swing.JLabel RegReservaConfirmarCNombreLabel;
+    private javax.swing.JButton RegReservaConfirmarCancelarButton;
+    private javax.swing.JLabel RegReservaConfirmarClienteLabel;
+    private javax.swing.JLabel RegReservaConfirmarPApellidoLabel;
+    private javax.swing.JLabel RegReservaConfirmarPNicknameLabel;
+    private javax.swing.JLabel RegReservaConfirmarPNombreLabel;
+    private javax.swing.JPanel RegReservaConfirmarPanel;
+    private javax.swing.JLabel RegReservaConfirmarProveedorLabel;
+    private javax.swing.JLabel RegReservaConfirmarPubLabel;
+    private javax.swing.JTable RegReservaConfirmarPubTable;
+    private javax.swing.JLabel RegReservaConfirmarTitleLabel;
+    private javax.swing.JButton RegReservaSPAtrasButton;
+    private javax.swing.JButton RegReservaSPubAgregarButton;
+    private javax.swing.JButton RegReservaSPubAtrasButton;
+    private javax.swing.JButton RegReservaSPubCancelarButton;
+    private javax.swing.JButton RegReservaSPubRemoveButton;
+    private javax.swing.JTable RegReservaSPubSeleccionadasTable;
+    private javax.swing.JTable RegReservaSPubSeleccionarTable;
+    private javax.swing.JButton RegReservaSPubSiguienteButton;
+    private javax.swing.JLabel RegReservaSPubTitleLabel;
+    private javax.swing.JLabel RegReservaSeleccClienteLabel;
+    private javax.swing.JPanel RegReservaSeleccionarClientePanel;
+    private javax.swing.JPanel RegReservaSeleccionarProveedorPanel;
+    private javax.swing.JPanel RegReservaSeleccionarPublicacionPanel;
+    private javax.swing.JButton RegReservaSigButton;
     private javax.swing.JButton RegUsuarioAceptar;
     private javax.swing.JComboBox<Integer> RegUsuarioAnioComboBox;
     private javax.swing.JLabel RegUsuarioApellidoLabel;
@@ -1494,6 +1951,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegistrarPromocionServiciosLabel;
     private javax.swing.JList RegistrarPromocionServiciosList;
     private javax.swing.JScrollPane RegistrarPromocionServiciosScrollPane;
+    private javax.swing.JInternalFrame RegistrarReservaFrame;
     private javax.swing.JLabel RegistrarServcioPrecioLabel;
     private javax.swing.JButton RegistrarServicioAceptarButton;
     private javax.swing.JButton RegistrarServicioCancelarButton;
@@ -1517,8 +1975,16 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JTable jTable1;
     private javax.swing.JList nombreClientes;
     // End of variables declaration//GEN-END:variables
 }
