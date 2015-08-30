@@ -57,13 +57,13 @@ public class ControladorUsuario implements IControladorUsuario{
     public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
             Date fnac,String nombreEmp,String url,Image img) throws Exception {
         
-        try { 
-            Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
+        try {   
+            Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fnac,nombreEmp,url/*Falta Imagen*/);
             this.mUsuario = ManejadorUsuario.getInstance();
             this.mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
             throw ex;
-        }
+        }     
     }
 
     public DataUsuario infoCliente(String nickname) {
