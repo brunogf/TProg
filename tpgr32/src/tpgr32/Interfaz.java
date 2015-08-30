@@ -1173,17 +1173,17 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegReservaSPubSeleccionarTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+                {null, null, null}
             },
             new String [] {
-                "Tipo", "Nombre", "Precio", "Descripcion"
+                "Tipo", "Nombre", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1194,21 +1194,22 @@ public class Interfaz extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        RegReservaSPubSeleccionarTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane4.setViewportView(RegReservaSPubSeleccionarTable);
 
         RegReservaSPubSeleccionadasTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null}
+                {null, null, null}
             },
             new String [] {
-                "Tipo", "Nombre", "Precio", "Descripcion"
+                "Tipo", "Nombre", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1219,6 +1220,7 @@ public class Interfaz extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        RegReservaSPubSeleccionadasTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(RegReservaSPubSeleccionadasTable);
 
         RegReservaSPubAgregarButton.setText("Agregar");
@@ -1808,12 +1810,23 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegReservaSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSigButtonActionPerformed
         IControladorReserva cReserva = fabrica.getControladorReserva();
+        IControladorUsuario cUsr = fabrica.getControladorUsuario();
         if(RegReservaClientesTable.getSelectedRow() == -1)
             JOptionPane.showMessageDialog(null, "Debes seleccionar un cliente","Warning",JOptionPane.WARNING_MESSAGE);
         else
         {
             cReserva.seleccionarCliente((String)RegReservaClientesTable.getValueAt(RegReservaClientesTable.getSelectedRow(),0));
-            
+            //SIGUIENTE PANEL
+            DefaultTableModel dtm = (DefaultTableModel) RegReservaSPTable.getModel();
+            Set<DataUsuario> proveedores = cUsr.listarProveedores();
+            while(dtm.getRowCount() > 0)
+            {
+                dtm.removeRow(0);
+            }
+            for(DataUsuario p : proveedores)
+            {
+                dtm.addRow(new Object[]{p.getNickname(),((DataProveedor)p).getEmpresa(),((DataProveedor)p).getURL(),p.getCorreo()});
+            }
             RegReservaSeleccionarClientePanel.setVisible(false);
             RegReservaSeleccionarProveedorPanel.setVisible(true);
             RegReservaSeleccionarPublicacionPanel.setVisible(false);
@@ -1822,14 +1835,41 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegReservaSigButtonActionPerformed
 
     private void RegReservaSPCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPCancelButtonActionPerformed
-        RegReservaSeleccionarClientePanel.setVisible(false);
-        RegReservaSeleccionarProveedorPanel.setVisible(false);
-        RegReservaSeleccionarPublicacionPanel.setVisible(false);
-        RegReservaConfirmarPanel.setVisible(false);
+        PanelCentral.removeAll();
+        PanelCentral.revalidate();    
+        PanelCentral.repaint();
     }//GEN-LAST:event_RegReservaSPCancelButtonActionPerformed
 
     private void RegReservaSPSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPSigButtonActionPerformed
-        
+        IControladorReserva cReserva = fabrica.getControladorReserva();
+        IControladorPublicacion cPub = fabrica.getControladorPublicacion();
+        if(RegReservaSPTable.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
+        else
+        {
+            cReserva.seleccionarProveedor((String)RegReservaSPTable.getValueAt(RegReservaSPTable.getSelectedRow(),0));
+            //SIGUIENTE PANEL
+            DefaultTableModel dtm = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
+            Set<DataPublicacion> publicaciones = cPub.listarPublicaciones();        
+            while(dtm.getRowCount() > 0)
+            {
+                dtm.removeRow(0);
+            }
+            for(DataPublicacion p : publicaciones)
+            {
+                if (p instanceof DataServicio)
+                    dtm.addRow(new Object[]{"Servicio",p.getNombre(),
+                        ((Float)(((DataServicio)p).getPrecio())).toString()});
+                else if (p instanceof DataPromocion)
+                    dtm.addRow(new Object[]{"Promoción",p.getNombre(),
+                        ((Float)(((DataPromocion)p).getPrecioTotal())).toString()});
+            }
+            RegReservaSPubSeleccionarTable.setModel(dtm);
+            RegReservaSeleccionarClientePanel.setVisible(false);
+            RegReservaSeleccionarProveedorPanel.setVisible(false);
+            RegReservaSeleccionarPublicacionPanel.setVisible(true);
+            RegReservaConfirmarPanel.setVisible(false);
+        }
     }//GEN-LAST:event_RegReservaSPSigButtonActionPerformed
 
     /**
