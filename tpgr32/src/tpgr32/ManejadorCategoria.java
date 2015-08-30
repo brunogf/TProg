@@ -41,7 +41,6 @@ public class ManejadorCategoria {
        Categoria c = new Categoria(nombre); 
        conjCategorias_.put(c.getNombre(),c);
        conjCategoriasPadre_.add(c);
-       System.out.println("Se agrego la categoria");
     }
     
     public void agregarCategoria(String nombre, String padre){

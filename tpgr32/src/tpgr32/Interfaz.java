@@ -11,7 +11,9 @@ import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
@@ -337,6 +339,11 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        RegCategoriaTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
+            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
+                RegCategoriaTreeValueChanged(evt);
+            }
+        });
         RegCategoriaScrollPane.setViewportView(RegCategoriaTree);
 
         javax.swing.GroupLayout RegistrarCategoriaFrameLayout = new javax.swing.GroupLayout(RegistrarCategoriaFrame.getContentPane());
@@ -1071,6 +1078,8 @@ public class Interfaz extends javax.swing.JFrame {
         ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
         DefaultTreeModel modelo = ctrlPublic.listarCategorias();
         RegCategoriaTree.setModel(modelo);
+        RegCategoriaTree.getSelectionModel().setSelectionMode
+        (TreeSelectionModel.SINGLE_TREE_SELECTION);
         ConPadreOSinPadre.add(RegCategoriaSinPadreRadioButton);
         ConPadreOSinPadre.add(RegCategoriaConPadreRadioButton);
         RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
@@ -1173,11 +1182,14 @@ public class Interfaz extends javax.swing.JFrame {
 	{
 	    ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
 	    if(RegCategoriaConPadreRadioButton.isSelected())
-	    {                
-                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());               
+	    {     
+                System.out.println("HOLA");
+                String padre = (String) RegCategoriaTree.getLastSelectedPathComponent();    
+                System.out.println(padre);
+                System.out.println("HOLA2");
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText(), padre);             
 	    }
-            else{
-                
+            else{                
                 ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());
             }           
             this.RegCategoriaNombreCategoriaTextField.setText(null);
@@ -1195,6 +1207,10 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegistrarCategoriaFrameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_RegistrarCategoriaFrameComponentAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_RegistrarCategoriaFrameComponentAdded
+
+    private void RegCategoriaTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_RegCategoriaTreeValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegCategoriaTreeValueChanged
 
     /**
      * @param args the command line arguments
