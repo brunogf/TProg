@@ -69,6 +69,9 @@ public class Servicio extends Publicacion {
         return precio_;
     } 
     
-    
-    
+    public DataServicio infoPublicacion(){
+        DataServicio ds=new DataServicio(super.getNombre(), descripcion_, precio_, super.getProveedor().nombre);
+        return ds;
+    }
+      
 }

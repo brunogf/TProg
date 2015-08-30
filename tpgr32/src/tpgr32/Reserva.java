@@ -50,8 +50,12 @@ public class Reserva {
         return precio_total_;
     }
     
-    //setters
+    public Cliente getCliente(){
+        return cliente_;
+    }
     
+    //setters
+            
     public void setEstado(Estado e){
         this.estado_=e;
     }
@@ -66,14 +70,30 @@ public class Reserva {
     }
     
     public DataReserva infoReserva(){
-        return new DataReserva();
+        Set<ParDPD> conjDPD=new HashSet<>();
+        for (ReservaPublicacion rp:rp_){
+            ParDPD dpd=rp.infoReservaPublicacion();
+            conjDPD.add(dpd);
+        }
+        DataReserva dr=new DataReserva(numero_, fecha_creacion_, estado_, 
+            precio_total_, conjDPD);
+        
+        return dr;
     }
     
     public boolean esEliminable(){
         return true;
-    }   
+    }
+    
+    public void destroy(){
+        Cliente c=this.cliente_;
+        c.eliminarReserva(this);
+        
+        for (ReservaPublicacion rp:this.rp_){
+            rp.destroy();
+        }
+    }
     //agregar Publicacion (servicio o promocion)
     
     
 }
-

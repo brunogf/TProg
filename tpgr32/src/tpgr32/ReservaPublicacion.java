@@ -34,14 +34,37 @@ public class ReservaPublicacion {
     {
 	this(r,p,d.getFechaIni(),d.getFechaFin(),d.getCant());
     }
+
+    public Date getFechaIni() {
+        return fechaIni_;
+    }
+
+    public Date getFechaFin() {
+        return fechaFin_;
+    }
     
+    public String getNombrePublicacion(){
+        return pub_.getNombre();
+    }
     
     public float getPrecioTotal()
     {
 	return 0; //DEBERIA RETORNA EL PRECIO CALCULADO DE LA PUBLICACION x CANTIDAD
     }
     
+    public ParDPD infoReservaPublicacion(){
+        DataDisponibilidad d=new DataDisponibilidad(cant_, fechaIni_, fechaFin_);
+        DataPublicacion dp=pub_.infoPublicacion();
+        
+        ParDPD dpd=new ParDPD(dp, d);
+        return dpd;
+    }
     
-    
-    
+    public void destroy(){
+        this.pub_.eliminarReservaPublicacion(this);
+        this.res_=null;        
+    }
+
 }
+
+

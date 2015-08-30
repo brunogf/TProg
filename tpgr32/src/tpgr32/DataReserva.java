@@ -11,36 +11,45 @@ import java.util.*;
  * @author bruno
  */
 public class DataReserva {
-    private int cantidad_;
-    private Date ini_;
-    private Date fin_;
+    private int num_;
+    private Date creacion_;
+    private Estado estado_;
     private float precio_total_;
-    private Set<String> publicaciones_;
+    private Set<ParDPD> dpd_;   
     
     public DataReserva(){
     }
-    
-    public DataReserva(int cant, Date ini, Date fin, float total, Set<String> pub){
-        cantidad_=cant;
-        ini_=ini;
-        fin_=fin;
-        precio_total_=total;
-        publicaciones_=pub;
+
+    public DataReserva(int num_, Date creacion_, Estado estado_, float precio_total_, Set<ParDPD> dpd_) {
+        this.num_ = num_;
+        this.creacion_ = creacion_;
+        this.estado_ = estado_;
+        this.precio_total_ = precio_total_;
+        this.dpd_ = dpd_;
+    }
+
+    public int getNum_() {
+        return num_;
+    }
+
+    public Date getCreacion_() {
+        return creacion_;
+    }
+
+    public Estado getEstado_() {
+        return estado_;
+    }
+
+    public float getPrecio_total_() {
+        return precio_total_;
+    }
+
+    public Set<ParDPD> getdpd_(){
+        return dpd_;
     }
     
-    public int getCantidad(){
-        return this.cantidad_;
+    public void agregarParDPD(ParDPD dpd){
+        dpd_.add(dpd);
     }
     
-    public Date getFechaIni(){
-        return this.ini_;
-    }
-    
-    public Date getFechaFin(){
-        return this.fin_;
-    }
-    
-    public Set<String> getPublicaciones(){
-        return this.publicaciones_;
-    }
 }
