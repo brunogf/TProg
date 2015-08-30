@@ -12,7 +12,7 @@ import javax.swing.tree.DefaultTreeModel;
  *
  * @author spesamosca
  */
-
+//asd
 public interface IControladorPublicacion {
     
     void agregarCategoriaServicio(String cat);

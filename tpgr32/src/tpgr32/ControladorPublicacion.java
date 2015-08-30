@@ -19,7 +19,8 @@ public class ControladorPublicacion implements IControladorPublicacion{
     private Servicio instServicio;
     private Promocion instPromocion;
     private ManejadorCategoria mCategoria;
-    
+   
+    // comiste
    public ControladorPublicacion(){
     
    } 

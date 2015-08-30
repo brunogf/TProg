@@ -19,7 +19,7 @@ public class Categoria {
     private Map<String, Servicio> conjServicios_;
     private Categoria padre_;
             
-        
+ //2 a 1       
     public Categoria(){
         
     }
