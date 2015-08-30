@@ -24,5 +24,6 @@ public interface IControladorReserva {
     public void seleccionarPublicacion(String nombre,
             int cantidad, Date inicio, Date fin); 
     public void seleccionarProveedor(String nickname);
+    public String getNickProveedorSeleccionado();
     
 }

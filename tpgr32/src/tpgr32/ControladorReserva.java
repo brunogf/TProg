@@ -110,4 +110,10 @@ public class ControladorReserva implements IControladorReserva{
         ManejadorUsuario mu = ManejadorUsuario.getInstance();
         proveedor_ = mu.encontrarProveedor(nickname);
     }
+    
+    public String getNickProveedorSeleccionado()
+    {
+        return proveedor_.getNickname();
+    }
+    
 }

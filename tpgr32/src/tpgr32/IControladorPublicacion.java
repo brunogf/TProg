@@ -34,5 +34,6 @@ public interface IControladorPublicacion {
     void altaPais(String nombre);
     void altaCiudad(String pais, String nombre);
     Set<String> listarPaises();
+    Set<DataPublicacion> listarPublicaciones();
 
 }

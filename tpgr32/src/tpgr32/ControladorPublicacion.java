@@ -114,4 +114,16 @@ public class ControladorPublicacion implements IControladorPublicacion{
        ManejadorPais mp = ManejadorPais.getInstance();
        return mp.listarPaises();
    }
+   
+   public Set<DataPublicacion> listarPublicaciones()
+   {
+       Set<DataPromocion> promociones = this.listarPromociones();
+       Set<DataServicio> servicios = this.listarServicios();
+       Set<DataPublicacion> publicaciones = new HashSet<>();
+       for(DataPromocion p : promociones)
+           publicaciones.add(p);
+       for (DataServicio s : servicios)
+           publicaciones.add(s);
+       return publicaciones;
+   }
 }
