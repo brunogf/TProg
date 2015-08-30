@@ -1583,7 +1583,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
         try
 	{
-	    ControladorUsuario ctrlUsr = new ControladorUsuario();
+	    IControladorUsuario ctrlUsr = fabrica.getControladorUsuario();
 	    Calendar cal = Calendar.getInstance();
 	/*    cal.set(Calendar.YEAR, (Integer)(RegUsuarioAnioComboBox.getSelectedItem()));
 	    cal.set(Calendar.MONTH, (Integer)(RegUsuarioMesComboBox.getSelectedItem()));
@@ -1593,16 +1593,24 @@ public class Interfaz extends javax.swing.JFrame {
 	    {
                 ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
                         RegUsuarioCorreoTextField.getText(), d);
+                JOptionPane.showMessageDialog(null, "El cliente se registro correctamente");
                 
 	    }
+            else//Proveedor.isSelected
+            {
+               ctrlUsr.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(),
+                       RegUsuarioCorreoTextField.getText(), d, RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
+               JOptionPane.showMessageDialog(null, "El proveedor se registro correctamente");
+            }
             this.RegUsuarioNicknameTextField.setText(null);
             this.RegUsuarioNombreTextField.setText(null);
             this.RegUsuarioApellidoTextField.setText(null);
             this.RegUsuarioCorreoTextField.setText(null);
             this.RegUsuarioNombreEmpresaTextField.setText(null);
+            RegUsuarioDiaComboBox.setSelectedIndex(0);//1
+            RegUsuarioMesComboBox.setSelectedIndex(0);//1
+            RegUsuarioAnioComboBox.setSelectedIndex(0);//2015
             this.RegUsuarioURLTextField.setText(null);
-            PanelCentral.remove(RegistrarUsuarioFrame);  
-            
 	}catch(Exception ex)
 	{
             this.RegUsuarioErrorLabel.setVisible(true);
