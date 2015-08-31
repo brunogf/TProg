@@ -22,6 +22,8 @@ public class Interfaz extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     private FabricaControladores fabrica;
+    private int fila;
+    private int cantClick;
     public Interfaz() {
 	initComponents();
         fabrica = new FabricaControladores();
@@ -29,6 +31,8 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.removeAll();
 	PanelCentral.repaint();
 	PanelCentral.revalidate(); //HACE QUE NO SE VEA NADA AL ABRIR EL PROGRAMA
+        fila = 0;
+        cantClick = 0;
 	
     }
 
@@ -1036,6 +1040,11 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         RegReservaClientesTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        RegReservaClientesTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegReservaClientesTableMouseClicked(evt);
+            }
+        });
         RegReservaClienteTableScrollPane.setViewportView(RegReservaClientesTable);
 
         RegReservaSigButton.setText("Siguiente");
@@ -1046,6 +1055,11 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         RegReservaCancelarButton.setText("Cancelar");
+        RegReservaCancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaCancelarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RegReservaSeleccionarClientePanelLayout = new javax.swing.GroupLayout(RegReservaSeleccionarClientePanel);
         RegReservaSeleccionarClientePanel.setLayout(RegReservaSeleccionarClientePanelLayout);
@@ -1779,7 +1793,10 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_AltaCiudadAgregarButtonActionPerformed
 
     private void RegReservaSPAtrasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPAtrasButtonActionPerformed
-        // TODO add your handling code here:
+        RegReservaSeleccionarClientePanel.setVisible(true);
+        RegReservaSeleccionarProveedorPanel.setVisible(false);
+        RegReservaSeleccionarPublicacionPanel.setVisible(false);
+        RegReservaConfirmarPanel.setVisible(false);
     }//GEN-LAST:event_RegReservaSPAtrasButtonActionPerformed
 
     private void RegReservaConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaConfirmarButtonActionPerformed
@@ -1871,6 +1888,30 @@ public class Interfaz extends javax.swing.JFrame {
             RegReservaConfirmarPanel.setVisible(false);
         }
     }//GEN-LAST:event_RegReservaSPSigButtonActionPerformed
+
+    private void RegReservaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaCancelarButtonActionPerformed
+        PanelCentral.removeAll();
+        PanelCentral.revalidate();    
+        PanelCentral.repaint();
+    }//GEN-LAST:event_RegReservaCancelarButtonActionPerformed
+
+
+    private void RegReservaClientesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaClientesTableMouseClicked
+
+        if (RegReservaClientesTable.getSelectedRow() == fila)
+            cantClick++;
+        else 
+        {
+            fila = RegReservaClientesTable.getSelectedRow();
+            cantClick = 1;
+        }
+        if (cantClick == 2)
+        {
+            fila = 0;
+            cantClick = 0;
+            RegReservaSigButton.doClick();
+        }
+    }//GEN-LAST:event_RegReservaClientesTableMouseClicked
 
     /**
      * @param args the command line arguments
