@@ -47,6 +47,32 @@
         </Component>
       </SubComponents>
     </Container>
+    <Container class="javax.swing.JDialog" name="RegistrarServicioVentanaSeleccImagenDialog">
+
+      <Layout>
+        <DimensionLayout dim="0">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="RegistrarServicioSelectorImagenFileChooser" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="25" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+        <DimensionLayout dim="1">
+          <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="RegistrarServicioSelectorImagenFileChooser" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+              </Group>
+          </Group>
+        </DimensionLayout>
+      </Layout>
+      <SubComponents>
+        <Component class="javax.swing.JFileChooser" name="RegistrarServicioSelectorImagenFileChooser">
+        </Component>
+      </SubComponents>
+    </Container>
     <Menu class="javax.swing.JMenuBar" name="BarraMenu">
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="MenuInicio">
@@ -159,7 +185,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="PanelCentral" pref="430" max="32767" attributes="0"/>
+              <Component id="PanelCentral" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -169,7 +195,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="PanelCentral" min="-2" pref="485" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -179,6 +205,1058 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
       <SubComponents>
+        <Container class="javax.swing.JInternalFrame" name="RegistrarCategoriaFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card4"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="RegCategoriaNomCategoriaLabel" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace pref="126" max="32767" attributes="0"/>
+                                      <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="RegCategoriaConPadreRadioButton" min="-2" max="-2" attributes="0"/>
+                                          <Component id="RegCategoriaNombreCategoriaTextField" min="-2" pref="182" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Component id="RegCategoriaListarCategoriasScrollPane" pref="240" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="RegCategoriaAceptarButton" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="RegCategoriaCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="RegCategoriaSinPadreRadioButton" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="RegCategoriaCancelarButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegCategoriaNomCategoriaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaNombreCategoriaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegCategoriaCategoriaPadreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaSinPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaConPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaListarCategoriasScrollPane" min="-2" pref="177" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="65" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegCategoriaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="RegCategoriaLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Categoria"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegCategoriaNomCategoriaLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="RegCategoriaNombreCategoriaTextField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaNombreCategoriaTextFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegCategoriaCategoriaPadreLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Categoria padre"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RegCategoriaSinPadreRadioButton">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Sin padre"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaSinPadreRadioButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="RegCategoriaConPadreRadioButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Con padre"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaConPadreRadioButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegCategoriaSelecCategoriaPadreLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Selecciona la categoria padre"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="RegCategoriaListarCategoriasScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTree" name="RegCategoriaListarCategoriasTree">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="RegCategoriaAceptarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaAceptarButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegCategoriaCancelarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="RegistrarServicioFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card5"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RegistrarServicioDescripcionLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                                      <Component id="RegistrarServicioAceptarButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="RegistrarServicioCancelarButton" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="RegistrarServicioProveedorLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                      <Component id="RegistrarServicioProveedorComboBox" min="-2" pref="120" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="RegistrarServicioNomServicioLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="RegistrarServicioCiudadDestinoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="RegistroServicioPaisOrigenLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="RegistrarServicioCiudadOrigenLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="RegistrarServicioSeleccCategoriaBotton" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="RegistrarServcioPrecioLabel" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="RegistrarServicioPrecioTextField" min="-2" pref="48" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Component id="RegistrarServicioPaisDestinoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPane3" min="-2" pref="117" max="-2" attributes="0"/>
+                                          <Component id="RegistrarServicioCiudadDestinoComboBox" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="RegistrarServicioPaisDestinoComboBox" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="RegistrarServicioCiudadOrigenComboBox" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="RegistrarServicioPaisOrigenComboBox" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="RegistrarServicioSelecImagenesButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="158" max="32767" attributes="0"/>
+                                      <Component id="RegistrarServicioImagenLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RegistrarServicioTextField" min="-2" pref="130" max="-2" attributes="0"/>
+                                  <Component id="RegistrarServicioLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegistrarServicioNomServicioTextField" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="RegistrarServicioLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarServicioNomServicioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioNomServicioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RegistrarServicioDescripcionLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioTextField" min="-2" pref="28" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarServicioSelecImagenesButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioImagenLabel" alignment="3" min="-2" pref="66" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarServicioPrecioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServcioPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistroServicioPaisOrigenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioPaisOrigenComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarServicioCiudadOrigenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioCiudadOrigenComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarServicioPaisDestinoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioPaisDestinoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarServicioCiudadDestinoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarServicioCiudadDestinoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jScrollPane3" min="-2" pref="93" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="RegistrarServicioProveedorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegistrarServicioProveedorComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="RegistrarServicioAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegistrarServicioCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="RegistrarServicioSeleccCategoriaBotton" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Servicio"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioNomServicioLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre del servicio"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="RegistrarServicioNomServicioTextField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioNomServicioTextFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioDescripcionLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="RegistrarServicioTextField">
+            </Component>
+            <Component class="javax.swing.JButton" name="RegistrarServicioSelecImagenesButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Seleccionar Im&#xe1;genes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioSelecImagenesButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServcioPrecioLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Precio ($U)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="RegistrarServicioPrecioTextField">
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioCiudadOrigenLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ciudad de origen"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioCiudadDestinoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ciudad de destino (opcional)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioProveedorLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Proveedor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegistrarServicioAceptarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioAceptarButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegistrarServicioCancelarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="RegistrarServicioProveedorComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value=""/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioProveedorComboBoxActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="RegistrarServicioCiudadDestinoComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="&lt;Sin ciudad de destino&gt;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioCiudadDestinoComboBoxActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistroServicioPaisOrigenLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pais de origen"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTree" name="RegistrarServicioArbolCategoriasTree">
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioPaisDestinoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pais de destino (opcional)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="RegistrarServicioPaisOrigenComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="Seleccionar pais de origen"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="RegistrarServicioCiudadOrigenComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="Seleccionar ciudad de origen"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioCiudadOrigenComboBoxActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="RegistrarServicioPaisDestinoComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value="&lt;Sin pais de destino&gt;"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegistrarServicioSeleccCategoriaBotton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Seleccionar categoria(s)"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarServicioImagenLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="          Imagen"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="RegistrarPromocionFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card6"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace pref="166" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="RegistrarPromocionProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegistrarPromocionServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegistrarPromocionPrecioTotalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
+                                      <Component id="RegistrarPromocionProveedorComboBox" pref="150" max="32767" attributes="0"/>
+                                      <Component id="RegistrarPromocionServiciosScrollPane" alignment="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="RegistrarPromocionPrecioTotalTextField" min="-2" pref="40" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="RegistrarPromocionAceptarButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="RegistrarPromocionCancelarButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarPromocionProveedorComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarPromocionProveedorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RegistrarPromocionServiciosLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarPromocionServiciosScrollPane" min="-2" pref="50" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarPromocionPrecioTotalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarPromocionPrecioTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="RegistrarPromocionAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegistrarPromocionCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="162" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="RegistrarPromocionLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Registrar Promoci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarPromocionProveedorLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Proveedor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="RegistrarPromocionProveedorComboBox">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="RegistrarPromocionServiciosLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Servicios"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="RegistrarPromocionServiciosScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="RegistrarPromocionServiciosList">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="RegistrarPromocionPrecioTotalLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Precio Total"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="RegistrarPromocionPrecioTotalTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="PT"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarPromocionPrecioTotalTextFieldActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegistrarPromocionAceptarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="RegistrarPromocionCancelarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="ActualizarServicioFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card7"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="ActualizarServicioCategoriasLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="ActualizarServicioCategoriasScrollPane" min="-2" pref="119" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ActualizarServicioServicioLabel" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="ActualizarServicioLabel" min="-2" max="-2" attributes="0"/>
+                                              <Component id="ActualizarServicioServicioScrollPane" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="ActualizarServicioDescripcionLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="ActualizarServicioDescripcionTextField" min="-2" pref="150" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ActualizarServicioVerImagenesButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ActualizarServicioCiudadOrigenLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ActualizarServicioCiudadOrigenScrollPane" min="-2" pref="123" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="ActualizarServicioCiudadDestinoLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="ActualizarServicioModificarImagenesButton" max="32767" attributes="0"/>
+                                          <Component id="ActualizaServicioCiudadDestinoScrollPane" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                      <Component id="ActualizarServicioAceptarButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="ActualizarServicioCancelarButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="171" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ActualizarServicioLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="ActualizarServicioServicioLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="ActualizarServicioServicioScrollPane" min="-2" pref="63" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ActualizarServicioDescripcionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ActualizarServicioDescripcionTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ActualizarServicioVerImagenesButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ActualizarServicioModificarImagenesButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ActualizarServicioCiudadOrigenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ActualizarServicioCiudadDestinoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ActualizaServicioCiudadDestinoScrollPane" min="-2" pref="62" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ActualizarServicioCategoriasScrollPane" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ActualizarServicioCiudadOrigenScrollPane" min="-2" pref="62" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="ActualizarServicioCategoriasLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="31" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ActualizarServicioAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ActualizarServicioCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="54" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="ActualizarServicioLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Actualizar Servicio"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ActualizarServicioServicioLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Servicio"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="ActualizarServicioServicioScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="ActualizarServicioServicioList">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="ActualizarServicioDescripcionLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ActualizarServicioDescripcionTextField">
+            </Component>
+            <Component class="javax.swing.JButton" name="ActualizarServicioVerImagenesButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver im&#xe1;genes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarServicioVerImagenesButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="ActualizarServicioModificarImagenesButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar im&#xe1;genes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ActualizarServicioCiudadOrigenLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ciudad de origen"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="ActualizarServicioCiudadOrigenScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="ActualizarServicioCiudadOrigenList">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="1">
+                        <StringItem index="0" value="&lt;Ciudad Actual&gt;"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="ActualizarServicioCiudadDestinoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ciudad de destino"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="ActualizaServicioCiudadDestinoScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="ActualizarServicioCiudadDestinoList">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="1">
+                        <StringItem index="0" value="&lt;Ciudad Actual&gt;"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="ActualizarServicioCategoriasLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Categor&#xed;as"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="ActualizarServicioCategoriasScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="ActualizarServicioCategoriasList">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="0"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="ActualizarServicioAceptarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aceptar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="ActualizarServicioCancelarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="ConsultaUsuarioFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card3"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioSelecImagenButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                      <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
+                                      <Component id="ConsultaUsuarioBuscarButton" min="-2" pref="109" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="ConsultaUsuApellido" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="ConsultaUsuNick" min="-2" max="-2" attributes="0"/>
+                                                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="ConsultaUsuCElec" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="ConsultaUsuFNac" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="ConsultaUsuNom" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="ConsultarUsuNickName" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuApellido" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuNomCliente" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuCorreoElec" min="-2" pref="173" max="-2" attributes="0"/>
+                                          <Component id="ConsultarUsuFNacimiento" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="149" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="ConsultaUsuBotonAtras1" min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
+                          <Component id="clientesSistema" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ConsultaUsuarioBuscarButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultarUsuNomCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultarUsuApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultarUsuNickName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuNick" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultarUsuCorreoElec" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuCElec" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ConsultarUsuFNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuFNac" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioSelecImagenButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="127" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="ConsultaUsuBotonAtras1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuarioVerInfoLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver Informacion de Usuario"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="ConsultaUsuarioSelecImagenButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Seleccionar Imagen"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioSelecImagenButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="nombreClientes">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="new javax.swing.AbstractListModel() {&#xa;    String[] strings = {};&#xa;    public int getSize() { return strings.length; }&#xa;    public Object getElementAt(int i) { return strings[i]; }&#xa;}" type="code"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="clientesSistema">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Clientes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientesSistemaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="ConsultaUsuarioBuscarButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Informacion"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioBuscarButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuNom">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Nombre:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuApellido">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Apellido:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuNick">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NickName:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuCElec">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Correo Electronico:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultaUsuFNac">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha Nacimiento:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultarUsuNomCliente">
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultarUsuApellido">
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultarUsuNickName">
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultarUsuCorreoElec">
+            </Component>
+            <Component class="javax.swing.JTextField" name="ConsultarUsuFNacimiento">
+            </Component>
+            <Component class="javax.swing.JButton" name="ConsultaUsuBotonAtras1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Atras"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuBotonAtras1ActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JInternalFrame" name="RegistrarUsuarioFrame">
           <Properties>
             <Property name="visible" type="boolean" value="false"/>
@@ -267,6 +1345,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="RegUsuarioNicknameTextField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegUsuarioNicknameTextFieldActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="200" y="40" width="190" height="-1"/>
@@ -274,6 +1355,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="RegUsuarioNombreTextField">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegUsuarioNombreTextFieldActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="200" y="70" width="190" height="-1"/>
@@ -489,1011 +1573,6 @@
                   <AbsoluteConstraints x="112" y="302" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JInternalFrame" name="RegistrarCategoriaFrame">
-          <Properties>
-            <Property name="visible" type="boolean" value="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card4"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="RegCategoriaNomCategoriaLabel" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace pref="36" max="32767" attributes="0"/>
-                                      <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="RegCategoriaConPadreRadioButton" min="-2" max="-2" attributes="0"/>
-                                          <Component id="RegCategoriaNombreCategoriaTextField" min="-2" pref="182" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="RegCategoriaListarCategoriasScrollPane" pref="82" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="RegCategoriaAceptarButton" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="RegCategoriaCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="RegCategoriaSinPadreRadioButton" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="RegCategoriaCancelarButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegCategoriaNomCategoriaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaNombreCategoriaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegCategoriaCategoriaPadreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaSinPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaConPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaListarCategoriasScrollPane" min="-2" pref="177" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="66" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegCategoriaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="RegCategoriaLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Categoria"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegCategoriaNomCategoriaLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="RegCategoriaNombreCategoriaTextField">
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegCategoriaCategoriaPadreLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Categoria padre"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RegCategoriaSinPadreRadioButton">
-              <Properties>
-                <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="Sin padre"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaSinPadreRadioButtonActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="RegCategoriaConPadreRadioButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Con padre"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaConPadreRadioButtonActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegCategoriaSelecCategoriaPadreLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Selecciona la categoria padre"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="RegCategoriaListarCategoriasScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTree" name="RegCategoriaListarCategoriasTree">
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="RegCategoriaAceptarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="RegCategoriaCancelarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JInternalFrame" name="RegistrarServicioFrame">
-          <Properties>
-            <Property name="visible" type="boolean" value="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card5"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="RegistrarServicioLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="160" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="RegistrarServcioPrecioLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="RegistrarServicioPrecioTextField" min="-2" pref="48" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Component id="RegistrarServicioAceptarButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="RegistrarServicioMax3ImagLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="RegistrarServicioCancelarButton" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="RegistrarServicioNomServicioTextField" alignment="1" pref="99" max="32767" attributes="0"/>
-                                              <Component id="RegistrarServicioTextField" alignment="1" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RegistrarServicioNomServicioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RegistrarServicioDescripcionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RegistrarServicioSelecImagenesButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="RegistrarServicioProveedorLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="RegistrarServicioProveedorComboBox" min="-2" pref="120" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="RegistrarServicioCiudadDestinoLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="RegistrarServicioCiudadDestinoComboBox" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="RegistrarServicioConjCategoriasLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane1" min="-2" pref="177" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="RegistrarServicioCiudadOrigenLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                                      <Component id="RegistrarServicioCiudadOrigenComboBox" min="-2" pref="99" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="RegistrarServicioLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioNomServicioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioNomServicioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioDescripcionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioSelecImagenesButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioMax3ImagLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServcioPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioPrecioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioCiudadOrigenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioCiudadOrigenComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioCiudadDestinoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioCiudadDestinoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RegistrarServicioConjCategoriasLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="53" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioProveedorComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioProveedorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarServicioCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarServicioAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Servicio"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioNomServicioLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre del servicio"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="RegistrarServicioNomServicioTextField">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarServicioNomServicioTextFieldActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioDescripcionLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="RegistrarServicioTextField">
-            </Component>
-            <Component class="javax.swing.JButton" name="RegistrarServicioSelecImagenesButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Seleccionar Im&#xe1;genes"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioMax3ImagLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="(M&#xe1;ximo 3 im&#xe1;genes)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServcioPrecioLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Precio ($U)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="RegistrarServicioPrecioTextField">
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioCiudadOrigenLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ciudad de origen"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioCiudadDestinoLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ciudad de destino (opcional)"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioConjCategoriasLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Conjunto de categor&#xed;as"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="RegistrarServicioCategoriasList">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="RegistrarServicioProveedorLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Proveedor"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="RegistrarServicioAceptarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="RegistrarServicioCancelarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="RegistrarServicioProveedorComboBox">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-                <Property name="toolTipText" type="java.lang.String" value=""/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="RegistrarServicioCiudadDestinoComboBox">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="1">
-                    <StringItem index="0" value="&lt;Sin ciudad de destino&gt;"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="RegistrarServicioCiudadOrigenComboBox">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JInternalFrame" name="RegistrarPromocionFrame">
-          <Properties>
-            <Property name="visible" type="boolean" value="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card6"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="RegistrarPromocionProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RegistrarPromocionServiciosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="RegistrarPromocionPrecioTotalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="RegistrarPromocionProveedorComboBox" pref="150" max="32767" attributes="0"/>
-                                      <Component id="RegistrarPromocionServiciosScrollPane" alignment="0" pref="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="RegistrarPromocionPrecioTotalTextField" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="103" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="RegistrarPromocionAceptarButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                              <Component id="RegistrarPromocionCancelarButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarPromocionProveedorComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarPromocionProveedorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RegistrarPromocionServiciosLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarPromocionServiciosScrollPane" min="-2" pref="50" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarPromocionPrecioTotalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarPromocionPrecioTotalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegistrarPromocionAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="RegistrarPromocionCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="163" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="RegistrarPromocionLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Promoci&#xf3;n"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarPromocionProveedorLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Proveedor"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="RegistrarPromocionProveedorComboBox">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="0"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="RegistrarPromocionServiciosLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Servicios"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="RegistrarPromocionServiciosScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="RegistrarPromocionServiciosList">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="RegistrarPromocionPrecioTotalLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Precio Total"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="RegistrarPromocionPrecioTotalTextField">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="PT"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegistrarPromocionPrecioTotalTextFieldActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="RegistrarPromocionAceptarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="RegistrarPromocionCancelarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JInternalFrame" name="ActualizarServicioFrame">
-          <Properties>
-            <Property name="visible" type="boolean" value="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card7"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="ActualizarServicioCategoriasLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="ActualizarServicioCategoriasScrollPane" min="-2" pref="119" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="ActualizarServicioServicioLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="ActualizarServicioLabel" min="-2" max="-2" attributes="0"/>
-                                              <Component id="ActualizarServicioServicioScrollPane" pref="0" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="ActualizarServicioDescripcionLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="ActualizarServicioDescripcionTextField" min="-2" pref="150" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="ActualizarServicioVerImagenesButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ActualizarServicioCiudadOrigenLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ActualizarServicioCiudadOrigenScrollPane" min="-2" pref="123" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="ActualizarServicioCiudadDestinoLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="ActualizarServicioModificarImagenesButton" max="32767" attributes="0"/>
-                                          <Component id="ActualizaServicioCiudadDestinoScrollPane" alignment="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
-                      <Component id="ActualizarServicioAceptarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="ActualizarServicioCancelarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ActualizarServicioLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="ActualizarServicioServicioLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="ActualizarServicioServicioScrollPane" min="-2" pref="63" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ActualizarServicioDescripcionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ActualizarServicioDescripcionTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ActualizarServicioVerImagenesButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ActualizarServicioModificarImagenesButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ActualizarServicioCiudadOrigenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ActualizarServicioCiudadDestinoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="ActualizaServicioCiudadDestinoScrollPane" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ActualizarServicioCategoriasScrollPane" min="-2" pref="70" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="ActualizarServicioCiudadOrigenScrollPane" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="ActualizarServicioCategoriasLabel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace pref="31" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ActualizarServicioAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ActualizarServicioCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="ActualizarServicioLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Actualizar Servicio"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ActualizarServicioServicioLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Servicio"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="ActualizarServicioServicioScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="ActualizarServicioServicioList">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="ActualizarServicioDescripcionLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Descripci&#xf3;n"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ActualizarServicioDescripcionTextField">
-            </Component>
-            <Component class="javax.swing.JButton" name="ActualizarServicioVerImagenesButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ver im&#xe1;genes"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarServicioVerImagenesButtonActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="ActualizarServicioModificarImagenesButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Modificar im&#xe1;genes"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ActualizarServicioCiudadOrigenLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ciudad de origen"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="ActualizarServicioCiudadOrigenScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="ActualizarServicioCiudadOrigenList">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="&lt;Ciudad Actual&gt;"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="ActualizarServicioCiudadDestinoLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ciudad de destino"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="ActualizaServicioCiudadDestinoScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="ActualizarServicioCiudadDestinoList">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="1">
-                        <StringItem index="0" value="&lt;Ciudad Actual&gt;"/>
-                      </StringArray>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="ActualizarServicioCategoriasLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Categor&#xed;as"/>
-              </Properties>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="ActualizarServicioCategoriasScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="ActualizarServicioCategoriasList">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-                      <StringArray count="0"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="ActualizarServicioAceptarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Aceptar"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="ActualizarServicioCancelarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar"/>
-              </Properties>
-            </Component>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JInternalFrame" name="ConsultaUsuarioFrame">
-          <Properties>
-            <Property name="visible" type="boolean" value="true"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card3"/>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="ConsultaUsuarioSelecImagenButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                          <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
-                                          <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="165" max="-2" attributes="0"/>
-                                          <Component id="ConsultaUsuarioBuscarButton" min="-2" pref="109" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                  <Component id="ConsultaUsuApellido" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="ConsultaUsuNick" min="-2" max="-2" attributes="0"/>
-                                                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="ConsultaUsuCElec" alignment="1" min="-2" max="-2" attributes="0"/>
-                                                      <Component id="ConsultaUsuFNac" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="ConsultaUsuNom" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="ConsultarUsuNickName" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuApellido" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuNomCliente" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuCorreoElec" min="-2" pref="173" max="-2" attributes="0"/>
-                                              <Component id="ConsultarUsuFNacimiento" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="ConsultaUsuBotonAtras1" min="-2" pref="66" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                      <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
-                          <Component id="clientesSistema" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="ConsultaUsuarioBuscarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ConsultarUsuNomCliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConsultaUsuNom" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ConsultarUsuApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConsultaUsuApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ConsultarUsuNickName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConsultaUsuNick" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ConsultarUsuCorreoElec" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConsultaUsuCElec" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="ConsultarUsuFNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ConsultaUsuFNac" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Component id="ConsultaUsuarioSelecImagenButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="67" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="ConsultaUsuBotonAtras1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="ConsultaUsuarioVerInfoLabel">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ver Informacion de Usuario"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="ConsultaUsuarioSelecImagenButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Seleccionar Imagen"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioSelecImagenButtonActionPerformed"/>
-              </Events>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JList" name="nombreClientes">
-                  <Properties>
-                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="new javax.swing.AbstractListModel() {&#xa;    String[] strings = {};&#xa;    public int getSize() { return strings.length; }&#xa;    public Object getElementAt(int i) { return strings[i]; }&#xa;}" type="code"/>
-                    </Property>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JButton" name="clientesSistema">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Clientes"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="clientesSistemaActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="ConsultaUsuarioBuscarButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Informacion"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioBuscarButtonActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ConsultaUsuNom">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ConsultaUsuApellido">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Apellido:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ConsultaUsuNick">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="NickName:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ConsultaUsuCElec">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Correo Electronico:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="ConsultaUsuFNac">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha Nacimiento:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="ConsultarUsuNomCliente">
-            </Component>
-            <Component class="javax.swing.JTextField" name="ConsultarUsuApellido">
-            </Component>
-            <Component class="javax.swing.JTextField" name="ConsultarUsuNickName">
-            </Component>
-            <Component class="javax.swing.JTextField" name="ConsultarUsuCorreoElec">
-            </Component>
-            <Component class="javax.swing.JTextField" name="ConsultarUsuFNacimiento">
-            </Component>
-            <Component class="javax.swing.JButton" name="ConsultaUsuBotonAtras1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Atras"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuBotonAtras1ActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

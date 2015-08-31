@@ -5,10 +5,14 @@
  */
 package tpgr32;
 
+import java.awt.Image;
 import java.util.*;
 import java.text.*;
 import java.util.Locale;
 import javax.swing.DefaultListModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -16,16 +20,16 @@ import javax.swing.DefaultListModel;
  */
 public class Interfaz extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Interfaz
-     */
+    private FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
+    private String rutaImagen_;
+    
     public Interfaz() {
 	initComponents();
 	setLocationRelativeTo(null); //Centra el MainFrame en la pantalla
 	PanelCentral.removeAll();
 	PanelCentral.repaint();
 	PanelCentral.revalidate(); //HACE QUE NO SE VEA NADA AL ABRIR EL PROGRAMA
-	
+	rutaImagen_ ="";
     }
 
     /**
@@ -42,31 +46,9 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaUsuBotonAtras = new javax.swing.JButton();
         ConsultaUsuarioImagePanel = new javax.swing.JPanel();
         ConsultaUsuarioNoImgLabel = new javax.swing.JLabel();
+        RegistrarServicioVentanaSeleccImagenDialog = new javax.swing.JDialog();
+        RegistrarServicioSelectorImagenFileChooser = new javax.swing.JFileChooser();
         PanelCentral = new javax.swing.JPanel();
-        RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
-        RegUsuarioLabel = new javax.swing.JLabel();
-        RegUsuarioNicknameLabel = new javax.swing.JLabel();
-        RegUsuarioNombreLabel = new javax.swing.JLabel();
-        RegUsuarioApellidoLabel = new javax.swing.JLabel();
-        RegUsuarioCorreoLabel = new javax.swing.JLabel();
-        RegUsuarioFechaLabel = new javax.swing.JLabel();
-        RegUsuarioSeleccionarImagenButton = new javax.swing.JButton();
-        RegUsuarioNicknameTextField = new javax.swing.JTextField();
-        RegUsuarioNombreTextField = new javax.swing.JTextField();
-        RegUsuarioApellidoTextField = new javax.swing.JTextField();
-        RegUsuarioCorreoTextField = new javax.swing.JTextField();
-        RegUsuarioDiaComboBox = new javax.swing.JComboBox<Integer>();
-        RegUsuarioMesComboBox = new javax.swing.JComboBox<Integer>();
-        RegUsuarioAnioComboBox = new javax.swing.JComboBox<Integer>();
-        RegUsuarioClienteRadioButton = new javax.swing.JRadioButton();
-        RegUsuarioProveedorRadioButton = new javax.swing.JRadioButton();
-        RegUsuarioNombreEmpresaLabel = new javax.swing.JLabel();
-        RegUsuarioURLLabel = new javax.swing.JLabel();
-        RegUsuarioNombreEmpresaTextField = new javax.swing.JTextField();
-        RegUsuarioURLTextField = new javax.swing.JTextField();
-        RegUsuarioAceptar = new javax.swing.JButton();
-        RegUsuarioCancelar = new javax.swing.JButton();
-        RegUsuarioErrorLabel = new javax.swing.JLabel();
         RegistrarCategoriaFrame = new javax.swing.JInternalFrame();
         RegCategoriaLabel = new javax.swing.JLabel();
         RegCategoriaNomCategoriaLabel = new javax.swing.JLabel();
@@ -86,20 +68,24 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioDescripcionLabel = new javax.swing.JLabel();
         RegistrarServicioTextField = new javax.swing.JTextField();
         RegistrarServicioSelecImagenesButton = new javax.swing.JButton();
-        RegistrarServicioMax3ImagLabel = new javax.swing.JLabel();
         RegistrarServcioPrecioLabel = new javax.swing.JLabel();
         RegistrarServicioPrecioTextField = new javax.swing.JTextField();
         RegistrarServicioCiudadOrigenLabel = new javax.swing.JLabel();
         RegistrarServicioCiudadDestinoLabel = new javax.swing.JLabel();
-        RegistrarServicioConjCategoriasLabel = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        RegistrarServicioCategoriasList = new javax.swing.JList();
         RegistrarServicioProveedorLabel = new javax.swing.JLabel();
         RegistrarServicioAceptarButton = new javax.swing.JButton();
         RegistrarServicioCancelarButton = new javax.swing.JButton();
         RegistrarServicioProveedorComboBox = new javax.swing.JComboBox();
         RegistrarServicioCiudadDestinoComboBox = new javax.swing.JComboBox();
+        RegistroServicioPaisOrigenLabel = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        RegistrarServicioArbolCategoriasTree = new javax.swing.JTree();
+        RegistrarServicioPaisDestinoLabel = new javax.swing.JLabel();
+        RegistrarServicioPaisOrigenComboBox = new javax.swing.JComboBox();
         RegistrarServicioCiudadOrigenComboBox = new javax.swing.JComboBox();
+        RegistrarServicioPaisDestinoComboBox = new javax.swing.JComboBox();
+        RegistrarServicioSeleccCategoriaBotton = new javax.swing.JButton();
+        RegistrarServicioImagenLabel = new javax.swing.JLabel();
         RegistrarPromocionFrame = new javax.swing.JInternalFrame();
         RegistrarPromocionLabel = new javax.swing.JLabel();
         RegistrarPromocionProveedorLabel = new javax.swing.JLabel();
@@ -149,6 +135,30 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarUsuCorreoElec = new javax.swing.JTextField();
         ConsultarUsuFNacimiento = new javax.swing.JTextField();
         ConsultaUsuBotonAtras1 = new javax.swing.JButton();
+        RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
+        RegUsuarioLabel = new javax.swing.JLabel();
+        RegUsuarioNicknameLabel = new javax.swing.JLabel();
+        RegUsuarioNombreLabel = new javax.swing.JLabel();
+        RegUsuarioApellidoLabel = new javax.swing.JLabel();
+        RegUsuarioCorreoLabel = new javax.swing.JLabel();
+        RegUsuarioFechaLabel = new javax.swing.JLabel();
+        RegUsuarioSeleccionarImagenButton = new javax.swing.JButton();
+        RegUsuarioNicknameTextField = new javax.swing.JTextField();
+        RegUsuarioNombreTextField = new javax.swing.JTextField();
+        RegUsuarioApellidoTextField = new javax.swing.JTextField();
+        RegUsuarioCorreoTextField = new javax.swing.JTextField();
+        RegUsuarioDiaComboBox = new javax.swing.JComboBox<Integer>();
+        RegUsuarioMesComboBox = new javax.swing.JComboBox<Integer>();
+        RegUsuarioAnioComboBox = new javax.swing.JComboBox<Integer>();
+        RegUsuarioClienteRadioButton = new javax.swing.JRadioButton();
+        RegUsuarioProveedorRadioButton = new javax.swing.JRadioButton();
+        RegUsuarioNombreEmpresaLabel = new javax.swing.JLabel();
+        RegUsuarioURLLabel = new javax.swing.JLabel();
+        RegUsuarioNombreEmpresaTextField = new javax.swing.JTextField();
+        RegUsuarioURLTextField = new javax.swing.JTextField();
+        RegUsuarioAceptar = new javax.swing.JButton();
+        RegUsuarioCancelar = new javax.swing.JButton();
+        RegUsuarioErrorLabel = new javax.swing.JLabel();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -187,6 +197,22 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(57, Short.MAX_VALUE))
         );
 
+        javax.swing.GroupLayout RegistrarServicioVentanaSeleccImagenDialogLayout = new javax.swing.GroupLayout(RegistrarServicioVentanaSeleccImagenDialog.getContentPane());
+        RegistrarServicioVentanaSeleccImagenDialog.getContentPane().setLayout(RegistrarServicioVentanaSeleccImagenDialogLayout);
+        RegistrarServicioVentanaSeleccImagenDialogLayout.setHorizontalGroup(
+            RegistrarServicioVentanaSeleccImagenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarServicioVentanaSeleccImagenDialogLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(RegistrarServicioSelectorImagenFileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        RegistrarServicioVentanaSeleccImagenDialogLayout.setVerticalGroup(
+            RegistrarServicioVentanaSeleccImagenDialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RegistrarServicioVentanaSeleccImagenDialogLayout.createSequentialGroup()
+                .addComponent(RegistrarServicioSelectorImagenFileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
         setPreferredSize(new java.awt.Dimension(450, 550));
@@ -194,105 +220,17 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.setLayout(new java.awt.CardLayout());
 
-        RegistrarUsuarioFrame.setVisible(false);
-        RegistrarUsuarioFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        RegUsuarioLabel.setText("Registrar Usuario");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 11, -1, -1));
-
-        RegUsuarioNicknameLabel.setText("Nickname:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 39, -1, -1));
-
-        RegUsuarioNombreLabel.setText("Nombre:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-
-        RegUsuarioApellidoLabel.setText("Apellido:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 101, -1, -1));
-
-        RegUsuarioCorreoLabel.setText("Correo:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, -1, -1));
-
-        RegUsuarioFechaLabel.setText("Fecha de Nacimiento:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
-
-        RegUsuarioSeleccionarImagenButton.setText("Seleccionar Imagen");
-        RegUsuarioSeleccionarImagenButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioSeleccionarImagenButtonActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioSeleccionarImagenButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 198, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 190, -1));
-
-        RegUsuarioDiaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-        RegUsuarioDiaComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioDiaComboBoxActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioDiaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
-
-        RegUsuarioMesComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioMesComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
-
-        RegUsuarioAnioComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015" }));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAnioComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 80, -1));
-
-        RegUsuarioClienteRadioButton.setSelected(true);
-        RegUsuarioClienteRadioButton.setText("Cliente");
-        RegUsuarioClienteRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioClienteRadioButtonActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 198, -1, -1));
-
-        RegUsuarioProveedorRadioButton.setText("Proveedor");
-        RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioProveedorRadioButtonActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 198, -1, -1));
-
-        RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, -1, -1));
-
-        RegUsuarioURLLabel.setText("URL:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 267, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 190, -1));
-
-        RegUsuarioAceptar.setText("Aceptar");
-        RegUsuarioAceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioAceptarActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
-
-        RegUsuarioCancelar.setText("Cancelar");
-        RegUsuarioCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioCancelarActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
-
-        RegUsuarioErrorLabel.setForeground(new java.awt.Color(204, 0, 0));
-        RegUsuarioErrorLabel.setText("LABEL PARA INDICIAR ERRORES");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 302, -1, -1));
-
-        PanelCentral.add(RegistrarUsuarioFrame, "card2");
-
         RegistrarCategoriaFrame.setVisible(true);
 
         RegCategoriaLabel.setText("Registrar Categoria");
 
         RegCategoriaNomCategoriaLabel.setText("Nombre");
+
+        RegCategoriaNombreCategoriaTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegCategoriaNombreCategoriaTextFieldActionPerformed(evt);
+            }
+        });
 
         RegCategoriaCategoriaPadreLabel.setText("Categoria padre");
 
@@ -316,6 +254,11 @@ public class Interfaz extends javax.swing.JFrame {
         RegCategoriaListarCategoriasScrollPane.setViewportView(RegCategoriaListarCategoriasTree);
 
         RegCategoriaAceptarButton.setText("Aceptar");
+        RegCategoriaAceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegCategoriaAceptarButtonActionPerformed(evt);
+            }
+        });
 
         RegCategoriaCancelarButton.setText("Cancelar");
 
@@ -330,7 +273,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegCategoriaNomCategoriaLabel)
                         .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                                 .addComponent(RegCategoriaLabel)
                                 .addGap(158, 158, 158))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
@@ -344,7 +287,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addComponent(RegCategoriaSelecCategoriaPadreLabel)
                                 .addGap(38, 38, 38)
-                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE))
+                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RegCategoriaAceptarButton)
@@ -375,7 +318,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaAceptarButton)
                     .addComponent(RegCategoriaCancelarButton))
@@ -399,8 +342,11 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioDescripcionLabel.setText("Descripción");
 
         RegistrarServicioSelecImagenesButton.setText("Seleccionar Imágenes");
-
-        RegistrarServicioMax3ImagLabel.setText("(Máximo 3 imágenes)");
+        RegistrarServicioSelecImagenesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarServicioSelecImagenesButtonActionPerformed(evt);
+            }
+        });
 
         RegistrarServcioPrecioLabel.setText("Precio ($U)");
 
@@ -408,119 +354,155 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegistrarServicioCiudadDestinoLabel.setText("Ciudad de destino (opcional)");
 
-        RegistrarServicioConjCategoriasLabel.setText("Conjunto de categorías");
-
-        jScrollPane1.setViewportView(RegistrarServicioCategoriasList);
-
         RegistrarServicioProveedorLabel.setText("Proveedor");
 
         RegistrarServicioAceptarButton.setText("Aceptar");
+        RegistrarServicioAceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarServicioAceptarButtonActionPerformed(evt);
+            }
+        });
 
         RegistrarServicioCancelarButton.setText("Cancelar");
 
         RegistrarServicioProveedorComboBox.setToolTipText("");
+        RegistrarServicioProveedorComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarServicioProveedorComboBoxActionPerformed(evt);
+            }
+        });
 
         RegistrarServicioCiudadDestinoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Sin ciudad de destino>" }));
+        RegistrarServicioCiudadDestinoComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarServicioCiudadDestinoComboBoxActionPerformed(evt);
+            }
+        });
+
+        RegistroServicioPaisOrigenLabel.setText("Pais de origen");
+
+        jScrollPane3.setViewportView(RegistrarServicioArbolCategoriasTree);
+
+        RegistrarServicioPaisDestinoLabel.setText("Pais de destino (opcional)");
+
+        RegistrarServicioPaisOrigenComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar pais de origen" }));
+
+        RegistrarServicioCiudadOrigenComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar ciudad de origen" }));
+        RegistrarServicioCiudadOrigenComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarServicioCiudadOrigenComboBoxActionPerformed(evt);
+            }
+        });
+
+        RegistrarServicioPaisDestinoComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "<Sin pais de destino>" }));
+
+        RegistrarServicioSeleccCategoriaBotton.setText("Seleccionar categoria(s)");
+
+        RegistrarServicioImagenLabel.setText("          Imagen");
 
         javax.swing.GroupLayout RegistrarServicioFrameLayout = new javax.swing.GroupLayout(RegistrarServicioFrame.getContentPane());
         RegistrarServicioFrame.getContentPane().setLayout(RegistrarServicioFrameLayout);
         RegistrarServicioFrameLayout.setHorizontalGroup(
             RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarServicioFrameLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(RegistrarServicioLabel)
-                .addGap(160, 160, 160))
             .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
+                        .addGap(41, 41, 41)
                         .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addComponent(RegistrarServcioPrecioLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(RegistrarServicioAceptarButton)
-                                .addGap(11, 11, 11)))
-                        .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addComponent(RegistrarServicioMax3ImagLabel)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(RegistrarServicioCancelarButton)
-                                    .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(RegistrarServicioNomServicioTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                        .addComponent(RegistrarServicioTextField, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                        .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RegistrarServicioNomServicioLabel)
                             .addComponent(RegistrarServicioDescripcionLabel)
-                            .addComponent(RegistrarServicioSelecImagenesButton)
+                            .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(RegistrarServicioAceptarButton)
+                                .addGap(52, 52, 52)
+                                .addComponent(RegistrarServicioCancelarButton))
                             .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
                                 .addComponent(RegistrarServicioProveedorLabel)
-                                .addGap(27, 27, 27)
+                                .addGap(30, 30, 30)
                                 .addComponent(RegistrarServicioProveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(RegistrarServicioNomServicioLabel)
                             .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addComponent(RegistrarServicioCiudadDestinoLabel)
+                                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(RegistrarServicioCiudadDestinoLabel)
+                                    .addComponent(RegistroServicioPaisOrigenLabel)
+                                    .addComponent(RegistrarServicioCiudadOrigenLabel)
+                                    .addComponent(RegistrarServicioSeleccCategoriaBotton)
+                                    .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegistrarServicioFrameLayout.createSequentialGroup()
+                                            .addComponent(RegistrarServcioPrecioLabel)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(RegistrarServicioPaisDestinoLabel, javax.swing.GroupLayout.Alignment.LEADING)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(RegistrarServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(RegistrarServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(RegistrarServicioPaisDestinoComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(RegistrarServicioCiudadOrigenComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(RegistrarServicioPaisOrigenComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addComponent(RegistrarServicioConjCategoriasLabel)
-                                .addGap(34, 34, 34)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
-                                .addComponent(RegistrarServicioCiudadOrigenLabel)
-                                .addGap(26, 26, 26)
-                                .addComponent(RegistrarServicioCiudadOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(RegistrarServicioSelecImagenesButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                                .addComponent(RegistrarServicioImagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
+                        .addGap(161, 161, 161)
+                        .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RegistrarServicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(RegistrarServicioLabel)
+                            .addComponent(RegistrarServicioNomServicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(78, 78, 78))
         );
         RegistrarServicioFrameLayout.setVerticalGroup(
             RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarServicioFrameLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(RegistrarServicioLabel)
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioNomServicioLabel)
                     .addComponent(RegistrarServicioNomServicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegistrarServicioDescripcionLabel)
-                    .addComponent(RegistrarServicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(RegistrarServicioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioSelecImagenesButton)
-                    .addComponent(RegistrarServicioMax3ImagLabel))
-                .addGap(18, 18, 18)
+                    .addComponent(RegistrarServicioImagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistrarServcioPrecioLabel)
-                    .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RegistrarServcioPrecioLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegistroServicioPaisOrigenLabel)
+                    .addComponent(RegistrarServicioPaisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioCiudadOrigenLabel)
                     .addComponent(RegistrarServicioCiudadOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
+                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegistrarServicioPaisDestinoLabel)
+                    .addComponent(RegistrarServicioPaisDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioCiudadDestinoLabel)
                     .addComponent(RegistrarServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RegistrarServicioConjCategoriasLabel)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistrarServicioProveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegistrarServicioProveedorLabel))
-                .addGap(34, 34, 34)
-                .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistrarServicioCancelarButton)
-                    .addComponent(RegistrarServicioAceptarButton))
-                .addGap(32, 32, 32))
+                    .addGroup(RegistrarServicioFrameLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RegistrarServicioProveedorLabel)
+                            .addComponent(RegistrarServicioProveedorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(RegistrarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(RegistrarServicioAceptarButton)
+                            .addComponent(RegistrarServicioCancelarButton)))
+                    .addComponent(RegistrarServicioSeleccCategoriaBotton))
+                .addGap(141, 141, 141))
         );
 
         PanelCentral.add(RegistrarServicioFrame, "card5");
@@ -553,7 +535,7 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarPromocionFrameLayout.setHorizontalGroup(
             RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistrarPromocionFrameLayout.createSequentialGroup()
-                .addContainerGap(44, Short.MAX_VALUE)
+                .addContainerGap(166, Short.MAX_VALUE)
                 .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarPromocionFrameLayout.createSequentialGroup()
                         .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -595,7 +577,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarPromocionFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarPromocionAceptarButton)
                     .addComponent(RegistrarPromocionCancelarButton))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
 
         PanelCentral.add(RegistrarPromocionFrame, "card6");
@@ -686,7 +668,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(ActualizarServicioAceptarButton)
                 .addGap(50, 50, 50)
                 .addComponent(ActualizarServicioCancelarButton)
-                .addGap(0, 81, Short.MAX_VALUE))
+                .addGap(0, 171, Short.MAX_VALUE))
         );
         ActualizarServicioFrameLayout.setVerticalGroup(
             ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -723,7 +705,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ActualizarServicioAceptarButton)
                     .addComponent(ActualizarServicioCancelarButton))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
 
         PanelCentral.add(ActualizarServicioFrame, "card7");
@@ -783,45 +765,43 @@ public class Interfaz extends javax.swing.JFrame {
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(ConsultaUsuarioSelecImagenButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(16, 16, 16)
-                                    .addComponent(clientesSistema)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(123, 123, 123)
-                                    .addComponent(ConsultaUsuarioVerInfoLabel))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(165, 165, 165)
-                                    .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                    .addGap(46, 46, 46)
-                                    .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ConsultaUsuApellido)
-                                            .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                                    .addComponent(ConsultaUsuNick)
-                                                    .addGap(61, 61, 61))
-                                                .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addComponent(ConsultaUsuFNac)))
-                                        .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                                            .addComponent(ConsultaUsuNom)
-                                            .addGap(76, 76, 76)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(ConsultaUsuarioSelecImagenButton))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(16, 16, 16)
+                                .addComponent(clientesSistema)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(123, 123, 123)
+                                .addComponent(ConsultaUsuarioVerInfoLabel))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(165, 165, 165)
+                                .addComponent(ConsultaUsuarioBuscarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(0, 35, Short.MAX_VALUE)))
+                                        .addComponent(ConsultaUsuApellido)
+                                        .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                                .addComponent(ConsultaUsuNick)
+                                                .addGap(61, 61, 61))
+                                            .addComponent(ConsultaUsuCElec, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(ConsultaUsuFNac)))
+                                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                                        .addComponent(ConsultaUsuNom)
+                                        .addGap(76, 76, 76)))
+                                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ConsultarUsuNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuNomCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 149, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -862,7 +842,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(ConsultaUsuarioSelecImagenButton)
-                        .addGap(0, 67, Short.MAX_VALUE))
+                        .addGap(0, 127, Short.MAX_VALUE))
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ConsultaUsuBotonAtras1)))
@@ -870,6 +850,112 @@ public class Interfaz extends javax.swing.JFrame {
         );
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
+
+        RegistrarUsuarioFrame.setVisible(false);
+        RegistrarUsuarioFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        RegUsuarioLabel.setText("Registrar Usuario");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 11, -1, -1));
+
+        RegUsuarioNicknameLabel.setText("Nickname:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 39, -1, -1));
+
+        RegUsuarioNombreLabel.setText("Nombre:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        RegUsuarioApellidoLabel.setText("Apellido:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 101, -1, -1));
+
+        RegUsuarioCorreoLabel.setText("Correo:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, -1, -1));
+
+        RegUsuarioFechaLabel.setText("Fecha de Nacimiento:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
+
+        RegUsuarioSeleccionarImagenButton.setText("Seleccionar Imagen");
+        RegUsuarioSeleccionarImagenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioSeleccionarImagenButtonActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioSeleccionarImagenButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 198, -1, -1));
+
+        RegUsuarioNicknameTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioNicknameTextFieldActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 190, -1));
+
+        RegUsuarioNombreTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioNombreTextFieldActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 190, -1));
+
+        RegUsuarioDiaComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        RegUsuarioDiaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioDiaComboBoxActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioDiaComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, -1, -1));
+
+        RegUsuarioMesComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioMesComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, -1, -1));
+
+        RegUsuarioAnioComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015" }));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAnioComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, 80, -1));
+
+        RegUsuarioClienteRadioButton.setSelected(true);
+        RegUsuarioClienteRadioButton.setText("Cliente");
+        RegUsuarioClienteRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioClienteRadioButtonActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 198, -1, -1));
+
+        RegUsuarioProveedorRadioButton.setText("Proveedor");
+        RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioProveedorRadioButtonActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 198, -1, -1));
+
+        RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, -1, -1));
+
+        RegUsuarioURLLabel.setText("URL:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 267, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 190, -1));
+
+        RegUsuarioAceptar.setText("Aceptar");
+        RegUsuarioAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioAceptarActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, -1, -1));
+
+        RegUsuarioCancelar.setText("Cancelar");
+        RegUsuarioCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegUsuarioCancelarActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
+
+        RegUsuarioErrorLabel.setForeground(new java.awt.Color(204, 0, 0));
+        RegUsuarioErrorLabel.setText("LABEL PARA INDICIAR ERRORES");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 302, -1, -1));
+
+        PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
@@ -942,7 +1028,7 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -950,7 +1036,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(PanelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -977,39 +1063,6 @@ public class Interfaz extends javax.swing.JFrame {
 	//Muestra el frame de registrar usario en el panel central
     }//GEN-LAST:event_MenuRegistrarUsuarioActionPerformed
 
-    private void RegUsuarioSeleccionarImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
-
-    private void RegUsuarioDiaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioDiaComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegUsuarioDiaComboBoxActionPerformed
-
-    private void RegUsuarioClienteRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioClienteRadioButtonActionPerformed
-        RegUsuarioNombreEmpresaLabel.setVisible(false);
-	RegUsuarioURLLabel.setVisible(false);
-	RegUsuarioNombreEmpresaTextField.setVisible(false);
-	RegUsuarioURLTextField.setVisible(false);
-    }//GEN-LAST:event_RegUsuarioClienteRadioButtonActionPerformed
-
-    private void RegUsuarioProveedorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioProveedorRadioButtonActionPerformed
-        RegUsuarioNombreEmpresaLabel.setVisible(true);
-	RegUsuarioURLLabel.setVisible(true);
-	RegUsuarioNombreEmpresaTextField.setVisible(true);
-	RegUsuarioURLTextField.setVisible(true);
-    }//GEN-LAST:event_RegUsuarioProveedorRadioButtonActionPerformed
-
-    private void RegUsuarioCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioCancelarActionPerformed
-        //this.RegUsuarioCancelar.doClick();
-        this.RegUsuarioNicknameTextField.setText(null);
-        this.RegUsuarioNombreTextField.setText(null);
-        this.RegUsuarioApellidoTextField.setText(null);
-        this.RegUsuarioCorreoTextField.setText(null);
-        this.RegUsuarioNombreEmpresaTextField.setText(null);
-        this.RegUsuarioURLTextField.setText(null);
-        PanelCentral.remove(RegistrarUsuarioFrame);
-    }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
-
     private void infoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoClienteActionPerformed
         
 	ConsultaUsuarioImagePanel.setVisible(false);
@@ -1019,36 +1072,6 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
     }//GEN-LAST:event_infoClienteActionPerformed
-
-    private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
-        try
-	{
-	    ControladorUsuario ctrlUsr = new ControladorUsuario();
-	    Calendar cal = Calendar.getInstance();
-	/*    cal.set(Calendar.YEAR, (Integer)(RegUsuarioAnioComboBox.getSelectedItem()));
-	    cal.set(Calendar.MONTH, (Integer)(RegUsuarioMesComboBox.getSelectedItem()));
-	    cal.set(Calendar.DAY_OF_MONTH, (Integer)(RegUsuarioDiaComboBox.getSelectedItem()));
-	    */Date d = cal.getTime();
-	    if(RegUsuarioClienteRadioButton.isSelected())
-	    {
-                ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
-                        RegUsuarioCorreoTextField.getText(), d);
-                
-	    }
-            this.RegUsuarioNicknameTextField.setText(null);
-            this.RegUsuarioNombreTextField.setText(null);
-            this.RegUsuarioApellidoTextField.setText(null);
-            this.RegUsuarioCorreoTextField.setText(null);
-            this.RegUsuarioNombreEmpresaTextField.setText(null);
-            this.RegUsuarioURLTextField.setText(null);
-            PanelCentral.remove(RegistrarUsuarioFrame);  
-            
-	}catch(Exception ex)
-	{
-            this.RegUsuarioErrorLabel.setVisible(true);
-            this.RegUsuarioErrorLabel.setText(ex.getMessage());
-	}
-    }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
     private void MenuRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarCategoriaActionPerformed
         
@@ -1063,24 +1086,30 @@ public class Interfaz extends javax.swing.JFrame {
 
     }//GEN-LAST:event_MenuRegistrarCategoriaActionPerformed
 
-    private void RegCategoriaConPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaConPadreRadioButtonActionPerformed
-        RegCategoriaSelecCategoriaPadreLabel.setVisible(true);
-        RegCategoriaListarCategoriasScrollPane.setVisible(true);
-    }//GEN-LAST:event_RegCategoriaConPadreRadioButtonActionPerformed
-
-    private void RegCategoriaSinPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaSinPadreRadioButtonActionPerformed
-        RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-        RegCategoriaListarCategoriasScrollPane.setVisible(false);
-    }//GEN-LAST:event_RegCategoriaSinPadreRadioButtonActionPerformed
-
-    private void RegistrarServicioNomServicioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioNomServicioTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarServicioNomServicioTextFieldActionPerformed
-
     private void MenuRegistrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarServicioActionPerformed
         PanelCentral.add(RegistrarServicioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
+        
+        FabricaControladores fabr = FabricaControladores.getInstancia();
+        
+        IControladorUsuario usr = fabr.getControladorUsuario();
+        
+        //Se carga los combobox
+        Set<DataUsuario> proveedores = usr.listarClientes();
+        
+        for(DataUsuario u: proveedores){
+            RegistrarServicioProveedorComboBox.addItem(u);
+        }
+        
+        IControladorPublicacion pub = fabr.getControladorPublicacion();
+        
+        Set<String> paises = pub.listarPaises();
+        
+        for(String s: paises){
+            RegistrarServicioPaisOrigenComboBox.addItem(s);
+            RegistrarServicioPaisDestinoComboBox.addItem(s);
+        }
     }//GEN-LAST:event_MenuRegistrarServicioActionPerformed
 
     private void MenuRegistrarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarPromocionActionPerformed
@@ -1089,29 +1118,102 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.revalidate();
     }//GEN-LAST:event_MenuRegistrarPromocionActionPerformed
 
-    private void RegistrarPromocionPrecioTotalTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionPrecioTotalTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarPromocionPrecioTotalTextFieldActionPerformed
-
     private void MenuActualizarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActualizarServicioActionPerformed
         PanelCentral.add(ActualizarServicioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
     }//GEN-LAST:event_MenuActualizarServicioActionPerformed
 
-    private void ActualizarServicioVerImagenesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarServicioVerImagenesButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ActualizarServicioVerImagenesButtonActionPerformed
+    private void ConsultaUsuBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtrasActionPerformed
+        //limpia los datos de cada jText
+        this.ConsultarUsuNomCliente.setText(null);
+        this.ConsultarUsuApellido.setText(null);
+        this.ConsultarUsuNickName.setText(null);
+        this.ConsultarUsuCorreoElec.setText(null);
+        //faltaria limpiar los datos del Jlist nombreClientes
+        PanelCentral.remove(this.ConsultaUsuarioFrame);
+    }//GEN-LAST:event_ConsultaUsuBotonAtrasActionPerformed
 
-    private void clientesSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesSistemaActionPerformed
-        ControladorUsuario cU = new ControladorUsuario();
-        DefaultListModel modelo = new DefaultListModel();
-        Set<DataUsuario> datosClientes = cU.listarClientes();
-        for (DataUsuario dtU : datosClientes) {
-            modelo.addElement(dtU); //agrega los clientes a la jList
+    private void RegUsuarioCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioCancelarActionPerformed
+        //this.RegUsuarioCancelar.doClick();
+        this.RegUsuarioNicknameTextField.setText(null);
+        this.RegUsuarioNombreTextField.setText(null);
+        this.RegUsuarioApellidoTextField.setText(null);
+        this.RegUsuarioCorreoTextField.setText(null);
+        this.RegUsuarioNombreEmpresaTextField.setText(null);
+        this.RegUsuarioURLTextField.setText(null);
+        PanelCentral.remove(RegistrarUsuarioFrame);
+    }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
+
+    private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
+        try
+        {
+            ControladorUsuario ctrlUsr = new ControladorUsuario();
+            Calendar cal = Calendar.getInstance();
+            /*    cal.set(Calendar.YEAR, (Integer)(RegUsuarioAnioComboBox.getSelectedItem()));
+            cal.set(Calendar.MONTH, (Integer)(RegUsuarioMesComboBox.getSelectedItem()));
+            cal.set(Calendar.DAY_OF_MONTH, (Integer)(RegUsuarioDiaComboBox.getSelectedItem()));
+            */Date d = cal.getTime();
+            if(RegUsuarioClienteRadioButton.isSelected())
+            {
+                ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() ,
+                    RegUsuarioCorreoTextField.getText(), d);
+
+            }
+            this.RegUsuarioNicknameTextField.setText(null);
+            this.RegUsuarioNombreTextField.setText(null);
+            this.RegUsuarioApellidoTextField.setText(null);
+            this.RegUsuarioCorreoTextField.setText(null);
+            this.RegUsuarioNombreEmpresaTextField.setText(null);
+            this.RegUsuarioURLTextField.setText(null);
+            PanelCentral.remove(RegistrarUsuarioFrame);
+
+        }catch(Exception ex)
+        {
+            this.RegUsuarioErrorLabel.setVisible(true);
+            this.RegUsuarioErrorLabel.setText(ex.getMessage());
         }
-        this.nombreClientes.setModel(modelo); //muestra los datos en pantalla
-    }//GEN-LAST:event_clientesSistemaActionPerformed
+    }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
+
+    private void RegUsuarioProveedorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioProveedorRadioButtonActionPerformed
+        RegUsuarioNombreEmpresaLabel.setVisible(true);
+        RegUsuarioURLLabel.setVisible(true);
+        RegUsuarioNombreEmpresaTextField.setVisible(true);
+        RegUsuarioURLTextField.setVisible(true);
+    }//GEN-LAST:event_RegUsuarioProveedorRadioButtonActionPerformed
+
+    private void RegUsuarioClienteRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioClienteRadioButtonActionPerformed
+        RegUsuarioNombreEmpresaLabel.setVisible(false);
+        RegUsuarioURLLabel.setVisible(false);
+        RegUsuarioNombreEmpresaTextField.setVisible(false);
+        RegUsuarioURLTextField.setVisible(false);
+    }//GEN-LAST:event_RegUsuarioClienteRadioButtonActionPerformed
+
+    private void RegUsuarioDiaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioDiaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegUsuarioDiaComboBoxActionPerformed
+
+    private void RegUsuarioNombreTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioNombreTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegUsuarioNombreTextFieldActionPerformed
+
+    private void RegUsuarioNicknameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioNicknameTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegUsuarioNicknameTextFieldActionPerformed
+
+    private void RegUsuarioSeleccionarImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
+
+    private void ConsultaUsuBotonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtras1ActionPerformed
+        //limpia los datos de cada jText
+        this.ConsultarUsuNomCliente.setText(null);
+        this.ConsultarUsuApellido.setText(null);
+        this.ConsultarUsuNickName.setText(null);
+        this.ConsultarUsuCorreoElec.setText(null);
+        //faltaria limpiar los datos del Jlist nombreClientes
+        PanelCentral.remove(this.ConsultaUsuarioFrame);
+    }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
 
     private void ConsultaUsuarioBuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioBuscarButtonActionPerformed
         //muestra la informacion del cliente seleccionado
@@ -1125,29 +1227,153 @@ public class Interfaz extends javax.swing.JFrame {
         //this.ConsultarUsuFNacimiento.setText(dtCliente.getFecha().toString());
     }//GEN-LAST:event_ConsultaUsuarioBuscarButtonActionPerformed
 
-    private void ConsultaUsuBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtrasActionPerformed
-        //limpia los datos de cada jText
-        this.ConsultarUsuNomCliente.setText(null);
-        this.ConsultarUsuApellido.setText(null);
-        this.ConsultarUsuNickName.setText(null);
-        this.ConsultarUsuCorreoElec.setText(null);
-        //faltaria limpiar los datos del Jlist nombreClientes
-        PanelCentral.remove(this.ConsultaUsuarioFrame);
-    }//GEN-LAST:event_ConsultaUsuBotonAtrasActionPerformed
+    private void clientesSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesSistemaActionPerformed
+        ControladorUsuario cU = new ControladorUsuario();
+        DefaultListModel modelo = new DefaultListModel();
+        Set<DataUsuario> datosClientes = cU.listarClientes();
+        for (DataUsuario dtU : datosClientes) {
+            modelo.addElement(dtU); //agrega los clientes a la jList
+        }
+        this.nombreClientes.setModel(modelo); //muestra los datos en pantalla
+    }//GEN-LAST:event_clientesSistemaActionPerformed
 
     private void ConsultaUsuarioSelecImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
 
-    private void ConsultaUsuBotonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtras1ActionPerformed
-        //limpia los datos de cada jText
-        this.ConsultarUsuNomCliente.setText(null);
-        this.ConsultarUsuApellido.setText(null);
-        this.ConsultarUsuNickName.setText(null);
-        this.ConsultarUsuCorreoElec.setText(null);
-        //faltaria limpiar los datos del Jlist nombreClientes
-        PanelCentral.remove(this.ConsultaUsuarioFrame);
-    }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
+    private void ActualizarServicioVerImagenesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarServicioVerImagenesButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ActualizarServicioVerImagenesButtonActionPerformed
+
+    private void RegistrarPromocionPrecioTotalTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionPrecioTotalTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarPromocionPrecioTotalTextFieldActionPerformed
+
+    private void RegistrarServicioCiudadDestinoComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioCiudadDestinoComboBoxActionPerformed
+        // TODO add your handling code here:
+        FabricaControladores fabr = FabricaControladores.getInstancia();
+        IControladorPublicacion pub = fabr.getControladorPublicacion();
+        String item = (String)RegistrarServicioPaisDestinoComboBox.getSelectedItem();
+        if (!(item.equals("<Sin pais de destino>"))){
+          Set<String> ciudades = pub.listarCiudades((String)RegistrarServicioPaisDestinoComboBox.getSelectedItem());
+          for(String s: ciudades){
+              RegistrarServicioCiudadDestinoComboBox.addItem(s);
+          }
+        }
+    }//GEN-LAST:event_RegistrarServicioCiudadDestinoComboBoxActionPerformed
+
+    private void RegistrarServicioProveedorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioProveedorComboBoxActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_RegistrarServicioProveedorComboBoxActionPerformed
+
+    private void RegistrarServicioAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioAceptarButtonActionPerformed
+        // TODO add your handling code here:
+        FabricaControladores fabrica;
+
+        fabrica = FabricaControladores.getInstancia();
+
+        IControladorPublicacion pub = fabrica.getControladorPublicacion();
+
+        String nom = RegistrarServicioNomServicioTextField.getText();
+
+        String descrp = RegistrarServicioTextField.getText();
+
+        float precio = Float.parseFloat(RegistrarServicioPrecioTextField.getText());
+
+        String porigen = (String)RegistrarServicioPaisOrigenComboBox.getSelectedItem();
+
+        String corigen = (String)RegistrarServicioCiudadOrigenComboBox.getSelectedItem();
+        
+        String pdestino = (String)RegistrarServicioPaisDestinoComboBox.getSelectedItem();
+        
+        String cdestino = (String)RegistrarServicioCiudadDestinoComboBox.getSelectedItem();
+        
+        String proveedor = (String)RegistrarServicioProveedorComboBox.getSelectedItem();
+        
+        DataUbicacion dtorigen = new DataUbicacion(porigen,corigen);
+        
+        if (!(pdestino.equals("<Sin pais de destino>"))){
+            DataUbicacion dtdestino = new DataUbicacion(pdestino,cdestino);
+            pub.altaServicio(nom, descrp, null, precio, null, proveedor, dtorigen, dtdestino);
+        }
+        else{
+            pub.altaServicio(nom, descrp, null, precio, null, proveedor, dtorigen);
+        }
+        RegistrarServicioProveedorComboBox.removeAll();
+        RegistrarServicioPaisOrigenComboBox.removeAll();
+        RegistrarServicioPaisDestinoComboBox.removeAll();
+    }//GEN-LAST:event_RegistrarServicioAceptarButtonActionPerformed
+
+    private void RegistrarServicioNomServicioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioNomServicioTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegistrarServicioNomServicioTextFieldActionPerformed
+
+    private void RegCategoriaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaAceptarButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegCategoriaAceptarButtonActionPerformed
+
+    private void RegCategoriaConPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaConPadreRadioButtonActionPerformed
+        RegCategoriaSelecCategoriaPadreLabel.setVisible(true);
+        RegCategoriaListarCategoriasScrollPane.setVisible(true);
+    }//GEN-LAST:event_RegCategoriaConPadreRadioButtonActionPerformed
+
+    private void RegCategoriaSinPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaSinPadreRadioButtonActionPerformed
+        RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
+        RegCategoriaListarCategoriasScrollPane.setVisible(false);
+    }//GEN-LAST:event_RegCategoriaSinPadreRadioButtonActionPerformed
+
+    private void RegCategoriaNombreCategoriaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaNombreCategoriaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegCategoriaNombreCategoriaTextFieldActionPerformed
+
+    private void RegistrarServicioSelecImagenesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioSelecImagenesButtonActionPerformed
+        // TODO add your handling code here:
+        
+        //Se hace filtro para ver solo imagenes
+        RegistrarServicioSelectorImagenFileChooser.setFileFilter(filter_);
+        
+        //RegistrarServicioVentanaSeleccImagenDialog.setVisible(true);
+        RegistrarServicioVentanaSeleccImagenDialog.setSize(700,400);
+        RegistrarServicioVentanaSeleccImagenDialog.setLocationRelativeTo(null);
+        RegistrarServicioSelectorImagenFileChooser.setVisible(true);
+        
+        //Opcion de boton Abrir
+        int opcion = RegistrarServicioSelectorImagenFileChooser.showOpenDialog(BarraMenu);
+        if(opcion == JFileChooser.APPROVE_OPTION){
+            //Obtener nombre del archivo
+            String arch = RegistrarServicioSelectorImagenFileChooser.getSelectedFile().getPath();
+            //Obtener direccion donde se guardará la imagen
+            String archivo = RegistrarServicioSelectorImagenFileChooser.getSelectedFile().toString();
+            //Setear icono de visualizacion
+            RegistrarServicioImagenLabel.setIcon(new ImageIcon(arch));
+            //Se modifica la imagen
+            ImageIcon icon = new ImageIcon(arch);
+            //Se extrae la imagen
+            Image img = icon.getImage();
+            //Se modifica el tamaño de la imagen
+            Image imgmod = img.getScaledInstance(90,120,java.awt.Image.SCALE_SMOOTH);
+            //Se genera el ImageIcon con la nueva imagen
+            ImageIcon nuevoIcono = new ImageIcon(imgmod);
+            RegistrarServicioImagenLabel.setIcon(nuevoIcono);
+            RegistrarServicioImagenLabel.setSize(90,120);
+        }
+        
+        
+    }//GEN-LAST:event_RegistrarServicioSelecImagenesButtonActionPerformed
+
+    private void RegistrarServicioCiudadOrigenComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioCiudadOrigenComboBoxActionPerformed
+        // TODO add your handling code here:
+        FabricaControladores fabr = FabricaControladores.getInstancia();
+        IControladorPublicacion pub = fabr.getControladorPublicacion();
+        String item = (String)RegistrarServicioPaisOrigenComboBox.getSelectedItem();
+        if (!(item.equals("Seleccionar pais de origen"))){
+          Set<String> ciudades = pub.listarCiudades((String)RegistrarServicioPaisOrigenComboBox.getSelectedItem());
+          for(String s: ciudades){
+              RegistrarServicioCiudadOrigenComboBox.addItem(s);
+          }
+        }
+    }//GEN-LAST:event_RegistrarServicioCiudadOrigenComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1288,29 +1514,35 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane RegistrarPromocionServiciosScrollPane;
     private javax.swing.JLabel RegistrarServcioPrecioLabel;
     private javax.swing.JButton RegistrarServicioAceptarButton;
+    private javax.swing.JTree RegistrarServicioArbolCategoriasTree;
     private javax.swing.JButton RegistrarServicioCancelarButton;
-    private javax.swing.JList RegistrarServicioCategoriasList;
     private javax.swing.JComboBox RegistrarServicioCiudadDestinoComboBox;
     private javax.swing.JLabel RegistrarServicioCiudadDestinoLabel;
     private javax.swing.JComboBox RegistrarServicioCiudadOrigenComboBox;
     private javax.swing.JLabel RegistrarServicioCiudadOrigenLabel;
-    private javax.swing.JLabel RegistrarServicioConjCategoriasLabel;
     private javax.swing.JLabel RegistrarServicioDescripcionLabel;
     private javax.swing.JInternalFrame RegistrarServicioFrame;
+    private javax.swing.JLabel RegistrarServicioImagenLabel;
     private javax.swing.JLabel RegistrarServicioLabel;
-    private javax.swing.JLabel RegistrarServicioMax3ImagLabel;
     private javax.swing.JLabel RegistrarServicioNomServicioLabel;
     private javax.swing.JTextField RegistrarServicioNomServicioTextField;
+    private javax.swing.JComboBox RegistrarServicioPaisDestinoComboBox;
+    private javax.swing.JLabel RegistrarServicioPaisDestinoLabel;
+    private javax.swing.JComboBox RegistrarServicioPaisOrigenComboBox;
     private javax.swing.JTextField RegistrarServicioPrecioTextField;
     private javax.swing.JComboBox RegistrarServicioProveedorComboBox;
     private javax.swing.JLabel RegistrarServicioProveedorLabel;
     private javax.swing.JButton RegistrarServicioSelecImagenesButton;
+    private javax.swing.JButton RegistrarServicioSeleccCategoriaBotton;
+    private javax.swing.JFileChooser RegistrarServicioSelectorImagenFileChooser;
     private javax.swing.JTextField RegistrarServicioTextField;
+    private javax.swing.JDialog RegistrarServicioVentanaSeleccImagenDialog;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
+    private javax.swing.JLabel RegistroServicioPaisOrigenLabel;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList nombreClientes;
     // End of variables declaration//GEN-END:variables
 }
