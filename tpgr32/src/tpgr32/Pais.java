@@ -6,7 +6,9 @@
 package tpgr32;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -44,7 +46,20 @@ public class Pais {
     }
     
     public Ciudad encontrarCiudad(String nombre){
-        return ciudades_.get(nombre);
+        if (this.ciudades_.containsKey(nombre)) {
+            return this.ciudades_.get(nombre);
+        }
+        else {
+            throw new IllegalArgumentException("La ciudad " + nombre + " no existe");
+        }    
+    }
+    
+    public Set<String> listarCiudades(){
+       Set<String> ciudades = new HashSet<>();
+       for(Ciudad c: ciudades_.values()){
+           ciudades.add(c.getNombre());
+       }
+       return ciudades;
     }
 }
 
