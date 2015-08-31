@@ -34,6 +34,10 @@ public class ManejadorReserva {
         return instancia_;
     }
     
+    public void agregarReserva(Reserva r){
+        conjReservas_.put(r.getNumero(), r);
+    }
+    
     public Reserva encontrarReserva(int nro){
         return conjReservas_.get(nro);
     }
@@ -49,4 +53,5 @@ public class ManejadorReserva {
         }
         return lista;
     }
+    
 }

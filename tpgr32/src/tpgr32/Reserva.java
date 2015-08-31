@@ -59,6 +59,15 @@ public class Reserva {
     public void setEstado(Estado e){
         this.estado_=e;
     }
+   
+    public void actualizarEstadoRegistrada(Estado e) throws Exception{
+        if (this.estado_==Estado.Registrada){
+            this.setEstado(e);
+        }
+        else{
+            throw new IllegalArgumentException("El estado debe ser Registrada");
+        }
+    }
     
     public void agregarReservaPublicacion(ReservaPublicacion rp){
 	precio_total_ = precio_total_ + rp.getPrecioTotal();
