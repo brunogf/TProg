@@ -27,17 +27,19 @@ public class Servicio extends Publicacion {
         
     }
     
-    public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Ciudad origen){
-        super(nombre);
+    public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Ciudad origen, Proveedor p){
+        super(nombre,p);
         this.descripcion_ = descripcion;
         this.imagenes_ = imagenes;
         this.precio_ = precio;
         this.ciudadOrigen_ = origen;
     }
     
+    
+    //CONSTRUCTOR CON DESTINO
     public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String> categorias, DataUbicacion origen,
-            DataUbicacion destino){
-       super(nombre);
+            DataUbicacion destino, Proveedor p){
+       super(nombre,p);
        this.descripcion_ = descripcion;
        this.imagenes_ = imagenes;
        this.precio_ = precio;
@@ -65,6 +67,35 @@ public class Servicio extends Publicacion {
        
        ciudadOrigen_ = corigen;
        ciudadDestino_ = cdestino;
+    }
+    
+    
+    // CONSTRUCTOR SIN DESTINO
+    public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String> categorias, DataUbicacion origen, Proveedor p){
+       super(nombre,p);
+       this.descripcion_ = descripcion;
+       this.imagenes_ = imagenes;
+       this.precio_ = precio;
+       
+       ManejadorCategoria mc;
+       mc = ManejadorCategoria.getInstance();
+       
+       
+       for(String cat: categorias){
+           Categoria c;
+           c = mc.encontrarCategoria(cat);
+           categorias_.put(cat, c);
+           
+           c.agregarServicio(this); 
+       }
+       
+       ManejadorPais mp;
+       mp = ManejadorPais.getInstance();
+       
+       Pais porigen = mp.encontrarPais(origen.getPais());
+       Ciudad corigen = porigen.encontrarCiudad(origen.getCiudad());
+       
+       ciudadOrigen_ = corigen;
     }
     
     
@@ -96,6 +127,11 @@ public class Servicio extends Publicacion {
         return precio_;
     } 
     
+    
+    public DataServicio infoPublicacion(){
+        DataServicio servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNombre());
+        return servicio;
+    }
     
     
 }
