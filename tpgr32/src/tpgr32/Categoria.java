@@ -31,6 +31,7 @@ public class Categoria {
         this.conjSubCategorias_ = new HashMap<>();
         this.conjServicios_ = new HashMap<>();
         this.padre_ = null;
+        //a
     }
     
     public Categoria(String nombre, Categoria padre){
