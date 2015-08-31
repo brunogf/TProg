@@ -15,6 +15,7 @@ import java.util.Set;
 public abstract class Publicacion {
     
     private String nombre_;
+    private Usuario proveedor_;
     private Set<ReservaPublicacion> rp_;
     private Proveedor proveedor_;
     
@@ -37,6 +38,10 @@ public abstract class Publicacion {
         return this.nombre_;
     }
     
+    public Usuario getProveedor(){
+        return proveedor_;
+    }
+    
     public boolean disponible(DataDisponibilidad dd)
     {
 	
@@ -52,4 +57,10 @@ public abstract class Publicacion {
     public Proveedor getProveedor(){
         return proveedor_;
     }
+    public void eliminarReservaPublicacion(ReservaPublicacion rp){
+        this.rp_.remove(rp);
+    }
+    
+    public abstract DataPublicacion infoPublicacion();
+
 }

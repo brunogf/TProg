@@ -18,6 +18,7 @@ public class ControladorReserva implements IControladorReserva{
     
     private Cliente cliente_;
     private Set<ParPD> colPub_;
+    private Proveedor proveedor_;
     
     
     
@@ -84,15 +85,12 @@ public class ControladorReserva implements IControladorReserva{
 	}
     }
     
-    public void seleccionarPublicacion(String nombre, String proveedor,
+    public void seleccionarPublicacion(String nombre,
                                        int cantidad, Date inicio, Date fin){
 	
-	ManejadorUsuario mu = ManejadorUsuario.getInstance();
-	Proveedor p;
 	try
-	{
-	     p = mu.encontrarProveedor(proveedor);
-	     Publicacion pub = p.encontrarPublicacion(nombre);
+        {
+	     Publicacion pub = proveedor_.encontrarPublicacion(nombre);
 	     if (pub == null)
 		 throw new IllegalArgumentException("No se encontro la publicacion");
 	     DataDisponibilidad dd = new DataDisponibilidad(cantidad, inicio, fin);
@@ -105,9 +103,17 @@ public class ControladorReserva implements IControladorReserva{
 	{
 	    //ex.getMessage();
 	    throw ex;
-	}
-	
-	
-        
+	}               
     }
+    public void seleccionarProveedor(String nickname)
+    {
+        ManejadorUsuario mu = ManejadorUsuario.getInstance();
+        proveedor_ = mu.encontrarProveedor(nickname);
+    }
+    
+    public String getNickProveedorSeleccionado()
+    {
+        return proveedor_.getNickname();
+    }
+    
 }

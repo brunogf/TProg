@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  *
@@ -22,6 +23,7 @@ public class ManejadorReserva {
     
     private ManejadorReserva() {
         //this.u = null;
+        conjReservas_=new HashMap<>();
     }
     
     
@@ -37,6 +39,14 @@ public class ManejadorReserva {
     }
     
     public Set<DataReserva> listarReservas(){
-        return new HashSet<>();
+        Iterator<Reserva> it=conjReservas_.values().iterator();
+        Set<DataReserva> lista=new HashSet<>();
+        DataReserva dr;
+        while (it.hasNext()){
+            Reserva r=it.next();
+            dr=r.infoReserva();
+            lista.add(dr);
+        }
+        return lista;
     }
 }

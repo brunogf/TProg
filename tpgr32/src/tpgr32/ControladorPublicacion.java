@@ -139,5 +139,36 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Pais p = mp.encontrarPais(pais);
        Set<String> ciudades = p.listarCiudades();
        return ciudades;
+   public void altaPais(String nombre)
+   {
+       Pais p = new Pais(nombre);
+       ManejadorPais mp = ManejadorPais.getInstance();
+       mp.agregarPais(p);
+   }
+   
+   public void altaCiudad(String pais, String nombre)
+   {
+       ManejadorPais mp = ManejadorPais.getInstance();
+       Pais p = mp.encontrarPais(pais);
+       Ciudad c = new Ciudad(nombre,p);
+       p.agregarCiudadAPais(c);
+   }
+   
+   public Set<String> listarPaises()
+   {
+       ManejadorPais mp = ManejadorPais.getInstance();
+       return mp.listarPaises();
+   }
+   
+   public Set<DataPublicacion> listarPublicaciones()
+   {
+       Set<DataPromocion> promociones = this.listarPromociones();
+       Set<DataServicio> servicios = this.listarServicios();
+       Set<DataPublicacion> publicaciones = new HashSet<>();
+       for(DataPromocion p : promociones)
+           publicaciones.add(p);
+       for (DataServicio s : servicios)
+           publicaciones.add(s);
+       return publicaciones;
    }
 }

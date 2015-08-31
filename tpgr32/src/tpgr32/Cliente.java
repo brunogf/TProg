@@ -33,5 +33,9 @@ public class Cliente extends Usuario{
     public Set<Reserva> getReservas() {
         return this.reservas_;
     }
+    
+    public void eliminarReserva(Reserva r){
+        reservas_.remove(r);
+    }
    
 }

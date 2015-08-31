@@ -18,7 +18,7 @@ import java.util.Set;
  */
 public class ManejadorPais {
     
-    private Map<String,Pais> conjPaises_;
+    private Map<String, Pais> conjPaises_;
     private static ManejadorPais instancia_ = null;
     
     
