@@ -17,7 +17,7 @@ public abstract class Publicacion {
     private String nombre_;
     private Usuario proveedor_;
     private Set<ReservaPublicacion> rp_;
-    //private Proveedor proveedor_;
+    private Proveedor proveedor_;
     
     public Publicacion(){
          
@@ -54,16 +54,13 @@ public abstract class Publicacion {
 	rp_.add(rp);
     }
     
-    
-    //public Proveedor getProveedor(){
-    //    return proveedor_;
-    //}
-    
+    public Proveedor getProveedor(){
+        return proveedor_;
+    }
     public void eliminarReservaPublicacion(ReservaPublicacion rp){
         this.rp_.remove(rp);
     }
     
-   
     public abstract DataPublicacion infoPublicacion();
 
 }
