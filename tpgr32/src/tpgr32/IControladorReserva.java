@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public interface IControladorReserva {
     
-    public void actualizarEstado(int num, Estado e) throws Exception;
+    public void actualizarEstado(int num, Estado e);
     public void bajaReserva(int num);
     public void confirmarReserva();
     public DataReserva infoReserva(int num);
