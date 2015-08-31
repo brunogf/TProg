@@ -22,12 +22,10 @@ public class ManejadorCategoria {
     private Map<String,Categoria> conjCategorias_;
     private Set<Categoria> conjCategoriasPadre_;
     private static ManejadorCategoria instancia_ = null;
-    private DefaultTreeModel arbol_;
     
     public ManejadorCategoria(){
         conjCategorias_ = new HashMap<>();
         conjCategoriasPadre_ = new HashSet<>();
-        arbol_ = null;
     }
     
     static ManejadorCategoria getInstance() {
@@ -62,20 +60,20 @@ public class ManejadorCategoria {
         }    
     }
     
-    public void agregarHijos(DefaultMutableTreeNode nodoPadre, Categoria c){
+    public DefaultTreeModel agregarHijos(DefaultTreeModel mod, DefaultMutableTreeNode nodoPadre, Categoria c){
         Iterator it = c.getConjSubCategorias().keySet().iterator();
         int pos = 0;
         while (it.hasNext()){
             String key = it.next().toString();
             DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(key);
-            arbol_.insertNodeInto(nodo, nodoPadre, pos);    
+            mod.insertNodeInto(nodo, nodoPadre, pos); 
             pos = pos+1;
-            agregarHijos(nodo, conjCategorias_.get(key));
+            mod = agregarHijos(mod, nodo, conjCategorias_.get(key));
         }
+        return mod;
     }
     
-    public void crearArbolCategorias(){
-       arbol_ = null;
+    public DefaultTreeModel crearArbolCategorias(){
        DefaultMutableTreeNode nodoRaiz = new DefaultMutableTreeNode("Categorias");
        DefaultTreeModel modelo = new DefaultTreeModel(nodoRaiz);
        Iterator<Categoria> it = conjCategoriasPadre_.iterator();
@@ -84,14 +82,10 @@ public class ManejadorCategoria {
             String key = it.next().getNombre();
             DefaultMutableTreeNode nodo = new DefaultMutableTreeNode(key);
             modelo.insertNodeInto(nodo, nodoRaiz, pos);
-            pos = pos + 1;
-            agregarHijos(nodo, conjCategorias_.get(key));
-            
-       }   
-       arbol_ = modelo;
+            pos = pos + 1;          
+            modelo = agregarHijos(modelo, nodo, conjCategorias_.get(key));
+       }
+       return modelo;
     }
     
-    public DefaultTreeModel getArbol(){
-        return arbol_;
-    }
 }

@@ -1082,13 +1082,14 @@ public class Interfaz extends javax.swing.JFrame {
         (TreeSelectionModel.SINGLE_TREE_SELECTION);
         ConPadreOSinPadre.add(RegCategoriaSinPadreRadioButton);
         ConPadreOSinPadre.add(RegCategoriaConPadreRadioButton);
-        RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-        RegCategoriaScrollPane.setVisible(false);
+        if (RegCategoriaSinPadreRadioButton.isSelected()){
+            RegCategoriaScrollPane.setVisible(false);
+            RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
+            }
         PanelCentral.removeAll();
         PanelCentral.add(RegistrarCategoriaFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
-
     }//GEN-LAST:event_MenuRegistrarCategoriaActionPerformed
 
     private void RegCategoriaConPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaConPadreRadioButtonActionPerformed
@@ -1183,17 +1184,14 @@ public class Interfaz extends javax.swing.JFrame {
 	    ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
 	    if(RegCategoriaConPadreRadioButton.isSelected())
 	    {     
-                System.out.println("HOLA");
-                String padre = (String) RegCategoriaTree.getLastSelectedPathComponent();    
-                System.out.println(padre);
-                System.out.println("HOLA2");
-                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText(), padre);             
-	    }
-            else{                
+                DefaultMutableTreeNode padre = (DefaultMutableTreeNode) RegCategoriaTree.getLastSelectedPathComponent();    
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText(), padre.toString());             
+            }
+            else{
                 ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());
             }           
-            this.RegCategoriaNombreCategoriaTextField.setText(null);
-            PanelCentral.remove(RegistrarCategoriaFrame);  
+            RegCategoriaNombreCategoriaTextField.setText(null);
+            PanelCentral.remove(RegistrarCategoriaFrame);
 	}catch(Exception ex)
 	{
 	}
