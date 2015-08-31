@@ -139,12 +139,17 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Pais p = mp.encontrarPais(pais);
        Set<String> ciudades = p.listarCiudades();
        return ciudades;
+  
+   }
+   
+   
    public void altaPais(String nombre)
    {
        Pais p = new Pais(nombre);
        ManejadorPais mp = ManejadorPais.getInstance();
        mp.agregarPais(p);
    }
+   
    
    public void altaCiudad(String pais, String nombre)
    {
@@ -154,11 +159,6 @@ public class ControladorPublicacion implements IControladorPublicacion{
        p.agregarCiudadAPais(c);
    }
    
-   public Set<String> listarPaises()
-   {
-       ManejadorPais mp = ManejadorPais.getInstance();
-       return mp.listarPaises();
-   }
    
    public Set<DataPublicacion> listarPublicaciones()
    {
