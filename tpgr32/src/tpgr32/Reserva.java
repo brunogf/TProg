@@ -62,7 +62,7 @@ public class Reserva {
    
     public void actualizarEstadoRegistrada(Estado e) throws Exception{
         if (this.estado_==Estado.Registrada){
-            this.estado_=e;
+            this.setEstado(e);
         }
         else{
             throw new IllegalArgumentException("El estado debe ser Registrada");
