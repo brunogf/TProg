@@ -22,8 +22,8 @@ public class Promocion extends Publicacion {
         
     }
     
-    public Promocion(String nombre, float descuento){
-        super(nombre);
+    public Promocion(String nombre, float descuento, Proveedor p){
+        super(nombre,p);
         descuento_ = descuento;
         precioTotal_ = 0;
         conjServicios_ = new HashSet<>();
