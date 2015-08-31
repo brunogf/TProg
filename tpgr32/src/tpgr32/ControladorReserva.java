@@ -26,16 +26,17 @@ public class ControladorReserva implements IControladorReserva{
         colPub_=new HashSet<>();        
     }
     
-    public void actualizarEstado(int nro, Estado estado){
+    public void actualizarEstado(int nro, Estado estado) throws Exception{
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
-        r.setEstado(estado);
+        r.actualizarEstadoRegistrada(estado);
     }
     
     public void bajaReserva(int nro){
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
         
+        r.destroy();
         //TO DO
     }
     
