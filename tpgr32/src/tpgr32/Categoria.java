@@ -6,7 +6,9 @@
 package tpgr32;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -17,14 +19,21 @@ public class Categoria {
     private String nombre_;
     private Map<String, Categoria> conjSubCategorias_;
     private Map<String, Servicio> conjServicios_;
-    private String padre_;
+    private Categoria padre_;
             
-        
+ //2 a 1       
     public Categoria(){
         
     }
-     
-    public Categoria(String nombre, String padre){
+    
+    public Categoria(String nombre){    
+        this.nombre_ = nombre;
+        this.conjSubCategorias_ = new HashMap<>();
+        this.conjServicios_ = new HashMap<>();
+        this.padre_ = null;
+    }
+    
+    public Categoria(String nombre, Categoria padre){
         this.nombre_ = nombre;
         this.padre_ = padre;
         this.conjSubCategorias_ = new HashMap<>();
@@ -45,7 +54,7 @@ public class Categoria {
         this.conjServicios_.put(Ser.getNombre(), Ser);
     }
     
-    public void setPadre(String padre){
+    public void setPadre(Categoria padre){
         this.padre_ = padre;
     }
     
@@ -61,8 +70,20 @@ public class Categoria {
         return this.conjServicios_;
     }
     
-    public String getPadre(){
+    public Categoria getPadre(){
         return this.padre_;
+    }
+    
+    
+    public Set<DataServicio> listarServicios(){
+        Set<DataServicio> servicios = new HashSet<>();
+        for(Servicio s: conjServicios_.values()){
+            DataServicio servicio = s.infoPublicacion();
+            servicios.add(servicio);
+        }
+        
+        return servicios;
+        
     }
     
 }
