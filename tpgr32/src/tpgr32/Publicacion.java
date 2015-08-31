@@ -16,15 +16,17 @@ public abstract class Publicacion {
     
     private String nombre_;
     private Set<ReservaPublicacion> rp_;
+    private Proveedor proveedor_;
     
     public Publicacion(){
          
     }
     
     
-    public Publicacion(String nombre){
+    public Publicacion(String nombre, Proveedor p){
         this.nombre_ = nombre;
         this.rp_ = new HashSet<>();
+        this.proveedor_ = p;
     }
     
     public void setNombre(String nombre){
@@ -45,5 +47,9 @@ public abstract class Publicacion {
     public void agregarReservaPublicacion(ReservaPublicacion rp)
     {
 	rp_.add(rp);
+    }
+    
+    public Proveedor getProveedor(){
+        return proveedor_;
     }
 }
