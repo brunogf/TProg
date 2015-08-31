@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.Set;
 import java.awt.Image;
 import java.util.HashSet;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -17,13 +18,9 @@ public class ControladorPublicacion implements IControladorPublicacion{
     
     private Servicio instServicio;
     private Promocion instPromocion;
-    
-    
-  
-    
-    
-    
-    
+    private ManejadorCategoria mCategoria;
+      
+     
     public ControladorPublicacion(){
     
     }
@@ -37,15 +34,29 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
  
+   
+   // ALTA SERVICO CON DESTINO
    public void altaServicio(String nombre, String descripcion,
                           Set<Image> imagenes, float precio, Set<String>categorias,
                           String proveedor, DataUbicacion origen, DataUbicacion destino){
        
        ManejadorUsuario mu;
        mu = ManejadorUsuario.getInstance();
-       
        Proveedor p = mu.encontrarProveedor(proveedor);
-       Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino);
+       Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino,p);
+       p.agregarPublicacion(serv);
+   }
+   
+  
+   // ALTA SERVICIO SIN DESTINO 
+   public void altaServicio(String nombre, String descripcion,
+                          Set<Image> imagenes, float precio, Set<String>categorias,
+                          String proveedor, DataUbicacion origen){
+       
+       ManejadorUsuario mu;
+       mu = ManejadorUsuario.getInstance();
+       Proveedor p = mu.encontrarProveedor(proveedor);
+       Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen,p);
        p.agregarPublicacion(serv);
    }
    
@@ -58,13 +69,18 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public DataServicio infoServicio(String proveedor, String servicio){
-       return new DataServicio();
+       ManejadorUsuario mu = ManejadorUsuario.getInstance();
+       Proveedor p = mu.encontrarProveedor(proveedor);
+       DataServicio ser = p.infoServicio(servicio);
+       return ser;
    }
       
    
-   public TreeCategoria listarCategorias(){
-       return new TreeCategoria(); 
-   }
+    public DefaultTreeModel listarCategorias(){
+       mCategoria = ManejadorCategoria.getInstance();
+       mCategoria.crearArbolCategorias();
+       return mCategoria.getArbol();
+    }
    
    public Set<DataPromocion> listarPromociones(){
        return new HashSet<>(); 
@@ -75,7 +91,10 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public Set<DataServicio> listarServiciosDeCategoria(String cat){
-       return new HashSet<>();
+       ManejadorCategoria mc = ManejadorCategoria.getInstance();
+       Categoria c = mc.encontrarCategoria(cat);
+       Set<DataServicio> servicios = c.listarServicios();
+       return servicios;
    }
    
    public void modificarDescripcionServicio(String nuevaDescripcion){
@@ -94,12 +113,31 @@ public class ControladorPublicacion implements IControladorPublicacion{
        
    }
    
+   public void registrarCategoria(String nombre){
+       mCategoria = ManejadorCategoria.getInstance();
+       mCategoria.agregarCategoria(nombre);
+   }
+   
    public void registrarCategoria(String nombre, String padre){
-       
+       mCategoria = ManejadorCategoria.getInstance();
+       mCategoria.agregarCategoria(nombre, padre);
    }
    
    public void seleccionarServicio(String proveedor, String nombre){
        
    }
    
+   
+   public Set<String> listarPaises()
+   {
+       ManejadorPais mp = ManejadorPais.getInstance();
+       return mp.listarPaises();
+   }
+   
+   public Set<String> listarCiudades(String pais){
+       ManejadorPais mp = ManejadorPais.getInstance();
+       Pais p = mp.encontrarPais(pais);
+       Set<String> ciudades = p.listarCiudades();
+       return ciudades;
+   }
 }
