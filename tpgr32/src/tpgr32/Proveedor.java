@@ -60,5 +60,14 @@ public class Proveedor extends Usuario {
     public void agregarPublicacion(Publicacion p){
         publicaciones_.put(p.getNombre(), p);
     }
+    
+    public DataServicio infoServicio(String nombre){
+        Publicacion pub = publicaciones_.get(nombre);
+	if (!(pub instanceof Servicio))
+	    throw new IllegalArgumentException("No se encontro el servicio");
+	Servicio ser = (Servicio)pub;
+        DataServicio servicio = ser.infoPublicacion();
+        return servicio;
+    }
      
 }
