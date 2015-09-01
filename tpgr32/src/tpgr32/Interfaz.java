@@ -32,6 +32,8 @@ public class Interfaz extends javax.swing.JFrame {
     private FabricaControladores fabrica;
     private int fila;
     private int cantClick;
+    private Set<String> categorias;
+    
     public Interfaz() {
 	initComponents();
         fabrica = new FabricaControladores();
@@ -1012,6 +1014,11 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel2.setText("Seleccionar categorias");
 
         RegServicioCargarCategoriaButton.setText("Cargar categoria");
+        RegServicioCargarCategoriaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegServicioCargarCategoriaButtonActionPerformed(evt);
+            }
+        });
 
         RegServicioCategoriasCancelarButton.setText("Cancelar");
 
@@ -3305,7 +3312,7 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTreeModel modelo = ctrlPublic.listarCategorias();
         RegServicioCategoriasTree.setModel(modelo);
         RegServicioCategoriasTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
-        
+        categorias = new HashSet<>();
     }//GEN-LAST:event_RegServicioImagenSiguienteButtonActionPerformed
 
     private void RegCategoriaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaAceptarButtonActionPerformed
@@ -3552,6 +3559,19 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_RegServicioCategoriasConfirmarButtonActionPerformed
+
+    private void RegServicioCargarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCargarCategoriaButtonActionPerformed
+        // TODO add your handling code here:
+        try
+	{
+	    DefaultMutableTreeNode cat = (DefaultMutableTreeNode) RegServicioCategoriasTree.getLastSelectedPathComponent();            
+            categorias.add(cat.toString());
+            JOptionPane.showMessageDialog(this, "Se ha agregado la categoria" + cat.toString());
+	}catch(Exception ex)
+	{
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+	}
+    }//GEN-LAST:event_RegServicioCargarCategoriaButtonActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
