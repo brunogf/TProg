@@ -81,14 +81,6 @@ public class Servicio extends Publicacion {
        mc = ManejadorCategoria.getInstance();
        
        
-       for(String cat: categorias){
-           Categoria c;
-           c = mc.encontrarCategoria(cat);
-           categorias_.put(cat, c);
-           
-           c.agregarServicio(this); 
-       }
-       
        ManejadorPais mp;
        mp = ManejadorPais.getInstance();
        
@@ -96,6 +88,14 @@ public class Servicio extends Publicacion {
        Ciudad corigen = porigen.encontrarCiudad(origen.getCiudad());
        
        ciudadOrigen_ = corigen;
+       
+      // for(String cat: categorias){
+      //     Categoria c;
+      //     c = mc.encontrarCategoria(cat);
+      //     categorias_.put(cat, c);
+      //     
+      //     c.agregarServicio(this); 
+      // } 
     }
     
     
