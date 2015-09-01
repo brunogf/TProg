@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.7" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="ClienteOProveedor">
       <AuxValues>
@@ -489,9 +489,6 @@
           <Properties>
             <Property name="visible" type="boolean" value="true"/>
           </Properties>
-          <Events>
-            <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="RegistrarCategoriaFrameComponentAdded"/>
-          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="card4"/>
@@ -508,7 +505,7 @@
                               <Component id="RegCategoriaNomCategoriaLabel" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <EmptySpace pref="46" max="32767" attributes="0"/>
+                                      <EmptySpace pref="36" max="32767" attributes="0"/>
                                       <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                                   </Group>
@@ -522,14 +519,14 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="RegCategoriaListarCategoriasScrollPane" pref="140" max="32767" attributes="0"/>
+                                      <Component id="RegCategoriaScrollPane" pref="140" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="RegCategoriaAceptarButton" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" attributes="0">
@@ -540,9 +537,10 @@
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Component id="RegCategoriaCancelarButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -564,10 +562,10 @@
                           <Component id="RegCategoriaSinPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegCategoriaConPadreRadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="RegCategoriaScrollPane" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaScrollPane" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="65" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -619,6 +617,22 @@
                 <Property name="text" type="java.lang.String" value="Selecciona la categoria padre"/>
               </Properties>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="RegCategoriaScrollPane">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTree" name="RegCategoriaTree">
+                  <Properties>
+                    <Property name="model" type="javax.swing.tree.TreeModel" editor="org.netbeans.modules.form.editors2.TreeModelEditor">
+                      <TreeModel code="Categorias"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
             <Component class="javax.swing.JButton" name="RegCategoriaAceptarButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Aceptar"/>
@@ -635,20 +649,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegCategoriaCancelarButtonActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="RegCategoriaScrollPane">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTree" name="RegCategoriaTree">
-                  <Events>
-                    <EventHandler event="valueChanged" listener="javax.swing.event.TreeSelectionListener" parameters="javax.swing.event.TreeSelectionEvent" handler="RegCategoriaTreeValueChanged"/>
-                  </Events>
-                </Component>
-              </SubComponents>
-            </Container>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JInternalFrame" name="RegistrarServicioFrame">

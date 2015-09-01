@@ -11,6 +11,9 @@ import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
@@ -80,10 +83,10 @@ public class Interfaz extends javax.swing.JFrame {
         RegCategoriaSinPadreRadioButton = new javax.swing.JRadioButton();
         RegCategoriaConPadreRadioButton = new javax.swing.JRadioButton();
         RegCategoriaSelecCategoriaPadreLabel = new javax.swing.JLabel();
-        RegCategoriaAceptarButton = new javax.swing.JButton();
-        RegCategoriaCancelarButton = new javax.swing.JButton();
         RegCategoriaScrollPane = new javax.swing.JScrollPane();
         RegCategoriaTree = new javax.swing.JTree();
+        RegCategoriaAceptarButton = new javax.swing.JButton();
+        RegCategoriaCancelarButton = new javax.swing.JButton();
         RegistrarServicioFrame = new javax.swing.JInternalFrame();
         RegistrarServicioLabel = new javax.swing.JLabel();
         RegistrarServicioNomServicioLabel = new javax.swing.JLabel();
@@ -324,11 +327,6 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
         RegistrarCategoriaFrame.setVisible(true);
-        RegistrarCategoriaFrame.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                RegistrarCategoriaFrameComponentAdded(evt);
-            }
-        });
 
         RegCategoriaLabel.setText("Registrar Categoria");
 
@@ -353,6 +351,10 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegCategoriaSelecCategoriaPadreLabel.setText("Selecciona la categoria padre");
 
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
+        RegCategoriaTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        RegCategoriaScrollPane.setViewportView(RegCategoriaTree);
+
         RegCategoriaAceptarButton.setText("Aceptar");
         RegCategoriaAceptarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -367,13 +369,6 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        RegCategoriaTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
-            public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
-                RegCategoriaTreeValueChanged(evt);
-            }
-        });
-        RegCategoriaScrollPane.setViewportView(RegCategoriaTree);
-
         javax.swing.GroupLayout RegistrarCategoriaFrameLayout = new javax.swing.GroupLayout(RegistrarCategoriaFrame.getContentPane());
         RegistrarCategoriaFrame.getContentPane().setLayout(RegistrarCategoriaFrameLayout);
         RegistrarCategoriaFrameLayout.setHorizontalGroup(
@@ -385,7 +380,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegCategoriaNomCategoriaLabel)
                         .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                                 .addComponent(RegCategoriaLabel)
                                 .addGap(158, 158, 158))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
@@ -394,12 +389,12 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegCategoriaConPadreRadioButton)
                                     .addComponent(RegCategoriaNombreCategoriaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarCategoriaFrameLayout.createSequentialGroup()
-                        .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, RegistrarCategoriaFrameLayout.createSequentialGroup()
+                    .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
+                        .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addComponent(RegCategoriaSelecCategoriaPadreLabel)
                                 .addGap(38, 38, 38)
-                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                                .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RegCategoriaAceptarButton)
@@ -408,8 +403,9 @@ public class Interfaz extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(RegCategoriaSinPadreRadioButton)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RegCategoriaCancelarButton)))
-                        .addGap(48, 48, 48))))
+                                .addComponent(RegCategoriaCancelarButton)
+                                .addGap(14, 14, 14)))
+                        .addGap(34, 34, 34))))
         );
         RegistrarCategoriaFrameLayout.setVerticalGroup(
             RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -428,7 +424,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaAceptarButton)
@@ -1953,21 +1949,15 @@ public class Interfaz extends javax.swing.JFrame {
             PanelCentral.remove(RegistrarCategoriaFrame);
 	}catch(Exception ex)
 	{
+            
 	}
+    
     }//GEN-LAST:event_RegCategoriaAceptarButtonActionPerformed
 
     private void RegCategoriaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaCancelarButtonActionPerformed
-        this.RegCategoriaNombreCategoriaTextField.setText(null);
-        PanelCentral.remove(RegistrarCategoriaFrame);  
+        RegCategoriaNombreCategoriaTextField.setText(null);
+        PanelCentral.remove(RegistrarCategoriaFrame); 
     }//GEN-LAST:event_RegCategoriaCancelarButtonActionPerformed
-
-    private void RegistrarCategoriaFrameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_RegistrarCategoriaFrameComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegistrarCategoriaFrameComponentAdded
-
-    private void RegCategoriaTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_RegCategoriaTreeValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_RegCategoriaTreeValueChanged
 
     /**
      * @param args the command line arguments
@@ -1999,6 +1989,7 @@ public class Interfaz extends javax.swing.JFrame {
 	    java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 	}
         //</editor-fold>
+
 	/* Create and display the form */
 	java.awt.EventQueue.invokeLater(new Runnable() {
 	    public void run() {
@@ -2006,8 +1997,7 @@ public class Interfaz extends javax.swing.JFrame {
 	    }
 	});
     }
-    
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ActualizaServicioCiudadDestinoScrollPane;
     private javax.swing.JButton ActualizarServicioAceptarButton;
@@ -2082,6 +2072,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane RegCategoriaScrollPane;
     private javax.swing.JLabel RegCategoriaSelecCategoriaPadreLabel;
     private javax.swing.JRadioButton RegCategoriaSinPadreRadioButton;
+    private javax.swing.JTree RegCategoriaTree;
     private javax.swing.JButton RegReservaCancelarButton;
     private javax.swing.JScrollPane RegReservaClienteTableScrollPane;
     private javax.swing.JTable RegReservaClientesTable;
