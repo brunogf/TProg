@@ -6,6 +6,7 @@
 package tpgr32;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -58,6 +59,8 @@ public class Proveedor extends Usuario {
      
      
     public void agregarPublicacion(Publicacion p){
+        if (publicaciones_ == null)
+            publicaciones_ = new HashMap<>();
         publicaciones_.put(p.getNombre(), p);
     }
     
