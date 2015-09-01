@@ -3574,7 +3574,8 @@ public class Interfaz extends javax.swing.JFrame {
                DataUbicacion dtdestino = new DataUbicacion((String)RegServicioPaisDestinoComboBox.getSelectedItem(),
                                                      (String)RegServicioCiudadDestinoComboBox.getSelectedItem());
                cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
-                              imagenes,11,categorias,(String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),
+                              imagenes,Float.parseFloat(RegistrarServicioPrecioTextField.getText()),categorias,
+                              (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),
                               dtorigen,dtdestino);
             }
             //Alta servicio sin destino
@@ -3591,6 +3592,13 @@ public class Interfaz extends javax.swing.JFrame {
             //do something
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        RegServicioDatosBasicosPanel.setVisible(true);
+        RegServicioProveedorPanel.setVisible(false);
+        RegServicioUbicacionPanel.setVisible(false);
+        RegServicioImagenPanel.setVisible(false);
+        RegServicioCategoriasPanel.setVisible(false);
+        PanelCentral.repaint();
+	PanelCentral.revalidate();
     }//GEN-LAST:event_RegServicioCategoriasConfirmarButtonActionPerformed
 
     private void RegServicioCargarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCargarCategoriaButtonActionPerformed
