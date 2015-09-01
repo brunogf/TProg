@@ -142,6 +142,13 @@ public class Interfaz extends javax.swing.JFrame {
         RegServicioImagenAtrasButton = new javax.swing.JButton();
         RegServicioImagenSiguienteButton = new javax.swing.JButton();
         RegServicioCategoriasPanel = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        RegServicioCategoriasTree = new javax.swing.JTree();
+        jLabel2 = new javax.swing.JLabel();
+        RegServicioCargarCategoriaButton = new javax.swing.JButton();
+        RegServicioCategoriasCancelarButton = new javax.swing.JButton();
+        RegServicioCategoriasAtrasButton = new javax.swing.JButton();
+        RegServicioCategoriasConfirmarButton = new javax.swing.JButton();
         RegistrarPromocionFrame = new javax.swing.JInternalFrame();
         RegistrarPromocionLabel = new javax.swing.JLabel();
         RegistrarPromocionProveedorLabel = new javax.swing.JLabel();
@@ -1000,15 +1007,57 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegistrarServicioFrame.getContentPane().add(RegServicioImagenPanel, "card5");
 
+        jScrollPane13.setViewportView(RegServicioCategoriasTree);
+
+        jLabel2.setText("Seleccionar categorias");
+
+        RegServicioCargarCategoriaButton.setText("Cargar categoria");
+
+        RegServicioCategoriasCancelarButton.setText("Cancelar");
+
+        RegServicioCategoriasAtrasButton.setText("Atras");
+
+        RegServicioCategoriasConfirmarButton.setText("Confirmar Alta Servicio");
+        RegServicioCategoriasConfirmarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegServicioCategoriasConfirmarButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout RegServicioCategoriasPanelLayout = new javax.swing.GroupLayout(RegServicioCategoriasPanel);
         RegServicioCategoriasPanel.setLayout(RegServicioCategoriasPanelLayout);
         RegServicioCategoriasPanelLayout.setHorizontalGroup(
             RegServicioCategoriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(RegServicioCategoriasPanelLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(RegServicioCategoriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(RegServicioCategoriasPanelLayout.createSequentialGroup()
+                        .addComponent(RegServicioCategoriasCancelarButton)
+                        .addGap(27, 27, 27)
+                        .addComponent(RegServicioCategoriasAtrasButton))
+                    .addGroup(RegServicioCategoriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(RegServicioCargarCategoriaButton)
+                        .addComponent(jLabel2)))
+                .addGap(42, 42, 42)
+                .addComponent(RegServicioCategoriasConfirmarButton)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         RegServicioCategoriasPanelLayout.setVerticalGroup(
             RegServicioCategoriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 455, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegServicioCategoriasPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(RegServicioCargarCategoriaButton)
+                .addGap(45, 45, 45)
+                .addGroup(RegServicioCategoriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegServicioCategoriasCancelarButton)
+                    .addComponent(RegServicioCategoriasAtrasButton)
+                    .addComponent(RegServicioCategoriasConfirmarButton))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         RegistrarServicioFrame.getContentPane().add(RegServicioCategoriasPanel, "card6");
@@ -1803,7 +1852,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                        .addGap(0, 123, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ConsultaProveedorServiciosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
@@ -3249,23 +3298,13 @@ public class Interfaz extends javax.swing.JFrame {
         RegServicioProveedorPanel.setVisible(false);
         RegServicioUbicacionPanel.setVisible(false);
         RegServicioImagenPanel.setVisible(false);
-        //RegServicioCategoriasPanel.setVisible(true);
-        //Solamente para probar alta servicio
-        IControladorPublicacion cp = fabrica.getControladorPublicacion();
-        DataUbicacion dtorigen = new DataUbicacion((String)RegServicioPaisOrigenComboBox.getSelectedItem(),(String)RegServicioCiudadOrigenComboBox.getSelectedItem()); 
-        try
-        {
-            cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
-                             null,11,null,
-                             (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),dtorigen);
-            JOptionPane.showMessageDialog(this, "El servicio se agregó correctamente");
-            
-        }
-        catch(Exception ex)
-        {
-            //do something
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-        }
+        RegServicioCategoriasPanel.setVisible(true);
+        //Siguiente Panel
+        
+        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+        DefaultTreeModel modelo = ctrlPublic.listarCategorias();
+        RegServicioCategoriasTree.setModel(modelo);
+        RegServicioCategoriasTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         
     }//GEN-LAST:event_RegServicioImagenSiguienteButtonActionPerformed
 
@@ -3494,6 +3533,25 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.repaint();
         PanelCentral.revalidate();
     }//GEN-LAST:event_ActualizarEstadoReservaCancelarButtonActionPerformed
+
+    private void RegServicioCategoriasConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCategoriasConfirmarButtonActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            IControladorPublicacion cp = fabrica.getControladorPublicacion();
+            DataUbicacion dtorigen = new DataUbicacion();
+            cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
+                             null,11,null,
+                             (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),dtorigen);
+            JOptionPane.showMessageDialog(this, "El servicio se agregó correctamente");
+            
+        }
+        catch(Exception ex)
+        {
+            //do something
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_RegServicioCategoriasConfirmarButtonActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
@@ -3757,7 +3815,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel RegReservaSeleccionarPublicacionPanel;
     private javax.swing.JButton RegReservaSigButton;
     private javax.swing.JLabel RegReservaTitleLabel;
+    private javax.swing.JButton RegServicioCargarCategoriaButton;
+    private javax.swing.JButton RegServicioCategoriasAtrasButton;
+    private javax.swing.JButton RegServicioCategoriasCancelarButton;
+    private javax.swing.JButton RegServicioCategoriasConfirmarButton;
     private javax.swing.JPanel RegServicioCategoriasPanel;
+    private javax.swing.JTree RegServicioCategoriasTree;
     private javax.swing.JComboBox RegServicioCiudadDestinoComboBox;
     private javax.swing.JLabel RegServicioCiudadDestinoLabel;
     private javax.swing.JComboBox RegServicioCiudadOrigenComboBox;
@@ -3852,10 +3915,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
