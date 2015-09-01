@@ -19,11 +19,11 @@ public class ControladorPublicacion implements IControladorPublicacion{
     private Servicio instServicio;
     private Promocion instPromocion;
     private ManejadorCategoria mCategoria;
-      
-     
-    public ControladorPublicacion(){
+   
+    // comiste
+   public ControladorPublicacion(){
     
-    }
+   } 
     
    public void agregarCategoriaServicio(String cat){
        
@@ -76,11 +76,10 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
       
    
-    public DefaultTreeModel listarCategorias(){
+   public DefaultTreeModel listarCategorias(){
        mCategoria = ManejadorCategoria.getInstance();
-       mCategoria.crearArbolCategorias();
-       return mCategoria.getArbol();
-    }
+       return mCategoria.crearArbolCategorias();
+   }
    
    public Set<DataPromocion> listarPromociones(){
        return new HashSet<>(); 
