@@ -3457,22 +3457,6 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.repaint();
 	PanelCentral.revalidate();     
         
-        IControladorReserva cr = fabrica.getControladorReserva();
-        ManejadorUsuario mu=ManejadorUsuario.getInstance();
-         Date d=new Date();
-         
-        Usuario c=new Cliente("nombre", "apellido", "nickname", "celec", d);
-         
-        try {
-            mu.agregarUsuario(c);
-        } catch (Exception ex) {
-        }
-         
-        cr.seleccionarCliente("nickname");
-        for (int i=0;i<20;i++){
-            cr.confirmarReserva();
-        }
-        
         listarReservasGUI1();
     }//GEN-LAST:event_CancelarReservaMenuActionPerformed
 
