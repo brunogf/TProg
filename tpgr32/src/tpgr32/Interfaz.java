@@ -3567,12 +3567,24 @@ public class Interfaz extends javax.swing.JFrame {
         try
         {
             IControladorPublicacion cp = fabrica.getControladorPublicacion();
-            DataUbicacion dtorigen = new DataUbicacion();
-            cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
-                             null,11,null,
-                             (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),dtorigen);
+            DataUbicacion dtorigen = new DataUbicacion((String)RegServicioPaisOrigenComboBox.getSelectedItem(),
+                                                     (String)RegServicioCiudadOrigenComboBox.getSelectedItem());
+            //Alta servico con destino
+            if (RegServicioDestinoSiRadioButton.isSelected()){
+               DataUbicacion dtdestino = new DataUbicacion((String)RegServicioPaisDestinoComboBox.getSelectedItem(),
+                                                     (String)RegServicioCiudadDestinoComboBox.getSelectedItem());
+               cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
+                              imagenes,11,categorias,(String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),
+                              dtorigen,dtdestino);
+            }
+            //Alta servicio sin destino
+            else{
+                cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
+                              imagenes,Float.parseFloat(RegistrarServicioPrecioTextField.getText()),categorias,
+                              (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),
+                              dtorigen);
+            }
             JOptionPane.showMessageDialog(this, "El servicio se agregó correctamente");
-            
         }
         catch(Exception ex)
         {
