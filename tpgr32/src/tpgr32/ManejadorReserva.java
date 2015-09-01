@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -42,9 +44,9 @@ public class ManejadorReserva {
         return conjReservas_.get(nro);
     }
     
-    public Set<DataReserva> listarReservas(){
+    public List<DataReserva> listarReservas(){
         Iterator<Reserva> it=conjReservas_.values().iterator();
-        Set<DataReserva> lista=new HashSet<>();
+        List<DataReserva> lista=new ArrayList<>();
         DataReserva dr;
         while (it.hasNext()){
             Reserva r=it.next();

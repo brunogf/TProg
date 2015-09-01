@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.Set;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -18,7 +19,7 @@ public interface IControladorReserva {
     public void bajaReserva(int num);
     public void confirmarReserva();
     public DataReserva infoReserva(int num);
-    public Set<DataReserva> listarReservas();
+    public List<DataReserva> listarReservas();
     public Set<DataReserva> listarReservasEliminables();
     public void seleccionarCliente(String nickname);
     public void seleccionarPublicacion(String nombre,

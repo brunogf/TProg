@@ -9,6 +9,10 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  *
@@ -67,10 +71,15 @@ public class ControladorReserva implements IControladorReserva{
         return r.infoReserva();
     }
     
-    public Set<DataReserva> listarReservas(){
+    public List<DataReserva> listarReservas(){
         ManejadorReserva mr=ManejadorReserva.getInstance();
-        Set<DataReserva> lista=mr.listarReservas();
+        List<DataReserva> lista=mr.listarReservas();
         
+        Collections.sort(lista, new Comparator<DataReserva>() {
+            public int compare(DataReserva d1, DataReserva d2) {
+                return (d1.getNum_() < d2.getNum_() ? -1 : (d1.getNum_() == d2.getNum_() ? 0 : 1));
+            }
+        });
         return lista;
     }
     
