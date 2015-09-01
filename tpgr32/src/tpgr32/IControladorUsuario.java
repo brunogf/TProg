@@ -15,18 +15,20 @@ import java.util.Set;
  */
 public interface IControladorUsuario {
     
-    void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac) throws Exception;
+    public void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac) throws Exception;
 
-    void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,Image img) throws Exception;
+    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,Image img) throws Exception;
     
-    void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url) throws Exception;
+    public void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url) throws Exception;
          
-    void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,Image img) throws Exception;
+    public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,Image img) throws Exception;
 
-    DataUsuario infoCliente(String nickname); 
+    public DataUsuario infoCliente(String nickname); 
 
-    Set<DataUsuario> listarClientes();
+    public Set<DataUsuario> listarClientes();
 
-    Set<DataUsuario> listarProveedores(); 
+    public Set<DataUsuario> listarProveedores();
+    
+    public Set<DataPublicacion> listarPublicacionesProveedor(String nick);
    
 }

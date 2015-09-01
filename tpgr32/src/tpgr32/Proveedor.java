@@ -7,7 +7,9 @@ package tpgr32;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -71,6 +73,16 @@ public class Proveedor extends Usuario {
 	Servicio ser = (Servicio)pub;
         DataServicio servicio = ser.infoPublicacion();
         return servicio;
+    }
+    
+    public Set<DataPublicacion> listarPublicaciones()
+    {
+        Set<DataPublicacion> publicaciones = new HashSet<>();
+        for(Map.Entry<String, Publicacion> entry : publicaciones_.entrySet())
+        {
+            publicaciones.add(entry.getValue().infoPublicacion());
+        }
+        return publicaciones;
     }
      
 }

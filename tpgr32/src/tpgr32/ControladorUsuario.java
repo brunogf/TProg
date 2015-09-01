@@ -13,7 +13,6 @@ import java.util.Set;
 
 public class ControladorUsuario implements IControladorUsuario{
         
-    private ManejadorUsuario mUsuario;
     private String nick;
     public ControladorUsuario() {
         
@@ -23,8 +22,8 @@ public class ControladorUsuario implements IControladorUsuario{
             Date f) throws Exception {
         try {     
             Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
-            this.mUsuario = ManejadorUsuario.getInstance();
-            this.mUsuario.agregarUsuario(c);
+            ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+            mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
             throw ex;
         }
@@ -34,8 +33,8 @@ public class ControladorUsuario implements IControladorUsuario{
             Date fnac,Image img) throws Exception {    
         try {
             Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
-            this.mUsuario = ManejadorUsuario.getInstance();
-            this.mUsuario.agregarUsuario(c);
+            ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+            mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
             throw ex;
         }
@@ -47,8 +46,8 @@ public class ControladorUsuario implements IControladorUsuario{
         
         try {   
             Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fecha,nombreEmp,url);
-            this.mUsuario = ManejadorUsuario.getInstance();
-            this.mUsuario.agregarUsuario(c);
+            ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+            mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
             throw ex;
         }       
@@ -59,25 +58,32 @@ public class ControladorUsuario implements IControladorUsuario{
         
         try {   
             Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fnac,nombreEmp,url/*Falta Imagen*/);
-            this.mUsuario = ManejadorUsuario.getInstance();
-            this.mUsuario.agregarUsuario(c);
+            ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+            mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
             throw ex;
         }     
     }
 
     public DataUsuario infoCliente(String nickname) {
-        this.mUsuario = ManejadorUsuario.getInstance();
-        return this.mUsuario.encontrarUsuario(nickname).infoUsuario();
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        return mUsuario.encontrarUsuario(nickname).infoUsuario();
     }
     
       public Set<DataUsuario> listarClientes() {
-        this.mUsuario = ManejadorUsuario.getInstance();
-        return this.mUsuario.listarClientes();    }
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        return mUsuario.listarClientes();    }
 
     public Set<DataUsuario> listarProveedores() {
-        this.mUsuario = ManejadorUsuario.getInstance();
-        return this.mUsuario.listarProveedores();
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        return mUsuario.listarProveedores();
+    }
+    
+    public Set<DataPublicacion> listarPublicacionesProveedor(String nick)
+    {
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        Proveedor p = mUsuario.encontrarProveedor(nick);
+        return p.listarPublicaciones();
     }
     
 }

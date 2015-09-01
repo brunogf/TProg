@@ -1439,7 +1439,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(RegReservaSeleccClienteLabel)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
             .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1609,8 +1609,18 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane5.setViewportView(RegReservaSPubSeleccionadasTable);
 
         RegReservaSPubAgregarButton.setText("Agregar");
+        RegReservaSPubAgregarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaSPubAgregarButtonActionPerformed(evt);
+            }
+        });
 
         RegReservaSPubRemoveButton.setText("Remover");
+        RegReservaSPubRemoveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegReservaSPubRemoveButtonActionPerformed(evt);
+            }
+        });
 
         RegReservaSPubSiguienteButton.setText("Siguiente");
 
@@ -1628,7 +1638,7 @@ public class Interfaz extends javax.swing.JFrame {
         RegReservaSeleccionarPublicacionPanelLayout.setHorizontalGroup(
             RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
-                .addGap(0, 83, Short.MAX_VALUE)
+                .addGap(0, 98, Short.MAX_VALUE)
                 .addComponent(RegReservaSPubRemoveButton)
                 .addGap(90, 90, 90)
                 .addComponent(RegReservaSPubAgregarButton)
@@ -1763,7 +1773,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(RegReservaConfirmarCApellidoLabel)
                                     .addComponent(RegReservaConfirmarPApellidoLabel))))
-                        .addGap(0, 137, Short.MAX_VALUE))
+                        .addGap(0, 152, Short.MAX_VALUE))
                     .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -2797,8 +2807,7 @@ public class Interfaz extends javax.swing.JFrame {
             this.RegUsuarioURLTextField.setText(null);
 	}catch(Exception ex)
 	{
-            this.RegUsuarioErrorLabel.setVisible(true);
-            this.RegUsuarioErrorLabel.setText(ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 	}
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
@@ -2977,6 +2986,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegReservaSPSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPSigButtonActionPerformed
         IControladorReserva cReserva = fabrica.getControladorReserva();
         IControladorPublicacion cPub = fabrica.getControladorPublicacion();
+        IControladorUsuario cUsr = fabrica.getControladorUsuario();
         if(RegReservaSPTable.getSelectedRow() == -1)
             JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
         else
@@ -2984,7 +2994,7 @@ public class Interfaz extends javax.swing.JFrame {
             cReserva.seleccionarProveedor((String)RegReservaSPTable.getValueAt(RegReservaSPTable.getSelectedRow(),0));
             //SIGUIENTE PANEL
             DefaultTableModel dtm = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
-            Set<DataPublicacion> publicaciones = cPub.listarPublicaciones();        
+            Set<DataPublicacion> publicaciones = cUsr.listarPublicacionesProveedor(cReserva.getNickProveedorSeleccionado());
             while(dtm.getRowCount() > 0)
             {
                 dtm.removeRow(0);
@@ -2998,6 +3008,12 @@ public class Interfaz extends javax.swing.JFrame {
                     dtm.addRow(new Object[]{"Promoción",p.getNombre(),
                         ((Float)(((DataPromocion)p).getPrecioTotal())).toString()});
             }
+            
+            //vaciar segunda tabla
+            DefaultTableModel dtms = (DefaultTableModel) RegReservaSPubSeleccionadasTable.getModel();
+            while(dtms.getRowCount() > 0)
+                dtms.removeRow(0);
+            //Control de visibilidad
             RegReservaSPubSeleccionarTable.setModel(dtm);
             RegReservaSeleccionarClientePanel.setVisible(false);
             RegReservaSeleccionarProveedorPanel.setVisible(false);
@@ -3443,7 +3459,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
 
     private void clientesSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesSistemaActionPerformed
-        ControladorUsuario cU = new ControladorUsuario();
+        IControladorUsuario cU = fabrica.getControladorUsuario();
         DefaultListModel modelo = new DefaultListModel();
         Set<DataUsuario> datosClientes = cU.listarClientes();
         for (DataUsuario dtU : datosClientes) {
@@ -3613,6 +3629,34 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage());
 	}
     }//GEN-LAST:event_RegServicioCargarCategoriaButtonActionPerformed
+
+    private void RegReservaSPubAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubAgregarButtonActionPerformed
+        DefaultTableModel dtmt = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
+        DefaultTableModel dtmb = (DefaultTableModel) RegReservaSPubSeleccionadasTable.getModel();
+        int y = RegReservaSPubSeleccionarTable.getSelectedRow();
+        if (y == -1)
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una publicacion", "Warning", JOptionPane.WARNING_MESSAGE);
+        else
+        {
+            dtmb.addRow(new Object[]{dtmt.getValueAt(y,0), dtmt.getValueAt(y,1), dtmt.getValueAt(y,2)} );
+            dtmt.removeRow(y);
+        }
+        RegReservaSPubSeleccionadasTable.setModel(dtmb);
+        
+    }//GEN-LAST:event_RegReservaSPubAgregarButtonActionPerformed
+
+    private void RegReservaSPubRemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubRemoveButtonActionPerformed
+        DefaultTableModel dtmt = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
+        DefaultTableModel dtmb = (DefaultTableModel) RegReservaSPubSeleccionadasTable.getModel();
+        int y = RegReservaSPubSeleccionadasTable.getSelectedRow();
+        if (y == -1)
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una publicacion", "Warning", JOptionPane.WARNING_MESSAGE);
+        else
+        {
+            dtmt.addRow(new Object[]{dtmb.getValueAt(y,0 ), dtmb.getValueAt(y,1), dtmb.getValueAt(y,2)} );
+            dtmb.removeRow(y);
+        }
+    }//GEN-LAST:event_RegReservaSPubRemoveButtonActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
