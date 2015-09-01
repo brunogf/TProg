@@ -16,7 +16,7 @@ import java.util.List;
 public interface IControladorReserva {
     
     public void actualizarEstado(int num, Estado e) throws Exception;
-    public void bajaReserva(int num);
+    public void bajaReserva(int num) throws Exception;
     public void confirmarReserva();
     public DataReserva infoReserva(int num);
     public List<DataReserva> listarReservas();

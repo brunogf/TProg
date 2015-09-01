@@ -56,4 +56,7 @@ public class ManejadorReserva {
         return lista;
     }
     
+    public void eliminarReserva(int nro){
+        conjReservas_.remove(nro);
+    }
 }

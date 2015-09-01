@@ -36,11 +36,12 @@ public class ControladorReserva implements IControladorReserva{
         r.actualizarEstadoRegistrada(estado);
     }
     
-    public void bajaReserva(int nro){
+    public void bajaReserva(int nro) throws Exception{
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
         
-        //TO DO
+        mr.eliminarReserva(nro);
+        r.destroy();
     }
     
     public void confirmarReserva()
