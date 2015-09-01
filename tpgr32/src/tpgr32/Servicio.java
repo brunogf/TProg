@@ -6,6 +6,7 @@
 package tpgr32;
 
 import java.awt.Image;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -43,6 +44,7 @@ public class Servicio extends Publicacion {
        this.descripcion_ = descripcion;
        this.imagenes_ = imagenes;
        this.precio_ = precio;
+       this.categorias_ = new HashMap<>();
        
        ManejadorCategoria mc;
        mc = ManejadorCategoria.getInstance();
@@ -76,6 +78,7 @@ public class Servicio extends Publicacion {
        this.descripcion_ = descripcion;
        this.imagenes_ = imagenes;
        this.precio_ = precio;
+       this.categorias_ = new HashMap<>();
        
        ManejadorCategoria mc;
        mc = ManejadorCategoria.getInstance();
