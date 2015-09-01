@@ -89,13 +89,13 @@ public class Servicio extends Publicacion {
        
        ciudadOrigen_ = corigen;
        
-      // for(String cat: categorias){
-      //     Categoria c;
-      //     c = mc.encontrarCategoria(cat);
-      //     categorias_.put(cat, c);
-      //     
-      //     c.agregarServicio(this); 
-      // } 
+       for(String cat: categorias){
+           Categoria c;
+           c = mc.encontrarCategoria(cat);
+           categorias_.put(cat, c);
+           
+           c.agregarServicio(this); 
+       } 
     }
     
     
