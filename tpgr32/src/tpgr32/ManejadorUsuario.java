@@ -58,14 +58,14 @@ public class ManejadorUsuario {
     }
     
     public Usuario encontrarUsuario(String nickName) {
-        /*if (this.conjUsuarios.containsKey(nickName)) {
-            Exception e = new Exception("El nickName ingresado no existe");
-            throw e;
+        if (this.conjUsuarios.containsKey(nickName)) {
+            //Exception e = new Exception("El nickName ingresado no existe");
+            throw new IllegalArgumentException("no se encontro usuario");
         }
         else {
             return this.conjUsuarios.get(nickName);
-        }*/
-        return this.conjUsuarios.get(nickName);
+        }
+        //return this.conjUsuarios.get(nickName);
     }
     
     public Map<String,Usuario> getUsuarios() {
