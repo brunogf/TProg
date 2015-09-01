@@ -33,6 +33,7 @@ public class Interfaz extends javax.swing.JFrame {
     private int fila;
     private int cantClick;
     private Set<String> categorias;
+    private Set<Image> imagenes;
     
     public Interfaz() {
 	initComponents();
@@ -3194,11 +3195,16 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioProveedorPanel.setVisible(false);
             RegServicioUbicacionPanel.setVisible(false);
             RegServicioImagenPanel.setVisible(true);
+            RegServicioCategoriasPanel.setVisible(false);
+            imagenes = new HashSet<>();
         }
     }//GEN-LAST:event_RegServicioUbicacionSiguienteButtonActionPerformed
 
     private void RegServicioSeleccImagen1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen1ButtonActionPerformed
         // TODO add your handling code here:
+        if (imagenes.size() == 3)
+            JOptionPane.showMessageDialog(this,"No se puede agregar mas imagenes(maximo 3)");
+        else{
         //Se hace filtro para ver solo imagenes
         FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
         RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
@@ -3217,6 +3223,8 @@ public class Interfaz extends javax.swing.JFrame {
             ImageIcon icon = new ImageIcon(arch);
             //Se extrae la imagen
             Image img = icon.getImage();
+            //Se agrega al set de imagenes
+            imagenes.add(img);
             //Se modifica el tamaño de la imagen
             Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
@@ -3224,10 +3232,14 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioImagen1Label.setIcon(nuevoIcono);
             RegServicioImagen1Label.setSize(100,100);
         }
+        }
     }//GEN-LAST:event_RegServicioSeleccImagen1ButtonActionPerformed
 
     private void RegServicioSeleccImagen2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen2ButtonActionPerformed
         // TODO add your handling code here:
+        if (imagenes.size() == 3)
+            JOptionPane.showMessageDialog(this,"No se puede agregar mas imagenes(maximo 3)");
+        else{
         //Se hace filtro para ver solo imagenes
         FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
         RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
@@ -3246,6 +3258,8 @@ public class Interfaz extends javax.swing.JFrame {
             ImageIcon icon = new ImageIcon(arch);
             //Se extrae la imagen
             Image img = icon.getImage();
+            //Se agrega al set de imagenes
+            imagenes.add(img);
             //Se modifica el tamaño de la imagen
             Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
@@ -3253,10 +3267,14 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioImagen2Label.setIcon(nuevoIcono);
             RegServicioImagen2Label.setSize(100,100);
         }
+        }
     }//GEN-LAST:event_RegServicioSeleccImagen2ButtonActionPerformed
 
     private void RegServicioSeleccImagen3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen3ButtonActionPerformed
         // TODO add your handling code here:
+        if (imagenes.size() == 3)
+            JOptionPane.showMessageDialog(this,"No se puede agregar mas imagenes(maximo 3)");
+        else{
         //Se hace filtro para ver solo imagenes
         FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
         RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
@@ -3275,12 +3293,15 @@ public class Interfaz extends javax.swing.JFrame {
             ImageIcon icon = new ImageIcon(arch);
             //Se extrae la imagen
             Image img = icon.getImage();
+            //Se agrega al set de imagenes
+            imagenes.add(img);
             //Se modifica el tamaño de la imagen
             Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
             ImageIcon nuevoIcono = new ImageIcon(imgmod);
             RegServicioImagen3Label.setIcon(nuevoIcono);
             RegServicioImagen3Label.setSize(100,100);
+        }
         }
     }//GEN-LAST:event_RegServicioSeleccImagen3ButtonActionPerformed
 
@@ -3566,7 +3587,7 @@ public class Interfaz extends javax.swing.JFrame {
 	{
 	    DefaultMutableTreeNode cat = (DefaultMutableTreeNode) RegServicioCategoriasTree.getLastSelectedPathComponent();            
             categorias.add(cat.toString());
-            JOptionPane.showMessageDialog(this, "Se ha agregado la categoria" + cat.toString());
+            JOptionPane.showMessageDialog(this, "Se ha agregado la categoria " + cat.toString());
 	}catch(Exception ex)
 	{
             JOptionPane.showMessageDialog(this, ex.getMessage());
