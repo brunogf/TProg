@@ -56,17 +56,22 @@ public class ControladorReserva implements IControladorReserva{
 	}
 	//agrega la reserva al cliente
 	cliente_.agregarReserva(r);
-	
-	
-	
+	ManejadorReserva mr=ManejadorReserva.getInstance();
+        mr.agregarReserva(r);
     }
     
     public DataReserva infoReserva(int nro){
-       return new DataReserva();         
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        
+        return r.infoReserva();
     }
     
     public Set<DataReserva> listarReservas(){
-        return new HashSet<>(); 
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Set<DataReserva> lista=mr.listarReservas();
+        
+        return lista;
     }
     
     public Set<DataReserva> listarReservasEliminables(){

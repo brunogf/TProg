@@ -65,7 +65,7 @@ public class Reserva {
             this.setEstado(e);
         }
         else{
-            throw new IllegalArgumentException("El estado debe ser Registrada");
+            throw new IllegalArgumentException("El estado de la reserva debe ser Registrada");
         }
     }
     
