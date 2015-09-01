@@ -15,6 +15,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.TreeSelectionModel;
 
 /**
  *
@@ -86,8 +89,8 @@ public class Interfaz extends javax.swing.JFrame {
         RegCategoriaSinPadreRadioButton = new javax.swing.JRadioButton();
         RegCategoriaConPadreRadioButton = new javax.swing.JRadioButton();
         RegCategoriaSelecCategoriaPadreLabel = new javax.swing.JLabel();
-        RegCategoriaListarCategoriasScrollPane = new javax.swing.JScrollPane();
-        RegCategoriaListarCategoriasTree = new javax.swing.JTree();
+        RegCategoriaScrollPane = new javax.swing.JScrollPane();
+        RegCategoriaTree = new javax.swing.JTree();
         RegCategoriaAceptarButton = new javax.swing.JButton();
         RegCategoriaCancelarButton = new javax.swing.JButton();
         RegistrarServicioFrame = new javax.swing.JInternalFrame();
@@ -380,11 +383,23 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegCategoriaSelecCategoriaPadreLabel.setText("Selecciona la categoria padre");
 
-        RegCategoriaListarCategoriasScrollPane.setViewportView(RegCategoriaListarCategoriasTree);
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
+        RegCategoriaTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        RegCategoriaScrollPane.setViewportView(RegCategoriaTree);
 
         RegCategoriaAceptarButton.setText("Aceptar");
+        RegCategoriaAceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegCategoriaAceptarButtonActionPerformed(evt);
+            }
+        });
 
         RegCategoriaCancelarButton.setText("Cancelar");
+        RegCategoriaCancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegCategoriaCancelarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout RegistrarCategoriaFrameLayout = new javax.swing.GroupLayout(RegistrarCategoriaFrame.getContentPane());
         RegistrarCategoriaFrame.getContentPane().setLayout(RegistrarCategoriaFrameLayout);
@@ -411,7 +426,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addComponent(RegCategoriaSelecCategoriaPadreLabel)
                                 .addGap(38, 38, 38)
-                                .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                                .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RegCategoriaAceptarButton)
@@ -441,7 +456,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(RegCategoriaListarCategoriasScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaAceptarButton)
@@ -1996,26 +2011,30 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
     private void MenuRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarCategoriaActionPerformed
-        
+        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+        DefaultTreeModel modelo = ctrlPublic.listarCategorias();
+        RegCategoriaTree.setModel(modelo);
+        RegCategoriaTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         ConPadreOSinPadre.add(RegCategoriaSinPadreRadioButton);
         ConPadreOSinPadre.add(RegCategoriaConPadreRadioButton);
-        
-        RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-        RegCategoriaListarCategoriasScrollPane.setVisible(false);
+        if (RegCategoriaSinPadreRadioButton.isSelected()){
+            RegCategoriaScrollPane.setVisible(false);
+            RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
+            }
+        PanelCentral.removeAll();
         PanelCentral.add(RegistrarCategoriaFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
-
     }//GEN-LAST:event_MenuRegistrarCategoriaActionPerformed
 
     private void RegCategoriaConPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaConPadreRadioButtonActionPerformed
         RegCategoriaSelecCategoriaPadreLabel.setVisible(true);
-        RegCategoriaListarCategoriasScrollPane.setVisible(true);
+        RegCategoriaScrollPane.setVisible(true);
     }//GEN-LAST:event_RegCategoriaConPadreRadioButtonActionPerformed
 
     private void RegCategoriaSinPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaSinPadreRadioButtonActionPerformed
         RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-        RegCategoriaListarCategoriasScrollPane.setVisible(false);
+        RegCategoriaScrollPane.setVisible(false);
     }//GEN-LAST:event_RegCategoriaSinPadreRadioButtonActionPerformed
 
     private void MenuRegistrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarServicioActionPerformed
@@ -2551,6 +2570,31 @@ public class Interfaz extends javax.swing.JFrame {
         
     }//GEN-LAST:event_RegServicioImagenSiguienteButtonActionPerformed
 
+    private void RegCategoriaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaAceptarButtonActionPerformed
+        try
+	{
+	    ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+	    if(RegCategoriaConPadreRadioButton.isSelected())
+	    {     
+                DefaultMutableTreeNode padre = (DefaultMutableTreeNode) RegCategoriaTree.getLastSelectedPathComponent();    
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText(), padre.toString());             
+            }
+            else{
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());
+            }           
+            RegCategoriaNombreCategoriaTextField.setText(null);
+            PanelCentral.remove(RegistrarCategoriaFrame);
+	}catch(Exception ex)
+	{
+            
+	}
+    }//GEN-LAST:event_RegCategoriaAceptarButtonActionPerformed
+
+    private void RegCategoriaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaCancelarButtonActionPerformed
+        RegCategoriaNombreCategoriaTextField.setText(null);
+        PanelCentral.remove(RegistrarCategoriaFrame); 
+    }//GEN-LAST:event_RegCategoriaCancelarButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2660,12 +2704,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegCategoriaCategoriaPadreLabel;
     private javax.swing.JRadioButton RegCategoriaConPadreRadioButton;
     private javax.swing.JLabel RegCategoriaLabel;
-    private javax.swing.JScrollPane RegCategoriaListarCategoriasScrollPane;
-    private javax.swing.JTree RegCategoriaListarCategoriasTree;
     private javax.swing.JLabel RegCategoriaNomCategoriaLabel;
     private javax.swing.JTextField RegCategoriaNombreCategoriaTextField;
+    private javax.swing.JScrollPane RegCategoriaScrollPane;
     private javax.swing.JLabel RegCategoriaSelecCategoriaPadreLabel;
     private javax.swing.JRadioButton RegCategoriaSinPadreRadioButton;
+    private javax.swing.JTree RegCategoriaTree;
     private javax.swing.JButton RegReservaCancelarButton;
     private javax.swing.JScrollPane RegReservaClienteTableScrollPane;
     private javax.swing.JTable RegReservaClientesTable;
