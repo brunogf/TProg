@@ -18,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
+import java.awt.event.*;
 
 /**
  *
@@ -56,6 +57,7 @@ public class Interfaz extends javax.swing.JFrame {
         ConPadreOSinPadre = new javax.swing.ButtonGroup();
         ConDestinoSinDestino = new javax.swing.ButtonGroup();
         RegServicioSelectorImagenFileChooser = new javax.swing.JFileChooser();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
         PanelCentral = new javax.swing.JPanel();
         RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
         RegUsuarioLabel = new javax.swing.JLabel();
@@ -298,6 +300,14 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarUsuFNacimiento = new javax.swing.JTextField();
         ConsultaUsuBotonAtras1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        ActualizarEstadoReservaFrame = new javax.swing.JInternalFrame();
+        jLabel2 = new javax.swing.JLabel();
+        SeleccionarReservaLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ReservasTable = new javax.swing.JTable();
+        SeleccionarEstadoLabel = new javax.swing.JLabel();
+        EstadosComboBox = new javax.swing.JComboBox();
+        ActualizarEstadoReservaAceptarButton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -308,12 +318,26 @@ public class Interfaz extends javax.swing.JFrame {
         MenuRegistrarReserva = new javax.swing.JMenuItem();
         MenuActualizaciones = new javax.swing.JMenu();
         MenuActualizarServicio = new javax.swing.JMenuItem();
+        ActualizarEstadoReservaMenu = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         infoCliente = new javax.swing.JMenuItem();
         infoProveedorMenuBar = new javax.swing.JMenuItem();
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
+
+        jInternalFrame1.setVisible(true);
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
@@ -2279,6 +2303,86 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
 
+        ActualizarEstadoReservaFrame.setVisible(true);
+
+        jLabel2.setText("Actualizar Estado de Reserva");
+
+        SeleccionarReservaLabel.setText("Seleccione una reserva: ");
+
+        ReservasTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Número", "Estado"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(ReservasTable);
+
+        SeleccionarEstadoLabel.setText("Indique el nuevo estado: ");
+
+        ActualizarEstadoReservaAceptarButton.setText("Aceptar");
+        ActualizarEstadoReservaAceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarEstadoReservaAceptarButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ActualizarEstadoReservaFrameLayout = new javax.swing.GroupLayout(ActualizarEstadoReservaFrame.getContentPane());
+        ActualizarEstadoReservaFrame.getContentPane().setLayout(ActualizarEstadoReservaFrameLayout);
+        ActualizarEstadoReservaFrameLayout.setHorizontalGroup(
+            ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
+                .addGroup(ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(SeleccionarEstadoLabel))
+                    .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(EstadosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ActualizarEstadoReservaAceptarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(SeleccionarReservaLabel)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+        ActualizarEstadoReservaFrameLayout.setVerticalGroup(
+            ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(SeleccionarReservaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(SeleccionarEstadoLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(EstadosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ActualizarEstadoReservaAceptarButton)
+                .addContainerGap(150, Short.MAX_VALUE))
+        );
+
+        PanelCentral.add(ActualizarEstadoReservaFrame, "card14");
+
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
 
@@ -2336,6 +2440,14 @@ public class Interfaz extends javax.swing.JFrame {
         });
         MenuActualizaciones.add(MenuActualizarServicio);
 
+        ActualizarEstadoReservaMenu.setText("Actualizar Estado de Reserva");
+        ActualizarEstadoReservaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarEstadoReservaMenuActionPerformed(evt);
+            }
+        });
+        MenuActualizaciones.add(ActualizarEstadoReservaMenu);
+
         BarraMenu.add(MenuActualizaciones);
 
         MenuConsultas.setText("Consultas");
@@ -2386,7 +2498,7 @@ public class Interfaz extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+                .addComponent(PanelCentral, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -2394,7 +2506,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(PanelCentral, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         getAccessibleContext().setAccessibleDescription("");
@@ -3167,6 +3279,77 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.remove(this.ConsultaUsuarioFrame);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ActualizarEstadoReservaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEstadoReservaMenuActionPerformed
+        // TODO add your handling code here:
+        PanelCentral.removeAll();
+	PanelCentral.add(ActualizarEstadoReservaFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+        SeleccionarEstadoLabel.setVisible(false);
+        EstadosComboBox.setVisible(false);
+        EstadosComboBox.removeAllItems();
+        EstadosComboBox.addItem(Estado.Facturada);
+        EstadosComboBox.addItem(Estado.Pagada);
+        EstadosComboBox.addItem(Estado.Cancelada);
+
+        listarReservasGUI(1);
+    }//GEN-LAST:event_ActualizarEstadoReservaMenuActionPerformed
+
+    private void ActualizarEstadoReservaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEstadoReservaAceptarButtonActionPerformed
+        // TODO add your handling code here:
+        IControladorReserva cr = fabrica.getControladorReserva();
+        
+        int row=ReservasTable.getSelectedRow();
+        if (row==-1){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una reserva", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }else{
+            int nro=(int)ReservasTable.getValueAt(row, 0);
+            Estado e=(Estado)EstadosComboBox.getSelectedItem();
+        
+            try{
+                cr.actualizarEstado(nro, e);
+                JOptionPane.showMessageDialog(null, "Reserva modificada con éxito", "Información", JOptionPane.INFORMATION_MESSAGE);
+                listarReservasGUI(1);
+            }catch (Exception ex){
+                JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            //ReservasTable.repaint();
+        }
+    }//GEN-LAST:event_ActualizarEstadoReservaAceptarButtonActionPerformed
+
+    public void listarReservasGUI(int tipo){
+        IControladorReserva cr = fabrica.getControladorReserva();
+        
+        List<DataReserva> dr=cr.listarReservas();
+        
+        DefaultTableModel modelo = new DefaultTableModel();
+        ReservasTable.setModel(modelo);
+        modelo.addColumn("Numero");
+        modelo.addColumn("Estado");
+               
+        //llena la tabla de reservas
+        Iterator<DataReserva> it=dr.iterator();
+        Object [] fila = new Object[2];
+              
+        while (it.hasNext()){
+            DataReserva dr1=it.next();
+            fila[0] = dr1.getNum_();
+            fila[1] = dr1.getEstado_();
+            
+            modelo.addRow(fila);
+        }
+        
+        if (tipo==1){
+            ReservasTable.addMouseListener(new MouseAdapter() 
+            {
+                public void mouseClicked(MouseEvent e){
+                    SeleccionarEstadoLabel.setVisible(true);
+                    EstadosComboBox.setVisible(true);
+                }
+            });
+        }
+         
+    }
     /**
      * @param args the command line arguments
      */
@@ -3208,6 +3391,9 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane ActualizaServicioCiudadDestinoScrollPane;
+    private javax.swing.JButton ActualizarEstadoReservaAceptarButton;
+    private javax.swing.JInternalFrame ActualizarEstadoReservaFrame;
+    private javax.swing.JMenuItem ActualizarEstadoReservaMenu;
     private javax.swing.JButton ActualizarServicioAceptarButton;
     private javax.swing.JButton ActualizarServicioCancelarButton;
     private javax.swing.JLabel ActualizarServicioCategoriasLabel;
@@ -3280,6 +3466,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField ConsultarUsuFNacimiento;
     private javax.swing.JTextField ConsultarUsuNickName;
     private javax.swing.JTextField ConsultarUsuNomCliente;
+    private javax.swing.JComboBox EstadosComboBox;
     private javax.swing.JLabel InfoReservasClienteFCreacionLabel;
     private javax.swing.JLabel InfoReservasClienteNumLabel;
     private javax.swing.JTextField InfoReservasClienteNumero;
@@ -3445,13 +3632,19 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField RegistrarServicioPrecioTextField;
     private javax.swing.JButton RegistrarServicioSiguienteBottonDBPanel;
     private javax.swing.JInternalFrame RegistrarUsuarioFrame;
+    private javax.swing.JTable ReservasTable;
+    private javax.swing.JLabel SeleccionarEstadoLabel;
+    private javax.swing.JLabel SeleccionarReservaLabel;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
     private javax.swing.JMenuItem infoProveedorMenuBar;
     private javax.swing.JButton infoReservasClienteBotonAtras;
     private javax.swing.JButton infoServiciosProveedorBotonAtras;
     private javax.swing.JButton jButton1;
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;

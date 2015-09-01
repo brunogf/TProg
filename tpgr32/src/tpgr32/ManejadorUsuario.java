@@ -34,7 +34,7 @@ public class ManejadorUsuario {
     
     public void agregarUsuario(Usuario u) throws Exception {
         if (this.conjUsuarios.containsKey(u.getNickname())) {
-            Exception e = new Exception("El nickName ingresado ya esta utilizado");
+            Exception e = new Exception("El nickName ingresado ya existe en el Sistema");
             throw e;
         }
         else {
@@ -51,16 +51,16 @@ public class ManejadorUsuario {
                  this.conjUsuarios.put(u.getNickname(), u);
             }
             else { 
-                Exception e = new Exception("El Correo Electronico ingresado ya esta utilizado");
+                Exception e = new Exception("El Correo Electrónico ingresado ya existe en el Sistema");
                 throw e;               
             }
         }        
     }
     
     public Usuario encontrarUsuario(String nickName) {
-        if (this.conjUsuarios.containsKey(nickName)) {
+        if (!this.conjUsuarios.containsKey(nickName)) {
             //Exception e = new Exception("El nickName ingresado no existe");
-            throw new IllegalArgumentException("no se encontro usuario");
+            throw new IllegalArgumentException("No se encontró usuario");
         }
         else {
             return this.conjUsuarios.get(nickName);
