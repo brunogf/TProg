@@ -2218,14 +2218,13 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
                                           <Component id="RegReservaSPubTitleLabel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                                           <Component id="RegReservaSPubCancelarButton" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="RegReservaSPubAtrasButton" min="-2" max="-2" attributes="0"/>
@@ -2252,15 +2251,13 @@
                                           </Group>
                                           <EmptySpace max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="RegReservaSPubInicioChooser" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
-                                              </Group>
+                                              <Component id="RegReservaSPubInicioChooser" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                                   <Component id="RegReservaSPubCantSpinner" min="-2" max="-2" attributes="0"/>
                                                   <Component id="RegReservaSPubFinChooser" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
+                                          <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <EmptySpace min="-2" pref="343" max="-2" attributes="0"/>
@@ -2288,7 +2285,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane4" min="-2" pref="120" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="RegReservaSPubInicioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaSPubInicioChooser" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -2456,9 +2453,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="RegReservaConfirmarProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="RegReservaConfirmarClienteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -2470,10 +2467,7 @@
                                   </Group>
                                   <EmptySpace min="0" pref="313" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jScrollPane6" pref="0" max="32767" attributes="0"/>
-                              </Group>
+                              <Component id="jScrollPane6" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -3893,6 +3887,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoServicioCategoriaCancelarButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="InfoServicioCategoriaSiguienteButton">
                   <Properties>
@@ -3932,30 +3929,30 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" pref="144" max="-2" attributes="0"/>
+                                  <Component id="InfoServicioInfoServicioTitleLabel" min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicioNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicoDescrLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicioPrecioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicioProvLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel8" min="-2" pref="88" max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" pref="159" max="-2" attributes="0"/>
-                                      <Component id="jLabel10" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoNombreLabel" min="-2" pref="88" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoPrecioLabel" alignment="0" min="-2" pref="64" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoProvLabel" alignment="0" min="-2" pref="84" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane15" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="132" max="32767" attributes="0"/>
+                          <EmptySpace pref="125" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="InfoServicioInfoServicioCerrarButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -3964,85 +3961,98 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                          <Component id="jLabel3" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="InfoServicioInfoServicioTitleLabel" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioInfoServicioNombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioDatoNombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" pref="105" max="-2" attributes="0"/>
+                              <Component id="InfoServicioInfoServicoDescrLabel" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane15" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioInfoServicioPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioDatoPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioInfoServicioProvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioDatoProvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="77" max="32767" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="InfoServicioInfoServicioCerrarButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioTitleLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Informaci&#xf3;n del servicio"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel4">
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioNombreLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Nombre: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel5">
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicoDescrLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Descripci&#xf3;n: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioPrecioLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Precio: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioProvLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Proveedor: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoNombreLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel8"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel9"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLabel10">
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoPrecioLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel10"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel11">
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoProvLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jLabel11"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="jButton2">
+                <Component class="javax.swing.JButton" name="InfoServicioInfoServicioCerrarButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cerrar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoServicioInfoServicioCerrarButtonActionPerformed"/>
+                  </Events>
                 </Component>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane15">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTextArea" name="InfoServicioDatoDescrTextArea">
+                      <Properties>
+                        <Property name="columns" type="int" value="20"/>
+                        <Property name="rows" type="int" value="5"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
               </SubComponents>
             </Container>
           </SubComponents>

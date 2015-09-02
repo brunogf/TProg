@@ -36,7 +36,9 @@ public class Interfaz extends javax.swing.JFrame {
     private int fila;
     private int cantClick;
     private Set<String> categorias;
-    private Set<Image> imagenes;
+    private Image img1;
+    private Image img2;
+    private Image img3;
     private String ImgUsuario[]; 
     private int cantImgUsuario;
     
@@ -357,16 +359,17 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioSeleccServLabel = new javax.swing.JLabel();
         InfoServicioServiciosComboBox = new javax.swing.JComboBox();
         InfoServicioInfoServicioPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        InfoServicioInfoServicioTitleLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioNombreLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicoDescrLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioPrecioLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioProvLabel = new javax.swing.JLabel();
+        InfoServicioDatoNombreLabel = new javax.swing.JLabel();
+        InfoServicioDatoPrecioLabel = new javax.swing.JLabel();
+        InfoServicioDatoProvLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioCerrarButton = new javax.swing.JButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        InfoServicioDatoDescrTextArea = new javax.swing.JTextArea();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -1702,13 +1705,12 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
                 .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
+                        .addGap(136, 136, 136)
                         .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
-                                .addGap(136, 136, 136)
                                 .addComponent(RegReservaSPubTitleLabel)
                                 .addGap(129, 129, 129))
                             .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
-                                .addGap(150, 150, 150)
                                 .addComponent(RegReservaSPubCancelarButton)
                                 .addGap(18, 18, 18)
                                 .addComponent(RegReservaSPubAtrasButton)
@@ -1729,12 +1731,11 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegReservaSPubInicioLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
-                                        .addComponent(RegReservaSPubInicioChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(148, 148, 148))
+                                    .addComponent(RegReservaSPubInicioChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addComponent(RegReservaSPubCantSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(RegReservaSPubFinChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(RegReservaSPubFinChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(148, 148, 148))
                             .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createSequentialGroup()
                                 .addGap(343, 343, 343)
                                 .addComponent(RegReservaSPubAgregarButton)
@@ -1754,7 +1755,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(RegReservaSeleccionarPublicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegReservaSPubInicioLabel)
                     .addComponent(RegReservaSPubInicioChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1839,9 +1840,9 @@ public class Interfaz extends javax.swing.JFrame {
         RegReservaConfirmarPanelLayout.setHorizontalGroup(
             RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RegReservaConfirmarProveedorLabel)
                             .addComponent(RegReservaConfirmarClienteLabel))
@@ -1850,9 +1851,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(RegReservaConfirmarCInfoLabel)
                             .addComponent(RegReservaConfirmarPInfoLabel))
                         .addGap(0, 313, Short.MAX_VALUE))
-                    .addGroup(RegReservaConfirmarPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaConfirmarPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -2675,6 +2674,11 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane14.setViewportView(InfoServicioCategoriasTree);
 
         InfoServicioCategoriaCancelarButton.setText("Cancelar");
+        InfoServicioCategoriaCancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoServicioCategoriaCancelarButtonActionPerformed(evt);
+            }
+        });
 
         InfoServicioCategoriaSiguienteButton.setText("Siguiente");
         InfoServicioCategoriaSiguienteButton.addActionListener(new java.awt.event.ActionListener() {
@@ -2730,25 +2734,32 @@ public class Interfaz extends javax.swing.JFrame {
 
         InformacionServicioFrame.getContentPane().add(InfoServicioCategoriaPanel, "card2");
 
-        jLabel3.setText("Información del servicio");
+        InfoServicioInfoServicioTitleLabel.setText("Información del servicio");
 
-        jLabel4.setText("Nombre: ");
+        InfoServicioInfoServicioNombreLabel.setText("Nombre: ");
 
-        jLabel5.setText("Descripción: ");
+        InfoServicioInfoServicoDescrLabel.setText("Descripción: ");
 
-        jLabel6.setText("Precio: ");
+        InfoServicioInfoServicioPrecioLabel.setText("Precio: ");
 
-        jLabel7.setText("Proveedor: ");
+        InfoServicioInfoServicioProvLabel.setText("Proveedor: ");
 
-        jLabel8.setText("jLabel8");
+        InfoServicioDatoNombreLabel.setText("jLabel8");
 
-        jLabel9.setText("jLabel9");
+        InfoServicioDatoPrecioLabel.setText("jLabel10");
 
-        jLabel10.setText("jLabel10");
+        InfoServicioDatoProvLabel.setText("jLabel11");
 
-        jLabel11.setText("jLabel11");
+        InfoServicioInfoServicioCerrarButton.setText("Cerrar");
+        InfoServicioInfoServicioCerrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoServicioInfoServicioCerrarButtonActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cerrar");
+        InfoServicioDatoDescrTextArea.setColumns(20);
+        InfoServicioDatoDescrTextArea.setRows(5);
+        jScrollPane15.setViewportView(InfoServicioDatoDescrTextArea);
 
         javax.swing.GroupLayout InfoServicioInfoServicioPanelLayout = new javax.swing.GroupLayout(InfoServicioInfoServicioPanel);
         InfoServicioInfoServicioPanel.setLayout(InfoServicioInfoServicioPanelLayout);
@@ -2758,49 +2769,49 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                         .addGap(87, 87, 87)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(InfoServicioInfoServicioTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
+                            .addComponent(InfoServicioInfoServicioNombreLabel)
+                            .addComponent(InfoServicioInfoServicoDescrLabel)
+                            .addComponent(InfoServicioInfoServicioPrecioLabel)
+                            .addComponent(InfoServicioInfoServicioProvLabel))
                         .addGap(41, 41, 41)
                         .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(132, Short.MAX_VALUE))
+                            .addComponent(InfoServicioDatoNombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InfoServicioDatoPrecioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InfoServicioDatoProvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(125, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(InfoServicioInfoServicioCerrarButton)
                 .addGap(81, 81, 81))
         );
         InfoServicioInfoServicioPanelLayout.setVerticalGroup(
             InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(InfoServicioInfoServicioTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
+                    .addComponent(InfoServicioInfoServicioNombreLabel)
+                    .addComponent(InfoServicioDatoNombreLabel))
                 .addGap(18, 18, 18)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                    .addComponent(InfoServicioInfoServicoDescrLabel)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel10))
+                    .addComponent(InfoServicioInfoServicioPrecioLabel)
+                    .addComponent(InfoServicioDatoPrecioLabel))
                 .addGap(26, 26, 26)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel11))
+                    .addComponent(InfoServicioInfoServicioProvLabel)
+                    .addComponent(InfoServicioDatoProvLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(InfoServicioInfoServicioCerrarButton)
                 .addGap(47, 47, 47))
         );
 
@@ -3128,6 +3139,11 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.add(RegistrarServicioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
+        RegServicioDatosBasicosPanel.setVisible(true);
+        RegServicioProveedorPanel.setVisible(false);
+        RegServicioUbicacionPanel.setVisible(false);
+        RegServicioImagenPanel.setVisible(false);
+        RegServicioCategoriasPanel.setVisible(false);
     }//GEN-LAST:event_MenuRegistrarServicioActionPerformed
 
     private void MenuRegistrarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarPromocionActionPerformed
@@ -3376,6 +3392,10 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.removeAll();
         PanelCentral.revalidate();    
         PanelCentral.repaint();
+        RegistrarServicioNombreTextField.setText(null);
+        RegistrarServicioDescripcionTextArea.setText(null);
+        RegistrarServicioPrecioTextField.setText(null);
+        
     }//GEN-LAST:event_RegistrarServicioCancelarBottonDBPanelActionPerformed
 
     private void RegServicioSPSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSPSiguienteButtonActionPerformed
@@ -3417,6 +3437,9 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioSPCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSPCancelarButtonActionPerformed
         // TODO add your handling code here:
+        RegistrarServicioNombreTextField.setText(null);
+        RegistrarServicioDescripcionTextArea.setText(null);
+        RegistrarServicioPrecioTextField.setText(null);
         PanelCentral.removeAll();
         PanelCentral.revalidate();    
         PanelCentral.repaint();
@@ -3443,6 +3466,14 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.removeAll();
         PanelCentral.revalidate();    
         PanelCentral.repaint();
+        RegistrarServicioNombreTextField.setText(null);
+        RegistrarServicioDescripcionTextArea.setText(null);
+        RegistrarServicioPrecioTextField.setText(null);
+        RegServicioPaisOrigenComboBox.removeAll();
+        RegServicioCiudadOrigenComboBox.removeAll();
+        RegServicioPaisDestinoComboBox.removeAll();
+        RegServicioCiudadDestinoComboBox.removeAll();
+        
     }//GEN-LAST:event_RegServicioUbicacionCancelarButtonActionPerformed
 
     private void RegServicioPaisOrigenComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioPaisOrigenComboBoxActionPerformed
@@ -3505,15 +3536,12 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioUbicacionPanel.setVisible(false);
             RegServicioImagenPanel.setVisible(true);
             RegServicioCategoriasPanel.setVisible(false);
-            imagenes = new HashSet<>();
         }
     }//GEN-LAST:event_RegServicioUbicacionSiguienteButtonActionPerformed
 
     private void RegServicioSeleccImagen1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen1ButtonActionPerformed
         // TODO add your handling code here:
-        if (imagenes.size() == 3)
-            JOptionPane.showMessageDialog(this,"No se puede agregar mas imagenes(maximo 3)");
-        else{
+        
         //Se hace filtro para ver solo imagenes
         FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
         RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
@@ -3532,8 +3560,8 @@ public class Interfaz extends javax.swing.JFrame {
             ImageIcon icon = new ImageIcon(arch);
             //Se extrae la imagen
             Image img = icon.getImage();
-            //Se agrega al set de imagenes
-            imagenes.add(img);
+            //Se agrega la imagen
+            img1 = img;
             //Se modifica el tamaño de la imagen
             Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
@@ -3541,14 +3569,10 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioImagen1Label.setIcon(nuevoIcono);
             RegServicioImagen1Label.setSize(100,100);
         }
-        }
     }//GEN-LAST:event_RegServicioSeleccImagen1ButtonActionPerformed
 
     private void RegServicioSeleccImagen2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen2ButtonActionPerformed
         // TODO add your handling code here:
-        if (imagenes.size() == 3)
-            JOptionPane.showMessageDialog(this,"No se puede agregar mas imagenes(maximo 3)");
-        else{
         //Se hace filtro para ver solo imagenes
         FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
         RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
@@ -3568,7 +3592,7 @@ public class Interfaz extends javax.swing.JFrame {
             //Se extrae la imagen
             Image img = icon.getImage();
             //Se agrega al set de imagenes
-            imagenes.add(img);
+            img2 = img;
             //Se modifica el tamaño de la imagen
             Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
@@ -3576,14 +3600,10 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioImagen2Label.setIcon(nuevoIcono);
             RegServicioImagen2Label.setSize(100,100);
         }
-        }
     }//GEN-LAST:event_RegServicioSeleccImagen2ButtonActionPerformed
 
     private void RegServicioSeleccImagen3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen3ButtonActionPerformed
         // TODO add your handling code here:
-        if (imagenes.size() == 3)
-            JOptionPane.showMessageDialog(this,"No se puede agregar mas imagenes(maximo 3)");
-        else{
         //Se hace filtro para ver solo imagenes
         FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
         RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
@@ -3602,15 +3622,14 @@ public class Interfaz extends javax.swing.JFrame {
             ImageIcon icon = new ImageIcon(arch);
             //Se extrae la imagen
             Image img = icon.getImage();
-            //Se agrega al set de imagenes
-            imagenes.add(img);
+            //Se agrega la imagen
+            img3 = img;
             //Se modifica el tamaño de la imagen
             Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
             ImageIcon nuevoIcono = new ImageIcon(imgmod);
             RegServicioImagen3Label.setIcon(nuevoIcono);
             RegServicioImagen3Label.setSize(100,100);
-        }
         }
     }//GEN-LAST:event_RegServicioSeleccImagen3ButtonActionPerformed
 
@@ -3620,6 +3639,9 @@ public class Interfaz extends javax.swing.JFrame {
             RegServicioProveedorPanel.setVisible(false);
             RegServicioUbicacionPanel.setVisible(true);
             RegServicioImagenPanel.setVisible(false);
+            RegServicioImagen1Label.setIcon(null);
+            RegServicioImagen2Label.setIcon(null);
+            RegServicioImagen3Label.setIcon(null);
     }//GEN-LAST:event_RegServicioImagenAtrasButtonActionPerformed
 
     private void RegServicioImagenCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioImagenCancelarButtonActionPerformed
@@ -3627,6 +3649,15 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.removeAll();
         PanelCentral.revalidate();    
         PanelCentral.repaint();
+        RegistrarServicioNombreTextField.setText(null);
+        RegistrarServicioDescripcionTextArea.setText(null);
+        RegistrarServicioPrecioTextField.setText(null);
+        RegServicioImagen1Label.setIcon(null);
+        RegServicioImagen2Label.setIcon(null);
+        RegServicioImagen3Label.setIcon(null);
+        img1 = null;
+        img2 = null;
+        img3 = null;
     }//GEN-LAST:event_RegServicioImagenCancelarButtonActionPerformed
 
     private void RegServicioImagenSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioImagenSiguienteButtonActionPerformed
@@ -3949,6 +3980,20 @@ public class Interfaz extends javax.swing.JFrame {
             IControladorPublicacion cp = fabrica.getControladorPublicacion();
             DataUbicacion dtorigen = new DataUbicacion((String)RegServicioPaisOrigenComboBox.getSelectedItem(),
                                                      (String)RegServicioCiudadOrigenComboBox.getSelectedItem());
+            Set<Image> imagenes = new HashSet<>();
+            Image i1, i2, i3;
+            if (img1 != null){
+                i1 = img1;
+                imagenes.add(i1);
+            }
+            if (img2 != null){
+                i2 = img2;
+                imagenes.add(i2);
+            }
+            if (img3 != null){
+                i3 = img3;
+                imagenes.add(i3);
+            }
             //Alta servico con destino
             if (RegServicioDestinoSiRadioButton.isSelected()){
                DataUbicacion dtdestino = new DataUbicacion((String)RegServicioPaisDestinoComboBox.getSelectedItem(),
@@ -3972,7 +4017,16 @@ public class Interfaz extends javax.swing.JFrame {
             //do something
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-        RegServicioDatosBasicosPanel.setVisible(true);
+        img1 = null;
+        img2 = null;
+        img3 = null;
+        RegistrarServicioNombreTextField.setText(null);
+        RegistrarServicioPrecioTextField.setText(null);
+        RegistrarServicioDescripcionTextArea.setText(null);
+        RegServicioImagen1Label.setIcon(null);
+        RegServicioImagen2Label.setIcon(null);
+        RegServicioImagen3Label.setIcon(null);
+        RegServicioDatosBasicosPanel.setVisible(false);
         RegServicioProveedorPanel.setVisible(false);
         RegServicioUbicacionPanel.setVisible(false);
         RegServicioImagenPanel.setVisible(false);
@@ -4035,12 +4089,14 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
         PanelCentral.removeAll();
 	PanelCentral.add(InformacionServicioFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
-        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+	ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
         DefaultTreeModel modelo = ctrlPublic.listarCategorias();
         InfoServicioCategoriasTree.setModel(modelo);
         InfoServicioCategoriasTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        InfoServicioCategoriaPanel.setVisible(true);
+        InfoServicioInfoServicioPanel.setVisible(false);
+        PanelCentral.repaint();
+	PanelCentral.revalidate();
     }//GEN-LAST:event_infoServicioMenuBarActionPerformed
 
     private void InfoServicioCategoriasTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_InfoServicioCategoriasTreeValueChanged
@@ -4069,10 +4125,11 @@ public class Interfaz extends javax.swing.JFrame {
         for (DataServicio dt: serv){
             if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())){
                 s = new DataServicio(dt.getNombre(),dt.getDescripcion(),dt.getPrecio(),dt.getProveedor());
-                jLabel8.setText(s.getNombre());
-                jLabel9.setText(s.getDescripcion());
-                jLabel10.setText(Float.toString(s.getPrecio()));
-                jLabel11.setText(s.getProveedor());
+                InfoServicioDatoNombreLabel.setText(s.getNombre());
+                InfoServicioDatoDescrTextArea.setEditable(false);
+                InfoServicioDatoDescrTextArea.setText(s.getDescripcion());
+                InfoServicioDatoPrecioLabel.setText(Float.toString(s.getPrecio()));
+                InfoServicioDatoProvLabel.setText(s.getProveedor());
             }
         }
         
@@ -4151,6 +4208,24 @@ public class Interfaz extends javax.swing.JFrame {
         RegReservaSeleccionarPublicacionPanel.setVisible(false);
         RegReservaConfirmarPanel.setVisible(true);
     }//GEN-LAST:event_RegReservaSPubSiguienteButtonActionPerformed
+
+    private void InfoServicioCategoriaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoServicioCategoriaCancelarButtonActionPerformed
+        // TODO add your handling code here:
+        PanelCentral.removeAll();
+        PanelCentral.revalidate();    
+        PanelCentral.repaint();
+    }//GEN-LAST:event_InfoServicioCategoriaCancelarButtonActionPerformed
+
+    private void InfoServicioInfoServicioCerrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoServicioInfoServicioCerrarButtonActionPerformed
+        // TODO add your handling code here:
+        InfoServicioDatoNombreLabel.setText(null);
+        InfoServicioDatoDescrTextArea.setText(null);
+        InfoServicioDatoPrecioLabel.setText(null);
+        InfoServicioDatoProvLabel.setText(null);
+        PanelCentral.removeAll();
+        PanelCentral.revalidate();    
+        PanelCentral.repaint();
+    }//GEN-LAST:event_InfoServicioInfoServicioCerrarButtonActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
@@ -4351,7 +4426,17 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel InfoServicioCategoriaPanel;
     private javax.swing.JButton InfoServicioCategoriaSiguienteButton;
     private javax.swing.JTree InfoServicioCategoriasTree;
+    private javax.swing.JTextArea InfoServicioDatoDescrTextArea;
+    private javax.swing.JLabel InfoServicioDatoNombreLabel;
+    private javax.swing.JLabel InfoServicioDatoPrecioLabel;
+    private javax.swing.JLabel InfoServicioDatoProvLabel;
+    private javax.swing.JButton InfoServicioInfoServicioCerrarButton;
+    private javax.swing.JLabel InfoServicioInfoServicioNombreLabel;
     private javax.swing.JPanel InfoServicioInfoServicioPanel;
+    private javax.swing.JLabel InfoServicioInfoServicioPrecioLabel;
+    private javax.swing.JLabel InfoServicioInfoServicioProvLabel;
+    private javax.swing.JLabel InfoServicioInfoServicioTitleLabel;
+    private javax.swing.JLabel InfoServicioInfoServicoDescrLabel;
     private javax.swing.JLabel InfoServicioSeleccServLabel;
     private javax.swing.JComboBox InfoServicioServiciosComboBox;
     private javax.swing.JTextField InfoServiciosProveedorDesc;
@@ -4527,27 +4612,18 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem infoServicioMenuBar;
     private javax.swing.JButton infoServiciosProveedorBotonAtras;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
