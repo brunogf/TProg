@@ -34,6 +34,11 @@ public class Reserva {
     
     //getters
     
+    public static int getCurrentID()
+    {
+        return id;
+    }
+    
     public int getNumero(){
         return numero_;
     }

@@ -109,11 +109,7 @@ public class ControladorReserva implements IControladorReserva{
 	     if (pub == null)
 		 throw new IllegalArgumentException("No se encontro la publicacion");
 	     DataDisponibilidad dd = new DataDisponibilidad(cantidad, inicio, fin);
-	     boolean disponible = pub.disponible(dd);
-	     if (disponible)
-		 colPub_.add(new ParPD(pub,dd));//Guarda el PAR de la publicaicon y su disponibilidad
-	     else
-		 throw new IllegalArgumentException("La publicacion no está disponible");	     
+               colPub_.add(new ParPD(pub,dd));//Guarda el PAR de la publicaicon y su disponibilidad	     
 	}catch(Exception ex)
 	{
 	    //ex.getMessage();
@@ -131,5 +127,27 @@ public class ControladorReserva implements IControladorReserva{
         return proveedor_.getNickname();
     }
     
+    public DataProveedor getInfoProveeodrSeleccionado()
+    {
+        if (!(proveedor_ instanceof Proveedor))
+            throw new IllegalArgumentException("No se encuentra proveedor seleccionado.");
+        return (DataProveedor)proveedor_.infoUsuario();
+    }
     
+    public DataCliente getInfoClienteSeleccionado()
+    {
+        if(!(cliente_ instanceof Cliente))
+            throw new IllegalArgumentException("No se encontro el cliente seleccionado");
+        return (DataCliente)cliente_.infoUsuario();
+    }
+    
+    public void borrarPublicacionesSeleccionadas()
+    {
+        colPub_ = new HashSet<>();
+    }
+    
+    public int getNumeroReservas()
+    {
+        return Reserva.getCurrentID();
+    }
 }

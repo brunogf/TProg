@@ -41,13 +41,6 @@ public abstract class Publicacion {
         return proveedor_;
     }
     
-    public boolean disponible(DataDisponibilidad dd)
-    {
-	
-	//Cuando esta disponible la Publicacion?
-	return true;
-    }
-    
     public void agregarReservaPublicacion(ReservaPublicacion rp)
     {
 	rp_.add(rp);
