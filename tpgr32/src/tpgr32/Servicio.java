@@ -133,5 +133,20 @@ public class Servicio extends Publicacion {
         return servicio;
     }
     
+    public DataUbicacion getOrigen(){
+        String pais = ciudadOrigen_.getPais().getNombre();
+        String nombre = ciudadOrigen_.getNombre(); 
+        return new DataUbicacion(pais, nombre);
+    }
+    
+    public DataUbicacion getDestino(){
+        String pais = ciudadDestino_.getPais().getNombre();
+        String nombre = ciudadDestino_.getNombre(); 
+        return new DataUbicacion(pais, nombre);
+    }   
+   
+    public boolean conDestino(){
+        return !(ciudadDestino_ == null);
+    }    
     
 }
