@@ -57,6 +57,20 @@ public class ManejadorUsuario {
         }        
     }
     
+        public void agregarImagenes(Usuario u, String[] img,int cantImg) {
+       for(int i = 0; i < cantImg; i++) {
+           u.agregarImagen(img[i]);
+       } 
+    }
+    
+    public String[] imagenesUsuario(String nombre) {
+        Usuario u = this.conjUsuarios.get(nombre);
+        return u.ImgUsuario();
+    }
+
+    
+    
+    
     public Usuario encontrarUsuario(String nickName) {
         if (!this.conjUsuarios.containsKey(nickName)) {
             //Exception e = new Exception("El nickName ingresado no existe");

@@ -24,6 +24,7 @@ public class Proveedor extends Usuario {
     {
 	super(nom,apellido,nickName,cElec,f);
 	nomEmpresa_ = empresa;
+        publicaciones_ = new HashMap<>();
 	url_ = url;
     }
     
@@ -53,16 +54,19 @@ public class Proveedor extends Usuario {
 	return p;
     }
     
+    // al retornar el dt del Proveedor ya le agrego los dtPublicaciones de sus Publicaciones
     @Override
      public DataUsuario infoUsuario() {
-        return new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
-        this.nomEmpresa_,this.url_);     
+        DataProveedor dtProv = new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
+        this.nomEmpresa_,this.url_); 
+        /*for(String key : this.publicaciones_.keySet()) {
+            Publicacion p = this.publicaciones_.get(key);
+            dtProv.agregarPublicacion(p.infoPublicacion());
+        }*/
+        return dtProv;     
     }
-     
-     
+         
     public void agregarPublicacion(Publicacion p){
-        if (publicaciones_ == null)
-            publicaciones_ = new HashMap<>();
         publicaciones_.put(p.getNombre(), p);
     }
     
@@ -84,5 +88,18 @@ public class Proveedor extends Usuario {
         }
         return publicaciones;
     }
-     
+ 
+    // servicios del proveedor
+    public Set<DataPublicacion> listarServicios()
+    {
+        Set<DataPublicacion> s = new HashSet<>();
+        for(Map.Entry<String, Publicacion> entry : publicaciones_.entrySet())
+        {
+            if ((entry instanceof Servicio)) {
+                s.add(entry.getValue().infoPublicacion());
+            }      
+        }
+        return s;
+    }
+  
 }

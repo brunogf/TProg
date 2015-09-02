@@ -30,11 +30,12 @@ public class ControladorUsuario implements IControladorUsuario{
     }
       
     public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,Image img) throws Exception {    
+            Date fnac,String[] img,int cantImg) throws Exception {    
         try {
             Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
+            mUsuario.agregarImagenes(c,img,cantImg);
         } catch (Exception ex) {
             throw ex;
         }
@@ -54,12 +55,13 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
     public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String nombreEmp,String url,Image img) throws Exception {
+            Date fnac,String nombreEmp,String url,String[] img,int cantImg) throws Exception {
         
         try {   
             Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fnac,nombreEmp,url/*Falta Imagen*/);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
+            mUsuario.agregarImagenes(c,img,cantImg);
         } catch (Exception ex) {
             throw ex;
         }     
@@ -68,6 +70,15 @@ public class ControladorUsuario implements IControladorUsuario{
     public DataUsuario infoCliente(String nickname) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
         return mUsuario.encontrarUsuario(nickname).infoUsuario();
+    }
+
+    
+    public String[] imagenesDelUsuario(String nombre) {
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        String[] a = mUsuario.imagenesUsuario(nombre);
+     //JOptionPane.showConfirmDialog(null,a[0],a[0],JOptionPane.INFORMATION_MESSAGE);
+
+        return a;
     }
     
       public Set<DataUsuario> listarClientes() {

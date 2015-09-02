@@ -19,6 +19,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 import java.awt.event.*;
+import java.io.File;
+import javax.swing.Icon;
 
 /**
  *
@@ -34,6 +36,8 @@ public class Interfaz extends javax.swing.JFrame {
     private int cantClick;
     private Set<String> categorias;
     private Set<Image> imagenes;
+    private String ImgUsuario[]; 
+    private int cantImgUsuario;
     
     public Interfaz() {
 	initComponents();
@@ -61,6 +65,7 @@ public class Interfaz extends javax.swing.JFrame {
         ConDestinoSinDestino = new javax.swing.ButtonGroup();
         RegServicioSelectorImagenFileChooser = new javax.swing.JFileChooser();
         jInternalFrame1 = new javax.swing.JInternalFrame();
+        buttonGroupImagen = new javax.swing.ButtonGroup();
         PanelCentral = new javax.swing.JPanel();
         RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
         RegUsuarioLabel = new javax.swing.JLabel();
@@ -86,6 +91,9 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioAceptar = new javax.swing.JButton();
         RegUsuarioCancelar = new javax.swing.JButton();
         RegUsuarioErrorLabel = new javax.swing.JLabel();
+        RegUsuarioFechaLabel1 = new javax.swing.JLabel();
+        QuierePonerImagen = new javax.swing.JRadioButton();
+        NoQuierePonerImagen = new javax.swing.JRadioButton();
         RegistrarCategoriaFrame = new javax.swing.JInternalFrame();
         RegCategoriaLabel = new javax.swing.JLabel();
         RegCategoriaNomCategoriaLabel = new javax.swing.JLabel();
@@ -248,6 +256,7 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServiciosProveedorDescLabel = new javax.swing.JLabel();
         InfoServiciosProveedorPrecioLabel = new javax.swing.JLabel();
         InfoServiciosProveedorPrecio = new javax.swing.JTextField();
+        a = new javax.swing.JTextField();
         InfoReservasDelClienteFrame = new javax.swing.JInternalFrame();
         ConsultaUsuarioVerInfoReservasLabel = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
@@ -291,9 +300,9 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarProveedorLink = new javax.swing.JTextField();
         ConsultaProveedorBotonAtras = new javax.swing.JButton();
         ConsultaProveedor = new javax.swing.JButton();
+        ConsultarProvImagenLabel = new javax.swing.JLabel();
         ConsultaUsuarioFrame = new javax.swing.JInternalFrame();
         ConsultaUsuarioVerInfoLabel = new javax.swing.JLabel();
-        ConsultaUsuarioSelecImagenButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         nombreClientes = new javax.swing.JList();
         clientesSistema = new javax.swing.JButton();
@@ -310,6 +319,7 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultarUsuFNacimiento = new javax.swing.JTextField();
         ConsultaUsuBotonAtras1 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        ConsultarUsuarioImagenLabel = new javax.swing.JLabel();
         ActualizarEstadoReservaFrame = new javax.swing.JInternalFrame();
         ActualizarEstadoReservaLabel = new javax.swing.JLabel();
         SeleccionarReservaLabel = new javax.swing.JLabel();
@@ -414,8 +424,8 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioCorreoLabel.setText("Correo:");
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, -1, -1));
 
-        RegUsuarioFechaLabel.setText("Fecha de Nacimiento:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
+        RegUsuarioFechaLabel.setText("Desea Ingresar Imagen :");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         RegUsuarioSeleccionarImagenButton.setText("Seleccionar Imagen");
         RegUsuarioSeleccionarImagenButton.addActionListener(new java.awt.event.ActionListener() {
@@ -423,7 +433,7 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioSeleccionarImagenButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioSeleccionarImagenButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 198, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioSeleccionarImagenButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 190, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 190, -1));
@@ -450,7 +460,7 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioClienteRadioButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 198, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
 
         RegUsuarioProveedorRadioButton.setText("Proveedor");
         RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -458,15 +468,15 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioProveedorRadioButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(276, 198, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
 
         RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 239, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
 
         RegUsuarioURLLabel.setText("URL:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 267, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 190, -1));
 
         RegUsuarioAceptar.setText("Aceptar");
         RegUsuarioAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -486,7 +496,28 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegUsuarioErrorLabel.setForeground(new java.awt.Color(204, 0, 0));
         RegUsuarioErrorLabel.setText("LABEL PARA INDICIAR ERRORES");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 302, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+
+        RegUsuarioFechaLabel1.setText("Fecha de Nacimiento:");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
+
+        buttonGroupImagen.add(QuierePonerImagen);
+        QuierePonerImagen.setText("Si");
+        QuierePonerImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                QuierePonerImagenActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(QuierePonerImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
+
+        buttonGroupImagen.add(NoQuierePonerImagen);
+        NoQuierePonerImagen.setText("No");
+        NoQuierePonerImagen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NoQuierePonerImagenActionPerformed(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(NoQuierePonerImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
 
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
@@ -1070,7 +1101,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(jLabel2)))
                 .addGap(42, 42, 42)
                 .addComponent(RegServicioCategoriasConfirmarButton)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RegServicioCategoriasPanelLayout.setVerticalGroup(
             RegServicioCategoriasPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1891,7 +1922,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 123, Short.MAX_VALUE)
                         .addComponent(ConsultaProveedorServiciosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(95, 95, 95))
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
@@ -1920,6 +1951,10 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoServiciosProveedorDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(InfoServiciosProveedorPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(82, 82, 82))))
+            .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
+                .addGap(116, 116, 116)
+                .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         InformacionServiciosDelProveedorLayout.setVerticalGroup(
             InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1949,7 +1984,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServiciosProveedorPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InfoServiciosProveedorPrecioLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 147, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
+                .addComponent(a, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(infoServiciosProveedorBotonAtras)
                 .addContainerGap())
         );
@@ -2153,6 +2190,8 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        ConsultarProvImagenLabel.setText("   No hay Imagen");
+
         javax.swing.GroupLayout ConsultarInfoProveedorLayout = new javax.swing.GroupLayout(ConsultarInfoProveedor.getContentPane());
         ConsultarInfoProveedor.getContentPane().setLayout(ConsultarInfoProveedorLayout);
         ConsultarInfoProveedorLayout.setHorizontalGroup(
@@ -2185,7 +2224,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(ConsultaProvApellidoLabel)
                             .addComponent(ConsultaProvNickLabel)
                             .addComponent(ConsultaProvLinkLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                         .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ConsultarProveedorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ConsultarProveedorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2196,7 +2235,9 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(ConsultarProveedorNickName, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(38, 38, 38))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGap(298, 298, 298)
+                        .addGap(81, 81, 81)
+                        .addComponent(ConsultarProvImagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ConsultaProveedorBotonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
         );
@@ -2233,11 +2274,6 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(ConsultaProvNickLabel))
                 .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(ConsultaProvNomEmpLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(ConsultaProvLinkLabel))
-                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(ConsultarProveedorCorreoElec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2249,10 +2285,18 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ConsultarProveedorNombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ConsultarProveedorLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(ConsultaProveedorBotonAtras)
-                .addContainerGap())
+                        .addComponent(ConsultarProveedorLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ConsultaProveedorBotonAtras, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ConsultarProvImagenLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap())
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addComponent(ConsultaProvNomEmpLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(ConsultaProvLinkLabel)
+                        .addContainerGap(83, Short.MAX_VALUE))))
         );
 
         PanelCentral.add(ConsultarInfoProveedor, "card10");
@@ -2260,13 +2304,6 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaUsuarioFrame.setVisible(true);
 
         ConsultaUsuarioVerInfoLabel.setText("Ver Informacion de Usuario");
-
-        ConsultaUsuarioSelecImagenButton.setText("Seleccionar Imagen");
-        ConsultaUsuarioSelecImagenButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultaUsuarioSelecImagenButtonActionPerformed(evt);
-            }
-        });
 
         nombreClientes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = {};
@@ -2313,15 +2350,14 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
+        ConsultarUsuarioImagenLabel.setText("   No hay Imagen");
+
         javax.swing.GroupLayout ConsultaUsuarioFrameLayout = new javax.swing.GroupLayout(ConsultaUsuarioFrame.getContentPane());
         ConsultaUsuarioFrame.getContentPane().setLayout(ConsultaUsuarioFrameLayout);
         ConsultaUsuarioFrameLayout.setHorizontalGroup(
             ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ConsultaUsuarioSelecImagenButton))
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
@@ -2355,6 +2391,8 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGap(0, 47, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(ConsultarUsuarioImagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
                         .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
@@ -2397,14 +2435,12 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsultaUsuFNac))
+                .addGap(18, 18, 18)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(ConsultaUsuarioSelecImagenButton)
-                        .addGap(0, 67, Short.MAX_VALUE))
-                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ConsultaUsuBotonAtras1)))
+                        .addGap(0, 70, Short.MAX_VALUE)
+                        .addComponent(ConsultaUsuBotonAtras1))
+                    .addComponent(ConsultarUsuarioImagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -2897,7 +2933,8 @@ public class Interfaz extends javax.swing.JFrame {
 	ClienteOProveedor.add(RegUsuarioClienteRadioButton);
 	ClienteOProveedor.add(RegUsuarioProveedorRadioButton);
 	RegUsuarioNombreEmpresaLabel.setVisible(false);
-	RegUsuarioURLLabel.setVisible(false);
+        this.RegUsuarioSeleccionarImagenButton.setVisible(false);
+        RegUsuarioURLLabel.setVisible(false);
 	RegUsuarioErrorLabel.setVisible(false);
 	RegUsuarioNombreEmpresaTextField.setVisible(false);
 	RegUsuarioURLTextField.setVisible(false);
@@ -2909,7 +2946,30 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRegistrarUsuarioActionPerformed
 
     private void RegUsuarioSeleccionarImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
-        // TODO add your handling code here:
+                
+        JFileChooser selector = new JFileChooser();
+        FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG yPNG","jpg","png");
+        selector.setFileFilter(filtroImagen);
+        int resultado = selector.showOpenDialog(null);
+        
+        if(resultado == JFileChooser.APPROVE_OPTION){
+            try {   
+                if (this.cantImgUsuario != 3) {
+                    //guardo el archivo que selecciono el usuario
+                    File f = selector.getSelectedFile();       
+                    String ruta = f.getAbsolutePath();                
+                    this.ImgUsuario[this.cantImgUsuario] = ruta;
+                    this.cantImgUsuario++;
+                }
+                else {
+                     JOptionPane.showMessageDialog(null, "La cantidad de imagenes es 3");
+                }
+            }      
+            catch (Exception ex) {             
+                //e1.printStackTrace();
+            }
+        }
+
     }//GEN-LAST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
 
     private void RegUsuarioDiaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioDiaComboBoxActionPerformed
@@ -2958,30 +3018,57 @@ public class Interfaz extends javax.swing.JFrame {
 	    cal.set(Calendar.MONTH, (Integer)(RegUsuarioMesComboBox.getSelectedItem()));
 	    cal.set(Calendar.DAY_OF_MONTH, (Integer)(RegUsuarioDiaComboBox.getSelectedItem()));
 	    */Date d = cal.getTime();
-	    if(RegUsuarioClienteRadioButton.isSelected())
-	    {
-                ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
-                        RegUsuarioCorreoTextField.getText(), d);
-                JOptionPane.showMessageDialog(null, "El cliente se registro correctamente");
-                
-	    }
-            else//Proveedor.isSelected
-            {
-               ctrlUsr.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(),
-                       RegUsuarioCorreoTextField.getText(), d, RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
-               JOptionPane.showMessageDialog(null, "El proveedor se registro correctamente");
+            
+            if (this.RegUsuarioNicknameTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se ingreso el NickName del Usuario","Warning",JOptionPane.WARNING_MESSAGE); 
             }
-            this.RegUsuarioNicknameTextField.setText(null);
-            this.RegUsuarioNombreTextField.setText(null);
-            this.RegUsuarioApellidoTextField.setText(null);
-            this.RegUsuarioCorreoTextField.setText(null);
-            this.RegUsuarioNombreEmpresaTextField.setText(null);
-            RegUsuarioDiaComboBox.setSelectedIndex(0);//1
-            RegUsuarioMesComboBox.setSelectedIndex(0);//1
-            RegUsuarioAnioComboBox.setSelectedIndex(0);//2015
-            this.RegUsuarioURLTextField.setText(null);
-	}catch(Exception ex)
-	{
+            else if (this.RegUsuarioApellidoTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se ingreso el Apellido del Usuario","Warning",JOptionPane.WARNING_MESSAGE); 
+            }
+            else if (this.RegUsuarioCorreoTextField.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No se ingreso el Correo del Usuario","Warning",JOptionPane.WARNING_MESSAGE); 
+            }
+            else {
+                 if(RegUsuarioClienteRadioButton.isSelected()) {
+                    if (this.QuierePonerImagen.isSelected()) {
+                        ctrlUsr.altaClienteConImg(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
+                            RegUsuarioCorreoTextField.getText(), d,this.ImgUsuario,this.cantImgUsuario);
+                        JOptionPane.showMessageDialog(null, "El cliente se registro correctamente");
+    
+                    }
+                    else {
+                         ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
+                            RegUsuarioCorreoTextField.getText(), d);
+                        JOptionPane.showMessageDialog(null, "El cliente se registro correctamente");
+                    }
+                }
+                //Proveedor.isSelected 
+                else {
+                    if (this.QuierePonerImagen.isSelected()) {
+                        ctrlUsr.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(),
+                        RegUsuarioCorreoTextField.getText(), d, RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(),this.ImgUsuario,this.cantImgUsuario);
+                        JOptionPane.showMessageDialog(null, "El proveedor se registro correctamente");
+                    }
+                    else {
+                         ctrlUsr.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(),
+                            RegUsuarioCorreoTextField.getText(), d, RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
+                        JOptionPane.showMessageDialog(null, "El proveedor se registro correctamente");
+            
+                    }
+                }
+                this.RegUsuarioNicknameTextField.setText(null);
+                this.RegUsuarioNombreTextField.setText(null);
+                this.RegUsuarioApellidoTextField.setText(null);
+                this.RegUsuarioCorreoTextField.setText(null);
+                this.RegUsuarioNombreEmpresaTextField.setText(null);
+                RegUsuarioDiaComboBox.setSelectedIndex(0);//1
+                RegUsuarioMesComboBox.setSelectedIndex(0);//1
+                RegUsuarioAnioComboBox.setSelectedIndex(0);//2015
+                this.RegUsuarioURLTextField.setText(null);
+            } 
+            
+        }
+        catch(Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 	}
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
@@ -3557,7 +3644,19 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultaProveedorServiciosButtonActionPerformed
 
     private void serviciosDelProveedorBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serviciosDelProveedorBotonActionPerformed
-        // TODO add your handling code here:
+        
+        DataProveedor dtP = (DataProveedor)this.nombreProveedores.getSelectedValue();
+        DefaultListModel modelo = new DefaultListModel();
+        ManejadorUsuario mU = ManejadorUsuario.getInstance();
+        Proveedor p = mU.encontrarProveedor(dtP.getNickname());
+        Set<DataPublicacion> conjDtServicio = p.listarServicios();
+        for (DataPublicacion dt : conjDtServicio) {
+            if (dt instanceof DataServicio) {
+            modelo.addElement(dt); //agrega los clientes a la jList
+            }
+        }
+        //muestra los datos en pantalla
+        this.nombreServiciosDelProveedor.setModel(modelo);
     }//GEN-LAST:event_serviciosDelProveedorBotonActionPerformed
 
     private void infoServiciosProveedorBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoServiciosProveedorBotonAtrasActionPerformed
@@ -3579,7 +3678,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_infoReservasClienteBotonAtrasActionPerformed
 
     private void infoProveedorMenuBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoProveedorMenuBarActionPerformed
-         PanelCentral.removeAll();
+        PanelCentral.removeAll();
 	PanelCentral.add(this.ConsultarInfoProveedor);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
@@ -3596,11 +3695,32 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_proveedoresSistemaActionPerformed
 
     private void ConsultaProveedorServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorServiciosActionPerformed
-        PanelCentral.removeAll();
-        PanelCentral.remove(this.ConsultarInfoProveedor);
-        PanelCentral.add(this.InformacionServiciosDelProveedor);
-        PanelCentral.repaint();
-        PanelCentral.revalidate();
+
+        if (!this.nombreProveedores.isSelectionEmpty()) {
+            DataProveedor dtP = (DataProveedor)this.nombreProveedores.getSelectedValue();
+            
+            PanelCentral.removeAll();
+            PanelCentral.remove(this.ConsultarInfoProveedor);
+            PanelCentral.add(this.InformacionServiciosDelProveedor);
+            PanelCentral.repaint();
+            PanelCentral.revalidate();
+        
+            DefaultListModel modelo = new DefaultListModel();
+            ManejadorUsuario mU = ManejadorUsuario.getInstance();
+            Proveedor p = mU.encontrarProveedor(dtP.getNickname());
+            //this.a.setText(p.getNombre());
+            Set<DataPublicacion> conjDtServicio = p.listarServicios();
+            for (DataPublicacion dt : conjDtServicio) {
+                if (dt instanceof DataServicio) {
+                    modelo.addElement(dt); //agrega los clientes a la jList
+                }
+            }
+            //muestra los datos en pantalla
+            this.nombreServiciosDelProveedor.setModel(modelo);
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_ConsultaProveedorServiciosActionPerformed
 
     private void ConsultaProveedorBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorBotonAtrasActionPerformed
@@ -3618,20 +3738,34 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void ConsultaProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorActionPerformed
         //muestra la informacion del cliente seleccionado
-        DataProveedor dtProveedor = (DataProveedor)this.nombreProveedores.getSelectedValue();
-        //muestra los datos del cliente en pantalla
-        this.ConsultarProveedorNombre.setText(dtProveedor.getNombre());
-        this.ConsultarProveedorApellido.setText(dtProveedor.getApellido());
-        this.ConsultarProveedorNickName.setText(dtProveedor.getNickname());
-        this.ConsultarProveedorCorreoElec.setText(dtProveedor.getCorreo());
-        //this.ConsultarProveedorFNacimiento
-        this.ConsultarProveedorNombreEmp.setText(dtProveedor.getEmpresa());
-        this.ConsultarProveedorLink.setText(dtProveedor.getURL());
-    }//GEN-LAST:event_ConsultaProveedorActionPerformed
+        
+       if (!this.nombreProveedores.isSelectionEmpty()) {
+            DataProveedor dtProveedor = (DataProveedor)this.nombreProveedores.getSelectedValue();
 
-    private void ConsultaUsuarioSelecImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultaUsuarioSelecImagenButtonActionPerformed
+//muestra los datos del cliente en pantalla
+            this.ConsultarProveedorNombre.setText(dtProveedor.getNombre());
+            this.ConsultarProveedorApellido.setText(dtProveedor.getApellido());
+            this.ConsultarProveedorNickName.setText(dtProveedor.getNickname());
+            this.ConsultarProveedorCorreoElec.setText(dtProveedor.getCorreo());
+            //this.ConsultarProveedorFNacimiento
+            this.ConsultarProveedorNombreEmp.setText(dtProveedor.getEmpresa());
+            this.ConsultarProveedorLink.setText(dtProveedor.getURL());    
+        
+            ControladorUsuario cU = this.fabrica.getControladorUsuario();
+            String[] imgUsuario = cU.imagenesDelUsuario(dtProveedor.getNickname());
+            ImageIcon img = new ImageIcon(imgUsuario[0]);
+            Icon icono = new ImageIcon(img.getImage().getScaledInstance(this.ConsultarProvImagenLabel.getWidth(),
+            this.ConsultarProvImagenLabel.getHeight(),Image.SCALE_DEFAULT));
+            //saco el texto de la label
+            this.ConsultarProvImagenLabel.setText(null);
+            //pongo la imagen en la label
+            this.ConsultarProvImagenLabel.setIcon(icono);
+    }
+    else {
+        JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
+    }
+        
+    }//GEN-LAST:event_ConsultaProveedorActionPerformed
 
     private void clientesSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesSistemaActionPerformed
         IControladorUsuario cU = fabrica.getControladorUsuario();
@@ -3644,8 +3778,10 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_clientesSistemaActionPerformed
 
     private void ConsultaUsuarioBuscarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioBuscarButtonActionPerformed
-        //muestra la informacion del cliente seleccionado
-        DataUsuario dtCliente = (DataCliente)this.nombreClientes.getSelectedValue();
+
+       if (!this.nombreClientes.isSelectionEmpty()) {
+            //muestra la informacion del cliente seleccionado
+            DataUsuario dtCliente = (DataCliente)this.nombreClientes.getSelectedValue();
         //muestra los datos del cliente en pantalla
         this.ConsultarUsuNomCliente.setText(dtCliente.getNombre());
         this.ConsultarUsuApellido.setText(dtCliente.getApellido());
@@ -3653,6 +3789,23 @@ public class Interfaz extends javax.swing.JFrame {
         this.ConsultarUsuCorreoElec.setText(dtCliente.getCorreo());
         //descomentar cuando se arregle la fNac
         //this.ConsultarUsuFNacimiento.setText(dtCliente.getFecha().toString());
+        ControladorUsuario cU = this.fabrica.getControladorUsuario();
+        String[] imgUsuario = cU.imagenesDelUsuario(dtCliente.getNickname());
+        
+        ImageIcon img = new ImageIcon(imgUsuario[0]);
+        
+        Icon icono = new ImageIcon(img.getImage().getScaledInstance(this.ConsultarUsuarioImagenLabel.getWidth(),
+                this.ConsultarUsuarioImagenLabel.getHeight(),Image.SCALE_DEFAULT));
+        //saco el texto de la label
+        this.ConsultarUsuarioImagenLabel.setText(null);
+        //pongo la imagen en la label
+
+        this.ConsultarUsuarioImagenLabel.setIcon(icono);
+
+        }
+        else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente","Warning",JOptionPane.WARNING_MESSAGE);
+        }        
     }//GEN-LAST:event_ConsultaUsuarioBuscarButtonActionPerformed
 
     private void ConsultaUsuBotonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtras1ActionPerformed
@@ -3666,8 +3819,13 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        PanelCentral.add(this.InfoReservasDelClienteFrame);
-        PanelCentral.remove(this.ConsultaUsuarioFrame);
+        if (!this.nombreClientes.isSelectionEmpty()) {
+            PanelCentral.add(this.InfoReservasDelClienteFrame);
+            PanelCentral.remove(this.ConsultaUsuarioFrame);    
+        }
+         else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente","Warning",JOptionPane.WARNING_MESSAGE);
+        }         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ActualizarEstadoReservaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEstadoReservaMenuActionPerformed
@@ -3880,6 +4038,16 @@ public class Interfaz extends javax.swing.JFrame {
         
     }//GEN-LAST:event_InfoServicioCategoriaSiguienteButtonActionPerformed
 
+    private void QuierePonerImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuierePonerImagenActionPerformed
+         this.RegUsuarioSeleccionarImagenButton.setVisible(true);
+         this.ImgUsuario = new String[3];
+         this.cantImgUsuario = 0;
+    }//GEN-LAST:event_QuierePonerImagenActionPerformed
+
+    private void NoQuierePonerImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoQuierePonerImagenActionPerformed
+        this.RegUsuarioSeleccionarImagenButton.setVisible(false);
+    }//GEN-LAST:event_NoQuierePonerImagenActionPerformed
+
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
         
@@ -4039,11 +4207,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultaUsuNom;
     private javax.swing.JButton ConsultaUsuarioBuscarButton;
     private javax.swing.JInternalFrame ConsultaUsuarioFrame;
-    private javax.swing.JButton ConsultaUsuarioSelecImagenButton;
     private javax.swing.JButton ConsultaUsuarioServiciosDelUsuarioButton;
     private javax.swing.JLabel ConsultaUsuarioVerInfoLabel;
     private javax.swing.JLabel ConsultaUsuarioVerInfoReservasLabel;
     private javax.swing.JInternalFrame ConsultarInfoProveedor;
+    private javax.swing.JLabel ConsultarProvImagenLabel;
     private javax.swing.JTextField ConsultarProveedorApellido;
     private javax.swing.JTextField ConsultarProveedorCorreoElec;
     private javax.swing.JTextField ConsultarProveedorFNacimiento;
@@ -4056,6 +4224,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JTextField ConsultarUsuFNacimiento;
     private javax.swing.JTextField ConsultarUsuNickName;
     private javax.swing.JTextField ConsultarUsuNomCliente;
+    private javax.swing.JLabel ConsultarUsuarioImagenLabel;
     private javax.swing.JButton EliminarReservaButton;
     private javax.swing.JComboBox EstadosComboBox;
     private javax.swing.JLabel InfoReservasClienteFCreacionLabel;
@@ -4103,7 +4272,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuRegistrarServicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
     private javax.swing.JMenu MenuRegistros;
+    private javax.swing.JRadioButton NoQuierePonerImagen;
     private javax.swing.JPanel PanelCentral;
+    private javax.swing.JRadioButton QuierePonerImagen;
     private javax.swing.JButton RegCategoriaAceptarButton;
     private javax.swing.JButton RegCategoriaCancelarButton;
     private javax.swing.JLabel RegCategoriaCategoriaPadreLabel;
@@ -4203,6 +4374,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JComboBox<Integer> RegUsuarioDiaComboBox;
     private javax.swing.JLabel RegUsuarioErrorLabel;
     private javax.swing.JLabel RegUsuarioFechaLabel;
+    private javax.swing.JLabel RegUsuarioFechaLabel1;
     private javax.swing.JLabel RegUsuarioLabel;
     private javax.swing.JComboBox<Integer> RegUsuarioMesComboBox;
     private javax.swing.JLabel RegUsuarioNicknameLabel;
@@ -4243,6 +4415,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel SeleccionarEstadoLabel;
     private javax.swing.JLabel SeleccionarReservaLabel;
     private javax.swing.JLabel SeleccionarReservaLabel1;
+    private javax.swing.JTextField a;
+    public static javax.swing.ButtonGroup buttonGroupImagen;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
     private javax.swing.JMenuItem infoProveedorMenuBar;
