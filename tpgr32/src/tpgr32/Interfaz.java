@@ -1067,6 +1067,11 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         RegServicioCategoriasCancelarButton.setText("Cancelar");
+        RegServicioCategoriasCancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegServicioCategoriasCancelarButtonActionPerformed(evt);
+            }
+        });
 
         RegServicioCategoriasAtrasButton.setText("Atras");
 
@@ -3456,9 +3461,11 @@ public class Interfaz extends javax.swing.JFrame {
            //Se cargan los combobox
            IControladorPublicacion pub = fabrica.getControladorPublicacion();
            Set<String> paises = pub.listarPaises();
+           if (RegServicioPaisOrigenComboBox.getItemCount() <= 1){
            for(String s: paises){
               RegServicioPaisOrigenComboBox.addItem(s);
               RegServicioPaisDestinoComboBox.addItem(s);
+           }
            }
             RegServicioDestinoNoRadioButton.setSelected(true);
             RegServicioPaisDestinoLabel.setVisible(false);
@@ -4030,8 +4037,9 @@ public class Interfaz extends javax.swing.JFrame {
         try
         {
             IControladorPublicacion cp = fabrica.getControladorPublicacion();
-            DataUbicacion dtorigen = new DataUbicacion((String)RegServicioPaisOrigenComboBox.getSelectedItem(),
-                                                     (String)RegServicioCiudadOrigenComboBox.getSelectedItem());
+            DataUbicacion dtorigen = new DataUbicacion((String)RegServicioPaisOrigenComboBox.getSelectedItem()
+                                   ,(String)RegServicioCiudadOrigenComboBox.getSelectedItem());
+                                                     
             Set<Image> imagenes = new HashSet<>();
             Image i1, i2, i3;
             if (img1 != null){
@@ -4139,24 +4147,22 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void infoServicioMenuBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoServicioMenuBarActionPerformed
         // TODO add your handling code here:
-        PanelCentral.removeAll();
-	PanelCentral.add(InformacionServicioFrame);
-	ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
         DefaultTreeModel modelo = ctrlPublic.listarCategorias();
         InfoServicioCategoriasTree.setModel(modelo);
         InfoServicioCategoriasTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+        PanelCentral.removeAll();
+	PanelCentral.add(InformacionServicioFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
         InfoServicioCategoriaPanel.setVisible(true);
         InfoServicioInfoServicioPanel.setVisible(false);
-        PanelCentral.repaint();
-	PanelCentral.revalidate();
     }//GEN-LAST:event_infoServicioMenuBarActionPerformed
 
     private void InfoServicioCategoriasTreeValueChanged(javax.swing.event.TreeSelectionEvent evt) {//GEN-FIRST:event_InfoServicioCategoriasTreeValueChanged
         // TODO add your handling code here:
-        if (InfoServicioServiciosComboBox.getSelectedIndex() == 0){
-        InfoServicioServiciosComboBox.removeAll();
+        InfoServicioServiciosComboBox.removeAllItems();
         InfoServicioServiciosComboBox.addItem("Seleccionar Servicio");
-        }
         IControladorPublicacion pub = fabrica.getControladorPublicacion();
         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
         Set<DataServicio> serv = pub.listarServiciosDeCategoria(cat.toString());
@@ -4277,9 +4283,9 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioDatoDescrTextArea.setText(null);
         InfoServicioDatoPrecioLabel.setText(null);
         InfoServicioDatoProvLabel.setText(null);
-        PanelCentral.removeAll();
-        PanelCentral.revalidate();    
-        PanelCentral.repaint();
+        InfoServicioCategoriaPanel.setVisible(false);
+        InfoServicioInfoServicioPanel.setVisible(false);
+        PanelCentral.remove(InformacionServicioFrame);
     }//GEN-LAST:event_InfoServicioInfoServicioCerrarButtonActionPerformed
 
     private void RegReservaConfirmarAtrasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaConfirmarAtrasButtonActionPerformed
@@ -4297,6 +4303,10 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.revalidate();    
         PanelCentral.repaint();
     }//GEN-LAST:event_RegReservaConfirmarCancelarButtonActionPerformed
+
+    private void RegServicioCategoriasCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCategoriasCancelarButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegServicioCategoriasCancelarButtonActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
