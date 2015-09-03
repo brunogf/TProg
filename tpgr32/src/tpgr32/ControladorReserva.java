@@ -150,4 +150,11 @@ public class ControladorReserva implements IControladorReserva{
     {
         return Reserva.getCurrentID();
     }
+    
+    public DataUsuario getInfoClienteReserva(int nro){
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        
+        return r.getCliente().infoUsuario();
+    }
 }
