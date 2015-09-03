@@ -94,16 +94,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Bajas"/>
           </Properties>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="CancelarReservaMenu">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Cancelar Reserva"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarReservaMenuActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuActualizaciones">
           <Properties>
@@ -126,6 +116,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarEstadoReservaMenuActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="CancelarReservaMenu">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cancelar Reserva"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarReservaMenuActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuConsultas">
@@ -135,7 +133,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="infoCliente">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver Informacion de Cliente"/>
+                <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoClienteActionPerformed"/>
@@ -143,7 +141,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="infoProveedorMenuBar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver Informacion de Proveedor"/>
+                <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Proveedor"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoProveedorMenuBarActionPerformed"/>
@@ -151,10 +149,18 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="infoServicioMenuBar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver Informacion de Servicio"/>
+                <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Servicio"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoServicioMenuBarActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="infoReservaMenuItem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Reserva"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoReservaMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -218,7 +224,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="PanelCentral" pref="426" max="32767" attributes="0"/>
+              <Component id="PanelCentral" pref="430" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -228,7 +234,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="PanelCentral" min="-2" pref="485" max="-2" attributes="0"/>
-              <EmptySpace pref="28" max="32767" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -4107,6 +4113,295 @@
                     </Component>
                   </SubComponents>
                 </Container>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JInternalFrame" name="InformacionReservaFrame">
+          <Properties>
+            <Property name="visible" type="boolean" value="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+              <CardConstraints cardName="card17"/>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="InfoReservaCentralPanel">
+              <Constraints>
+                <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
+                  <CardConstraints cardName="card2"/>
+                </Constraint>
+              </Constraints>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+                <Property name="useNullLayout" type="boolean" value="false"/>
+              </Layout>
+              <SubComponents>
+                <Container class="javax.swing.JScrollPane" name="jScrollPane16">
+                  <AuxValues>
+                    <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="20" y="30" width="380" height="104"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                  <SubComponents>
+                    <Component class="javax.swing.JTable" name="InfoReservaReservasTable">
+                      <Properties>
+                        <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                          <Table columnCount="4" rowCount="0">
+                            <Column editable="false" title="N&#xba;" type="java.lang.String"/>
+                            <Column editable="false" title="Estado" type="java.lang.String"/>
+                            <Column editable="false" title="Fecha Creaci&#xf3;n" type="java.lang.String"/>
+                            <Column editable="false" title="Precio Total" type="java.lang.String"/>
+                          </Table>
+                        </Property>
+                        <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                          <JTableSelectionModel selectionMode="0"/>
+                        </Property>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JLabel" name="InfoReservaTitleLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Seleccione una reserva"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="145" y="11" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Container class="javax.swing.JPanel" name="InfoReservaInfoPanel">
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="10" y="146" width="400" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+
+                  <Layout>
+                    <DimensionLayout dim="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InfoReservaNLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoReservaEstadoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoReservaCreacionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InfoReservaSRNLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoReservaSREstadoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoReservaSRCreacionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="InfoReservaCantidadLabel" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="InfoReservaSRCantidadLabel" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="InfoReservaInicioLabel" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InfoReservaFinLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="InfoReservaSRInicioLabel" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="InfoReservaSRFinLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
+                                      <Component id="InfoReservaPublicacionesLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+                                      <Component id="InfoReservaInfoBasicaLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="InfoReservaPrecioLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                      <Component id="InfoReservaSRPrecioLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jScrollPane17" min="-2" pref="366" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                    <DimensionLayout dim="1">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="InfoReservaInfoBasicaLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="InfoReservaNLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSRNLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaInicioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSRInicioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="InfoReservaEstadoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSREstadoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaFinLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSRFinLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="InfoReservaCreacionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSRCreacionLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaCantidadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSRCantidadLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="InfoReservaPublicacionesLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jScrollPane17" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="InfoReservaPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="InfoReservaSRPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                    </DimensionLayout>
+                  </Layout>
+                  <SubComponents>
+                    <Component class="javax.swing.JLabel" name="InfoReservaNLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="N&#xba;:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaEstadoLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Estado: "/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaCreacionLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fecha Creaci&#xf3;n:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSRNLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="1234"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSREstadoLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Registrada"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSRCreacionLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="10-10-1999"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaInfoBasicaLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Informaci&#xf3;n b&#xe1;sica:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaInicioLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fecha Inicio:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaFinLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Fecha Fin:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaCantidadLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Cantidad:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSRInicioLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="10-10-1999"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSRFinLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="10-10-1999"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSRCantidadLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="10"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaPublicacionesLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Publicaciones:"/>
+                      </Properties>
+                    </Component>
+                    <Container class="javax.swing.JScrollPane" name="jScrollPane17">
+                      <AuxValues>
+                        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+                      </AuxValues>
+
+                      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+                      <SubComponents>
+                        <Component class="javax.swing.JTable" name="InfoReservaPublicacionesTable">
+                          <Properties>
+                            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                              <Table columnCount="4" rowCount="0">
+                                <Column editable="false" title="Tipo" type="java.lang.String"/>
+                                <Column editable="false" title="Nombre" type="java.lang.String"/>
+                                <Column editable="false" title="Precio" type="java.lang.String"/>
+                                <Column editable="false" title="Proveedor" type="java.lang.String"/>
+                              </Table>
+                            </Property>
+                            <Property name="rowSelectionAllowed" type="boolean" value="false"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Component class="javax.swing.JLabel" name="InfoReservaPrecioLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Precio Total:"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JLabel" name="InfoReservaSRPrecioLabel">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="$999,99"/>
+                      </Properties>
+                    </Component>
+                  </SubComponents>
+                </Container>
+                <Component class="javax.swing.JButton" name="InfoReservaAceptarButton">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Aceptar"/>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="333" y="417" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
