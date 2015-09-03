@@ -50,6 +50,7 @@ public class Proveedor extends Usuario {
 	return p;
     }
     
+    
     @Override
      public DataUsuario infoUsuario() {
         return new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
