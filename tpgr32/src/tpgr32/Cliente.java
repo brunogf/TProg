@@ -38,4 +38,12 @@ public class Cliente extends Usuario{
         reservas_.remove(r);
     }
    
+     public Set<DataReserva> infoReservas() {
+         
+        Set<DataReserva> conjRes = new HashSet<>();
+        for(Reserva r : this.reservas_) {
+            conjRes.add(r.infoReserva());
+        }
+        return conjRes;
+    }
 }

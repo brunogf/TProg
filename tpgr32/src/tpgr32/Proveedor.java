@@ -92,12 +92,10 @@ public class Proveedor extends Usuario {
     // servicios del proveedor
     public Set<DataPublicacion> listarServicios()
     {
-        Set<DataPublicacion> s = new HashSet<>();
-        for(Map.Entry<String, Publicacion> entry : publicaciones_.entrySet())
-        {
-            if ((entry instanceof Servicio)) {
-                s.add(entry.getValue().infoPublicacion());
-            }      
+         Set<DataPublicacion> s = new HashSet<>();
+        for(String key : this.publicaciones_.keySet()) {
+            Publicacion p = this.publicaciones_.get(key);
+            s.add(p.infoPublicacion());
         }
         return s;
     }

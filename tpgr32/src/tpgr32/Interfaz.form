@@ -2305,7 +2305,7 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jScrollPane5" min="-2" pref="101" max="-2" attributes="0"/>
-                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSPubSiguienteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaSPubAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2643,99 +2643,114 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="ConsultaProveedorServiciosButton" min="-2" pref="174" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="serviciosDelProveedorBoton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="ConsultaProvVerInfoServicioLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="infoServiciosProveedorBotonAtras" min="-2" pref="62" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="InfoServiciosProveedorNomLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="0" attributes="0">
-                                      <Component id="InfoServiciosProveedorDescLabel" alignment="1" min="-2" pref="96" max="-2" attributes="0"/>
-                                      <Component id="InfoServiciosProveedorPrecioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="InfoServiciosProveedorNom" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
-                                  <Component id="InfoServiciosProveedorDesc" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
-                                  <Component id="InfoServiciosProveedorPrecio" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="jScrollPane9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="ConsultaProveedorServiciosButton" min="-2" pref="174" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
-                      <Component id="a" min="-2" pref="173" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
+                                  <Component id="ConsultaProvVerInfoServicioLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                          <Component id="InfoServiciosProveedorPrecioLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="InfoServiciosProveedorNomLabel" min="-2" max="-2" attributes="0"/>
+                                              <Component id="InfoServiciosProveedorDescLabel" min="-2" pref="96" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="InfoServiciosProveedorPrecio" min="-2" pref="173" max="-2" attributes="0"/>
+                                      <Component id="InfoServiciosProveedorDesc" min="-2" pref="173" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Component id="InfoServiciosProveedorNom" min="-2" pref="173" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="InfoServiciosProveedorImagenesLabel" min="-2" pref="86" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="InfoServiciosProveedorImagen1" min="-2" pref="99" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="InfoServiciosProveedorImagen2" min="-2" pref="99" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="InfoServiciosProveedorImagen3" min="-2" pref="99" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="infoServiciosProveedorBotonAtras" min="-2" pref="62" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="ConsultaProvVerInfoServicioLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane9" min="-2" pref="65" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="serviciosDelProveedorBoton" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Component id="ConsultaProvVerInfoServicioLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane9" min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="ConsultaProveedorServiciosButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="InfoServiciosProveedorNom" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="InfoServiciosProveedorNomLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="ConsultaProveedorServiciosButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="InfoServiciosProveedorNom" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="InfoServiciosProveedorDesc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="InfoServiciosProveedorDescLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="InfoServiciosProveedorNomLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="InfoServiciosProveedorDescLabel" min="-2" max="-2" attributes="0"/>
+                          <Component id="InfoServiciosProveedorDesc" min="-2" pref="107" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="InfoServiciosProveedorPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="InfoServiciosProveedorPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="a" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="129" max="32767" attributes="0"/>
-                      <Component id="infoServiciosProveedorBotonAtras" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="InfoServiciosProveedorImagenesLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="infoServiciosProveedorBotonAtras" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="InfoServiciosProveedorImagen1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="InfoServiciosProveedorImagen3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <Component id="InfoServiciosProveedorImagen2" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2770,14 +2785,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaProveedorServiciosButtonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="serviciosDelProveedorBoton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Servicios"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="serviciosDelProveedorBotonActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="infoServiciosProveedorBotonAtras">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Atras"/>
@@ -2807,7 +2814,25 @@
             </Component>
             <Component class="javax.swing.JTextField" name="InfoServiciosProveedorPrecio">
             </Component>
-            <Component class="javax.swing.JTextField" name="a">
+            <Component class="javax.swing.JLabel" name="InfoServiciosProveedorImagen1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Imagen1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="InfoServiciosProveedorImagen3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Imagen3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="InfoServiciosProveedorImagen2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Imagen2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="InfoServiciosProveedorImagenesLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Imegenes:"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -3315,12 +3340,6 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                                       <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -3351,13 +3370,25 @@
                                           <Component id="ConsultarUsuFNacimiento" alignment="0" min="-2" pref="173" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="ConsultarUsuarioImagen1Label" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ConsultarUsuarioImagen2Label" min="-2" pref="79" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="ConsultarUsuarioImagen3Label" min="-2" pref="79" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="47" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="ConsultarUsuarioImagenLabel" min="-2" pref="126" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                               <Component id="ConsultaUsuBotonAtras1" min="-2" pref="66" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -3367,7 +3398,7 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="ConsultaUsuarioBuscarButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="InfoReservasDelCLienteBoton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -3384,7 +3415,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jButton1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="InfoReservasDelCLienteBoton" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="ConsultaUsuarioBuscarButton" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
@@ -3412,13 +3443,14 @@
                           <Component id="ConsultarUsuFNacimiento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ConsultaUsuFNac" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace pref="39" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
-                              <Component id="ConsultaUsuBotonAtras1" min="-2" max="-2" attributes="0"/>
+                          <Component id="ConsultaUsuBotonAtras1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                              <Component id="ConsultarUsuarioImagen1Label" alignment="3" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="ConsultarUsuarioImagen3Label" alignment="3" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="ConsultarUsuarioImagen2Label" alignment="3" min="-2" pref="79" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="ConsultarUsuarioImagenLabel" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -3506,17 +3538,27 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuBotonAtras1ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="InfoReservasDelCLienteBoton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Informacion Reservas"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoReservasDelCLienteBotonActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="ConsultarUsuarioImagenLabel">
+            <Component class="javax.swing.JLabel" name="ConsultarUsuarioImagen1Label">
               <Properties>
-                <Property name="text" type="java.lang.String" value="   No hay Imagen"/>
+                <Property name="text" type="java.lang.String" value="Imegen 1"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultarUsuarioImagen3Label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Imegen 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ConsultarUsuarioImagen2Label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Imegen 2"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -3954,7 +3996,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="125" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>

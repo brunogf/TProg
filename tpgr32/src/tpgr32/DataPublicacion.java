@@ -41,4 +41,9 @@ public abstract class DataPublicacion {
     public void setProveedor(String proveedor){
         this.proveedor_=proveedor;
     }
+    
+     public String toString (){
+        String mensaje= ""+this.nombre_;
+        return mensaje;
+    }
 }
