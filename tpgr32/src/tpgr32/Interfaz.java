@@ -416,10 +416,10 @@ public class Interfaz extends javax.swing.JFrame {
         MenuRegistrarPromocion = new javax.swing.JMenuItem();
         MenuRegistrarReserva = new javax.swing.JMenuItem();
         MenuBajas = new javax.swing.JMenu();
+        CancelarReservaMenu = new javax.swing.JMenuItem();
         MenuActualizaciones = new javax.swing.JMenu();
         MenuActualizarServicio = new javax.swing.JMenuItem();
         ActualizarEstadoReservaMenu = new javax.swing.JMenuItem();
-        CancelarReservaMenu = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         infoCliente = new javax.swing.JMenuItem();
         infoProveedorMenuBar = new javax.swing.JMenuItem();
@@ -3104,7 +3104,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(InfoReservaPrecioLabel)
                         .addGap(82, 82, 82)
                         .addComponent(InfoReservaSRPrecioLabel)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservaInfoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3201,6 +3201,15 @@ public class Interfaz extends javax.swing.JFrame {
         BarraMenu.add(MenuRegistros);
 
         MenuBajas.setText("Bajas");
+
+        CancelarReservaMenu.setText("Cancelar Reserva");
+        CancelarReservaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarReservaMenuActionPerformed(evt);
+            }
+        });
+        MenuBajas.add(CancelarReservaMenu);
+
         BarraMenu.add(MenuBajas);
 
         MenuActualizaciones.setText("Actualizaciones");
@@ -3220,14 +3229,6 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         MenuActualizaciones.add(ActualizarEstadoReservaMenu);
-
-        CancelarReservaMenu.setText("Cancelar Reserva");
-        CancelarReservaMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarReservaMenuActionPerformed(evt);
-            }
-        });
-        MenuActualizaciones.add(CancelarReservaMenu);
 
         BarraMenu.add(MenuActualizaciones);
 
