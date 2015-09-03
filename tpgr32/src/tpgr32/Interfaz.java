@@ -4257,7 +4257,7 @@ public class Interfaz extends javax.swing.JFrame {
         EstadosComboBox.addItem(Estado.Facturada);
         EstadosComboBox.addItem(Estado.Pagada);
         EstadosComboBox.addItem(Estado.Cancelada);
-
+        
         listarReservasGUI();
     }//GEN-LAST:event_ActualizarEstadoReservaMenuActionPerformed
 
@@ -4680,16 +4680,18 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         ReservasTable.setModel(modelo);
         modelo.addColumn("Numero");
+        modelo.addColumn("Cliente");
         modelo.addColumn("Estado");
-               
         //llena la tabla de reservas
         Iterator<DataReserva> it=dr.iterator();
-        Object [] fila = new Object[2];
+        Object [] fila = new Object[3];
               
         while (it.hasNext()){
             DataReserva dr1=it.next();
+            DataUsuario du1=cr.getInfoClienteReserva(dr1.getNum());
             fila[0] = dr1.getNum();
-            fila[1] = dr1.getEstado();
+            fila[1] = du1.getNombre();
+            fila[2] = dr1.getEstado();
             
             modelo.addRow(fila);
         }
@@ -4710,16 +4712,19 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         ReservasTable1.setModel(modelo);
         modelo.addColumn("Numero");
+        modelo.addColumn("Cliente");
         modelo.addColumn("Estado");
-               
+                       
         //llena la tabla de reservas
         Iterator<DataReserva> it=dr.iterator();
-        Object [] fila = new Object[2];
+        Object [] fila = new Object[3];
               
         while (it.hasNext()){
             DataReserva dr1=it.next();
+            DataUsuario du1=cr.getInfoClienteReserva(dr1.getNum());
             fila[0] = dr1.getNum();
-            fila[1] = dr1.getEstado();
+            fila[1] = du1.getNombre();
+            fila[2] = dr1.getEstado();
             
             modelo.addRow(fila);
         }
