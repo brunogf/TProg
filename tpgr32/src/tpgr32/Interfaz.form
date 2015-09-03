@@ -2000,7 +2000,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                           <Component id="RegReservaSeleccClienteLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="166" max="32767" attributes="0"/>
+                          <EmptySpace pref="197" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -2023,7 +2023,7 @@
                           <Component id="RegReservaSeleccClienteLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="RegReservaClienteTableScrollPane" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace pref="142" max="32767" attributes="0"/>
+                          <EmptySpace pref="146" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSigButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2133,7 +2133,7 @@
                           <Component id="RegReservaTitleLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="129" max="-2" attributes="0"/>
-                          <EmptySpace pref="181" max="32767" attributes="0"/>
+                          <EmptySpace pref="185" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSPSigButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaSPAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2465,7 +2465,7 @@
                                       <Component id="RegReservaConfirmarCInfoLabel" min="-2" max="-2" attributes="0"/>
                                       <Component id="RegReservaConfirmarPInfoLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="313" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="344" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane6" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -2492,9 +2492,9 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegReservaConfirmarNumLabel" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegReservaConfirmarNumInfoLabel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -2518,14 +2518,14 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="RegReservaConfirmarNumLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="RegReservaConfirmarNumInfoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Component id="RegReservaConfirmarPubLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane6" min="-2" pref="125" max="-2" attributes="0"/>
-                          <EmptySpace pref="129" max="32767" attributes="0"/>
+                          <EmptySpace pref="133" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaConfirmarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaConfirmarAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2604,18 +2604,24 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Atr&#xe1;s"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegReservaConfirmarAtrasButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="RegReservaConfirmarCancelarButton">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cancelar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RegReservaConfirmarCancelarButtonActionPerformed"/>
+                  </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel12">
+                <Component class="javax.swing.JLabel" name="RegReservaConfirmarNumLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Numero de reserva: "/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel13">
+                <Component class="javax.swing.JLabel" name="RegReservaConfirmarNumInfoLabel">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="N&#xba;"/>
                   </Properties>
