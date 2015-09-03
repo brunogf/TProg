@@ -2752,7 +2752,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGroup(InfoServicioCategoriaPanelLayout.createSequentialGroup()
                                     .addComponent(InfoServicioSeleccServLabel)
                                     .addGap(66, 66, 66)
-                                    .addComponent(InfoServicioServiciosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(InfoServicioServiciosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGroup(InfoServicioCategoriaPanelLayout.createSequentialGroup()
                             .addGap(105, 105, 105)
                             .addComponent(InfoServicioCategoriaCancelarButton)

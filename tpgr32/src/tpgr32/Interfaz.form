@@ -3879,7 +3879,7 @@
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="InfoServicioSeleccServLabel" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
-                                              <Component id="InfoServicioServiciosComboBox" min="-2" pref="127" max="-2" attributes="0"/>
+                                              <Component id="InfoServicioServiciosComboBox" min="-2" pref="163" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
