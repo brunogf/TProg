@@ -28,7 +28,7 @@ public interface IControladorReserva {
     public String getNickProveedorSeleccionado();
     public DataCliente getInfoClienteSeleccionado();
     public DataUsuario getInfoClienteReserva(int nro);
-    public DataProveedor getInfoProveeodrSeleccionado();
+    public DataProveedor getInfoProveedorSeleccionado();
     public void borrarPublicacionesSeleccionadas();
     public int getNumeroReservas();//retorna el ultimo numero usado por una reserva
             

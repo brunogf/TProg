@@ -4542,7 +4542,7 @@ public class Interfaz extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             //siguiente panel
-            DataProveedor proveedor = cr.getInfoProveeodrSeleccionado();
+            DataProveedor proveedor = cr.getInfoProveedorSeleccionado();
             DataCliente cliente = cr.getInfoClienteSeleccionado();
             StringBuilder sb = new StringBuilder();
             sb.append(cliente.getNickname());

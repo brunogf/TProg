@@ -127,7 +127,7 @@ public class ControladorReserva implements IControladorReserva{
         return proveedor_.getNickname();
     }
     
-    public DataProveedor getInfoProveeodrSeleccionado()
+    public DataProveedor getInfoProveedorSeleccionado()
     {
         if (!(proveedor_ instanceof Proveedor))
             throw new IllegalArgumentException("No se encuentra proveedor seleccionado.");
