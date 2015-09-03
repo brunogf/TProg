@@ -28,28 +28,42 @@ public class DataReserva {
         this.dpd_ = dpd_;
     }
 
-    public int getNum_() {
+    public int getNum() {
         return num_;
     }
 
-    public Date getCreacion_() {
+    public Date getCreacion() {
         return creacion_;
     }
 
-    public Estado getEstado_() {
+    public Estado getEstado() {
         return estado_;
     }
 
-    public float getPrecio_total_() {
+    public float getPrecio_total() {
         return precio_total_;
     }
 
-    public Set<ParDPD> getdpd_(){
+    public Set<ParDPD> getdpd(){
         return dpd_;
     }
     
     public void agregarParDPD(ParDPD dpd){
         dpd_.add(dpd);
+    }
+    
+    public String getStringEstado()
+    {
+        String est = "";
+        if (estado_ == Estado.Registrada)
+            est = "Registrada";
+        else if (estado_ == Estado.Cancelada)
+            est = "Cancelada";
+        else if (estado_ == Estado.Pagada)
+            est = "Pagada";
+        else
+            est = "Facturada";
+        return est;
     }
     
 }

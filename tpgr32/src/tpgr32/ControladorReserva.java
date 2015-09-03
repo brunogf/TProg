@@ -78,7 +78,7 @@ public class ControladorReserva implements IControladorReserva{
         
         Collections.sort(lista, new Comparator<DataReserva>() {
             public int compare(DataReserva d1, DataReserva d2) {
-                return (d1.getNum_() < d2.getNum_() ? -1 : (d1.getNum_() == d2.getNum_() ? 0 : 1));
+                return (d1.getNum() < d2.getNum() ? -1 : (d1.getNum() == d2.getNum() ? 0 : 1));
             }
         });
         return lista;

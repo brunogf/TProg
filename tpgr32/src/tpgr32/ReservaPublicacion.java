@@ -27,7 +27,11 @@ public class ReservaPublicacion {
     
     public ReservaPublicacion(Reserva r, Publicacion p, Date inicio, Date fin, int cant)
     {
-	//FALTA IMPLEMENTAR
+	res_ = r;
+        pub_ = p;
+        fechaIni_ = inicio;
+        fechaFin_ = fin;
+        cant_ = cant;
     }
     
     public ReservaPublicacion(Reserva r, Publicacion p, DataDisponibilidad d)

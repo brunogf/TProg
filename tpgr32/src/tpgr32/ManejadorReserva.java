@@ -45,14 +45,9 @@ public class ManejadorReserva {
     }
     
     public List<DataReserva> listarReservas(){
-        Iterator<Reserva> it=conjReservas_.values().iterator();
-        List<DataReserva> lista=new ArrayList<>();
-        DataReserva dr;
-        while (it.hasNext()){
-            Reserva r=it.next();
-            dr=r.infoReserva();
-            lista.add(dr);
-        }
+        List<DataReserva> lista = new ArrayList<>();
+        for(Map.Entry<Integer, Reserva> entry : conjReservas_.entrySet())
+            lista.add(entry.getValue().infoReserva());
         return lista;
     }
     

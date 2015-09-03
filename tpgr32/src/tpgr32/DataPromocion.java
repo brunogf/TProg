@@ -44,8 +44,10 @@ public class DataPromocion extends DataPublicacion{
 	descuento_ = descuento;
     }
     
-    public void agregarServicio(DataServicio ds)
+    public void agregarServicio(DataPublicacion ds)
     {
-	servicios_.add(ds);
+        if (!(ds instanceof DataServicio))
+            throw new IllegalArgumentException("No es un servicio");
+	servicios_.add((DataServicio)ds);
     }
 }

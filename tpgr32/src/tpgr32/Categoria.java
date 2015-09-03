@@ -79,7 +79,7 @@ public class Categoria {
     public Set<DataServicio> listarServicios(){
         Set<DataServicio> servicios = new HashSet<>();
         for(Servicio s: conjServicios_.values()){
-            DataServicio servicio = s.infoPublicacion();
+            DataServicio servicio = (DataServicio)s.infoPublicacion();
             servicios.add(servicio);
         }
         

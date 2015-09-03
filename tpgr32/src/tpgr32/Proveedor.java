@@ -75,7 +75,7 @@ public class Proveedor extends Usuario {
 	if (!(pub instanceof Servicio))
 	    throw new IllegalArgumentException("No se encontro el servicio");
 	Servicio ser = (Servicio)pub;
-        DataServicio servicio = ser.infoPublicacion();
+        DataServicio servicio =(DataServicio) ser.infoPublicacion();
         return servicio;
     }
     
