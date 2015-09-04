@@ -39,8 +39,7 @@ public class Interfaz extends javax.swing.JFrame {
     private Image img1;
     private Image img2;
     private Image img3;
-    private String ImgUsuario[]; 
-    private int cantImgUsuario;
+    private Image ImgUsuario; 
     
     public Interfaz() {
 	initComponents();
@@ -51,6 +50,7 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.revalidate(); //HACE QUE NO SE VEA NADA AL ABRIR EL PROGRAMA
         fila = 0;
         cantClick = 0;
+        ImgUsuario = null;
 	
     }
 
@@ -67,8 +67,7 @@ public class Interfaz extends javax.swing.JFrame {
         ConPadreOSinPadre = new javax.swing.ButtonGroup();
         ConDestinoSinDestino = new javax.swing.ButtonGroup();
         RegServicioSelectorImagenFileChooser = new javax.swing.JFileChooser();
-        jInternalFrame1 = new javax.swing.JInternalFrame();
-        buttonGroupImagen = new javax.swing.ButtonGroup();
+        ImageFileChooser = new javax.swing.JFileChooser();
         PanelCentral = new javax.swing.JPanel();
         RegistrarUsuarioFrame = new javax.swing.JInternalFrame();
         RegUsuarioLabel = new javax.swing.JLabel();
@@ -77,7 +76,6 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioApellidoLabel = new javax.swing.JLabel();
         RegUsuarioCorreoLabel = new javax.swing.JLabel();
         RegUsuarioFechaLabel = new javax.swing.JLabel();
-        RegUsuarioSeleccionarImagenButton = new javax.swing.JButton();
         RegUsuarioNicknameTextField = new javax.swing.JTextField();
         RegUsuarioNombreTextField = new javax.swing.JTextField();
         RegUsuarioApellidoTextField = new javax.swing.JTextField();
@@ -91,9 +89,8 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioAceptar = new javax.swing.JButton();
         RegUsuarioCancelar = new javax.swing.JButton();
         RegUsuarioFechaLabel1 = new javax.swing.JLabel();
-        QuierePonerImagen = new javax.swing.JRadioButton();
-        NoQuierePonerImagen = new javax.swing.JRadioButton();
         RegUsuarioFechaChooser = new com.toedter.calendar.JDateChooser();
+        RegUsuarioImageLabel = new javax.swing.JLabel();
         RegistrarCategoriaFrame = new javax.swing.JInternalFrame();
         RegCategoriaLabel = new javax.swing.JLabel();
         RegCategoriaNomCategoriaLabel = new javax.swing.JLabel();
@@ -422,19 +419,6 @@ public class Interfaz extends javax.swing.JFrame {
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
 
-        jInternalFrame1.setVisible(true);
-
-        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
-        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
-        jInternalFrame1Layout.setHorizontalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jInternalFrame1Layout.setVerticalGroup(
-            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
         setPreferredSize(new java.awt.Dimension(450, 550));
@@ -462,14 +446,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegUsuarioFechaLabel.setText("Desea Ingresar Imagen :");
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-
-        RegUsuarioSeleccionarImagenButton.setText("Seleccionar Imagen");
-        RegUsuarioSeleccionarImagenButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegUsuarioSeleccionarImagenButtonActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioSeleccionarImagenButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 190, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 190, -1));
@@ -482,7 +458,7 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioClienteRadioButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         RegUsuarioProveedorRadioButton.setText("Proveedor");
         RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -490,15 +466,15 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioProveedorRadioButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
 
         RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
 
         RegUsuarioURLLabel.setText("URL:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 300, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 190, -1));
 
         RegUsuarioAceptar.setText("Aceptar");
         RegUsuarioAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -518,26 +494,19 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegUsuarioFechaLabel1.setText("Fecha de Nacimiento:");
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
-
-        buttonGroupImagen.add(QuierePonerImagen);
-        QuierePonerImagen.setText("Si");
-        QuierePonerImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                QuierePonerImagenActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(QuierePonerImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
-
-        buttonGroupImagen.add(NoQuierePonerImagen);
-        NoQuierePonerImagen.setSelected(true);
-        NoQuierePonerImagen.setText("No");
-        NoQuierePonerImagen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoQuierePonerImagenActionPerformed(evt);
-            }
-        });
-        RegistrarUsuarioFrame.getContentPane().add(NoQuierePonerImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 190, -1));
+
+        RegUsuarioImageLabel.setForeground(new java.awt.Color(153, 153, 153));
+        RegUsuarioImageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        RegUsuarioImageLabel.setText("[Doble click]");
+        RegUsuarioImageLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        RegUsuarioImageLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        RegUsuarioImageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegUsuarioImageLabelMouseClicked(evt);
+            }
+        });
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 100, 100));
 
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
@@ -609,7 +578,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addComponent(RegCategoriaSelecCategoriaPadreLabel)
                                 .addGap(38, 38, 38)
-                                .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
+                                .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(RegCategoriaAceptarButton)
@@ -640,7 +609,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaAceptarButton)
                     .addComponent(RegCategoriaCancelarButton))
@@ -728,7 +697,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioPrecioLabel)
                     .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioCancelarBottonDBPanel)
                     .addComponent(RegistrarServicioSiguienteBottonDBPanel))
@@ -814,7 +783,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegServicioTituloLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addGroup(RegServicioProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioSPSiguienteButton)
                     .addComponent(RegServicioSPAtrasButton)
@@ -961,7 +930,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioCiudadDestinoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioUbicacionCancelarButton)
                     .addComponent(RegServicioUbicacionAtrasButton)
@@ -1068,7 +1037,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioImagenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioSeleccImagen2Button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(RegServicioImagenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioSeleccImagen3Button))
@@ -1147,7 +1116,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(RegServicioCategoriasCancelarButton)
                     .addComponent(RegServicioCategoriasAtrasButton)
                     .addComponent(RegServicioCategoriasConfirmarButton))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
 
         RegistrarServicioFrame.getContentPane().add(RegServicioCategoriasPanel, "card6");
@@ -1241,7 +1210,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(RegistrarPromocionDescuentoLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(RegistrarPromocionDescuentoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(104, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarPromocionPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(RegistrarPromocionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1394,7 +1363,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(ActualizarServicioAceptarButton)
                 .addGap(50, 50, 50)
                 .addComponent(ActualizarServicioCancelarButton)
-                .addGap(0, 71, Short.MAX_VALUE))
+                .addGap(0, 102, Short.MAX_VALUE))
         );
         ActualizarServicioFrameLayout.setVerticalGroup(
             ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1427,11 +1396,11 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(ActualizarServicioCiudadOrigenScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ActualizarServicioCategoriasLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addGroup(ActualizarServicioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ActualizarServicioAceptarButton)
                     .addComponent(ActualizarServicioCancelarButton))
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         PanelCentral.add(ActualizarServicioFrame, "card7");
@@ -1462,7 +1431,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(AltaPaisFrameLayout.createSequentialGroup()
                         .addGap(175, 175, 175)
                         .addComponent(AltaPaisLabel)))
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
         AltaPaisFrameLayout.setVerticalGroup(
             AltaPaisFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1473,7 +1442,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(AltaPaisNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(AltaPaisAgregarButton)
-                .addContainerGap(341, Short.MAX_VALUE))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
 
         PanelCentral.add(AltaPaisFrame, "card8");
@@ -1544,7 +1513,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(AltaCiudadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(AltaCiudadAgregarButton)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
 
         PanelCentral.add(AltaCiudadFrame, "card9");
@@ -1625,7 +1594,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaSeleccClienteLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSigButton)
                     .addComponent(RegReservaCancelarButton))
@@ -1716,7 +1685,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaTitleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSPSigButton)
                     .addComponent(RegReservaSPAtrasButton)
@@ -2059,7 +2028,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarTotalLabel)
                     .addComponent(RegReservaConfirmarPrecioLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarButton)
                     .addComponent(RegReservaConfirmarAtrasButton)
@@ -2274,7 +2243,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(ConsultaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(ConsultaProveedorServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultarInfoProveedorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2287,7 +2256,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(ConsultaProvApellidoLabel)
                             .addComponent(ConsultaProvNickLabel)
                             .addComponent(ConsultaProvLinkLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                         .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ConsultarProveedorApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(ConsultarProveedorNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2359,7 +2328,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(ConsultaProvNomEmpLabel)
                         .addGap(18, 18, 18)
                         .addComponent(ConsultaProvLinkLabel)
-                        .addContainerGap(127, Short.MAX_VALUE))))
+                        .addContainerGap(135, Short.MAX_VALUE))))
         );
 
         PanelCentral.add(ConsultarInfoProveedor, "card10");
@@ -2462,7 +2431,7 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(ConsultarUsuarioImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(21, 21, 21)
                                 .addComponent(ConsultarUsuarioImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 47, Short.MAX_VALUE))
+                        .addGap(0, 80, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -2507,7 +2476,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultarUsuFNacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsultaUsuFNac))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ConsultaUsuBotonAtras1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -2591,7 +2560,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(ActualizarEstadoReservaFrameLayout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(EstadosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         ActualizarEstadoReservaFrameLayout.setVerticalGroup(
             ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2610,7 +2579,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ActualizarEstadoReservaAceptarButton)
                     .addComponent(ActualizarEstadoReservaCancelarButton))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         PanelCentral.add(ActualizarEstadoReservaFrame, "card14");
@@ -2681,7 +2650,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(CancelarReservaFrameLayout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(CancelarReservaLabel)))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
         CancelarReservaFrameLayout.setVerticalGroup(
             CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2696,7 +2665,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EliminarReservaButton)
                     .addComponent(CancelarBajaReservaButton))
-                .addContainerGap(156, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
 
         PanelCentral.add(CancelarReservaFrame, "card15");
@@ -2752,7 +2721,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoServicioCategoriaCancelarButton)
                             .addGap(66, 66, 66)
                             .addComponent(InfoServicioCategoriaSiguienteButton))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         InfoServicioCategoriaPanelLayout.setVerticalGroup(
             InfoServicioCategoriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2765,7 +2734,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoServicioCategoriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioSeleccServLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InfoServicioServiciosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
                 .addGroup(InfoServicioCategoriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioCategoriaCancelarButton)
                     .addComponent(InfoServicioCategoriaSiguienteButton))
@@ -2827,7 +2796,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoServicioDatoNombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoPrecioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoProvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
         InfoServicioInfoServicioPanelLayout.setVerticalGroup(
             InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2850,7 +2819,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioInfoServicioProvLabel)
                     .addComponent(InfoServicioDatoProvLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
                 .addComponent(InfoServicioInfoServicioCerrarButton)
                 .addGap(47, 47, 47))
         );
@@ -3180,7 +3149,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(InfoReservasClientesFIniLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(infoReservasClienteBotonAtras)
                 .addContainerGap())
         );
@@ -3353,43 +3322,18 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioFechaChooser.setDateFormatString("dd-MM-yyyy");
         RegUsuarioFechaChooser.setDate(new Date());
 	RegUsuarioNombreEmpresaLabel.setVisible(false);
-        this.RegUsuarioSeleccionarImagenButton.setVisible(false);
         RegUsuarioURLLabel.setVisible(false);
 	RegUsuarioNombreEmpresaTextField.setVisible(false);
 	RegUsuarioURLTextField.setVisible(false);
+        RegUsuarioImageLabel.setIcon(null);
+        RegUsuarioImageLabel.setText("[Doble click]");
+        RegUsuarioClienteRadioButton.doClick();
 	PanelCentral.removeAll();
 	PanelCentral.add(RegistrarUsuarioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
 	//Muestra el frame de registrar usario en el panel central
     }//GEN-LAST:event_MenuRegistrarUsuarioActionPerformed
-
-    private void RegUsuarioSeleccionarImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
-                
-        JFileChooser selector = new JFileChooser();
-        FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG y PNG","jpg","png");
-        selector.setFileFilter(filtroImagen);
-        int resultado = selector.showOpenDialog(null);
-        
-        if(resultado == JFileChooser.APPROVE_OPTION){
-            try {   
-                if (this.cantImgUsuario != 3) {
-                    //guardo el archivo que selecciono el usuario
-                    File f = selector.getSelectedFile();       
-                    String ruta = f.getAbsolutePath();                
-                    this.ImgUsuario[this.cantImgUsuario] = ruta;
-                    this.cantImgUsuario++;
-                }
-                else {
-                     JOptionPane.showMessageDialog(null, "La cantidad de imagenes es 3");
-                }
-            }      
-            catch (Exception ex) {             
-                //e1.printStackTrace();
-            }
-        }
-
-    }//GEN-LAST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
 
     private void RegUsuarioClienteRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioClienteRadioButtonActionPerformed
         RegUsuarioNombreEmpresaLabel.setVisible(false);
@@ -3425,62 +3369,56 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_infoClienteActionPerformed
 
     private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
-        try
-	{
-	    IControladorUsuario ctrlUsr = fabrica.getControladorUsuario();
-            if (RegUsuarioFechaChooser.getDate() == null)
-                JOptionPane.showMessageDialog(null, "La fecha seleccionada es incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
-            else if (this.RegUsuarioNicknameTextField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se ingreso el NickName del Usuario","Warning",JOptionPane.WARNING_MESSAGE); 
-            }
-            else if (this.RegUsuarioApellidoTextField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se ingreso el Apellido del Usuario","Warning",JOptionPane.WARNING_MESSAGE); 
-            }
-            else if (this.RegUsuarioCorreoTextField.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No se ingreso el Correo del Usuario","Warning",JOptionPane.WARNING_MESSAGE); 
-            }
-            else {
-                Date d = RegUsuarioFechaChooser.getDate();
-                if(RegUsuarioClienteRadioButton.isSelected()) {
-                    if (this.QuierePonerImagen.isSelected()) {
-                        ctrlUsr.altaClienteConImg(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
-                            RegUsuarioCorreoTextField.getText(), d,this.ImgUsuario,this.cantImgUsuario);
-                        JOptionPane.showMessageDialog(null, "El cliente se registro correctamente");
-    
-                    }
-                    else {
-                         ctrlUsr.altaCliente(RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioNicknameTextField.getText() , 
-                            RegUsuarioCorreoTextField.getText(), d);
-                        JOptionPane.showMessageDialog(null, "El cliente se registro correctamente");
-                    }
+        if (RegUsuarioNicknameTextField.getText().compareTo("") == 0)
+            JOptionPane.showMessageDialog(null, "Debes poner un nickname", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else if (RegUsuarioNombreTextField.getText().compareTo("") == 0)
+            JOptionPane.showMessageDialog(null, "Debes poner un nombre", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else if (RegUsuarioApellidoTextField.getText().compareTo("") == 0)
+            JOptionPane.showMessageDialog(null, "Debes poner un apellido", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else if (RegUsuarioCorreoTextField.getText().compareTo("") == 0)
+            JOptionPane.showMessageDialog(null, "Debes poner un correo", "ERROR", JOptionPane.ERROR_MESSAGE);
+        else
+        {
+         try
+         {
+            IControladorUsuario cu = fabrica.getControladorUsuario();
+            if (RegUsuarioClienteRadioButton.isSelected())
+            {
+                if (ImgUsuario == null)
+                    cu.altaCliente(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate());
+                else
+                {
+                    cu.altaClienteConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(),ImgUsuario);
+                    ImgUsuario = null;
                 }
-                //Proveedor.isSelected 
-                else {
-                    if (this.QuierePonerImagen.isSelected()) {
-                        ctrlUsr.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(),
-                        RegUsuarioCorreoTextField.getText(), d, RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(),this.ImgUsuario,this.cantImgUsuario);
-                        JOptionPane.showMessageDialog(null, "El proveedor se registro correctamente");
-                    }
-                    else {
-                         ctrlUsr.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(),
-                            RegUsuarioCorreoTextField.getText(), d, RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
-                        JOptionPane.showMessageDialog(null, "El proveedor se registro correctamente");
-            
-                    }
+                JOptionPane.showMessageDialog(null, "El cliente se creo correctamente");
+            }
+            else//proveedor is selected
+            {
+                if (ImgUsuario == null)
+                    cu.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
+                else
+                {
+                    cu.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(),ImgUsuario);
+                    ImgUsuario = null;
                 }
-                this.RegUsuarioNicknameTextField.setText(null);
-                this.RegUsuarioNombreTextField.setText(null);
-                this.RegUsuarioApellidoTextField.setText(null);
-                this.RegUsuarioCorreoTextField.setText(null);
-                this.RegUsuarioNombreEmpresaTextField.setText(null);
-                RegUsuarioFechaChooser.setDate(new Date());
-                this.RegUsuarioURLTextField.setText(null);
-            } 
-            
+                JOptionPane.showMessageDialog(null, "El proveedor se creo correctamente");
+            }
+            RegUsuarioImageLabel.setIcon(null);
+            RegUsuarioImageLabel.setText("[Doble click]");
+            RegUsuarioNicknameTextField.setText("");
+            RegUsuarioNombreTextField.setText("");
+            RegUsuarioApellidoTextField.setText("");
+            RegUsuarioCorreoTextField.setText("");
+            RegUsuarioFechaChooser.setDate(new Date());
+            RegUsuarioNombreEmpresaTextField.setText("");
+            RegUsuarioURLTextField.setText("");
+         }catch(Exception e)
+         {
+             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+         }
         }
-        catch(Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-	}
+        
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
     private void MenuRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarCategoriaActionPerformed
@@ -4162,10 +4100,7 @@ public class Interfaz extends javax.swing.JFrame {
             this.ConsultarProveedorLink.setText(dtProveedor.getURL());    
         
             ControladorUsuario cU = this.fabrica.getControladorUsuario();
-            String[] imgUsuario = cU.imagenesDelUsuario(dtProveedor.getNickname());
-            ImageIcon img = new ImageIcon(imgUsuario[0]);
-            Icon icono = new ImageIcon(img.getImage().getScaledInstance(this.ConsultarProvImagenLabel.getWidth(),
-            this.ConsultarProvImagenLabel.getHeight(),Image.SCALE_DEFAULT));
+            Icon icono = new ImageIcon(cU.getImagenDelUsuario(dtProveedor.getNickname()));
             //saco el texto de la label
             this.ConsultarProvImagenLabel.setText(null);
             //pongo la imagen en la label
@@ -4200,12 +4135,7 @@ public class Interfaz extends javax.swing.JFrame {
         //descomentar cuando se arregle la fNac
         //this.ConsultarUsuFNacimiento.setText(dtCliente.getFecha().toString());
         ControladorUsuario cU = this.fabrica.getControladorUsuario();
-        String[] imgUsuario = cU.imagenesDelUsuario(dtCliente.getNickname());
-        
-        ImageIcon img = new ImageIcon(imgUsuario[0]);
-        
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(this.ConsultarUsuarioImagen1Label.getWidth(),
-                this.ConsultarUsuarioImagen1Label.getHeight(),Image.SCALE_DEFAULT));
+            Icon icono = new ImageIcon(cU.getImagenDelUsuario(dtCliente.getNickname()));
         //saco el texto de la label
         this.ConsultarUsuarioImagen1Label.setText(null);
         //pongo la imagen en la label
@@ -4501,16 +4431,6 @@ public class Interfaz extends javax.swing.JFrame {
         
     }//GEN-LAST:event_InfoServicioCategoriaSiguienteButtonActionPerformed
 
-    private void QuierePonerImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuierePonerImagenActionPerformed
-         this.RegUsuarioSeleccionarImagenButton.setVisible(true);
-         this.ImgUsuario = new String[3];
-         this.cantImgUsuario = 0;
-    }//GEN-LAST:event_QuierePonerImagenActionPerformed
-
-    private void NoQuierePonerImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoQuierePonerImagenActionPerformed
-        this.RegUsuarioSeleccionarImagenButton.setVisible(false);
-    }//GEN-LAST:event_NoQuierePonerImagenActionPerformed
-
     private void AltaCiudadPaisComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaCiudadPaisComboBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AltaCiudadPaisComboBoxActionPerformed
@@ -4524,12 +4444,12 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegReservaSPubSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubSiguienteButtonActionPerformed
         IControladorReserva cr = fabrica.getControladorReserva();
         //Seleccionar Reservas
+        float total = 0;
         if (RegReservaSPubSeleccionadasTable.getRowCount() == 0)
             JOptionPane.showMessageDialog(null, "Debes seleccionar al menos una publicacion", "Warning", JOptionPane.WARNING_MESSAGE);
         else
         {
             try{
-                float total = 0;
                 float precio;
                 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
                 String ini;
@@ -4575,6 +4495,10 @@ public class Interfaz extends javax.swing.JFrame {
             int n = cr.getNumeroReservas();
             RegReservaConfirmarNumInfoLabel.setText(Integer.toString(n));
             RegReservaConfirmarPInfoLabel.setText(sb.toString());
+            sb = new StringBuilder();
+            sb.append("$");
+            sb.append(Float.toString(total));
+            RegReservaConfirmarPrecioLabel.setText(sb.toString());
             RegReservaSeleccionarClientePanel.setVisible(false);
             RegReservaSeleccionarProveedorPanel.setVisible(false);
             RegReservaSeleccionarPublicacionPanel.setVisible(false);
@@ -4836,6 +4760,36 @@ public class Interfaz extends javax.swing.JFrame {
             RegReservaSPubRemoveButton.doClick();
     }//GEN-LAST:event_RegReservaSPubSeleccionadasTableMouseClicked
 
+    private void RegUsuarioImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegUsuarioImageLabelMouseClicked
+        if (evt.getClickCount() == 2)
+        {
+            //filtro
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen","jpg");
+            ImageFileChooser.setFileFilter(filter);
+            ImageFileChooser.setVisible(true);
+            
+            int opcion = ImageFileChooser.showOpenDialog(null);
+            if(opcion == JFileChooser.APPROVE_OPTION){
+                //Obtener nombre del archivo
+                String arch = ImageFileChooser.getSelectedFile().getPath();
+                //Obtener direccion donde se guardará la imagen
+                RegUsuarioImageLabel.setIcon(new ImageIcon(arch));
+                //Se modifica la imagen
+                ImageIcon icon = new ImageIcon(arch);
+                //Se extrae la imagen
+                Image img = icon.getImage();
+                ImgUsuario = img;
+                //Se modifica el tamaño de la imagen
+                Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                ImageIcon nuevoIcono = new ImageIcon(imgmod);
+                RegUsuarioImageLabel.setIcon(nuevoIcono);
+                RegUsuarioImageLabel.setSize(100,100);
+                RegUsuarioImageLabel.setText(null);
+            }
+        }
+    }//GEN-LAST:event_RegUsuarioImageLabelMouseClicked
+
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
         
@@ -5021,6 +4975,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultarUsuarioImagen3Label;
     private javax.swing.JButton EliminarReservaButton;
     private javax.swing.JComboBox EstadosComboBox;
+    private javax.swing.JFileChooser ImageFileChooser;
     private javax.swing.JButton InfoReservaAceptarButton;
     private javax.swing.JPanel InfoReservaCentralPanel;
     private javax.swing.JLabel InfoReservaClienteLabel;
@@ -5095,9 +5050,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuRegistrarServicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
     private javax.swing.JMenu MenuRegistros;
-    private javax.swing.JRadioButton NoQuierePonerImagen;
     private javax.swing.JPanel PanelCentral;
-    private javax.swing.JRadioButton QuierePonerImagen;
     private javax.swing.JButton RegCategoriaAceptarButton;
     private javax.swing.JButton RegCategoriaCancelarButton;
     private javax.swing.JLabel RegCategoriaCategoriaPadreLabel;
@@ -5202,6 +5155,7 @@ public class Interfaz extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser RegUsuarioFechaChooser;
     private javax.swing.JLabel RegUsuarioFechaLabel;
     private javax.swing.JLabel RegUsuarioFechaLabel1;
+    private javax.swing.JLabel RegUsuarioImageLabel;
     private javax.swing.JLabel RegUsuarioLabel;
     private javax.swing.JLabel RegUsuarioNicknameLabel;
     private javax.swing.JTextField RegUsuarioNicknameTextField;
@@ -5210,7 +5164,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegUsuarioNombreLabel;
     private javax.swing.JTextField RegUsuarioNombreTextField;
     private javax.swing.JRadioButton RegUsuarioProveedorRadioButton;
-    private javax.swing.JButton RegUsuarioSeleccionarImagenButton;
     private javax.swing.JLabel RegUsuarioURLLabel;
     private javax.swing.JTextField RegUsuarioURLTextField;
     private javax.swing.JInternalFrame RegistrarCategoriaFrame;
@@ -5249,7 +5202,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel SeleccionarEstadoLabel;
     private javax.swing.JLabel SeleccionarReservaLabel;
     private javax.swing.JLabel SeleccionarReservaLabel1;
-    public static javax.swing.ButtonGroup buttonGroupImagen;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
     private javax.swing.JButton infoDeReservaBoton;
@@ -5258,7 +5210,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton infoReservasClienteBotonAtras;
     private javax.swing.JMenuItem infoServicioMenuBar;
     private javax.swing.JButton infoServiciosProveedorBotonAtras;
-    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
