@@ -2771,6 +2771,10 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioInfoServicioPanel.setLayout(InfoServicioInfoServicioPanelLayout);
         InfoServicioInfoServicioPanelLayout.setHorizontalGroup(
             InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(InfoServicioInfoServicioCerrarButton)
+                .addGap(81, 81, 81))
             .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
@@ -2785,15 +2789,11 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoServicioInfoServicioProvLabel))
                         .addGap(41, 41, 41)
                         .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane15)
+                            .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoNombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoPrecioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoProvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoServicioInfoServicioPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(InfoServicioInfoServicioCerrarButton)
-                .addGap(81, 81, 81))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         InfoServicioInfoServicioPanelLayout.setVerticalGroup(
             InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -4464,7 +4464,7 @@ public class Interfaz extends javax.swing.JFrame {
         IControladorPublicacion pub = fabrica.getControladorPublicacion();
         
         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
-        Set<DataServicio> serv = pub.listarServiciosDeCategoria(cat.toString());
+        Set<DataServicio> serv = pub.listarServicioDeCategoriaCompleto(cat.toString());
         DataServicio s;
         for (DataServicio dt: serv){
             if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())){
