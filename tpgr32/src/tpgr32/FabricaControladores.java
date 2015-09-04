@@ -11,16 +11,8 @@ package tpgr32;
  */
 public class FabricaControladores {
     private static FabricaControladores instancia_=null;
-    private ControladorUsuario cu_;
-    private ControladorPublicacion cp_;
-    private ControladorReserva cr_;
     
-    public FabricaControladores()
-    {
-                    cu_ = null;
-                    cp_ = null;
-                    cr_ = null;
-    }
+    public FabricaControladores(){}
     
     //singleton
     
@@ -32,19 +24,13 @@ public class FabricaControladores {
     }
     
     public ControladorUsuario getControladorUsuario(){
-        if (cu_ == null)
-            cu_ = new ControladorUsuario();
-        return cu_;
+        return new ControladorUsuario();
     }
     
     public ControladorReserva getControladorReserva(){
-        if (cr_ == null)
-            cr_ = new ControladorReserva();
-        return cr_;
+        return new ControladorReserva(); 
     }
     public ControladorPublicacion getControladorPublicacion(){
-        if (cp_ == null)
-            cp_ = new ControladorPublicacion();
-        return cp_;
+        return new ControladorPublicacion();
     }
 }
