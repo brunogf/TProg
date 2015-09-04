@@ -416,10 +416,10 @@ public class Interfaz extends javax.swing.JFrame {
         MenuRegistrarPromocion = new javax.swing.JMenuItem();
         MenuRegistrarReserva = new javax.swing.JMenuItem();
         MenuBajas = new javax.swing.JMenu();
+        CancelarReservaMenu = new javax.swing.JMenuItem();
         MenuActualizaciones = new javax.swing.JMenu();
         MenuActualizarServicio = new javax.swing.JMenuItem();
         ActualizarEstadoReservaMenu = new javax.swing.JMenuItem();
-        CancelarReservaMenu = new javax.swing.JMenuItem();
         MenuConsultas = new javax.swing.JMenu();
         infoCliente = new javax.swing.JMenuItem();
         infoProveedorMenuBar = new javax.swing.JMenuItem();
@@ -3111,7 +3111,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(InfoReservaPrecioLabel)
                         .addGap(82, 82, 82)
                         .addComponent(InfoReservaSRPrecioLabel)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservaInfoPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3208,6 +3208,15 @@ public class Interfaz extends javax.swing.JFrame {
         BarraMenu.add(MenuRegistros);
 
         MenuBajas.setText("Bajas");
+
+        CancelarReservaMenu.setText("Cancelar Reserva");
+        CancelarReservaMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarReservaMenuActionPerformed(evt);
+            }
+        });
+        MenuBajas.add(CancelarReservaMenu);
+
         BarraMenu.add(MenuBajas);
 
         MenuActualizaciones.setText("Actualizaciones");
@@ -3227,14 +3236,6 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         MenuActualizaciones.add(ActualizarEstadoReservaMenu);
-
-        CancelarReservaMenu.setText("Cancelar Reserva");
-        CancelarReservaMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarReservaMenuActionPerformed(evt);
-            }
-        });
-        MenuActualizaciones.add(CancelarReservaMenu);
 
         BarraMenu.add(MenuActualizaciones);
 
@@ -4264,7 +4265,7 @@ public class Interfaz extends javax.swing.JFrame {
         EstadosComboBox.addItem(Estado.Facturada);
         EstadosComboBox.addItem(Estado.Pagada);
         EstadosComboBox.addItem(Estado.Cancelada);
-
+        
         listarReservasGUI();
     }//GEN-LAST:event_ActualizarEstadoReservaMenuActionPerformed
 
@@ -4548,7 +4549,7 @@ public class Interfaz extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             //siguiente panel
-            DataProveedor proveedor = cr.getInfoProveeodrSeleccionado();
+            DataProveedor proveedor = cr.getInfoProveedorSeleccionado();
             DataCliente cliente = cr.getInfoClienteSeleccionado();
             StringBuilder sb = new StringBuilder();
             sb.append(cliente.getNickname());
@@ -4733,16 +4734,18 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         ReservasTable.setModel(modelo);
         modelo.addColumn("Numero");
+        modelo.addColumn("Cliente");
         modelo.addColumn("Estado");
-               
         //llena la tabla de reservas
         Iterator<DataReserva> it=dr.iterator();
-        Object [] fila = new Object[2];
+        Object [] fila = new Object[3];
               
         while (it.hasNext()){
             DataReserva dr1=it.next();
+            DataUsuario du1=cr.getInfoClienteReserva(dr1.getNum());
             fila[0] = dr1.getNum();
-            fila[1] = dr1.getEstado();
+            fila[1] = du1.getNombre();
+            fila[2] = dr1.getEstado();
             
             modelo.addRow(fila);
         }
@@ -4763,16 +4766,19 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         ReservasTable1.setModel(modelo);
         modelo.addColumn("Numero");
+        modelo.addColumn("Cliente");
         modelo.addColumn("Estado");
-               
+                       
         //llena la tabla de reservas
         Iterator<DataReserva> it=dr.iterator();
-        Object [] fila = new Object[2];
+        Object [] fila = new Object[3];
               
         while (it.hasNext()){
             DataReserva dr1=it.next();
+            DataUsuario du1=cr.getInfoClienteReserva(dr1.getNum());
             fila[0] = dr1.getNum();
-            fila[1] = dr1.getEstado();
+            fila[1] = du1.getNombre();
+            fila[2] = dr1.getEstado();
             
             modelo.addRow(fila);
         }

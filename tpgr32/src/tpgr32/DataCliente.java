@@ -28,7 +28,7 @@ public class DataCliente extends DataUsuario {
 	return reservas_;
     }
     
-    public void agergarReserva(DataReserva dr)
+    public void agregarReserva(DataReserva dr)
     {
 	reservas_.add(dr);
     }

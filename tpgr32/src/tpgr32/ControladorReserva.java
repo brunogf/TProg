@@ -127,7 +127,7 @@ public class ControladorReserva implements IControladorReserva{
         return proveedor_.getNickname();
     }
     
-    public DataProveedor getInfoProveeodrSeleccionado()
+    public DataProveedor getInfoProveedorSeleccionado()
     {
         if (!(proveedor_ instanceof Proveedor))
             throw new IllegalArgumentException("No se encuentra proveedor seleccionado.");
@@ -149,5 +149,12 @@ public class ControladorReserva implements IControladorReserva{
     public int getNumeroReservas()
     {
         return Reserva.getCurrentID();
+    }
+    
+    public DataUsuario getInfoClienteReserva(int nro){
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        
+        return r.getCliente().infoUsuario();
     }
 }
