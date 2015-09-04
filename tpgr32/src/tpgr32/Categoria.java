@@ -87,7 +87,7 @@ public class Categoria {
         
     }
     
-    public Set<DataServicio> lsitarServiciosCompleto(){
+    public Set<DataServicio> listarServiciosCompleto(){
         Set<DataServicio> servicios = new HashSet<>();
         for(Servicio s: conjServicios_.values()){
             DataServicio servicio = (DataServicio)s.infoPublicacionCompleto();
