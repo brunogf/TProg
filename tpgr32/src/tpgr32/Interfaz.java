@@ -4448,9 +4448,12 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioServiciosComboBox.addItem("Seleccionar Servicio");
         IControladorPublicacion pub = fabrica.getControladorPublicacion();
         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
-        Set<DataServicio> serv = pub.listarServiciosDeCategoria(cat.toString());
-        for(DataServicio dt: serv){
-            InfoServicioServiciosComboBox.addItem(dt.getNombre());
+        Set<DataServicio> serv;
+        if (cat != null){
+           serv = pub.listarServiciosDeCategoria(cat.toString());
+           for(DataServicio dt: serv){
+              InfoServicioServiciosComboBox.addItem(dt.getNombre());
+           }
         }
     }//GEN-LAST:event_InfoServicioCategoriasTreeValueChanged
 
