@@ -271,27 +271,6 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServiciosProveedorImagen3 = new javax.swing.JLabel();
         InfoServiciosProveedorImagen2 = new javax.swing.JLabel();
         InfoServiciosProveedorImagenesLabel = new javax.swing.JLabel();
-        InfoReservasDelClienteFrame = new javax.swing.JInternalFrame();
-        ConsultaUsuarioVerInfoReservasLabel = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        nombreReservasDelCliente = new javax.swing.JList();
-        ConsultaUsuarioServiciosDelUsuarioButton = new javax.swing.JButton();
-        reservasDelClienteBoton = new javax.swing.JButton();
-        infoReservasClienteBotonAtras = new javax.swing.JButton();
-        InfoReservasClienteNumLabel = new javax.swing.JLabel();
-        InfoReservasClienteNumero = new javax.swing.JTextField();
-        InfoReservasClientesFcreacion = new javax.swing.JTextField();
-        InfoReservasClientesEstado = new javax.swing.JTextField();
-        InfoReservasClienteFCreacionLabel = new javax.swing.JLabel();
-        InfoReservasClientesEstadoLabel = new javax.swing.JLabel();
-        InfoReservasClientesPTotalLabel = new javax.swing.JLabel();
-        InfoReservasClientesPTotal = new javax.swing.JTextField();
-        InfoReservasClientesFIni = new javax.swing.JTextField();
-        InfoReservasClientesFIniLabel = new javax.swing.JLabel();
-        InfoReservasClientesFfinLabel = new javax.swing.JLabel();
-        InfoReservasClientesFfin = new javax.swing.JTextField();
-        InfoReservasClientesCantidadLabel = new javax.swing.JLabel();
-        InfoReservasClientesCantidad = new javax.swing.JTextField();
         ConsultarInfoProveedor = new javax.swing.JInternalFrame();
         ConsultaProveedorLabel2 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
@@ -407,6 +386,22 @@ public class Interfaz extends javax.swing.JFrame {
         InfoReservaPrecioLabel = new javax.swing.JLabel();
         InfoReservaSRPrecioLabel = new javax.swing.JLabel();
         InfoReservaAceptarButton = new javax.swing.JButton();
+        InfoReservasDelClienteFrame = new javax.swing.JInternalFrame();
+        ConsultaUsuarioVerInfoReservasLabel = new javax.swing.JLabel();
+        infoReservasClienteBotonAtras = new javax.swing.JButton();
+        InfoReservasClienteNumLabel = new javax.swing.JLabel();
+        InfoReservasClienteNumero = new javax.swing.JTextField();
+        InfoReservasClientesFcreacion = new javax.swing.JTextField();
+        InfoReservasClientesEstado = new javax.swing.JTextField();
+        InfoReservasClienteFCreacionLabel = new javax.swing.JLabel();
+        InfoReservasClientesEstadoLabel = new javax.swing.JLabel();
+        InfoReservasClientesPTotalLabel = new javax.swing.JLabel();
+        InfoReservasClientesPTotal = new javax.swing.JTextField();
+        InfoReservasClientesFIniLabel = new javax.swing.JLabel();
+        reservasDelClienteComboBox = new javax.swing.JComboBox();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tablaReservaPublicacion = new javax.swing.JTable();
+        infoDeReservaBoton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -717,7 +712,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegistrarServicioCancelarBottonDBPanel)
                         .addGap(52, 52, 52)
                         .addComponent(RegistrarServicioSiguienteBottonDBPanel)))
-                .addContainerGap(103, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RegServicioDatosBasicosPanelLayout.setVerticalGroup(
             RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1308,7 +1303,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarPromocionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarPromocionAceptarButton)
                     .addComponent(RegistrarPromocionCancelarButton))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         RegistrarPromocionFrame.getContentPane().add(RegistrarPromocionPanel, "card2");
@@ -2175,150 +2170,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(InformacionServiciosDelProveedor, "card13");
 
-        InfoReservasDelClienteFrame.setVisible(true);
-
-        ConsultaUsuarioVerInfoReservasLabel.setText("Reservas del Cliente");
-
-        nombreReservasDelCliente.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = {};
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane10.setViewportView(nombreReservasDelCliente);
-
-        ConsultaUsuarioServiciosDelUsuarioButton.setText("Informacion Reservas");
-        ConsultaUsuarioServiciosDelUsuarioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultaUsuarioServiciosDelUsuarioButtonActionPerformed(evt);
-            }
-        });
-
-        reservasDelClienteBoton.setText("Reservas");
-        reservasDelClienteBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                reservasDelClienteBotonActionPerformed(evt);
-            }
-        });
-
-        infoReservasClienteBotonAtras.setText("Atras");
-        infoReservasClienteBotonAtras.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoReservasClienteBotonAtrasActionPerformed(evt);
-            }
-        });
-
-        InfoReservasClienteNumLabel.setText("Numero:");
-
-        InfoReservasClienteFCreacionLabel.setText("Fecha Creacion:");
-
-        InfoReservasClientesEstadoLabel.setText("Estado:");
-
-        InfoReservasClientesPTotalLabel.setText("Precio Total:");
-
-        InfoReservasClientesFIniLabel.setText("Fecha Inicio:");
-
-        InfoReservasClientesFfinLabel.setText("Fecha Fin:");
-
-        InfoReservasClientesCantidadLabel.setText("Cantidad:");
-
-        javax.swing.GroupLayout InfoReservasDelClienteFrameLayout = new javax.swing.GroupLayout(InfoReservasDelClienteFrame.getContentPane());
-        InfoReservasDelClienteFrame.getContentPane().setLayout(InfoReservasDelClienteFrameLayout);
-        InfoReservasDelClienteFrameLayout.setHorizontalGroup(
-            InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addComponent(reservasDelClienteBoton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(50, Short.MAX_VALUE))
-                    .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                                .addComponent(InfoReservasClientesCantidadLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InfoReservasClientesCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(InfoReservasClienteNumLabel)
-                                .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                                    .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(InfoReservasClienteFCreacionLabel)
-                                        .addComponent(InfoReservasClientesPTotalLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(InfoReservasClientesFIniLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(InfoReservasClientesFfinLabel, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(InfoReservasClientesEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InfoReservasClientesFcreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InfoReservasClienteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InfoReservasClientesPTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InfoReservasClientesFIni, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(InfoReservasClientesFfin, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(InfoReservasClientesEstadoLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addComponent(infoReservasClienteBotonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addComponent(ConsultaUsuarioVerInfoReservasLabel)
-                        .addGap(133, 133, 133))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addComponent(ConsultaUsuarioServiciosDelUsuarioButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(96, 96, 96))))
-        );
-        InfoReservasDelClienteFrameLayout.setVerticalGroup(
-            InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(ConsultaUsuarioVerInfoReservasLabel)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(reservasDelClienteBoton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ConsultaUsuarioServiciosDelUsuarioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClienteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClienteNumLabel))
-                .addGap(8, 8, 8)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClientesFcreacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClienteFCreacionLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClientesEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClientesEstadoLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClientesPTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClientesPTotalLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClientesFIni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClientesFIniLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClientesFfin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClientesFfinLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoReservasClientesCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoReservasClientesCantidadLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(infoReservasClienteBotonAtras)
-                .addContainerGap())
-        );
-
-        PanelCentral.add(InfoReservasDelClienteFrame, "card11");
-
         ConsultarInfoProveedor.setVisible(true);
 
         ConsultaProveedorLabel2.setText("Ver Informacion de Proveedor");
@@ -2942,7 +2793,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoServicioDatoNombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoPrecioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(InfoServicioDatoProvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(InfoServicioInfoServicioCerrarButton)
@@ -3161,6 +3012,159 @@ public class Interfaz extends javax.swing.JFrame {
         InformacionReservaFrame.getContentPane().add(InfoReservaCentralPanel, "card2");
 
         PanelCentral.add(InformacionReservaFrame, "card17");
+
+        InfoReservasDelClienteFrame.setVisible(true);
+
+        ConsultaUsuarioVerInfoReservasLabel.setText("Reservas del Cliente:");
+
+        infoReservasClienteBotonAtras.setText("Atras");
+        infoReservasClienteBotonAtras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoReservasClienteBotonAtrasActionPerformed(evt);
+            }
+        });
+
+        InfoReservasClienteNumLabel.setText("Numero:");
+
+        InfoReservasClienteNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoReservasClienteNumeroActionPerformed(evt);
+            }
+        });
+
+        InfoReservasClientesFcreacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoReservasClientesFcreacionActionPerformed(evt);
+            }
+        });
+
+        InfoReservasClientesEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoReservasClientesEstadoActionPerformed(evt);
+            }
+        });
+
+        InfoReservasClienteFCreacionLabel.setText("Fecha Creacion:");
+
+        InfoReservasClientesEstadoLabel.setText("Estado:");
+
+        InfoReservasClientesPTotalLabel.setText("Precio Total:");
+
+        InfoReservasClientesPTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoReservasClientesPTotalActionPerformed(evt);
+            }
+        });
+
+        reservasDelClienteComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] {}));
+        reservasDelClienteComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reservasDelClienteComboBoxActionPerformed(evt);
+            }
+        });
+
+        tablaReservaPublicacion.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Cantidad", "Fecha de Inicio", "Fecha de Fin", "Publicacion"
+            }
+        ));
+        jScrollPane10.setViewportView(tablaReservaPublicacion);
+
+        infoDeReservaBoton.setText("Informacion Reserva");
+        infoDeReservaBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoDeReservaBotonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout InfoReservasDelClienteFrameLayout = new javax.swing.GroupLayout(InfoReservasDelClienteFrame.getContentPane());
+        InfoReservasDelClienteFrame.getContentPane().setLayout(InfoReservasDelClienteFrameLayout);
+        InfoReservasDelClienteFrameLayout.setHorizontalGroup(
+            InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InfoReservasClientesEstadoLabel)
+                                    .addComponent(InfoReservasClientesPTotalLabel))
+                                .addGap(42, 42, 42)
+                                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InfoReservasClientesEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(InfoReservasClientesPTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                                    .addComponent(InfoReservasClienteNumLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(InfoReservasClienteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                                    .addComponent(InfoReservasClienteFCreacionLabel)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(InfoReservasClientesFcreacion, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(78, 78, 78))
+                    .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                        .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InfoReservasClientesFIniLabel)
+                            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                                .addComponent(ConsultaUsuarioVerInfoReservasLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(reservasDelClienteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(infoReservasClienteBotonAtras, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(infoDeReservaBoton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        InfoReservasDelClienteFrameLayout.setVerticalGroup(
+            InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoReservasDelClienteFrameLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConsultaUsuarioVerInfoReservasLabel)
+                    .addComponent(reservasDelClienteComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(infoDeReservaBoton)
+                .addGap(12, 12, 12)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoReservasClienteNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoReservasClienteNumLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoReservasClientesFcreacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoReservasClienteFCreacionLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoReservasClientesEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoReservasClientesEstadoLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InfoReservasDelClienteFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoReservasClientesPTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoReservasClientesPTotalLabel))
+                .addGap(53, 53, 53)
+                .addComponent(InfoReservasClientesFIniLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(infoReservasClienteBotonAtras)
+                .addContainerGap())
+        );
+
+        PanelCentral.add(InfoReservasDelClienteFrame, "card11");
 
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
@@ -4074,19 +4078,6 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.add(this.ConsultarInfoProveedor);
     }//GEN-LAST:event_infoServiciosProveedorBotonAtrasActionPerformed
 
-    private void ConsultaUsuarioServiciosDelUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuarioServiciosDelUsuarioButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ConsultaUsuarioServiciosDelUsuarioButtonActionPerformed
-
-    private void reservasDelClienteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasDelClienteBotonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_reservasDelClienteBotonActionPerformed
-
-    private void infoReservasClienteBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoReservasClienteBotonAtrasActionPerformed
-        PanelCentral.remove(this.InfoReservasDelClienteFrame);
-        PanelCentral.add(this.ConsultaUsuarioFrame);
-    }//GEN-LAST:event_infoReservasClienteBotonAtrasActionPerformed
-
     private void infoProveedorMenuBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoProveedorMenuBarActionPerformed
         PanelCentral.removeAll();
 	PanelCentral.add(this.ConsultarInfoProveedor);
@@ -4230,25 +4221,24 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void InfoReservasDelCLienteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasDelCLienteBotonActionPerformed
 
-        if (!this.nombreClientes.isSelectionEmpty()) {
+          if (!this.nombreClientes.isSelectionEmpty()) {
             
             DataCliente dtC = (DataCliente)this.nombreClientes.getSelectedValue();
             
+            ManejadorUsuario mU = ManejadorUsuario.getInstance();
+            Cliente c = mU.encontrarCliente(dtC.getNickname());
+            Set<DataReserva> conjDtReserva = c.infoReservas();
+            this.reservasDelClienteComboBox.removeAllItems();
+        
+            for (DataReserva dt : conjDtReserva) {
+               this.reservasDelClienteComboBox.addItem(dt);
+            }
+                
             PanelCentral.removeAll();
             PanelCentral.add(this.InfoReservasDelClienteFrame);
             PanelCentral.remove(this.ConsultaUsuarioFrame);  
             PanelCentral.repaint();
             PanelCentral.revalidate();
-           
-            DefaultListModel modelo = new DefaultListModel();
-            ManejadorUsuario mU = ManejadorUsuario.getInstance();
-            Cliente c = mU.encontrarCliente(dtC.getNickname());
-            Set<DataReserva> conjDtReserva = c.infoReservas();
-            for (DataReserva dt : conjDtReserva) {
-                modelo.addElement(dt);
-            }
-            //muestra los datos en pantalla
-            this.nombreReservasDelCliente.setModel(modelo);
         }
          else {
             JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente","Warning",JOptionPane.WARNING_MESSAGE);
@@ -4728,6 +4718,53 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RegistrarPromocionAceptarButtonActionPerformed
 
+    private void infoReservasClienteBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoReservasClienteBotonAtrasActionPerformed
+        PanelCentral.remove(this.InfoReservasDelClienteFrame);
+        PanelCentral.add(this.ConsultaUsuarioFrame);
+    }//GEN-LAST:event_infoReservasClienteBotonAtrasActionPerformed
+
+    private void InfoReservasClienteNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasClienteNumeroActionPerformed
+
+    }//GEN-LAST:event_InfoReservasClienteNumeroActionPerformed
+
+    private void InfoReservasClientesFcreacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasClientesFcreacionActionPerformed
+
+    }//GEN-LAST:event_InfoReservasClientesFcreacionActionPerformed
+
+    private void InfoReservasClientesEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasClientesEstadoActionPerformed
+
+    }//GEN-LAST:event_InfoReservasClientesEstadoActionPerformed
+
+    private void InfoReservasClientesPTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasClientesPTotalActionPerformed
+
+    }//GEN-LAST:event_InfoReservasClientesPTotalActionPerformed
+
+    private void reservasDelClienteComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reservasDelClienteComboBoxActionPerformed
+
+    }//GEN-LAST:event_reservasDelClienteComboBoxActionPerformed
+
+    private void infoDeReservaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoDeReservaBotonActionPerformed
+
+        DataReserva dtR = (DataReserva)this.reservasDelClienteComboBox.getSelectedItem();
+
+        this.InfoReservasClienteNumero.setText(Float.toString(dtR.getNum()));
+        this.InfoReservasClientesPTotal.setText(Float.toString(dtR.getPrecio_total()));
+        this.InfoReservasClientesEstado.setText(dtR.getEstado().toString());
+        this.InfoReservasClientesFcreacion.setText(dtR.getCreacion().toString());
+
+        ManejadorReserva mR = ManejadorReserva.getInstance();
+        Reserva r = mR.encontrarReserva(dtR.getNum());
+        Set<ReservaPublicacion> resPub = r.obtenerReservasPublicaciones();
+
+        DefaultTableModel tReservaPub = (DefaultTableModel)this.tablaReservaPublicacion.getModel();
+        while(tReservaPub.getRowCount() > 0) {
+            tReservaPub.removeRow(0);
+        }
+        for(ReservaPublicacion rP : resPub) {
+            tReservaPub.addRow(new Object[]{rP.getCant(),rP.getFechaIni(),rP.getFechaFin(),rP.getNombrePublicacion()});
+        }
+    }//GEN-LAST:event_infoDeReservaBotonActionPerformed
+
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
         
@@ -4892,7 +4929,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultaUsuNom;
     private javax.swing.JButton ConsultaUsuarioBuscarButton;
     private javax.swing.JInternalFrame ConsultaUsuarioFrame;
-    private javax.swing.JButton ConsultaUsuarioServiciosDelUsuarioButton;
     private javax.swing.JLabel ConsultaUsuarioVerInfoLabel;
     private javax.swing.JLabel ConsultaUsuarioVerInfoReservasLabel;
     private javax.swing.JInternalFrame ConsultarInfoProveedor;
@@ -4939,15 +4975,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel InfoReservasClienteFCreacionLabel;
     private javax.swing.JLabel InfoReservasClienteNumLabel;
     private javax.swing.JTextField InfoReservasClienteNumero;
-    private javax.swing.JTextField InfoReservasClientesCantidad;
-    private javax.swing.JLabel InfoReservasClientesCantidadLabel;
     private javax.swing.JTextField InfoReservasClientesEstado;
     private javax.swing.JLabel InfoReservasClientesEstadoLabel;
-    private javax.swing.JTextField InfoReservasClientesFIni;
     private javax.swing.JLabel InfoReservasClientesFIniLabel;
     private javax.swing.JTextField InfoReservasClientesFcreacion;
-    private javax.swing.JTextField InfoReservasClientesFfin;
-    private javax.swing.JLabel InfoReservasClientesFfinLabel;
     private javax.swing.JTextField InfoReservasClientesPTotal;
     private javax.swing.JLabel InfoReservasClientesPTotalLabel;
     private javax.swing.JButton InfoReservasDelCLienteBoton;
@@ -5152,6 +5183,7 @@ public class Interfaz extends javax.swing.JFrame {
     public static javax.swing.ButtonGroup buttonGroupImagen;
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
+    private javax.swing.JButton infoDeReservaBoton;
     private javax.swing.JMenuItem infoProveedorMenuBar;
     private javax.swing.JMenuItem infoReservaMenuItem;
     private javax.swing.JButton infoReservasClienteBotonAtras;
@@ -5179,9 +5211,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JList nombreClientes;
     private javax.swing.JList nombreProveedores;
-    private javax.swing.JList nombreReservasDelCliente;
     private javax.swing.JList nombreServiciosDelProveedor;
     private javax.swing.JButton proveedoresSistema;
-    private javax.swing.JButton reservasDelClienteBoton;
+    private javax.swing.JComboBox reservasDelClienteComboBox;
+    private javax.swing.JTable tablaReservaPublicacion;
     // End of variables declaration//GEN-END:variables
 }

@@ -65,5 +65,8 @@ public class DataReserva {
             est = "Facturada";
         return est;
     }
-    
+   public String toString (){
+        String mensaje= "Reserva numero "+this.num_+" ";
+        return mensaje;
+    } 
 }

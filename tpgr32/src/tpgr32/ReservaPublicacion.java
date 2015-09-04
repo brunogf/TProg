@@ -69,6 +69,9 @@ public class ReservaPublicacion {
         this.res_=null;        
     }
 
+     public int getCant () {
+        return this.cant_;
+    }
 }
 
 
