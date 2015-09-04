@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tpgr32;
+import java.awt.Image;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -57,15 +58,9 @@ public class ManejadorUsuario {
         }        
     }
     
-        public void agregarImagenes(Usuario u, String[] img,int cantImg) {
-       for(int i = 0; i < cantImg; i++) {
-           u.agregarImagen(img[i]);
-       } 
-    }
     
-    public String[] imagenesUsuario(String nombre) {
-        Usuario u = this.conjUsuarios.get(nombre);
-        return u.ImgUsuario();
+    public Image getImagenUsuario(String nombre) {
+        return this.encontrarUsuario(nombre).getImgUsuario();
     }
 
     

@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tpgr32;
+import java.awt.Image;
 import java.util.Date;
 /**
  *
@@ -18,7 +19,7 @@ public abstract class Usuario {
     protected String imagenes;
     protected Date fechaNacimiento;
     protected int cantImg;
-    protected String listaImagenes[]; 
+    protected Image imagen; 
     public Usuario()//Default Constructor
     {
 	
@@ -26,7 +27,6 @@ public abstract class Usuario {
       
     public Usuario(String nom, String apellido, String nickName, String cElec, Date f) {
         this.nombre = nom;
-        this.listaImagenes = new String[3];
         this.cantImg = 0;
         this.apellido = apellido;
         this.nickname = nickName;
@@ -64,13 +64,12 @@ public abstract class Usuario {
     
       public abstract DataUsuario infoUsuario();
       
-    public void agregarImagen(String img) {       
-        this.listaImagenes[this.cantImg] = img;        
-        this.cantImg++;
+    public void cambiarImagen(Image img) {       
+        imagen = img;
     }
     
-    public String[] ImgUsuario() {
-        return this.listaImagenes;
+    public Image getImgUsuario() {
+        return imagen;
     }
       
       

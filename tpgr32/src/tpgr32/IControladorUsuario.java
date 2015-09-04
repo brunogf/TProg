@@ -17,11 +17,13 @@ public interface IControladorUsuario {
     
     public void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac) throws Exception;
 
-    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String[] img,int cantImg) throws Exception;
+    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
+            Date fnac,Image img) throws Exception;
     
     public void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url) throws Exception;
          
-    public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url,String[] img,int cantImg) throws Exception;
+    public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
+            Date fnac,String nombreEmp,String url,Image img)throws Exception;
 
     public DataUsuario infoCliente(String nickname); 
 
@@ -31,6 +33,6 @@ public interface IControladorUsuario {
     
     public Set<DataPublicacion> listarPublicacionesProveedor(String nick);
     
-     String[] imagenesDelUsuario(String nombre);
+    public Image getImagenDelUsuario(String nombre);
    
 }
