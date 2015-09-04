@@ -180,4 +180,11 @@ public class ControladorPublicacion implements IControladorPublicacion{
            publicaciones.add(s);
        return publicaciones;
    }
+   
+   public Set<DataServicio> listarServicioDeCategoriaCompleto(String cat){
+       ManejadorCategoria mc = ManejadorCategoria.getInstance();
+       Categoria c = mc.encontrarCategoria(cat);
+       Set<DataServicio> servicios = c.listarServiciosCompleto();
+       return servicios;
+   }
 }
