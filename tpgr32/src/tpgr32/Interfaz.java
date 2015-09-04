@@ -4593,7 +4593,7 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
             
         DataProveedor dataProv = (DataProveedor) RegistrarPromocionProveedorList.getSelectedValue();
-        Set<DataPublicacion> publicaciones = ctrlUsuario.listarPublicacionesProveedor(dataProv.getNombre());        
+        Set<DataPublicacion> publicaciones = ctrlUsuario.listarPublicacionesProveedor(dataProv.getNickname());        
         while(modelo.getRowCount() > 0){
             modelo.removeRow(0);
         }
@@ -4626,8 +4626,8 @@ public class Interfaz extends javax.swing.JFrame {
             for(int i = 0; i < RegistrarPromocionTable.getRowCount(); i++)
             {
                 if (RegistrarPromocionTable.isRowSelected(i)){
-                    nombre = (String)RegistrarPromocionTable.getValueAt(i,1);
-                    DataServicio dataS = ctrlPublic.infoServicio(dataProv.getNombre(), nombre);
+                    nombre = (String)RegistrarPromocionTable.getValueAt(i,0);
+                    DataServicio dataS = ctrlPublic.infoServicio(dataProv.getNickname(), nombre);
                     sumaServicios = sumaServicios + dataS.getPrecio();
                 }
             }
