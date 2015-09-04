@@ -138,7 +138,7 @@ public class Servicio extends Publicacion {
     
     
     public DataPublicacion infoPublicacionCompleto(){
-        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNombre()+" "+this.getProveedor().getApellido()+"("+this.getProveedor().getNickname()+")");
+        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNombre()+" "+this.getProveedor().getApellido()+" (nickname: "+this.getProveedor().getNickname()+")");
         return servicio;
     }
     
