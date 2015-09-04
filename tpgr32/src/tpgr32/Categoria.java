@@ -87,5 +87,15 @@ public class Categoria {
         
     }
     
+    public Set<DataServicio> lsitarServiciosCompleto(){
+        Set<DataServicio> servicios = new HashSet<>();
+        for(Servicio s: conjServicios_.values()){
+            DataServicio servicio = (DataServicio)s.infoPublicacionCompleto();
+            servicios.add(servicio);
+        }
+        
+        return servicios;
+    }
+    
 }
 
