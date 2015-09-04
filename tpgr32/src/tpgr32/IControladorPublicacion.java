@@ -16,7 +16,7 @@ import javax.swing.tree.DefaultTreeModel;
 public interface IControladorPublicacion {
     
     void agregarCategoriaServicio(String cat);
-    void altaPromocion(String nombre, Set<DataServicio> servicios, float descuento);
+    void altaPromocion(String nombre, String proveedor, Set<DataServicio> servicios, float descuento);
     void altaServicio(String nombre, String descripcion, Set<Image> img, float precio,
         Set <String> categorias, String proveedor, DataUbicacion origen, DataUbicacion destino);
     void altaServicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String>categorias,
