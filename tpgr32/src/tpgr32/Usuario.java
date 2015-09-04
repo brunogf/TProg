@@ -19,7 +19,7 @@ public abstract class Usuario {
     protected String imagenes;
     protected Date fechaNacimiento;
     protected int cantImg;
-    protected Image imagen; 
+    protected String imagen; 
     public Usuario()//Default Constructor
     {
 	
@@ -64,11 +64,11 @@ public abstract class Usuario {
     
       public abstract DataUsuario infoUsuario();
       
-    public void cambiarImagen(Image img) {       
+    public void cambiarImagen(String img) {       
         imagen = img;
     }
     
-    public Image getImgUsuario() {
+    public String getImgUsuario() {
         return imagen;
     }
       

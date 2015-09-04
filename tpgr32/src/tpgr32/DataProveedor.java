@@ -25,7 +25,7 @@ public class DataProveedor extends DataUsuario{
 	url_ = url;
 	publicaciones_ = new HashSet<>();
     }
-    public DataProveedor(String nickname, String nombre, String apellido, String correo, Date fecha, String nombreEmp, String url, Image img)
+    public DataProveedor(String nickname, String nombre, String apellido, String correo, Date fecha, String nombreEmp, String url, String img)
     {
 	super(nickname, nombre, apellido, correo, fecha,img);
 	nombre_empresa_ = nombreEmp;

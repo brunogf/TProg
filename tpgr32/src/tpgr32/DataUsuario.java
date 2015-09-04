@@ -17,7 +17,7 @@ public abstract class DataUsuario {
     private String apellido_;
     private String correo_;
     private Date fecha_;
-    private Image img_;
+    private String img_;
     
     public DataUsuario(){}
     public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha)
@@ -28,7 +28,7 @@ public abstract class DataUsuario {
 	correo_ = correo;
 	fecha_ = fecha;
     }
-    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha, Image img)
+    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha, String img)
     {
 	this(nickname, nombre, apellido, correo, fecha);//llama constructor anterior
 	img_ = img;	
@@ -59,7 +59,7 @@ public abstract class DataUsuario {
 	return fecha_;
     }
     
-    public Image getImage()
+    public String getImage()
     {
 	return img_;
     }
@@ -89,7 +89,7 @@ public abstract class DataUsuario {
 	fecha_ = f;
     }
     
-    public void setImage(Image i)
+    public void setImage(String i)
     {
 	img_ = i;
     }

@@ -18,7 +18,7 @@ public class DataCliente extends DataUsuario {
 	super(nickname, nombre, apellido, correo, fecha);
 	reservas_ = new HashSet<>();
     }
-    public DataCliente(String nickname, String nombre, String apellido, String correo, Date fecha, Image img)
+    public DataCliente(String nickname, String nombre, String apellido, String correo, Date fecha, String img)
     {
 	super(nickname, nombre, apellido, correo, fecha,img);
     }

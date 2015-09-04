@@ -39,7 +39,7 @@ public class Interfaz extends javax.swing.JFrame {
     private Image img1;
     private Image img2;
     private Image img3;
-    private Image ImgUsuario; 
+    private String ImgUsuario; 
     
     public Interfaz() {
 	initComponents();
@@ -4795,7 +4795,7 @@ public class Interfaz extends javax.swing.JFrame {
                 ImageIcon icon = new ImageIcon(arch);
                 //Se extrae la imagen
                 Image img = icon.getImage();
-                ImgUsuario = img;
+                ImgUsuario = arch;
                 //Se modifica el tamaño de la imagen
                 Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
                 //Se genera el ImageIcon con la nueva imagen

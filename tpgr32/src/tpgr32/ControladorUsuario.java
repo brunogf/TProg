@@ -30,7 +30,7 @@ public class ControladorUsuario implements IControladorUsuario{
     }
       
     public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,Image img) throws Exception {    
+            Date fnac,String img) throws Exception {    
         try {
             Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
@@ -55,7 +55,7 @@ public class ControladorUsuario implements IControladorUsuario{
     }
     
     public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String nombreEmp,String url,Image img) throws Exception {
+            Date fnac,String nombreEmp,String url,String img) throws Exception {
         
         try {   
             Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fnac,nombreEmp,url/*Falta Imagen*/);
@@ -73,7 +73,7 @@ public class ControladorUsuario implements IControladorUsuario{
     }
 
     
-    public Image getImagenDelUsuario(String nombre) {
+    public String getImagenDelUsuario(String nombre) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
         return mUsuario.encontrarUsuario(nombre).getImgUsuario();
     }

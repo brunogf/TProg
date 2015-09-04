@@ -59,7 +59,7 @@ public class ManejadorUsuario {
     }
     
     
-    public Image getImagenUsuario(String nombre) {
+    public String getImagenUsuario(String nombre) {
         return this.encontrarUsuario(nombre).getImgUsuario();
     }
 
