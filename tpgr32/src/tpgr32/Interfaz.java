@@ -374,17 +374,13 @@ public class Interfaz extends javax.swing.JFrame {
         InfoReservaSREstadoLabel = new javax.swing.JLabel();
         InfoReservaSRCreacionLabel = new javax.swing.JLabel();
         InfoReservaInfoBasicaLabel = new javax.swing.JLabel();
-        InfoReservaInicioLabel = new javax.swing.JLabel();
-        InfoReservaFinLabel = new javax.swing.JLabel();
-        InfoReservaCantidadLabel = new javax.swing.JLabel();
-        InfoReservaSRInicioLabel = new javax.swing.JLabel();
-        InfoReservaSRFinLabel = new javax.swing.JLabel();
-        InfoReservaSRCantidadLabel = new javax.swing.JLabel();
         InfoReservaPublicacionesLabel = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
         InfoReservaPublicacionesTable = new javax.swing.JTable();
         InfoReservaPrecioLabel = new javax.swing.JLabel();
         InfoReservaSRPrecioLabel = new javax.swing.JLabel();
+        InfoReservaClienteLabel = new javax.swing.JLabel();
+        InfoReservaSRClienteLabel = new javax.swing.JLabel();
         InfoReservaAceptarButton = new javax.swing.JButton();
         InfoReservasDelClienteFrame = new javax.swing.JInternalFrame();
         ConsultaUsuarioVerInfoReservasLabel = new javax.swing.JLabel();
@@ -2839,14 +2835,14 @@ public class Interfaz extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nº", "Estado", "Fecha Creación", "Precio Total"
+                "Nº", "Cliente", "Estado", "Fecha Creación", "Precio Total"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2858,9 +2854,14 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         InfoReservaReservasTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        InfoReservaReservasTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                InfoReservaReservasTableMouseClicked(evt);
+            }
+        });
         jScrollPane16.setViewportView(InfoReservaReservasTable);
 
-        InfoReservaCentralPanel.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 380, 104));
+        InfoReservaCentralPanel.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 410, 104));
 
         InfoReservaTitleLabel.setText("Seleccione una reserva");
         InfoReservaCentralPanel.add(InfoReservaTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 11, -1, -1));
@@ -2879,18 +2880,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         InfoReservaInfoBasicaLabel.setText("Información básica:");
 
-        InfoReservaInicioLabel.setText("Fecha Inicio:");
-
-        InfoReservaFinLabel.setText("Fecha Fin:");
-
-        InfoReservaCantidadLabel.setText("Cantidad:");
-
-        InfoReservaSRInicioLabel.setText("10-10-1999");
-
-        InfoReservaSRFinLabel.setText("10-10-1999");
-
-        InfoReservaSRCantidadLabel.setText("10");
-
         InfoReservaPublicacionesLabel.setText("Publicaciones:");
 
         InfoReservaPublicacionesTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -2898,14 +2887,14 @@ public class Interfaz extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Tipo", "Nombre", "Precio", "Proveedor"
+                "Tipo", "Nombre", "Precio", "Proveedor", "Inicio", "Fin", "Cant."
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2916,6 +2905,7 @@ public class Interfaz extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        InfoReservaPublicacionesTable.setFocusable(false);
         InfoReservaPublicacionesTable.setRowSelectionAllowed(false);
         jScrollPane17.setViewportView(InfoReservaPublicacionesTable);
 
@@ -2923,52 +2913,50 @@ public class Interfaz extends javax.swing.JFrame {
 
         InfoReservaSRPrecioLabel.setText("$999,99");
 
+        InfoReservaClienteLabel.setText("Cliente:");
+
+        InfoReservaSRClienteLabel.setText("Nickname");
+
         javax.swing.GroupLayout InfoReservaInfoPanelLayout = new javax.swing.GroupLayout(InfoReservaInfoPanel);
         InfoReservaInfoPanel.setLayout(InfoReservaInfoPanelLayout);
         InfoReservaInfoPanelLayout.setHorizontalGroup(
             InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
                 .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InfoReservaNLabel)
-                            .addComponent(InfoReservaEstadoLabel)
-                            .addComponent(InfoReservaCreacionLabel))
-                        .addGap(26, 26, 26)
-                        .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InfoReservaSRNLabel)
-                            .addComponent(InfoReservaSREstadoLabel)
-                            .addComponent(InfoReservaSRCreacionLabel))
-                        .addGap(52, 52, 52)
-                        .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
-                                .addComponent(InfoReservaCantidadLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(InfoReservaSRCantidadLabel))
                             .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
                                 .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InfoReservaInicioLabel)
-                                    .addComponent(InfoReservaFinLabel))
-                                .addGap(18, 18, 18)
-                                .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(InfoReservaSRInicioLabel)
-                                    .addComponent(InfoReservaSRFinLabel)))))
+                                    .addComponent(InfoReservaNLabel)
+                                    .addComponent(InfoReservaEstadoLabel))
+                                .addGap(36, 36, 36)
+                                .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(InfoReservaSRNLabel)
+                                    .addComponent(InfoReservaSREstadoLabel))
+                                .addGap(72, 72, 72)
+                                .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                                        .addComponent(InfoReservaClienteLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(InfoReservaSRClienteLabel))
+                                    .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                                        .addComponent(InfoReservaCreacionLabel)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(InfoReservaSRCreacionLabel))))
+                            .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                                .addGap(137, 137, 137)
+                                .addComponent(InfoReservaInfoBasicaLabel))))
                     .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
-                        .addGap(154, 154, 154)
+                        .addGap(158, 158, 158)
                         .addComponent(InfoReservaPublicacionesLabel))
                     .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(InfoReservaInfoBasicaLabel))
-                    .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(InfoReservaPrecioLabel)
-                        .addGap(82, 82, 82)
+                        .addGap(18, 18, 18)
                         .addComponent(InfoReservaSRPrecioLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoReservaInfoPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(48, Short.MAX_VALUE))
+            .addComponent(jScrollPane17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         InfoReservaInfoPanelLayout.setVerticalGroup(
             InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2979,35 +2967,34 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoReservaNLabel)
                     .addComponent(InfoReservaSRNLabel)
-                    .addComponent(InfoReservaInicioLabel)
-                    .addComponent(InfoReservaSRInicioLabel))
+                    .addComponent(InfoReservaClienteLabel)
+                    .addComponent(InfoReservaSRClienteLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoReservaEstadoLabel)
                     .addComponent(InfoReservaSREstadoLabel)
-                    .addComponent(InfoReservaFinLabel)
-                    .addComponent(InfoReservaSRFinLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoReservaCreacionLabel)
-                    .addComponent(InfoReservaSRCreacionLabel)
-                    .addComponent(InfoReservaCantidadLabel)
-                    .addComponent(InfoReservaSRCantidadLabel))
-                .addGap(12, 12, 12)
+                    .addComponent(InfoReservaSRCreacionLabel))
+                .addGap(18, 18, 18)
                 .addComponent(InfoReservaPublicacionesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoReservaPrecioLabel)
                     .addComponent(InfoReservaSRPrecioLabel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
 
-        InfoReservaCentralPanel.add(InfoReservaInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 146, 400, -1));
+        InfoReservaCentralPanel.add(InfoReservaInfoPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 146, 410, 250));
 
         InfoReservaAceptarButton.setText("Aceptar");
-        InfoReservaCentralPanel.add(InfoReservaAceptarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 417, -1, -1));
+        InfoReservaAceptarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoReservaAceptarButtonActionPerformed(evt);
+            }
+        });
+        InfoReservaCentralPanel.add(InfoReservaAceptarButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 400, -1, -1));
 
         InformacionReservaFrame.getContentPane().add(InfoReservaCentralPanel, "card2");
 
@@ -4638,7 +4625,7 @@ public class Interfaz extends javax.swing.JFrame {
         List<DataReserva> reservas = cr.listarReservas();
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         for(DataReserva dr : reservas)
-            res.addRow(new Object[]{Integer.toString(dr.getNum()), dr.getStringEstado(),df.format(dr.getCreacion()), dr.getPrecio_total()});
+            res.addRow(new Object[]{dr.getNum(),cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(),df.format(dr.getCreacion()), dr.getPrecio_total()});
         
         InfoReservaInfoPanel.setVisible(false);        
         PanelCentral.removeAll();
@@ -4764,6 +4751,42 @@ public class Interfaz extends javax.swing.JFrame {
             tReservaPub.addRow(new Object[]{rP.getCant(),rP.getFechaIni(),rP.getFechaFin(),rP.getNombrePublicacion()});
         }
     }//GEN-LAST:event_infoDeReservaBotonActionPerformed
+
+    private void InfoReservaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservaAceptarButtonActionPerformed
+        PanelCentral.removeAll();
+        PanelCentral.revalidate();    
+        PanelCentral.repaint();
+    }//GEN-LAST:event_InfoReservaAceptarButtonActionPerformed
+
+    private void InfoReservaReservasTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InfoReservaReservasTableMouseClicked
+        if (InfoReservaReservasTable.getSelectedRow() != -1)
+        {
+            IControladorReserva cr = fabrica.getControladorReserva();
+            DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+            int f = InfoReservaReservasTable.getSelectedRow();
+            DataReserva dr = cr.infoReserva((Integer)InfoReservaReservasTable.getValueAt(f, 0));
+            InfoReservaSRNLabel.setText(Integer.toString(dr.getNum()));
+            InfoReservaSREstadoLabel.setText(dr.getStringEstado());
+            InfoReservaSRCreacionLabel.setText(df.format(dr.getCreacion()));
+            InfoReservaSRClienteLabel.setText(cr.getInfoClienteReserva(dr.getNum()).getNickname());
+            DefaultTableModel pModel = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
+            while(InfoReservaPublicacionesTable.getRowCount() > 0)
+                pModel.removeRow(0);//saca toas las filas de la segunda tabla
+            Set<ParDPD> publicaciones = dr.getdpd();
+            for(ParDPD p : publicaciones) 
+            {
+                DataPublicacion dp = p.getDpub_();
+                DataDisponibilidad dd = p.getDd_();
+                if (dp instanceof DataServicio)
+                    pModel.addRow(new Object[]{"Servicio", dp.getNombre(), ((DataServicio)dp).getPrecio(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
+                else
+                    pModel.addRow(new Object[]{"Promoción", dp.getNombre(), ((DataPromocion)dp).getPrecioTotal(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
+            }
+            InfoReservaInfoPanel.setVisible(true);
+        }
+        else
+            InfoReservaInfoPanel.setVisible(false);
+    }//GEN-LAST:event_InfoReservaReservasTableMouseClicked
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
@@ -4951,24 +4974,20 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton EliminarReservaButton;
     private javax.swing.JComboBox EstadosComboBox;
     private javax.swing.JButton InfoReservaAceptarButton;
-    private javax.swing.JLabel InfoReservaCantidadLabel;
     private javax.swing.JPanel InfoReservaCentralPanel;
+    private javax.swing.JLabel InfoReservaClienteLabel;
     private javax.swing.JLabel InfoReservaCreacionLabel;
     private javax.swing.JLabel InfoReservaEstadoLabel;
-    private javax.swing.JLabel InfoReservaFinLabel;
     private javax.swing.JLabel InfoReservaInfoBasicaLabel;
     private javax.swing.JPanel InfoReservaInfoPanel;
-    private javax.swing.JLabel InfoReservaInicioLabel;
     private javax.swing.JLabel InfoReservaNLabel;
     private javax.swing.JLabel InfoReservaPrecioLabel;
     private javax.swing.JLabel InfoReservaPublicacionesLabel;
     private javax.swing.JTable InfoReservaPublicacionesTable;
     private javax.swing.JTable InfoReservaReservasTable;
-    private javax.swing.JLabel InfoReservaSRCantidadLabel;
+    private javax.swing.JLabel InfoReservaSRClienteLabel;
     private javax.swing.JLabel InfoReservaSRCreacionLabel;
     private javax.swing.JLabel InfoReservaSREstadoLabel;
-    private javax.swing.JLabel InfoReservaSRFinLabel;
-    private javax.swing.JLabel InfoReservaSRInicioLabel;
     private javax.swing.JLabel InfoReservaSRNLabel;
     private javax.swing.JLabel InfoReservaSRPrecioLabel;
     private javax.swing.JLabel InfoReservaTitleLabel;
