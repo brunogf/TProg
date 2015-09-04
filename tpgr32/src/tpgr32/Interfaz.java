@@ -1182,6 +1182,8 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegistrarPromocionDescuentoLabel.setText("Descuento");
 
+        RegistrarPromocionDescuentoTextField.setText("0");
+
         RegistrarPromocionSeleccionarServiciosLabel.setText("Seleccionar Servicios");
 
         RegistrarPromocionTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -4659,12 +4661,13 @@ public class Interfaz extends javax.swing.JFrame {
         IControladorUsuario ctrlUsuario = fabrica.getControladorUsuario();
         IControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
         DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
-               
+            
         DataProveedor dataProv = (DataProveedor) RegistrarPromocionProveedorList.getSelectedValue();
         Set<DataPublicacion> publicaciones = ctrlUsuario.listarPublicacionesProveedor(dataProv.getNombre());        
         while(modelo.getRowCount() > 0){
             modelo.removeRow(0);
         }
+        
         Iterator it = publicaciones.iterator();
         while (it.hasNext()){
             DataPublicacion dataPub = (DataPublicacion) it.next();
@@ -4672,6 +4675,7 @@ public class Interfaz extends javax.swing.JFrame {
                 DataServicio dataSer = (DataServicio) dataPub;
                 if (dataSer.getProveedor().equals(dataProv.getNombre())){
                     modelo.addRow(new Object[]{dataSer.getNombre(), dataSer.getDescripcion(), dataSer.getPrecio()});
+                
                 }
             }                    
         }
@@ -4685,22 +4689,20 @@ public class Interfaz extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Debes seleccionar al menos un servicio", "Warning", JOptionPane.WARNING_MESSAGE);
         else
         {    
-            float precioFinal = 0;
+            float sumaServicios = 0;
             String nombre;
             String descripcion;
             DataProveedor dataProv = (DataProveedor) RegistrarPromocionProveedorList.getSelectedValue();
-            System.out.println("HOLA");
             for(int i = 0; i < RegistrarPromocionTable.getRowCount(); i++)
             {
-                System.out.println("HOLA1/2");
-                nombre = (String)RegistrarPromocionTable.getValueAt(i,1);
-                DataServicio dataS = ctrlPublic.infoServicio(dataProv.getNombre(), nombre);
-                System.out.println("HOLA1");
-                precioFinal = precioFinal + dataS.getPrecio();
-                System.out.println("HOLA2");
+                if (RegistrarPromocionTable.isRowSelected(i)){
+                    nombre = (String)RegistrarPromocionTable.getValueAt(i,1);
+                    DataServicio dataS = ctrlPublic.infoServicio(dataProv.getNombre(), nombre);
+                    sumaServicios = sumaServicios + dataS.getPrecio();
+                }
             }
-            System.out.println("HOLA3");
-            RegistrarPromocionPrecioFinalTextField.setText(Float.toString(precioFinal));    
+            float f = sumaServicios - Float.parseFloat(RegistrarPromocionDescuentoTextField.getText());
+            RegistrarPromocionPrecioFinalTextField.setText(Float.toString(f));    
         }
     }//GEN-LAST:event_RegistrarPromocionFinalizarSeleccionButtonActionPerformed
 
