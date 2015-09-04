@@ -53,7 +53,10 @@ public class ReservaPublicacion {
     
     public float getPrecioTotal()
     {
-	return 0; //DEBERIA RETORNA EL PRECIO CALCULADO DE LA PUBLICACION x CANTIDAD
+	if (pub_ instanceof Servicio)
+            return (((Servicio)pub_).getPrecio() * cant_);
+        else
+            return (((Promocion)pub_).getPrecioTotal() * cant_); 
     }
     
     public ParDPD infoReservaPublicacion(){
