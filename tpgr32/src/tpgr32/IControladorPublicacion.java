@@ -40,4 +40,5 @@ public interface IControladorPublicacion {
     void altaPais(String nombre);
     void altaCiudad(String pais, String nombre);
     Set<DataPublicacion> listarPublicaciones();
+    Set<DataServicio> listarServicioDeCategoriaCompleto(String cat);
 }
