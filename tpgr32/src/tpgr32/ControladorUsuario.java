@@ -18,7 +18,7 @@ public class ControladorUsuario implements IControladorUsuario{
         
     }
           
-    public void altaCliente(String nombre,String apellido,String nickName,String correoElec,
+    public void altaCliente(String nickName,String nombre,String apellido,String correoElec,
             Date f) throws Exception {
         try {     
             Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
