@@ -30,16 +30,14 @@ public class ControladorPublicacion implements IControladorPublicacion{
        
    }
    
-   public void altaPromocion(String nombre, Set<DataServicio> servicios, float descuento){
-        ManejadorUsuario mu = ManejadorUsuario.getInstance();
-       DataServicio ds  = servicios.iterator().next();
-       String nomProveedor = ds.getProveedor();
-       Proveedor p = mu.encontrarProveedor(nomProveedor);
+   public void altaPromocion(String nombre,String proveedor, Set<DataServicio> servicios, float descuento){
+       ManejadorUsuario mu = ManejadorUsuario.getInstance();
+       Proveedor p = mu.encontrarProveedor(proveedor);
        instPromocion = new Promocion(nombre, descuento, p);
        Iterator<DataServicio> it = servicios.iterator();
        while (it.hasNext()){
             DataServicio dataS = it.next();
-            Publicacion pub = mu.encontrarProveedor(dataS.getProveedor()).encontrarPublicacion(dataS.getNombre());
+            Publicacion pub = mu.encontrarProveedor(proveedor).encontrarPublicacion(dataS.getNombre());
             Servicio ser = (Servicio) pub;   
             instPromocion.agregarServicioaPromocion(ser);
        }
