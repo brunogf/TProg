@@ -255,6 +255,8 @@ public class Interfaz extends javax.swing.JFrame {
         RegReservaConfirmarCancelarButton = new javax.swing.JButton();
         RegReservaConfirmarNumLabel = new javax.swing.JLabel();
         RegReservaConfirmarNumInfoLabel = new javax.swing.JLabel();
+        RegReservaConfirmarTotalLabel = new javax.swing.JLabel();
+        RegReservaConfirmarPrecioLabel = new javax.swing.JLabel();
         InformacionServiciosDelProveedor = new javax.swing.JInternalFrame();
         ConsultaProvVerInfoServicioLabel = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -1623,7 +1625,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaSeleccClienteLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSigButton)
                     .addComponent(RegReservaCancelarButton))
@@ -1655,6 +1657,11 @@ public class Interfaz extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        RegReservaSPTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegReservaSPTableMouseClicked(evt);
             }
         });
         jScrollPane3.setViewportView(RegReservaSPTable);
@@ -1709,7 +1716,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaTitleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSPSigButton)
                     .addComponent(RegReservaSPAtrasButton)
@@ -1745,6 +1752,11 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         RegReservaSPubSeleccionarTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        RegReservaSPubSeleccionarTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegReservaSPubSeleccionarTableMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(RegReservaSPubSeleccionarTable);
 
         RegReservaSPubSeleccionadasTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -1771,6 +1783,11 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         RegReservaSPubSeleccionadasTable.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        RegReservaSPubSeleccionadasTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegReservaSPubSeleccionadasTableMouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(RegReservaSPubSeleccionadasTable);
 
         RegReservaSPubAgregarButton.setText("Agregar");
@@ -1963,6 +1980,13 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegReservaConfirmarNumInfoLabel.setText("Nº");
 
+        RegReservaConfirmarTotalLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RegReservaConfirmarTotalLabel.setText("Total:");
+
+        RegReservaConfirmarPrecioLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        RegReservaConfirmarPrecioLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        RegReservaConfirmarPrecioLabel.setText("$9999.0");
+
         javax.swing.GroupLayout RegReservaConfirmarPanelLayout = new javax.swing.GroupLayout(RegReservaConfirmarPanel);
         RegReservaConfirmarPanel.setLayout(RegReservaConfirmarPanelLayout);
         RegReservaConfirmarPanelLayout.setHorizontalGroup(
@@ -2003,6 +2027,12 @@ public class Interfaz extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(RegReservaConfirmarNumInfoLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaConfirmarPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RegReservaConfirmarTotalLabel)
+                .addGap(87, 87, 87)
+                .addComponent(RegReservaConfirmarPrecioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         RegReservaConfirmarPanelLayout.setVerticalGroup(
             RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2025,7 +2055,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaConfirmarPubLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
+                .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RegReservaConfirmarTotalLabel)
+                    .addComponent(RegReservaConfirmarPrecioLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarButton)
                     .addComponent(RegReservaConfirmarAtrasButton)
@@ -3333,7 +3367,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegUsuarioSeleccionarImagenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioSeleccionarImagenButtonActionPerformed
                 
         JFileChooser selector = new JFileChooser();
-        FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG yPNG","jpg","png");
+        FileNameExtensionFilter filtroImagen = new FileNameExtensionFilter("JPG y PNG","jpg","png");
         selector.setFileFilter(filtroImagen);
         int resultado = selector.showOpenDialog(null);
         
@@ -3691,20 +3725,8 @@ public class Interfaz extends javax.swing.JFrame {
 
 
     private void RegReservaClientesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaClientesTableMouseClicked
-
-        if (RegReservaClientesTable.getSelectedRow() == fila)
-            cantClick++;
-        else 
-        {
-            fila = RegReservaClientesTable.getSelectedRow();
-            cantClick = 1;
-        }
-        if (cantClick == 2)
-        {
-            fila = 0;
-            cantClick = 0;
+        if (evt.getClickCount() == 2)
             RegReservaSigButton.doClick();
-        }
     }//GEN-LAST:event_RegReservaClientesTableMouseClicked
 
     private void RegistrarServicioPrecioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioPrecioTextFieldActionPerformed
@@ -4507,6 +4529,8 @@ public class Interfaz extends javax.swing.JFrame {
         else
         {
             try{
+                float total = 0;
+                float precio;
                 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
                 String ini;
                 String f;
@@ -4519,6 +4543,8 @@ public class Interfaz extends javax.swing.JFrame {
                 {
                     nombre = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,1);
                     cant = (Integer)RegReservaSPubSeleccionadasTable.getValueAt(i,5);
+                    precio = (Float.parseFloat((String)RegReservaSPubSeleccionadasTable.getValueAt(i,2)));
+                    total = total + ( precio / cant );
                     ini = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,3);
                     f = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,4);
                     cr.seleccionarPublicacion(nombre,cant,df.parse(ini),df.parse(f));
@@ -4764,32 +4790,51 @@ public class Interfaz extends javax.swing.JFrame {
     private void InfoReservaReservasTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InfoReservaReservasTableMouseClicked
         if (InfoReservaReservasTable.getSelectedRow() != -1)
         {
-            IControladorReserva cr = fabrica.getControladorReserva();
-            DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-            int f = InfoReservaReservasTable.getSelectedRow();
-            DataReserva dr = cr.infoReserva((Integer)InfoReservaReservasTable.getValueAt(f, 0));
-            InfoReservaSRNLabel.setText(Integer.toString(dr.getNum()));
-            InfoReservaSREstadoLabel.setText(dr.getStringEstado());
-            InfoReservaSRCreacionLabel.setText(df.format(dr.getCreacion()));
-            InfoReservaSRClienteLabel.setText(cr.getInfoClienteReserva(dr.getNum()).getNickname());
-            DefaultTableModel pModel = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
-            while(InfoReservaPublicacionesTable.getRowCount() > 0)
-                pModel.removeRow(0);//saca toas las filas de la segunda tabla
-            Set<ParDPD> publicaciones = dr.getdpd();
-            for(ParDPD p : publicaciones) 
+            if (evt.getClickCount() == 2)
             {
-                DataPublicacion dp = p.getDpub_();
-                DataDisponibilidad dd = p.getDd_();
-                if (dp instanceof DataServicio)
-                    pModel.addRow(new Object[]{"Servicio", dp.getNombre(), ((DataServicio)dp).getPrecio(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
-                else
-                    pModel.addRow(new Object[]{"Promoción", dp.getNombre(), ((DataPromocion)dp).getPrecioTotal(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
+                IControladorReserva cr = fabrica.getControladorReserva();
+                DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+                int f = InfoReservaReservasTable.getSelectedRow();
+                DataReserva dr = cr.infoReserva((Integer)InfoReservaReservasTable.getValueAt(f, 0));
+                InfoReservaSRNLabel.setText(Integer.toString(dr.getNum()));
+                InfoReservaSREstadoLabel.setText(dr.getStringEstado());
+                InfoReservaSRCreacionLabel.setText(df.format(dr.getCreacion()));
+                InfoReservaSRClienteLabel.setText(cr.getInfoClienteReserva(dr.getNum()).getNickname());
+                InfoReservaSRPrecioLabel.setText(Float.toString(dr.getPrecio_total()));
+                DefaultTableModel pModel = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
+                while(InfoReservaPublicacionesTable.getRowCount() > 0)
+                    pModel.removeRow(0);//saca toas las filas de la segunda tabla
+                Set<ParDPD> publicaciones = dr.getdpd();
+                for(ParDPD p : publicaciones) 
+                {
+                    DataPublicacion dp = p.getDpub_();
+                    DataDisponibilidad dd = p.getDd_();
+                    if (dp instanceof DataServicio)
+                        pModel.addRow(new Object[]{"Servicio", dp.getNombre(), ((DataServicio)dp).getPrecio(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
+                    else
+                        pModel.addRow(new Object[]{"Promoción", dp.getNombre(), ((DataPromocion)dp).getPrecioTotal(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
+                }
+                InfoReservaInfoPanel.setVisible(true);
             }
-            InfoReservaInfoPanel.setVisible(true);
         }
         else
             InfoReservaInfoPanel.setVisible(false);
     }//GEN-LAST:event_InfoReservaReservasTableMouseClicked
+
+    private void RegReservaSPTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaSPTableMouseClicked
+        if (evt.getClickCount() == 2)
+            RegReservaSPSigButton.doClick();
+    }//GEN-LAST:event_RegReservaSPTableMouseClicked
+
+    private void RegReservaSPubSeleccionarTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaSPubSeleccionarTableMouseClicked
+        if (evt.getClickCount() == 2)
+            RegReservaSPubAgregarButton.doClick();
+    }//GEN-LAST:event_RegReservaSPubSeleccionarTableMouseClicked
+
+    private void RegReservaSPubSeleccionadasTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaSPubSeleccionadasTableMouseClicked
+        if (evt.getClickCount() == 2)
+            RegReservaSPubRemoveButton.doClick();
+    }//GEN-LAST:event_RegReservaSPubSeleccionadasTableMouseClicked
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
@@ -5076,10 +5121,12 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel RegReservaConfirmarNumLabel;
     private javax.swing.JLabel RegReservaConfirmarPInfoLabel;
     private javax.swing.JPanel RegReservaConfirmarPanel;
+    private javax.swing.JLabel RegReservaConfirmarPrecioLabel;
     private javax.swing.JLabel RegReservaConfirmarProveedorLabel;
     private javax.swing.JLabel RegReservaConfirmarPubLabel;
     private javax.swing.JTable RegReservaConfirmarPubTable;
     private javax.swing.JLabel RegReservaConfirmarTitleLabel;
+    private javax.swing.JLabel RegReservaConfirmarTotalLabel;
     private javax.swing.JButton RegReservaSPAtrasButton;
     private javax.swing.JButton RegReservaSPCancelButton;
     private javax.swing.JButton RegReservaSPSigButton;
