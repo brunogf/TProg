@@ -39,7 +39,8 @@ public class Interfaz extends javax.swing.JFrame {
     private Image img1;
     private Image img2;
     private Image img3;
-    private String ImgUsuario; 
+    private String ImgUsuario;
+    private IControladorReserva crAltaReserva;
     
     public Interfaz() {
 	initComponents();
@@ -51,6 +52,7 @@ public class Interfaz extends javax.swing.JFrame {
         fila = 0;
         cantClick = 0;
         ImgUsuario = null;
+        crAltaReserva = null;
 	
     }
 
@@ -2945,10 +2947,11 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoServicioInfoServicioCiudadDLabel)
                             .addComponent(InfoServicioDatoCiudadDLabel))))
                 .addGap(27, 27, 27)
-                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoServicioDatoImagen1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoServicioDatoImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InfoServicioDatoImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InfoServicioDatoImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(InfoServicioDatoImagen1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(InfoServicioDatoImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(InfoServicioInfoServicioCerrarButton)
                 .addContainerGap())
@@ -3908,11 +3911,11 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegReservaConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaConfirmarButtonActionPerformed
         try
         {
-            IControladorReserva cr = fabrica.getControladorReserva();
-            cr.confirmarReserva();
-            cr.borrarPublicacionesSeleccionadas();
+            crAltaReserva.confirmarReserva();
+            crAltaReserva.borrarPublicacionesSeleccionadas();
             JOptionPane.showMessageDialog(null, "La reserva se creo correctamente");
             MenuRegistrarReserva.doClick();
+            crAltaReserva = null;
         }catch(Exception e)
         {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -3942,13 +3945,13 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
 
     private void RegReservaSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSigButtonActionPerformed
-        IControladorReserva cReserva = fabrica.getControladorReserva();
+        crAltaReserva = fabrica.getControladorReserva();
         IControladorUsuario cUsr = fabrica.getControladorUsuario();
         if(RegReservaClientesTable.getSelectedRow() == -1)
             JOptionPane.showMessageDialog(null, "Debes seleccionar un cliente","Warning",JOptionPane.WARNING_MESSAGE);
         else
         {
-            cReserva.seleccionarCliente((String)RegReservaClientesTable.getValueAt(RegReservaClientesTable.getSelectedRow(),0));
+            crAltaReserva.seleccionarCliente((String)RegReservaClientesTable.getValueAt(RegReservaClientesTable.getSelectedRow(),0));
             //SIGUIENTE PANEL
             DefaultTableModel dtm = (DefaultTableModel) RegReservaSPTable.getModel();
             Set<DataUsuario> proveedores = cUsr.listarProveedores();
@@ -3974,17 +3977,16 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegReservaSPCancelButtonActionPerformed
 
     private void RegReservaSPSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPSigButtonActionPerformed
-        IControladorReserva cReserva = fabrica.getControladorReserva();
         IControladorPublicacion cPub = fabrica.getControladorPublicacion();
         IControladorUsuario cUsr = fabrica.getControladorUsuario();
         if(RegReservaSPTable.getSelectedRow() == -1)
             JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
         else
         {
-            cReserva.seleccionarProveedor((String)RegReservaSPTable.getValueAt(RegReservaSPTable.getSelectedRow(),0));
+            crAltaReserva.seleccionarProveedor((String)RegReservaSPTable.getValueAt(RegReservaSPTable.getSelectedRow(),0));
             //SIGUIENTE PANEL
             DefaultTableModel dtm = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
-            Set<DataPublicacion> publicaciones = cUsr.listarPublicacionesProveedor(cReserva.getNickProveedorSeleccionado());
+            Set<DataPublicacion> publicaciones = cUsr.listarPublicacionesProveedor(crAltaReserva.getNickProveedorSeleccionado());
             while(dtm.getRowCount() > 0)
             {
                 dtm.removeRow(0);
@@ -4828,7 +4830,6 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegReservaSPubCancelarButtonActionPerformed
 
     private void RegReservaSPubSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubSiguienteButtonActionPerformed
-        IControladorReserva cr = fabrica.getControladorReserva();
         //Seleccionar Reservas
         float total = 0;
         if (RegReservaSPubSeleccionadasTable.getRowCount() == 0)
@@ -4853,18 +4854,18 @@ public class Interfaz extends javax.swing.JFrame {
                     total = total + ( precio / cant );
                     ini = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,3);
                     f = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,4);
-                    cr.seleccionarPublicacion(nombre,cant,df.parse(ini),df.parse(f));
+                    crAltaReserva.seleccionarPublicacion(nombre,cant,df.parse(ini),df.parse(f));
                     dm.addRow(new Object[]{(String)RegReservaSPubSeleccionadasTable.getValueAt(i,0), nombre, (String)RegReservaSPubSeleccionadasTable.getValueAt(i,2), ini, f, cant} );
                 }
             }
             catch(Exception e)
             {
-                cr.borrarPublicacionesSeleccionadas();
+                crAltaReserva.borrarPublicacionesSeleccionadas();
                 JOptionPane.showMessageDialog(null, e.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
             //siguiente panel
-            DataProveedor proveedor = cr.getInfoProveedorSeleccionado();
-            DataCliente cliente = cr.getInfoClienteSeleccionado();
+            DataProveedor proveedor = crAltaReserva.getInfoProveedorSeleccionado();
+            DataCliente cliente = crAltaReserva.getInfoClienteSeleccionado();
             StringBuilder sb = new StringBuilder();
             sb.append(cliente.getNickname());
             sb.append(": ");
@@ -4878,7 +4879,7 @@ public class Interfaz extends javax.swing.JFrame {
             sb.append(proveedor.getApellido());
             sb.append(", ");
             sb.append(proveedor.getNombre());
-            int n = cr.getNumeroReservas();
+            int n = crAltaReserva.getNumeroReservas();
             RegReservaConfirmarNumInfoLabel.setText(Integer.toString(n));
             RegReservaConfirmarPInfoLabel.setText(sb.toString());
             sb = new StringBuilder();

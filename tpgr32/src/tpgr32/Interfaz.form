@@ -2115,7 +2115,7 @@
                           <Component id="RegReservaSeleccClienteLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="RegReservaClienteTableScrollPane" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace pref="150" max="32767" attributes="0"/>
+                          <EmptySpace pref="158" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSigButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2225,7 +2225,7 @@
                           <Component id="RegReservaTitleLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="129" max="-2" attributes="0"/>
-                          <EmptySpace pref="189" max="32767" attributes="0"/>
+                          <EmptySpace pref="197" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSPSigButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaSPAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2638,7 +2638,7 @@
                               <Component id="RegReservaConfirmarTotalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaConfirmarPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="67" max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaConfirmarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaConfirmarAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3991,10 +3991,12 @@
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="InfoServicioDatoImagen1Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
-                              <Component id="InfoServicioDatoImagen2Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="InfoServicioDatoImagen3Label" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="InfoServicioDatoImagen1Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="InfoServicioDatoImagen2Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="InfoServicioInfoServicioCerrarButton" min="-2" max="-2" attributes="0"/>
