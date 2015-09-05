@@ -360,6 +360,17 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioInfoServicioCerrarButton = new javax.swing.JButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         InfoServicioDatoDescrTextArea = new javax.swing.JTextArea();
+        InfoServicioInfoServicioPaisOLabel = new javax.swing.JLabel();
+        InfoServicioDatoPaisOLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioCiudadOLabel = new javax.swing.JLabel();
+        InfoServicioDatoCiudadOLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioPaisDLabel = new javax.swing.JLabel();
+        InfoServicioDatoPaisDLabel = new javax.swing.JLabel();
+        InfoServicioInfoServicioCiudadDLabel = new javax.swing.JLabel();
+        InfoServicioDatoCiudadDLabel = new javax.swing.JLabel();
+        InfoServicioDatoImagen1Label = new javax.swing.JLabel();
+        InfoServicioDatoImagen2Label = new javax.swing.JLabel();
+        InfoServicioDatoImagen3Label = new javax.swing.JLabel();
         InformacionReservaFrame = new javax.swing.JInternalFrame();
         InfoReservaCentralPanel = new javax.swing.JPanel();
         jScrollPane16 = new javax.swing.JScrollPane();
@@ -2813,58 +2824,134 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioDatoDescrTextArea.setRows(5);
         jScrollPane15.setViewportView(InfoServicioDatoDescrTextArea);
 
+        InfoServicioInfoServicioPaisOLabel.setText("Pais origen: ");
+
+        InfoServicioDatoPaisOLabel.setText("jLabel4");
+
+        InfoServicioInfoServicioCiudadOLabel.setText("Ciudad origen:");
+
+        InfoServicioDatoCiudadOLabel.setText("jLabel6");
+
+        InfoServicioInfoServicioPaisDLabel.setText("Pais destino:");
+
+        InfoServicioDatoPaisDLabel.setText("jLabel8");
+
+        InfoServicioInfoServicioCiudadDLabel.setText("Ciudad destino:");
+
+        InfoServicioDatoCiudadDLabel.setText("jLabel10");
+
+        InfoServicioDatoImagen1Label.setText("          Imagen");
+        InfoServicioDatoImagen1Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        InfoServicioDatoImagen2Label.setText("         Imagen");
+        InfoServicioDatoImagen2Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        InfoServicioDatoImagen3Label.setText("          Imagen");
+        InfoServicioDatoImagen3Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout InfoServicioInfoServicioPanelLayout = new javax.swing.GroupLayout(InfoServicioInfoServicioPanel);
         InfoServicioInfoServicioPanel.setLayout(InfoServicioInfoServicioPanelLayout);
         InfoServicioInfoServicioPanelLayout.setHorizontalGroup(
             InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoServicioInfoServicioPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(InfoServicioInfoServicioCerrarButton)
-                .addGap(81, 81, 81))
             .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
-                        .addGap(87, 87, 87)
+                        .addContainerGap()
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InfoServicioInfoServicoDescrLabel)
+                            .addComponent(InfoServicioInfoServicioNombreLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InfoServicioDatoNombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
                         .addComponent(InfoServicioInfoServicioTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
+                        .addContainerGap()
+                        .addComponent(InfoServicioInfoServicioPrecioLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(InfoServicioDatoPrecioLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(InfoServicioInfoServicioProvLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(InfoServicioDatoProvLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InfoServicioInfoServicioNombreLabel)
-                            .addComponent(InfoServicioInfoServicoDescrLabel)
-                            .addComponent(InfoServicioInfoServicioPrecioLabel)
-                            .addComponent(InfoServicioInfoServicioProvLabel))
-                        .addGap(41, 41, 41)
+                            .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addComponent(InfoServicioInfoServicioPaisDLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(InfoServicioDatoPaisDLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addComponent(InfoServicioInfoServicioPaisOLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(InfoServicioDatoPaisOLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(26, 26, 26)
                         .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane15, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                            .addComponent(InfoServicioDatoNombreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InfoServicioDatoPrecioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InfoServicioDatoProvLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(102, Short.MAX_VALUE))
+                            .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addComponent(InfoServicioInfoServicioCiudadOLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(InfoServicioDatoCiudadOLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addComponent(InfoServicioInfoServicioCiudadDLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(InfoServicioDatoCiudadDLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InfoServicioInfoServicioCerrarButton)
+                            .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addComponent(InfoServicioDatoImagen1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(InfoServicioDatoImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(InfoServicioDatoImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         InfoServicioInfoServicioPanelLayout.setVerticalGroup(
             InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addContainerGap()
                 .addComponent(InfoServicioInfoServicioTitleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioInfoServicioNombreLabel)
                     .addComponent(InfoServicioDatoNombreLabel))
                 .addGap(18, 18, 18)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InfoServicioInfoServicoDescrLabel)
-                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                        .addComponent(InfoServicioInfoServicoDescrLabel)
+                        .addGap(92, 92, 92)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioPrecioLabel)
+                            .addComponent(InfoServicioDatoPrecioLabel))
+                        .addGap(18, 18, 18)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioProvLabel)
+                            .addComponent(InfoServicioDatoProvLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioPaisOLabel)
+                            .addComponent(InfoServicioDatoPaisOLabel)
+                            .addComponent(InfoServicioInfoServicioCiudadOLabel)
+                            .addComponent(InfoServicioDatoCiudadOLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioPaisDLabel)
+                            .addComponent(InfoServicioDatoPaisDLabel)
+                            .addComponent(InfoServicioInfoServicioCiudadDLabel)
+                            .addComponent(InfoServicioDatoCiudadDLabel))))
+                .addGap(27, 27, 27)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoServicioInfoServicioPrecioLabel)
-                    .addComponent(InfoServicioDatoPrecioLabel))
-                .addGap(26, 26, 26)
-                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoServicioInfoServicioProvLabel)
-                    .addComponent(InfoServicioDatoProvLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                    .addComponent(InfoServicioDatoImagen1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoServicioDatoImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoServicioDatoImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(InfoServicioInfoServicioCerrarButton)
-                .addGap(47, 47, 47))
+                .addContainerGap())
         );
 
         InformacionServicioFrame.getContentPane().add(InfoServicioInfoServicioPanel, "card4");
@@ -3274,9 +3361,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(InfoPromocionVerPromocionButton)
                 .addGap(28, 28, 28)
-                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoPromocionNombreLabel)
-                    .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoPromocionNombreLabel))
                 .addGap(18, 18, 18)
                 .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(InfoPromocionProveedorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -4130,9 +4217,6 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegServicioSeleccImagen1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen1ButtonActionPerformed
         // TODO add your handling code here:
         
-        //Se hace filtro para ver solo imagenes
-        FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
-        RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
         RegServicioSelectorImagenFileChooser.setVisible(true);
         
         //Opcion de boton Abrir
@@ -4161,9 +4245,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioSeleccImagen2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen2ButtonActionPerformed
         // TODO add your handling code here:
-        //Se hace filtro para ver solo imagenes
-        FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
-        RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
         RegServicioSelectorImagenFileChooser.setVisible(true);
         
         //Opcion de boton Abrir
@@ -4192,9 +4273,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioSeleccImagen3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen3ButtonActionPerformed
         // TODO add your handling code here:
-        //Se hace filtro para ver solo imagenes
-        FileNameExtensionFilter filter_ = new FileNameExtensionFilter("Archivo de imagen","jpg");
-        RegServicioSelectorImagenFileChooser.setFileFilter(filter_);
         RegServicioSelectorImagenFileChooser.setVisible(true);
         
         //Opcion de boton Abrir
@@ -4693,14 +4771,47 @@ public class Interfaz extends javax.swing.JFrame {
         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
         Set<DataServicio> serv = pub.listarServicioDeCategoriaCompleto(cat.toString());
         DataServicio s;
+        ImageIcon nuevoIcono;
+        Image imgmod;
+        Iterator it;
         for (DataServicio dt: serv){
             if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())){
-                s = new DataServicio(dt.getNombre(),dt.getDescripcion(),dt.getPrecio(),dt.getProveedor());
+                s = new DataServicio(dt.getNombre(),dt.getDescripcion(),dt.getPrecio(),dt.getProveedor(),
+                                     dt.getPaisOrigen(),dt.getCiudadOrigen(),dt.getPaisDestino(),
+                                      dt.getCiudadDestino(),dt.getImagenes());
                 InfoServicioDatoNombreLabel.setText(s.getNombre());
                 InfoServicioDatoDescrTextArea.setEditable(false);
                 InfoServicioDatoDescrTextArea.setText(s.getDescripcion());
                 InfoServicioDatoPrecioLabel.setText(Float.toString(s.getPrecio()));
                 InfoServicioDatoProvLabel.setText(s.getProveedor());
+                InfoServicioDatoPaisOLabel.setText(s.getPaisOrigen());
+                InfoServicioDatoCiudadOLabel.setText(s.getCiudadOrigen());
+                InfoServicioDatoPaisDLabel.setText(s.getPaisDestino());
+                InfoServicioDatoCiudadDLabel.setText(s.getCiudadDestino());
+                
+                //Se modifica el tamaño de la imagen
+                it = s.getImagenes().iterator();
+                if (it.hasNext()){
+                  imgmod = ((Image)it.next()).getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                nuevoIcono = new ImageIcon(imgmod);
+                InfoServicioDatoImagen1Label.setIcon(nuevoIcono);
+                InfoServicioDatoImagen1Label.setSize(100,100);
+                }
+                if (it.hasNext()){
+                  imgmod = ((Image)it.next()).getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                nuevoIcono = new ImageIcon(imgmod);
+                InfoServicioDatoImagen2Label.setIcon(nuevoIcono);
+                InfoServicioDatoImagen2Label.setSize(100,100);
+                }
+                if (it.hasNext()){
+                  imgmod = ((Image)it.next()).getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                nuevoIcono = new ImageIcon(imgmod);
+                InfoServicioDatoImagen3Label.setIcon(nuevoIcono);
+                InfoServicioDatoImagen3Label.setSize(100,100);
+                }
             }
         }
         
@@ -4794,6 +4905,13 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioDatoDescrTextArea.setText(null);
         InfoServicioDatoPrecioLabel.setText(null);
         InfoServicioDatoProvLabel.setText(null);
+        InfoServicioDatoPaisOLabel.setText(null);
+        InfoServicioDatoCiudadOLabel.setText(null);
+        InfoServicioDatoPaisDLabel.setText(null);
+        InfoServicioDatoCiudadDLabel.setText(null);
+        InfoServicioDatoImagen1Label.setIcon(null);
+        InfoServicioDatoImagen2Label.setIcon(null);
+        InfoServicioDatoImagen3Label.setIcon(null);
         InfoServicioCategoriaPanel.setVisible(false);
         InfoServicioInfoServicioPanel.setVisible(false);
         PanelCentral.remove(InformacionServicioFrame);
@@ -5360,12 +5478,23 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel InfoServicioCategoriaPanel;
     private javax.swing.JButton InfoServicioCategoriaSiguienteButton;
     private javax.swing.JTree InfoServicioCategoriasTree;
+    private javax.swing.JLabel InfoServicioDatoCiudadDLabel;
+    private javax.swing.JLabel InfoServicioDatoCiudadOLabel;
     private javax.swing.JTextArea InfoServicioDatoDescrTextArea;
+    private javax.swing.JLabel InfoServicioDatoImagen1Label;
+    private javax.swing.JLabel InfoServicioDatoImagen2Label;
+    private javax.swing.JLabel InfoServicioDatoImagen3Label;
     private javax.swing.JLabel InfoServicioDatoNombreLabel;
+    private javax.swing.JLabel InfoServicioDatoPaisDLabel;
+    private javax.swing.JLabel InfoServicioDatoPaisOLabel;
     private javax.swing.JLabel InfoServicioDatoPrecioLabel;
     private javax.swing.JLabel InfoServicioDatoProvLabel;
     private javax.swing.JButton InfoServicioInfoServicioCerrarButton;
+    private javax.swing.JLabel InfoServicioInfoServicioCiudadDLabel;
+    private javax.swing.JLabel InfoServicioInfoServicioCiudadOLabel;
     private javax.swing.JLabel InfoServicioInfoServicioNombreLabel;
+    private javax.swing.JLabel InfoServicioInfoServicioPaisDLabel;
+    private javax.swing.JLabel InfoServicioInfoServicioPaisOLabel;
     private javax.swing.JPanel InfoServicioInfoServicioPanel;
     private javax.swing.JLabel InfoServicioInfoServicioPrecioLabel;
     private javax.swing.JLabel InfoServicioInfoServicioProvLabel;

@@ -3873,66 +3873,132 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="InfoServicioInfoServicioCerrarButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                      </Group>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="InfoServicioInfoServicoDescrLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicioNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jScrollPane15" min="-2" pref="217" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoNombreLabel" min="-2" pref="217" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                                   <Component id="InfoServicioInfoServicioTitleLabel" min="-2" pref="144" max="-2" attributes="0"/>
                               </Group>
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="InfoServicioInfoServicioPrecioLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="InfoServicioDatoPrecioLabel" min="-2" pref="217" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="InfoServicioInfoServicioProvLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="InfoServicioDatoProvLabel" min="-2" pref="217" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="InfoServicioInfoServicioNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="InfoServicioInfoServicoDescrLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="InfoServicioInfoServicioPrecioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="InfoServicioInfoServicioProvLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="InfoServicioInfoServicioPaisDLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="InfoServicioDatoPaisDLabel" min="-2" pref="93" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="InfoServicioInfoServicioPaisOLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="InfoServicioDatoPaisOLabel" min="-2" pref="95" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane15" pref="217" max="32767" attributes="0"/>
-                                      <Component id="InfoServicioDatoNombreLabel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="InfoServicioDatoPrecioLabel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="InfoServicioDatoProvLabel" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="InfoServicioInfoServicioCiudadOLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="InfoServicioDatoCiudadOLabel" min="-2" pref="106" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="InfoServicioInfoServicioCiudadDLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="InfoServicioDatoCiudadDLabel" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="InfoServicioInfoServicioCerrarButton" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="InfoServicioDatoImagen1Label" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="InfoServicioDatoImagen2Label" min="-2" pref="100" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="InfoServicioDatoImagen3Label" min="-2" pref="100" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace pref="102" max="32767" attributes="0"/>
+                          <EmptySpace pref="20" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="InfoServicioInfoServicioTitleLabel" min="-2" pref="23" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="InfoServicioInfoServicioNombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="InfoServicioDatoNombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="InfoServicioInfoServicoDescrLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane15" min="-2" max="-2" attributes="0"/>
+                              <Component id="jScrollPane15" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="InfoServicioInfoServicoDescrLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="InfoServicioInfoServicioPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="InfoServicioInfoServicioProvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoProvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="InfoServicioInfoServicioPaisOLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoPaisOLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicioCiudadOLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoCiudadOLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="InfoServicioInfoServicioPaisDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoPaisDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioInfoServicioCiudadDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoServicioDatoCiudadDLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="InfoServicioInfoServicioPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="InfoServicioDatoPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="InfoServicioDatoImagen1Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="InfoServicioDatoImagen2Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
+                              <Component id="InfoServicioDatoImagen3Label" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="InfoServicioInfoServicioProvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="InfoServicioDatoProvLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="113" max="32767" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="InfoServicioInfoServicioCerrarButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -4001,6 +4067,76 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioPaisOLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pais origen: "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoPaisOLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel4"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioCiudadOLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ciudad origen:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoCiudadOLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel6"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioPaisDLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Pais destino:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoPaisDLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel8"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioInfoServicioCiudadDLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ciudad destino:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoCiudadDLabel">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jLabel10"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoImagen1Label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="          Imagen"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoImagen2Label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="         Imagen"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="InfoServicioDatoImagen3Label">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="          Imagen"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
+                        <LineBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -4559,9 +4695,9 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="InfoPromocionVerPromocionButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="InfoPromocionNombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="InfoPromocionNombrePLabel" alignment="0" min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="InfoPromocionNombreLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
