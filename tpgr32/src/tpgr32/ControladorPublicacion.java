@@ -95,7 +95,22 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public Set<DataPromocion> listarPromociones(){
-       return new HashSet<>(); 
+       Set<DataPromocion> setPromo = new HashSet<>();
+       ManejadorUsuario mu = ManejadorUsuario.getInstance();
+       Set<DataUsuario> setProv = mu.listarProveedores();
+       Iterator itProv = setProv.iterator();
+       while (itProv.hasNext()){
+           DataProveedor dataProv = (DataProveedor) itProv.next();
+           Set<DataPublicacion> setPub = dataProv.getPublicaciones();
+           Iterator itPub = setPub.iterator();
+           while (itPub.hasNext()){
+               DataPublicacion dataPub = (DataPublicacion) itPub.next();
+               if (dataPub instanceof DataPromocion){
+                   setPromo.add((DataPromocion) dataPub);
+               }
+           }
+       }
+       return setPromo;
    }
    
    public Set<DataServicio> listarServicios(){

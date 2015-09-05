@@ -5228,6 +5228,14 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_InfoPromocionCancelarButtonActionPerformed
 
     private void infoPromocionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoPromocionMenuItemActionPerformed
+        PanelCentral.removeAll();
+        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+        DefaultListModel modelo = new DefaultListModel();
+        Set<DataPromocion> datosPromociones = ctrlPublic.listarPromociones();
+        for (DataPromocion dataP : datosPromociones) {
+            modelo.addElement(dataP.getNombre());
+        }
+        InfoPromocionPromocionesList.setModel(modelo);
         InfoPromocionPromocionesPanel.setVisible(true);
         
     }//GEN-LAST:event_infoPromocionMenuItemActionPerformed
