@@ -36,7 +36,7 @@ public class CargarDatos {
             cu.altaProveedorConImg("moody", "Alastor", "Moody", "eu.car@eucar.com", df.parse("02-09-1965"), "EuropCar", "http://www.europcar.com.uy/", ((new File("Imagenes/moody.jpeg")).getAbsolutePath()));
             cu.altaProveedorConImg("remus", "Remus", "Lupin", "iberia@gmail.com", df.parse("04-05-1970"),"Iberia", "http://www.iberia.com/uy/", ((new File("Imagenes/remus.jpg")).getAbsolutePath()));
             
-            
+            cargado = true;
         }
         else
             throw new IllegalArgumentException("Ya se ha realizado la carga una vez");
