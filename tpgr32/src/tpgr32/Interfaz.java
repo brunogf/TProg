@@ -418,6 +418,7 @@ public class Interfaz extends javax.swing.JFrame {
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
+        CargarGenericosMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
@@ -1228,7 +1229,6 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(RegistrarPromocionFinalizarSeleccionButton))
                             .addGroup(RegistrarPromocionPanelLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(RegistrarPromocionAceptarButton)
                                 .addGap(29, 29, 29)
                                 .addComponent(RegistrarPromocionCancelarButton)))
@@ -3296,6 +3296,14 @@ public class Interfaz extends javax.swing.JFrame {
         });
         MenuCargarDatos.add(MenuAltaCiudad);
 
+        CargarGenericosMenuItem.setText("Cargar Genericos");
+        CargarGenericosMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CargarGenericosMenuItemActionPerformed(evt);
+            }
+        });
+        MenuCargarDatos.add(CargarGenericosMenuItem);
+
         BarraMenu.add(MenuCargarDatos);
 
         setJMenuBar(BarraMenu);
@@ -3391,7 +3399,7 @@ public class Interfaz extends javax.swing.JFrame {
             IControladorUsuario cu = fabrica.getControladorUsuario();
             if (RegUsuarioClienteRadioButton.isSelected())
             {
-                if (ImgUsuario == null)
+                if (ImgUsuario == null)//sin imagen
                     cu.altaCliente(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate());
                 else
                 {
@@ -4782,6 +4790,7 @@ public class Interfaz extends javax.swing.JFrame {
         {
             //filtro
             FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen","jpg");
+            //ImageFileChooser.setCurrentDirectory(new File("Imagenes"));//Deberia abrir la carpeta del proyecto/Imagenes
             ImageFileChooser.setFileFilter(filter);
             ImageFileChooser.setVisible(true);
             
@@ -4817,6 +4826,18 @@ public class Interfaz extends javax.swing.JFrame {
             RegistrarPromocionNombreTextField.setText("");
             RegistrarPromocionPrecioFinalCalculadoLabel.setText(""); 
     }//GEN-LAST:event_RegistrarPromocionCancelarButtonActionPerformed
+
+    private void CargarGenericosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarGenericosMenuItemActionPerformed
+        try
+        {
+            CargarDatos c = new CargarDatos();
+            c.cargar();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_CargarGenericosMenuItemActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
@@ -4958,6 +4979,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JInternalFrame CancelarReservaFrame;
     private javax.swing.JLabel CancelarReservaLabel;
     private javax.swing.JMenuItem CancelarReservaMenu;
+    private javax.swing.JMenuItem CargarGenericosMenuItem;
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.ButtonGroup ConDestinoSinDestino;
     private javax.swing.ButtonGroup ConPadreOSinPadre;
