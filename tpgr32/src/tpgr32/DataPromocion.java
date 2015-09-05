@@ -16,11 +16,11 @@ public class DataPromocion extends DataPublicacion{
     private Set<DataServicio> servicios_;
 
     public DataPromocion(){}
-    public DataPromocion(String nombre, float descuento, String proveedor)
+    public DataPromocion(String nombre, float descuento, String proveedor, float precioT)
     {
 	super(nombre, proveedor);
 	descuento_ = descuento;
-	precioTotal_ = 0;
+	precioTotal_ = precioT;
 	servicios_ = new HashSet<>();
     }
     

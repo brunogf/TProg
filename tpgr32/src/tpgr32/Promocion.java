@@ -17,6 +17,7 @@ public class Promocion extends Publicacion {
     
     private float descuento_;
     private float precioTotal_;
+    private float precioTotalCDescuento_;
     private Set<Servicio> conjServicios_;
     public Promocion(){
         
@@ -35,7 +36,9 @@ public class Promocion extends Publicacion {
         
     public void agregarServicioaPromocion(Servicio serv){
         conjServicios_.add(serv);
-        precioTotal_ = precioTotal_ + serv.getPrecio();      
+        precioTotal_ = precioTotal_ + serv.getPrecio();
+        float des = 1 - (descuento_ * 0.01f);
+        precioTotalCDescuento_ = precioTotal_ * des;
     }
     
     public float getDescuento(){
@@ -43,7 +46,7 @@ public class Promocion extends Publicacion {
     }
     
     public float getPrecioTotal(){
-        return precioTotal_;
+        return precioTotalCDescuento_;
     }
     
     public Set<Servicio> getConjServicios(){
@@ -51,7 +54,7 @@ public class Promocion extends Publicacion {
     }
     
     public DataPromocion infoPublicacion(){
-        DataPromocion dp=new DataPromocion(super.getNombre(), descuento_, super.getProveedor().getNombre());
+        DataPromocion dp=new DataPromocion(super.getNombre(), descuento_, super.getProveedor().getNombre(), precioTotalCDescuento_);
         for (Servicio s:conjServicios_){
             DataPublicacion ds=s.infoPublicacion();
             dp.agregarServicio(ds);
