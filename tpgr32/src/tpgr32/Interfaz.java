@@ -397,6 +397,42 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane10 = new javax.swing.JScrollPane();
         tablaReservaPublicacion = new javax.swing.JTable();
         infoDeReservaBoton = new javax.swing.JButton();
+        InfoPromocionFrame = new javax.swing.JInternalFrame();
+        InfoPromocionPromocionesPanel = new javax.swing.JPanel();
+        InfoPromocionLabel = new javax.swing.JLabel();
+        InfoPromocionPromocionesLabel = new javax.swing.JLabel();
+        InfoPromocionPromocionesScrollPane = new javax.swing.JScrollPane();
+        InfoPromocionPromocionesList = new javax.swing.JList();
+        InfoPromocionVerPromocionButton = new javax.swing.JButton();
+        InfoPromocionNombreLabel = new javax.swing.JLabel();
+        InfoPromocionNombrePLabel = new javax.swing.JLabel();
+        InfoPromocionProveedorLabel = new javax.swing.JLabel();
+        InfoPromocionProveedorPLabel = new javax.swing.JLabel();
+        InfoPromocionDescuentoLabel = new javax.swing.JLabel();
+        InfoPromocionDescuentoPLabel = new javax.swing.JLabel();
+        InfoPromocionPrecioFinalLabel = new javax.swing.JLabel();
+        InfoPromocionPrecioFinalPLabel = new javax.swing.JLabel();
+        InfoPromocionCancelarButton = new javax.swing.JButton();
+        InfoPromocionVerServiciosButton = new javax.swing.JButton();
+        InfoPromocionVerServiciosPanel = new javax.swing.JPanel();
+        InfoPromocionServiciosLabel = new javax.swing.JLabel();
+        InfoPromocionServiciosScrollPane = new javax.swing.JScrollPane();
+        InfoPromocionServiciosList = new javax.swing.JList();
+        InfoPromocionVerServicioButton = new javax.swing.JButton();
+        InfoPromocionFinalizarButton = new javax.swing.JButton();
+        InfoPromocionAtrasButton = new javax.swing.JButton();
+        InfoPromocionServicioPanel = new javax.swing.JPanel();
+        InfoPromocionServicioLabel = new javax.swing.JLabel();
+        InfoPromocionNombreServicioLabel = new javax.swing.JLabel();
+        InfoPromocionNombreServicioSLabel = new javax.swing.JLabel();
+        InfoPromocionDescripcionServicioSLabel = new javax.swing.JLabel();
+        InfoPromocionServicioScrollPane = new javax.swing.JScrollPane();
+        InfoPromocionTextArea = new javax.swing.JTextArea();
+        InfoPromocionPrecioServicioLabel = new javax.swing.JLabel();
+        InfoPromocionPrecioServicioSLabel = new javax.swing.JLabel();
+        InfoPromocionProveedorServicioLabel = new javax.swing.JLabel();
+        InfoPromocionProveedorServicioSLabel = new javax.swing.JLabel();
+        InfoPromocionCerrarButton = new javax.swing.JButton();
         BarraMenu = new javax.swing.JMenuBar();
         MenuInicio = new javax.swing.JMenu();
         MenuRegistros = new javax.swing.JMenu();
@@ -415,6 +451,7 @@ public class Interfaz extends javax.swing.JFrame {
         infoProveedorMenuBar = new javax.swing.JMenuItem();
         infoServicioMenuBar = new javax.swing.JMenuItem();
         infoReservaMenuItem = new javax.swing.JMenuItem();
+        infoPromocionMenuItem = new javax.swing.JMenuItem();
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
@@ -1224,10 +1261,9 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegistrarPromocionScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addGap(21, 21, 21))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarPromocionPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(RegistrarPromocionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(RegistrarPromocionPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(RegistrarPromocionFinalizarSeleccionButton))
+                            .addComponent(RegistrarPromocionFinalizarSeleccionButton)
                             .addGroup(RegistrarPromocionPanelLayout.createSequentialGroup()
                                 .addComponent(RegistrarPromocionAceptarButton)
                                 .addGap(29, 29, 29)
@@ -3163,6 +3199,227 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(InfoReservasDelClienteFrame, "card11");
 
+        InfoPromocionFrame.setVisible(true);
+        InfoPromocionFrame.getContentPane().setLayout(new java.awt.CardLayout());
+
+        InfoPromocionLabel.setText("Ver Información de Promoción");
+
+        InfoPromocionPromocionesLabel.setText("Promociones");
+
+        InfoPromocionPromocionesList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        InfoPromocionPromocionesScrollPane.setViewportView(InfoPromocionPromocionesList);
+
+        InfoPromocionVerPromocionButton.setText("Ver Promoción");
+
+        InfoPromocionNombreLabel.setText("Nombre");
+
+        InfoPromocionProveedorLabel.setText("Proveedor");
+
+        InfoPromocionDescuentoLabel.setText("Descuento");
+
+        InfoPromocionPrecioFinalLabel.setText("Precio Final");
+
+        InfoPromocionCancelarButton.setText("Cancelar");
+        InfoPromocionCancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoPromocionCancelarButtonActionPerformed(evt);
+            }
+        });
+
+        InfoPromocionVerServiciosButton.setText("Ver Servicios de Promocion");
+
+        javax.swing.GroupLayout InfoPromocionPromocionesPanelLayout = new javax.swing.GroupLayout(InfoPromocionPromocionesPanel);
+        InfoPromocionPromocionesPanel.setLayout(InfoPromocionPromocionesPanelLayout);
+        InfoPromocionPromocionesPanelLayout.setHorizontalGroup(
+            InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(InfoPromocionVerPromocionButton)
+                        .addComponent(InfoPromocionLabel)
+                        .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                            .addComponent(InfoPromocionPromocionesLabel)
+                            .addGap(43, 43, 43)
+                            .addComponent(InfoPromocionPromocionesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                        .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InfoPromocionProveedorLabel)
+                            .addComponent(InfoPromocionNombreLabel)
+                            .addComponent(InfoPromocionDescuentoLabel)
+                            .addComponent(InfoPromocionPrecioFinalLabel))
+                        .addGap(32, 32, 32)
+                        .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(InfoPromocionProveedorPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InfoPromocionDescuentoPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                .addContainerGap(86, Short.MAX_VALUE)
+                .addComponent(InfoPromocionVerServiciosButton)
+                .addGap(47, 47, 47)
+                .addComponent(InfoPromocionCancelarButton)
+                .addGap(45, 45, 45))
+        );
+        InfoPromocionPromocionesPanelLayout.setVerticalGroup(
+            InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(InfoPromocionLabel)
+                .addGap(18, 18, 18)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InfoPromocionPromocionesLabel)
+                    .addComponent(InfoPromocionPromocionesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(InfoPromocionVerPromocionButton)
+                .addGap(28, 28, 28)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoPromocionNombreLabel)
+                    .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(InfoPromocionProveedorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InfoPromocionProveedorPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(InfoPromocionDescuentoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InfoPromocionDescuentoPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(InfoPromocionPrecioFinalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoPromocionCancelarButton)
+                    .addComponent(InfoPromocionVerServiciosButton))
+                .addGap(49, 49, 49))
+        );
+
+        InfoPromocionFrame.getContentPane().add(InfoPromocionPromocionesPanel, "card16");
+
+        InfoPromocionServiciosLabel.setText("Servicios de la Promoción");
+
+        InfoPromocionServiciosList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        InfoPromocionServiciosScrollPane.setViewportView(InfoPromocionServiciosList);
+
+        InfoPromocionVerServicioButton.setText("Ver Información de Servicio");
+
+        InfoPromocionFinalizarButton.setText("Finalizar");
+
+        InfoPromocionAtrasButton.setText("Atrás");
+
+        javax.swing.GroupLayout InfoPromocionVerServiciosPanelLayout = new javax.swing.GroupLayout(InfoPromocionVerServiciosPanel);
+        InfoPromocionVerServiciosPanel.setLayout(InfoPromocionVerServiciosPanelLayout);
+        InfoPromocionVerServiciosPanelLayout.setHorizontalGroup(
+            InfoPromocionVerServiciosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
+                .addGroup(InfoPromocionVerServiciosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(InfoPromocionVerServicioButton)
+                    .addGroup(InfoPromocionVerServiciosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
+                            .addGap(143, 143, 143)
+                            .addComponent(InfoPromocionServiciosLabel))
+                        .addGroup(InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
+                            .addGap(85, 85, 85)
+                            .addComponent(InfoPromocionServiciosScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(InfoPromocionAtrasButton)
+                .addGap(50, 50, 50)
+                .addComponent(InfoPromocionFinalizarButton)
+                .addGap(38, 38, 38))
+        );
+        InfoPromocionVerServiciosPanelLayout.setVerticalGroup(
+            InfoPromocionVerServiciosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(InfoPromocionServiciosLabel)
+                .addGap(18, 18, 18)
+                .addComponent(InfoPromocionServiciosScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(InfoPromocionVerServicioButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addGroup(InfoPromocionVerServiciosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoPromocionFinalizarButton)
+                    .addComponent(InfoPromocionAtrasButton))
+                .addGap(81, 81, 81))
+        );
+
+        InfoPromocionFrame.getContentPane().add(InfoPromocionVerServiciosPanel, "card3");
+
+        InfoPromocionServicioLabel.setText("Información del Servicio");
+
+        InfoPromocionNombreServicioLabel.setText("Nombre:");
+
+        InfoPromocionDescripcionServicioSLabel.setText("Descripción:");
+
+        InfoPromocionTextArea.setColumns(20);
+        InfoPromocionTextArea.setRows(5);
+        InfoPromocionServicioScrollPane.setViewportView(InfoPromocionTextArea);
+
+        InfoPromocionPrecioServicioLabel.setText("Precio(USD):");
+
+        InfoPromocionProveedorServicioLabel.setText("Proveedor:");
+
+        InfoPromocionCerrarButton.setText("Cerrar");
+
+        javax.swing.GroupLayout InfoPromocionServicioPanelLayout = new javax.swing.GroupLayout(InfoPromocionServicioPanel);
+        InfoPromocionServicioPanel.setLayout(InfoPromocionServicioPanelLayout);
+        InfoPromocionServicioPanelLayout.setHorizontalGroup(
+            InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoPromocionServicioPanelLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InfoPromocionNombreServicioLabel)
+                    .addComponent(InfoPromocionDescripcionServicioSLabel)
+                    .addComponent(InfoPromocionPrecioServicioLabel)
+                    .addComponent(InfoPromocionProveedorServicioLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InfoPromocionServicioLabel)
+                    .addComponent(InfoPromocionNombreServicioSLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InfoPromocionServicioScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(InfoPromocionProveedorServicioSLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+                        .addComponent(InfoPromocionPrecioServicioSLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(94, 94, 94))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionServicioPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(InfoPromocionCerrarButton)
+                .addGap(64, 64, 64))
+        );
+        InfoPromocionServicioPanelLayout.setVerticalGroup(
+            InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InfoPromocionServicioPanelLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(InfoPromocionServicioLabel)
+                .addGap(31, 31, 31)
+                .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoPromocionNombreServicioLabel)
+                    .addComponent(InfoPromocionNombreServicioSLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InfoPromocionDescripcionServicioSLabel)
+                    .addComponent(InfoPromocionServicioScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InfoPromocionPrecioServicioLabel)
+                    .addComponent(InfoPromocionPrecioServicioSLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(InfoPromocionProveedorServicioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(InfoPromocionProveedorServicioSLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addComponent(InfoPromocionCerrarButton)
+                .addGap(74, 74, 74))
+        );
+
+        InfoPromocionFrame.getContentPane().add(InfoPromocionServicioPanel, "card4");
+
+        PanelCentral.add(InfoPromocionFrame, "card18");
+
         MenuInicio.setText("Inicio");
         BarraMenu.add(MenuInicio);
 
@@ -3275,6 +3532,9 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         MenuConsultas.add(infoReservaMenuItem);
+
+        infoPromocionMenuItem.setText("Ver Información de Promoción");
+        MenuConsultas.add(infoPromocionMenuItem);
 
         BarraMenu.add(MenuConsultas);
 
@@ -4839,6 +5099,10 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CargarGenericosMenuItemActionPerformed
 
+    private void InfoPromocionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionCancelarButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InfoPromocionCancelarButtonActionPerformed
+
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
         
@@ -5026,6 +5290,42 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton EliminarReservaButton;
     private javax.swing.JComboBox EstadosComboBox;
     private javax.swing.JFileChooser ImageFileChooser;
+    private javax.swing.JButton InfoPromocionAtrasButton;
+    private javax.swing.JButton InfoPromocionCancelarButton;
+    private javax.swing.JButton InfoPromocionCerrarButton;
+    private javax.swing.JLabel InfoPromocionDescripcionServicioSLabel;
+    private javax.swing.JLabel InfoPromocionDescuentoLabel;
+    private javax.swing.JLabel InfoPromocionDescuentoPLabel;
+    private javax.swing.JButton InfoPromocionFinalizarButton;
+    private javax.swing.JInternalFrame InfoPromocionFrame;
+    private javax.swing.JLabel InfoPromocionLabel;
+    private javax.swing.JLabel InfoPromocionNombreLabel;
+    private javax.swing.JLabel InfoPromocionNombrePLabel;
+    private javax.swing.JLabel InfoPromocionNombreServicioLabel;
+    private javax.swing.JLabel InfoPromocionNombreServicioSLabel;
+    private javax.swing.JLabel InfoPromocionPrecioFinalLabel;
+    private javax.swing.JLabel InfoPromocionPrecioFinalPLabel;
+    private javax.swing.JLabel InfoPromocionPrecioServicioLabel;
+    private javax.swing.JLabel InfoPromocionPrecioServicioSLabel;
+    private javax.swing.JLabel InfoPromocionPromocionesLabel;
+    private javax.swing.JList InfoPromocionPromocionesList;
+    private javax.swing.JPanel InfoPromocionPromocionesPanel;
+    private javax.swing.JScrollPane InfoPromocionPromocionesScrollPane;
+    private javax.swing.JLabel InfoPromocionProveedorLabel;
+    private javax.swing.JLabel InfoPromocionProveedorPLabel;
+    private javax.swing.JLabel InfoPromocionProveedorServicioLabel;
+    private javax.swing.JLabel InfoPromocionProveedorServicioSLabel;
+    private javax.swing.JLabel InfoPromocionServicioLabel;
+    private javax.swing.JPanel InfoPromocionServicioPanel;
+    private javax.swing.JScrollPane InfoPromocionServicioScrollPane;
+    private javax.swing.JLabel InfoPromocionServiciosLabel;
+    private javax.swing.JList InfoPromocionServiciosList;
+    private javax.swing.JScrollPane InfoPromocionServiciosScrollPane;
+    private javax.swing.JTextArea InfoPromocionTextArea;
+    private javax.swing.JButton InfoPromocionVerPromocionButton;
+    private javax.swing.JButton InfoPromocionVerServicioButton;
+    private javax.swing.JButton InfoPromocionVerServiciosButton;
+    private javax.swing.JPanel InfoPromocionVerServiciosPanel;
     private javax.swing.JButton InfoReservaAceptarButton;
     private javax.swing.JPanel InfoReservaCentralPanel;
     private javax.swing.JLabel InfoReservaClienteLabel;
@@ -5255,6 +5555,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton clientesSistema;
     private javax.swing.JMenuItem infoCliente;
     private javax.swing.JButton infoDeReservaBoton;
+    private javax.swing.JMenuItem infoPromocionMenuItem;
     private javax.swing.JMenuItem infoProveedorMenuBar;
     private javax.swing.JMenuItem infoReservaMenuItem;
     private javax.swing.JButton infoReservasClienteBotonAtras;
