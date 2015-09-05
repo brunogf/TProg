@@ -42,6 +42,66 @@ public class CargarDatos {
             cu.altaCliente("BruceS", "Bruce", "Sewell", "bruce.sewell@gmail.com", df.parse("03-12-1978"));
             cu.altaCliente("JeffW", "Jeff", "Wiliams", "jeff.williams@gmail.com", df.parse("27-11-1984"));
             
+            //Categorias
+            cp.registrarCategoria("Vuelos");
+            cp.registrarCategoria("Alojamientos");
+            cp.registrarCategoria("Automóviles");
+            cp.registrarCategoria("Cruceros");
+            cp.registrarCategoria("Empresas", "Vuelos");
+            cp.registrarCategoria("Iberia", "Empresas");
+            cp.registrarCategoria("American Airlines", "Empresas");
+            cp.registrarCategoria("Air France", "Empresas");
+            cp.registrarCategoria("TAM", "Empresas");
+            cp.registrarCategoria("Tipo Vuelo", "Vuelos");
+            cp.registrarCategoria("LowCost", "Tipo Vuelo");
+            cp.registrarCategoria("Standard", "Tipo Vuelo");
+            cp.registrarCategoria("First Class", "Tipo Vuelo");
+            cp.registrarCategoria("Tipo A   lojamiento", "Alojamientos");
+            cp.registrarCategoria("Ubicación", "Alojamientos");
+            cp.registrarCategoria("Habitaciones", "Alojamientos");
+            cp.registrarCategoria("Hotel", "Tipo Alojamiento");
+            cp.registrarCategoria("Hostal", "Tipo Alojamiento");
+            cp.registrarCategoria("Apartamento", "Tipo Alojamiento");
+            cp.registrarCategoria("Casa", "Tipo Alojamiento");
+            cp.registrarCategoria("Playa", "Ubicación");
+            cp.registrarCategoria("Rural", "Ubicación");
+            cp.registrarCategoria("Montaña", "Ubicación");
+            cp.registrarCategoria("1 ambiente", "Habitaciones");
+            cp.registrarCategoria("1 dormitorio", "Habitaciones");
+            cp.registrarCategoria("2 dormitorios", "Habitaciones");
+            cp.registrarCategoria("Tarifa", "Automóviles");
+            cp.registrarCategoria("Tipo Vehículo", "Automóviles");
+            cp.registrarCategoria("Marca", "Automóviles");
+            cp.registrarCategoria("Mini", "Tarifa");
+            cp.registrarCategoria("Económico", "Tarifa");
+            cp.registrarCategoria("Standard", "Tarifa");
+            cp.registrarCategoria("Full", "Tarifa");
+            cp.registrarCategoria("Auto", "Tipo Vehículo");
+            cp.registrarCategoria("Camioneta", "Tipo Vehículo");
+            cp.registrarCategoria("Camión", "Tipo Vehículo");
+            cp.registrarCategoria("Moto", "Tipo Vehículo");
+            cp.registrarCategoria("Chevrolet", "Marca");
+            cp.registrarCategoria("Peugeot", "Marca");
+            cp.registrarCategoria("Daihatsu", "Marca");
+            cp.registrarCategoria("Fiat", "Marca");
+            cp.registrarCategoria("Ford", "Marca");
+            cp.registrarCategoria("Mediterráneo", "Cruceros");
+            cp.registrarCategoria("Mar Negro", "Cruceros");
+            cp.registrarCategoria("Caribe", "Cruceros");
+            cp.registrarCategoria("Nilo", "Cruceros");
+            cp.registrarCategoria("Alaska", "Cruceros");
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             cargado = true;
         }
         else
