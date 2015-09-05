@@ -91,6 +91,35 @@ public class CargarDatos {
             cp.registrarCategoria("Nilo", "Cruceros");
             cp.registrarCategoria("Alaska", "Cruceros");
             
+            //Paises
+            cp.altaPais("Uruguay");
+            cp.altaPais("Argentina");
+            cp.altaPais("Colombia");
+            cp.altaPais("EEUU");
+            cp.altaPais("España");
+            cp.altaPais("Francia");
+            cp.altaPais("Alemania");
+            cp.altaPais("Suiza");
+            cp.altaPais("Australia");
+            cp.altaPais("Brasil");
+            cp.altaPais("China");
+            cp.altaCiudad("Uruguay", "Montevideo");
+            cp.altaCiudad("Argentina", "Buenos Aires");
+            cp.altaCiudad("Colombia", "Bogotá");
+            cp.altaCiudad("EEUU", "Miami");
+            cp.altaCiudad("España", "Valencia");
+            cp.altaCiudad("España", "Madrid");
+            cp.altaCiudad("Francia", "Paris");
+            cp.altaCiudad("Alemania", "Berlín");
+            cp.altaCiudad("Suiza", "Ginebra");
+            cp.altaCiudad("Australia", "Sidney");
+            cp.altaCiudad("China", "Pekín");
+            cp.altaCiudad("China", "Cantón");
+            cp.altaCiudad("Brasil", "Florianópolis");
+            cp.altaCiudad("Argentina", "Bariloche");
+            
+            
+            
             
             
             
