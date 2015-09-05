@@ -273,19 +273,61 @@ public class CargarDatos {
             servicios = new HashSet<>();
             servicios.add(cp.infoServicio("mHooch", "Luxury south beach corner apartment"));
             servicios.add(cp.infoServicio("mHooch", "Coche-Miami"));
-            cp.altaPromocion("Sudamerica-Casas", "mHooch", servicios, 30);
+            cp.altaPromocion("Miami-Viaje", "mHooch", servicios, 30);
             
+            //Reservas  
+            int nro;
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("oWood");
+            cr.seleccionarProveedor("remus");
+            cr.seleccionarPublicacion("Euro-Vuelo-S", 1, df.parse("01-01-2015"), df.parse("01-01-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("01-01-2015"), nro);
             
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("eWatson");
+            cr.seleccionarProveedor("remus");
+            cr.seleccionarPublicacion("Euro-Vuelo-S", 2, df.parse("01-01-2015"), df.parse("01-01-2015"));
+            cr.seleccionarPublicacion("Euro-Vuelo-LC", 1, df.parse("01-01-2015"), df.parse("01-01-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("01-01-2015"), nro);
             
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("BruceS");
+            cr.seleccionarProveedor("mHooch");
+            cr.seleccionarPublicacion("Sudamerica-Casas", 1, df.parse("05-03-2015"), df.parse("02-04-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("05-03-2015"), nro);
             
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("JeffW");
+            cr.seleccionarProveedor("moody");
+            cr.seleccionarPublicacion("Euro-Car-2", 1, df.parse("08-05-2015"), df.parse("12-05-2015"));
+            cr.seleccionarPublicacion("Euro-Car-3", 1, df.parse("08-05-2015"), df.parse("12-05-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("08-05-2015"), nro);
             
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("oWood");
+            cr.seleccionarProveedor("tCook");
+            cr.seleccionarPublicacion("Air-France-FC", 2, df.parse("07-08-2015"), df.parse("10-08-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("07-08-2015"), nro);
             
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("JeffW");
+            cr.seleccionarProveedor("mHooch");
+            cr.seleccionarPublicacion("Miami-Viaje", 1, df.parse("07-08-2015"), df.parse("14-08-2015"));
+            cr.seleccionarPublicacion("Casa para p4 BsAs", 1, df.parse("14-08-2015"), df.parse("21-08-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("07-08-2015"), nro);
             
-            
-            
-            
-            
-            
+            cr.borrarPublicacionesSeleccionadas();
+            cr.seleccionarCliente("BruceS");
+            cr.seleccionarProveedor("remus");
+            cr.seleccionarPublicacion("Euro-Vuelo-LC", 2, df.parse("07-08-2015"), df.parse("07-08-2015"));
+            nro = cr.confirmarReserva();
+            cr.cambiarFechaCreacionReserva(df.parse("07-08-2015"), nro);
             
             
             

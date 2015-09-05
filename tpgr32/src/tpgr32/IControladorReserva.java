@@ -17,7 +17,7 @@ public interface IControladorReserva {
     
     public void actualizarEstado(int num, Estado e) throws Exception;
     public void bajaReserva(int num) throws Exception;
-    public void confirmarReserva();
+    public int confirmarReserva();
     public DataReserva infoReserva(int num);
     public List<DataReserva> listarReservas();
     public Set<DataReserva> listarReservasEliminables();
@@ -31,5 +31,5 @@ public interface IControladorReserva {
     public DataProveedor getInfoProveedorSeleccionado();
     public void borrarPublicacionesSeleccionadas();
     public int getNumeroReservas();//retorna el ultimo numero usado por una reserva
-            
+    public void cambiarFechaCreacionReserva(Date f, int r);        
 }

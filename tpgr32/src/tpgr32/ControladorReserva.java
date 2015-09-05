@@ -44,7 +44,7 @@ public class ControladorReserva implements IControladorReserva{
         r.destroy();
     }
     
-    public void confirmarReserva()
+    public int confirmarReserva()
     {
         Reserva r = new Reserva(Estado.Registrada, cliente_);
 	Iterator<ParPD> it = colPub_.iterator();
@@ -63,6 +63,7 @@ public class ControladorReserva implements IControladorReserva{
 	cliente_.agregarReserva(r);
 	ManejadorReserva mr=ManejadorReserva.getInstance();
         mr.agregarReserva(r);
+        return r.getNumero();
     }
     
     public DataReserva infoReserva(int nro){
@@ -156,5 +157,12 @@ public class ControladorReserva implements IControladorReserva{
         Reserva r=mr.encontrarReserva(nro);
         
         return r.getCliente().infoUsuario();
+    }
+    
+    public void cambiarFechaCreacionReserva(Date f, int r)
+    {
+        ManejadorReserva mr = ManejadorReserva.getInstance();
+        Reserva res = mr.encontrarReserva(r);
+        res.setFechaCreacion(f);
     }
 }

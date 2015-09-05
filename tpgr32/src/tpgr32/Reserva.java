@@ -50,6 +50,10 @@ public class Reserva {
     public Date getFechaCreacion(){
         return fecha_creacion_;
     }
+    public void setFechaCreacion(Date f)
+    {
+        fecha_creacion_=f;
+    }
     
     public float getPrecioTotal(){
         return precio_total_;
