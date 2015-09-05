@@ -5,6 +5,10 @@
  */
 package tpgr32;
 
+import java.awt.Image;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author Nicolás Rostán
@@ -12,6 +16,11 @@ package tpgr32;
 public class DataServicio extends DataPublicacion {
     private String descripcion_;
     private float precio_;
+    private String paisOrigen_;
+    private String ciudadOrigen_;
+    private String paisDestino_;
+    private String ciudadDestino_;
+    private Set<Image> imagenes_; 
     
     public DataServicio()
     {
@@ -26,6 +35,23 @@ public class DataServicio extends DataPublicacion {
     }
     
     
+    public DataServicio(String nombre, String descripcion, float precio, String proveedor, String paisOrigen,
+                        String ciudadOrigen, String paisDestino, String ciudadDestino, Set<Image> imagenes)
+    {
+	super(nombre, proveedor);
+	descripcion_ = descripcion;
+	precio_ = precio;
+        paisOrigen_ = paisOrigen;
+        ciudadOrigen_ = ciudadOrigen;
+        paisDestino_ = paisDestino;
+        ciudadDestino_ = ciudadDestino;
+        imagenes_ = new HashSet<>();
+        imagenes_ = imagenes;
+	
+    }
+    
+    
+    
     //getters
     
     public String getDescripcion()
@@ -37,6 +63,28 @@ public class DataServicio extends DataPublicacion {
     {
 	return precio_;
     }
+    
+    public String getPaisOrigen(){
+        return paisOrigen_;
+    }
+    
+    public String getCiudadOrigen(){
+        return ciudadOrigen_;
+    }
+    
+    public String getPaisDestino(){
+        return paisDestino_;
+    }
+    
+    public String getCiudadDestino(){
+        return ciudadDestino_;
+    }
+    
+    public Set<Image> getImagenes(){
+        return imagenes_;
+    }
+    
+    
     
     //setters
     
