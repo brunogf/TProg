@@ -283,6 +283,7 @@ public class CargarDatos {
             cr.seleccionarPublicacion("Euro-Vuelo-S", 1, df.parse("01-01-2015"), df.parse("01-01-2015"));
             nro = cr.confirmarReserva();
             cr.cambiarFechaCreacionReserva(df.parse("01-01-2015"), nro);
+            cr.actualizarEstado(nro, Estado.Facturada);
             
             cr.borrarPublicacionesSeleccionadas();
             cr.seleccionarCliente("eWatson");
@@ -291,6 +292,7 @@ public class CargarDatos {
             cr.seleccionarPublicacion("Euro-Vuelo-LC", 1, df.parse("01-01-2015"), df.parse("01-01-2015"));
             nro = cr.confirmarReserva();
             cr.cambiarFechaCreacionReserva(df.parse("01-01-2015"), nro);
+            cr.actualizarEstado(nro, Estado.Cancelada);
             
             cr.borrarPublicacionesSeleccionadas();
             cr.seleccionarCliente("BruceS");
@@ -298,6 +300,7 @@ public class CargarDatos {
             cr.seleccionarPublicacion("Sudamerica-Casas", 1, df.parse("05-03-2015"), df.parse("02-04-2015"));
             nro = cr.confirmarReserva();
             cr.cambiarFechaCreacionReserva(df.parse("05-03-2015"), nro);
+            cr.actualizarEstado(nro, Estado.Pagada);
             
             cr.borrarPublicacionesSeleccionadas();
             cr.seleccionarCliente("JeffW");
@@ -306,6 +309,7 @@ public class CargarDatos {
             cr.seleccionarPublicacion("Euro-Car-3", 1, df.parse("08-05-2015"), df.parse("12-05-2015"));
             nro = cr.confirmarReserva();
             cr.cambiarFechaCreacionReserva(df.parse("08-05-2015"), nro);
+            cr.actualizarEstado(nro, Estado.Pagada);
             
             cr.borrarPublicacionesSeleccionadas();
             cr.seleccionarCliente("oWood");
