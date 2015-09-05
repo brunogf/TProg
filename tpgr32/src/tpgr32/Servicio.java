@@ -138,7 +138,18 @@ public class Servicio extends Publicacion {
     
     
     public DataPublicacion infoPublicacionCompleto(){
-        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNombre()+" "+this.getProveedor().getApellido()+" (nickname: "+this.getProveedor().getNickname()+")");
+        DataServicio servicio;
+        if (ciudadDestino_ != null)
+          servicio = new DataServicio(this.getNombre(),descripcion_,precio_,
+                                       this.getProveedor().getNombre()+" "+this.getProveedor().getApellido()+" (nickname: "+this.getProveedor().getNickname()+")",
+                                        ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),
+                                        ciudadDestino_.getPais().getNombre(), ciudadDestino_.getNombre(),imagenes_);
+        else
+          servicio = new DataServicio(this.getNombre(),descripcion_,precio_,
+                                       this.getProveedor().getNombre()+" "+this.getProveedor().getApellido()+" (nickname: "+this.getProveedor().getNickname()+")",
+                                        ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),
+                                        "No tiene", "No tiene",imagenes_);
+            
         return servicio;
     }
     
