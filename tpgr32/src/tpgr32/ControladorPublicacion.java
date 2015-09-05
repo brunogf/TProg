@@ -76,7 +76,9 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public DataPromocion infoPromocion(String proveedor, String promo){
-              return new DataPromocion(); 
+              ManejadorUsuario mu = ManejadorUsuario.getInstance();
+              Proveedor prov = mu.encontrarProveedor(proveedor);
+              return prov.infoPromocion(promo);
    }
    
    public DataServicio infoServicio(String proveedor, String servicio){
