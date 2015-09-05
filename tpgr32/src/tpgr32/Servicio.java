@@ -132,7 +132,7 @@ public class Servicio extends Publicacion {
     
     
     public DataPublicacion infoPublicacion(){
-        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNombre());
+        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNickname());
         return servicio;
     }
     
