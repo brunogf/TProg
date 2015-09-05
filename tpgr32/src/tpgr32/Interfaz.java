@@ -1650,7 +1650,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaSeleccClienteLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSigButton)
                     .addComponent(RegReservaCancelarButton))
@@ -1741,7 +1741,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaTitleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSPSigButton)
                     .addComponent(RegReservaSPAtrasButton)
@@ -2084,7 +2084,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarTotalLabel)
                     .addComponent(RegReservaConfirmarPrecioLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarButton)
                     .addComponent(RegReservaConfirmarAtrasButton)
@@ -3624,6 +3624,11 @@ public class Interfaz extends javax.swing.JFrame {
         MenuConsultas.add(infoReservaMenuItem);
 
         infoPromocionMenuItem.setText("Ver Información de Promoción");
+        infoPromocionMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoPromocionMenuItemActionPerformed(evt);
+            }
+        });
         MenuConsultas.add(infoPromocionMenuItem);
 
         BarraMenu.add(MenuConsultas);
@@ -5221,6 +5226,11 @@ public class Interfaz extends javax.swing.JFrame {
     private void InfoPromocionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionCancelarButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InfoPromocionCancelarButtonActionPerformed
+
+    private void infoPromocionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoPromocionMenuItemActionPerformed
+        InfoPromocionPromocionesPanel.setVisible(true);
+        
+    }//GEN-LAST:event_infoPromocionMenuItemActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();

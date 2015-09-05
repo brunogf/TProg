@@ -99,5 +99,11 @@ public class Proveedor extends Usuario {
         }
         return s;
     }
+    
+    public DataPromocion infoPromocion(String promo){
+        Promocion p = (Promocion) encontrarPublicacion(promo);
+        DataPromocion dataP = new DataPromocion(promo, p.getDescuento(), nombre);
+        return dataP;
+    }
   
 }

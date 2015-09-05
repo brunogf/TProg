@@ -148,6 +148,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Promoci&#xf3;n"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="infoPromocionMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
