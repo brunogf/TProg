@@ -4656,8 +4656,8 @@
                                   <Component id="InfoPromocionLabel" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="InfoPromocionPromocionesLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                      <Component id="InfoPromocionPromocionesScrollPane" min="-2" pref="135" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="InfoPromocionPromocionesScrollPane" min="-2" pref="160" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -4669,10 +4669,12 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="InfoPromocionNombrePLabel" min="-2" pref="56" max="-2" attributes="0"/>
-                                      <Component id="InfoPromocionProveedorPLabel" max="32767" attributes="0"/>
-                                      <Component id="InfoPromocionDescuentoPLabel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="InfoPromocionPrecioFinalPLabel" pref="58" max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="InfoPromocionDescuentoPLabel" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="InfoPromocionPrecioFinalPLabel" pref="58" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="InfoPromocionNombrePLabel" pref="118" max="32767" attributes="0"/>
+                                      <Component id="InfoPromocionProveedorPLabel" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -4761,6 +4763,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Promoci&#xf3;n"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionVerPromocionButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionNombreLabel">
                   <Properties>
@@ -4802,6 +4807,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Servicios de Promocion"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionVerServiciosButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -4886,6 +4894,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Servicio"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionVerServicioButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="InfoPromocionFinalizarButton">
                   <Properties>
@@ -4896,6 +4907,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Atr&#xe1;s"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionAtrasButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

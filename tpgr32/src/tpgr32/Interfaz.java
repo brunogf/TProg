@@ -3300,6 +3300,11 @@ public class Interfaz extends javax.swing.JFrame {
         InfoPromocionPromocionesScrollPane.setViewportView(InfoPromocionPromocionesList);
 
         InfoPromocionVerPromocionButton.setText("Ver Promoción");
+        InfoPromocionVerPromocionButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoPromocionVerPromocionButtonActionPerformed(evt);
+            }
+        });
 
         InfoPromocionNombreLabel.setText("Nombre");
 
@@ -3317,6 +3322,11 @@ public class Interfaz extends javax.swing.JFrame {
         });
 
         InfoPromocionVerServiciosButton.setText("Ver Servicios de Promocion");
+        InfoPromocionVerServiciosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoPromocionVerServiciosButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InfoPromocionPromocionesPanelLayout = new javax.swing.GroupLayout(InfoPromocionPromocionesPanel);
         InfoPromocionPromocionesPanel.setLayout(InfoPromocionPromocionesPanelLayout);
@@ -3330,8 +3340,8 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(InfoPromocionLabel)
                         .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
                             .addComponent(InfoPromocionPromocionesLabel)
-                            .addGap(43, 43, 43)
-                            .addComponent(InfoPromocionPromocionesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(18, 18, 18)
+                            .addComponent(InfoPromocionPromocionesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
                         .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(InfoPromocionProveedorLabel)
@@ -3340,10 +3350,11 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(InfoPromocionPrecioFinalLabel))
                         .addGap(32, 32, 32)
                         .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InfoPromocionProveedorPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InfoPromocionDescuentoPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))))
+                            .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(InfoPromocionDescuentoPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                            .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(InfoPromocionProveedorPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionPromocionesPanelLayout.createSequentialGroup()
                 .addContainerGap(86, Short.MAX_VALUE)
@@ -3394,10 +3405,20 @@ public class Interfaz extends javax.swing.JFrame {
         InfoPromocionServiciosScrollPane.setViewportView(InfoPromocionServiciosList);
 
         InfoPromocionVerServicioButton.setText("Ver Información de Servicio");
+        InfoPromocionVerServicioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoPromocionVerServicioButtonActionPerformed(evt);
+            }
+        });
 
         InfoPromocionFinalizarButton.setText("Finalizar");
 
         InfoPromocionAtrasButton.setText("Atrás");
+        InfoPromocionAtrasButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InfoPromocionAtrasButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InfoPromocionVerServiciosPanelLayout = new javax.swing.GroupLayout(InfoPromocionVerServiciosPanel);
         InfoPromocionVerServiciosPanel.setLayout(InfoPromocionVerServiciosPanelLayout);
@@ -5224,21 +5245,70 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_CargarGenericosMenuItemActionPerformed
 
     private void InfoPromocionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionCancelarButtonActionPerformed
-        // TODO add your handling code here:
+        PanelCentral.remove(InfoPromocionFrame);
+        DefaultListModel nuevoModeloLista = new DefaultListModel();
+        InfoPromocionPromocionesList.setModel(nuevoModeloLista);            
+        InfoPromocionNombrePLabel.setText("");
+        InfoPromocionProveedorPLabel.setText("");
+        InfoPromocionDescuentoPLabel.setText("");
+        InfoPromocionPrecioFinalPLabel.setText(""); 
     }//GEN-LAST:event_InfoPromocionCancelarButtonActionPerformed
 
     private void infoPromocionMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoPromocionMenuItemActionPerformed
-        PanelCentral.removeAll();
+        //PanelCentral.removeAll();
         ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
         DefaultListModel modelo = new DefaultListModel();
         Set<DataPromocion> datosPromociones = ctrlPublic.listarPromociones();
         for (DataPromocion dataP : datosPromociones) {
-            modelo.addElement(dataP.getNombre());
+            modelo.addElement(dataP);
         }
         InfoPromocionPromocionesList.setModel(modelo);
+        PanelCentral.add(InfoPromocionFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
         InfoPromocionPromocionesPanel.setVisible(true);
-        
     }//GEN-LAST:event_infoPromocionMenuItemActionPerformed
+
+    private void InfoPromocionVerPromocionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionVerPromocionButtonActionPerformed
+        DataPromocion Promo = (DataPromocion) InfoPromocionPromocionesList.getSelectedValue();
+        InfoPromocionNombrePLabel.setText(Promo.getNombre());
+        InfoPromocionProveedorPLabel.setText(Promo.getProveedor());
+        InfoPromocionDescuentoPLabel.setText(Float.toString(Promo.getDescuento()));
+        InfoPromocionPrecioFinalPLabel.setText(Float.toString(Promo.getPrecioTotal()));        
+    }//GEN-LAST:event_InfoPromocionVerPromocionButtonActionPerformed
+
+    private void InfoPromocionVerServiciosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionVerServiciosButtonActionPerformed
+        DefaultListModel modelo = new DefaultListModel();
+        DataPromocion Promo = (DataPromocion) InfoPromocionPromocionesList.getSelectedValue();
+        Set<DataServicio> setDS = Promo.getServicios();
+        Iterator it = setDS.iterator();
+        while (it.hasNext()){
+            DataServicio ds = (DataServicio) it.next();
+            modelo.addElement(ds);            
+        }
+        InfoPromocionServiciosList.setModel(modelo);
+        PanelCentral.add(InfoPromocionFrame);
+	PanelCentral.repaint();
+	PanelCentral.revalidate();
+        InfoPromocionPromocionesPanel.setVisible(false);
+        InfoPromocionVerServiciosPanel.setVisible(true);
+        
+    }//GEN-LAST:event_InfoPromocionVerServiciosButtonActionPerformed
+
+    private void InfoPromocionAtrasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionAtrasButtonActionPerformed
+        InfoPromocionPromocionesPanel.setVisible(true);
+        InfoPromocionVerServiciosPanel.setVisible(false);
+    }//GEN-LAST:event_InfoPromocionAtrasButtonActionPerformed
+
+    private void InfoPromocionVerServicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionVerServicioButtonActionPerformed
+        DataServicio Serv = (DataServicio) InfoPromocionServiciosList.getSelectedValue();
+        InfoPromocionNombreServicioSLabel.setText(Serv.getNombre());
+        InfoPromocionTextArea.setText(Serv.getDescripcion());
+        InfoPromocionPrecioServicioSLabel.setText(Float.toString(Serv.getPrecio()));
+        InfoPromocionProveedorServicioSLabel.setText(Serv.getProveedor());
+        InfoPromocionServicioPanel.setVisible(true);
+        InfoPromocionVerServiciosPanel.setVisible(false);
+    }//GEN-LAST:event_InfoPromocionVerServicioButtonActionPerformed
 
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
