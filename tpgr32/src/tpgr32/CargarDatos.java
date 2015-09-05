@@ -128,7 +128,7 @@ public class CargarDatos {
             hs.add(ImageIO.read(new File("Imagenes/IM7.jpg")));
             cat.add("Iberia");
             cat.add("Standard");
-            cp.altaServicio("Euro-Vuelo-S ", "Vuelo con excelente atención y comodidad.",
+            cp.altaServicio("Euro-Vuelo-S", "Vuelo con excelente atención y comodidad.",
                     hs, 1100 , cat, "remus", new DataUbicacion("Uruguay", "Montevideo"), new DataUbicacion("España","Valencia"));
             
             hs = new HashSet<>();
@@ -233,6 +233,48 @@ public class CargarDatos {
             cat.add("Chevrolet");
             cp.altaServicio("Coche-Miami", "A useful car to travel around Miami.",
                     hs, 360 , cat, "mHooch", new DataUbicacion("EEUU", "Miami"));
+            
+            //Promociones
+            Set<DataServicio> servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("moody", "Euro-Car-1"));
+            servicios.add(cp.infoServicio("moody", "Euro-Car-2"));
+            cp.altaPromocion("Euro-Cars-E-S", "moody", servicios, 30);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("moody", "Euro-Car-1"));
+            servicios.add(cp.infoServicio("moody", "Euro-Car-3"));
+            cp.altaPromocion("Euro-Cars-E-F", "moody", servicios, 30);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("moody", "Euro-Car-2"));
+            servicios.add(cp.infoServicio("moody", "Euro-Car-3"));
+            cp.altaPromocion("Euro-Cars-S-F", "moody", servicios, 30);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("remus", "Euro-Vuelo-S"));
+            servicios.add(cp.infoServicio("remus", "Euro-Vuelo-LC"));
+            cp.altaPromocion("Euro-Vuelos-S-LC", "remus", servicios, 40);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("remus", "Euro-Vuelo-S"));
+            servicios.add(cp.infoServicio("remus", "Euro-Vuelo-FC"));
+            cp.altaPromocion("Euro-Vuelos-S-FC", "remus", servicios, 40);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("remus", "Euro-Vuelo-LC"));
+            servicios.add(cp.infoServicio("remus", "Euro-Vuelo-FC"));
+            cp.altaPromocion("Euro-Vuelos-LC-FC", "remus", servicios, 40);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("mHooch", "Casa para p4 BsAs"));
+            servicios.add(cp.infoServicio("mHooch", "Floripa G. House"));
+            cp.altaPromocion("Sudamerica-Casas", "mHooch", servicios, 50);
+            
+            servicios = new HashSet<>();
+            servicios.add(cp.infoServicio("mHooch", "Luxury south beach corner apartment"));
+            servicios.add(cp.infoServicio("mHooch", "Coche-Miami"));
+            cp.altaPromocion("Sudamerica-Casas", "mHooch", servicios, 30);
+            
             
             
             
