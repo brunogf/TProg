@@ -404,7 +404,8 @@ public class Interfaz extends javax.swing.JFrame {
         jScrollPane18 = new javax.swing.JScrollPane();
         tablaDatosUsuario = new javax.swing.JTable();
         BarraMenu = new javax.swing.JMenuBar();
-        MenuInicio = new javax.swing.JMenu();
+        MenuArchivo = new javax.swing.JMenu();
+        MenuSalir = new javax.swing.JMenuItem();
         MenuRegistros = new javax.swing.JMenu();
         MenuRegistrarUsuario = new javax.swing.JMenuItem();
         MenuRegistrarCategoria = new javax.swing.JMenuItem();
@@ -3308,8 +3309,17 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
 
-        MenuInicio.setText("Archivo");
-        BarraMenu.add(MenuInicio);
+        MenuArchivo.setText("Archivo");
+
+        MenuSalir.setText("Salir");
+        MenuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuSalirActionPerformed(evt);
+            }
+        });
+        MenuArchivo.add(MenuSalir);
+
+        BarraMenu.add(MenuArchivo);
 
         MenuRegistros.setText("Registros");
 
@@ -4892,6 +4902,7 @@ public class Interfaz extends javax.swing.JFrame {
         {
             CargarDatos c = new CargarDatos();
             c.cargar();
+            JOptionPane.showMessageDialog(null, "Los datos genericos se cargaron correctamente");
         }
         catch(Exception e)
         {
@@ -5249,6 +5260,10 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_InfoReservasDelCLienteBotonActionPerformed
 
+    private void MenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuSalirActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_MenuSalirActionPerformed
+
     public void listarReservasGUI(){
         IControladorReserva cr = fabrica.getControladorReserva();
         
@@ -5493,16 +5508,17 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuActualizarServicio;
     private javax.swing.JMenuItem MenuAltaCiudad;
     private javax.swing.JMenuItem MenuAltaPais;
+    private javax.swing.JMenu MenuArchivo;
     private javax.swing.JMenu MenuBajas;
     private javax.swing.JMenu MenuCargarDatos;
     private javax.swing.JMenu MenuConsultas;
-    private javax.swing.JMenu MenuInicio;
     private javax.swing.JMenuItem MenuRegistrarCategoria;
     private javax.swing.JMenuItem MenuRegistrarPromocion;
     private javax.swing.JMenuItem MenuRegistrarReserva;
     private javax.swing.JMenuItem MenuRegistrarServicio;
     private javax.swing.JMenuItem MenuRegistrarUsuario;
     private javax.swing.JMenu MenuRegistros;
+    private javax.swing.JMenuItem MenuSalir;
     private javax.swing.JPanel PanelCentral;
     private javax.swing.JButton RegCategoriaAceptarButton;
     private javax.swing.JButton RegCategoriaCancelarButton;
