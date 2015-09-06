@@ -101,6 +101,19 @@ public class Servicio extends Publicacion {
        } 
     }
     
+    public void setCiudadOrigen(Ciudad c)
+    {
+        ciudadOrigen_ = c;
+    }
+    public void setCiudadDestino(Ciudad c)
+    {
+        ciudadDestino_ = c;
+    }
+    
+    public void eliminarDestino()
+    {
+        ciudadDestino_ = null;
+    }
     
     public void setDescripcion(String descripcion){
         this.descripcion_ = descripcion;

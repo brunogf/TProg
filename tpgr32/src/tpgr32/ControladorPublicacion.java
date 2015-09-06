@@ -140,19 +140,32 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public void modificarDescripcionServicio(String nuevaDescripcion){
-       
+       instServicio.setDescripcion(nuevaDescripcion);
    }
    
    public void modificarImagenesServicio(Set<Image> imagenes){
-       
+       instServicio.setImagenes(imagenes);
    }
    
-   public void modificarOrigenServicio(String origen){
-       
+   public void eliminarDestinoServicio()
+   {
+       instServicio.eliminarDestino();
    }
    
    public void modificarPrecioServicio(float nuevo){
-       
+       instServicio.setPrecio(nuevo);
+   }
+   
+   public void modificarOrigenServicio(String pais, String ciudad)          
+   {
+       ManejadorPais mp = ManejadorPais.getInstance();
+       instServicio.setCiudadOrigen(mp.encontrarPais(pais).encontrarCiudad(ciudad));
+   }
+   
+   public void modificarDestinoServicio(String pais, String ciudad)
+   {
+        ManejadorPais mp = ManejadorPais.getInstance();
+       instServicio.setCiudadDestino(mp.encontrarPais(pais).encontrarCiudad(ciudad));
    }
    
    public void registrarCategoria(String nombre){
@@ -166,7 +179,13 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public void seleccionarServicio(String proveedor, String nombre){
-       
+       ManejadorUsuario mu = ManejadorUsuario.getInstance();
+       Proveedor p = mu.encontrarProveedor(proveedor);
+       Publicacion pub = p.encontrarPublicacion(nombre);
+       if (pub instanceof Servicio)
+           instServicio = (Servicio)pub;
+       else
+           throw new IllegalArgumentException("La publicacion encontrada no es un servicio");
    }
    
    
@@ -217,4 +236,8 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Set<DataServicio> servicios = c.listarServiciosCompleto();
        return servicios;
    }
+
+    private Exception IllegalArgumentException(String la_publicacion_encontrada_no_es_un_servic) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
