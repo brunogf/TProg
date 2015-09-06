@@ -5,6 +5,13 @@
  */
 package tpgr32;
 
+import java.awt.Image;
+import java.util.Iterator;
+import java.util.Set;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Nico
@@ -14,8 +21,22 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     /**
      * Creates new form ActualizarServicioInternalFrame
      */
+    private IControladorPublicacion cp;
     public ActualizarServicioInternalFrame() {
         initComponents();
+        
+        
+        PrimerPanel.setVisible(true);
+        SegundoPanel.setVisible(false);
+        cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        Set<DataServicio> servicios = cp.listarServicios();
+        DefaultTableModel tm = (DefaultTableModel) TablaPrimerPanel.getModel();
+        while(TablaPrimerPanel.getRowCount() > 0)
+           tm.removeRow(0);
+        for (DataServicio s : servicios)
+           tm.addRow(new Object[]{s.getProveedor(), s.getNombre(), Float.toString(s.getPrecio())});
+        TablaPrimerPanel.setModel(tm);
+        
     }
 
     /**
@@ -27,25 +48,41 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        PrimerPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaPrimerPanel = new javax.swing.JTable();
+        TituloPrimerPanel = new javax.swing.JLabel();
+        SiguientePrimerPanel = new javax.swing.JButton();
+        CancelarPrimerPanel = new javax.swing.JButton();
+        SegundoPanel = new javax.swing.JPanel();
+        NombreServicioSegundoPanel = new javax.swing.JLabel();
+        ProveedorSegundoPanel = new javax.swing.JLabel();
+        DescripcionLabelSegundoPanel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        DescripcionSegundoPanel = new javax.swing.JTextArea();
+        PrimeraImagenSegundoPanel = new javax.swing.JLabel();
+        SegundaImagenSegundoPanel = new javax.swing.JLabel();
+        TercerImagenSegundoPanel = new javax.swing.JLabel();
+        PrecioLabelSegundoPanel = new javax.swing.JLabel();
+        PrecioSegundoPanel = new javax.swing.JTextField();
+        ActualizarSegundoPanel = new javax.swing.JButton();
+        CancelarSegundoPanel = new javax.swing.JButton();
 
-        jLabel1.setText("Actualizar Servicio");
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaPrimerPanel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Proveedor", "Nombre", "Precio", "Title 4"
+                "Proveedor", "Nombre", "Precio"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                true, true, true, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -56,39 +93,219 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        TablaPrimerPanel.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(TablaPrimerPanel);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(147, 147, 147)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
+        TituloPrimerPanel.setText("Actualizar Servicio");
+
+        SiguientePrimerPanel.setText("Siguiente");
+        SiguientePrimerPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SiguientePrimerPanelActionPerformed(evt);
+            }
+        });
+
+        CancelarPrimerPanel.setText("Cancelar");
+
+        javax.swing.GroupLayout PrimerPanelLayout = new javax.swing.GroupLayout(PrimerPanel);
+        PrimerPanel.setLayout(PrimerPanelLayout);
+        PrimerPanelLayout.setHorizontalGroup(
+            PrimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrimerPanelLayout.createSequentialGroup()
+                .addGap(151, 151, 151)
+                .addComponent(TituloPrimerPanel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrimerPanelLayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addGroup(PrimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(PrimerPanelLayout.createSequentialGroup()
+                        .addComponent(CancelarPrimerPanel)
+                        .addGap(18, 18, 18)
+                        .addComponent(SiguientePrimerPanel))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
+        );
+        PrimerPanelLayout.setVerticalGroup(
+            PrimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PrimerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(TituloPrimerPanel)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(PrimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SiguientePrimerPanel)
+                    .addComponent(CancelarPrimerPanel))
+                .addGap(20, 20, 20))
+        );
+
+        getContentPane().add(PrimerPanel, "card2");
+
+        NombreServicioSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        NombreServicioSegundoPanel.setText("Nombre servicio");
+        NombreServicioSegundoPanel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        ProveedorSegundoPanel.setText("Proveedor: mHooch");
+
+        DescripcionLabelSegundoPanel.setText("Descripción:");
+
+        DescripcionSegundoPanel.setColumns(20);
+        DescripcionSegundoPanel.setRows(5);
+        jScrollPane2.setViewportView(DescripcionSegundoPanel);
+
+        PrimeraImagenSegundoPanel.setForeground(new java.awt.Color(153, 153, 153));
+        PrimeraImagenSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        PrimeraImagenSegundoPanel.setText("[Doble click]");
+        PrimeraImagenSegundoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        SegundaImagenSegundoPanel.setForeground(new java.awt.Color(153, 153, 153));
+        SegundaImagenSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        SegundaImagenSegundoPanel.setText("[Doble click]");
+        SegundaImagenSegundoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        TercerImagenSegundoPanel.setForeground(new java.awt.Color(153, 153, 153));
+        TercerImagenSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        TercerImagenSegundoPanel.setText("[Doble click]");
+        TercerImagenSegundoPanel.setToolTipText("");
+        TercerImagenSegundoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        PrecioLabelSegundoPanel.setText("Precio (USD):");
+
+        PrecioSegundoPanel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        PrecioSegundoPanel.setText("1000");
+
+        ActualizarSegundoPanel.setText("Actualizar");
+
+        CancelarSegundoPanel.setText("Cancelar");
+
+        javax.swing.GroupLayout SegundoPanelLayout = new javax.swing.GroupLayout(SegundoPanel);
+        SegundoPanel.setLayout(SegundoPanelLayout);
+        SegundoPanelLayout.setHorizontalGroup(
+            SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(ProveedorSegundoPanel))
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addGap(170, 170, 170)
+                                .addComponent(DescripcionLabelSegundoPanel)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(SegundoPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(47, 47, 47)
+                                .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                                .addComponent(PrecioLabelSegundoPanel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(280, 280, 280))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(CancelarSegundoPanel)
+                        .addGap(18, 18, 18)
+                        .addComponent(ActualizarSegundoPanel)))
+                .addContainerGap())
+            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(NombreServicioSegundoPanel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        SegundoPanelLayout.setVerticalGroup(
+            SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SegundoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(NombreServicioSegundoPanel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ProveedorSegundoPanel)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addComponent(DescripcionLabelSegundoPanel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(PrecioLabelSegundoPanel)
+                    .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarSegundoPanel)
+                    .addComponent(CancelarSegundoPanel))
+                .addGap(25, 25, 25))
         );
+
+        getContentPane().add(SegundoPanel, "card3");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SiguientePrimerPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguientePrimerPanelActionPerformed
+        if (TablaPrimerPanel.getSelectedRow() == -1)
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un servicio", "Warning", JOptionPane.WARNING_MESSAGE);
+        else
+        {
+            DataServicio ds = cp.infoServicio((String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 0), (String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 1));
+            StringBuilder sb = new StringBuilder();
+            sb.append("Nombre: ");
+            sb.append(ds.getNombre());
+            NombreServicioSegundoPanel.setText(sb.toString());
+            sb = new StringBuilder();
+            sb.append("Proveedor: ");
+            sb.append(ds.getProveedor());
+            ProveedorSegundoPanel.setText(sb.toString());
+            DescripcionSegundoPanel.setText(ds.getDescripcion());
+            PrecioSegundoPanel.setText(Float.toString(ds.getPrecio()));
+            Set<Image> imagenes = ds.getImagenes();
+            if (!(imagenes.isEmpty()))
+            {
+                Iterator<Image> it = imagenes.iterator();
+                PrimeraImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
+                if (it.hasNext())
+                {
+                    SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
+                    if (it.hasNext())
+                        SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));                  
+                }
+                
+            }
+            PrimerPanel.setVisible(false);
+            SegundoPanel.setVisible(true);
+        }
+            
+    }//GEN-LAST:event_SiguientePrimerPanelActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ActualizarSegundoPanel;
+    private javax.swing.JButton CancelarPrimerPanel;
+    private javax.swing.JButton CancelarSegundoPanel;
+    private javax.swing.JLabel DescripcionLabelSegundoPanel;
+    private javax.swing.JTextArea DescripcionSegundoPanel;
+    private javax.swing.JLabel NombreServicioSegundoPanel;
+    private javax.swing.JLabel PrecioLabelSegundoPanel;
+    private javax.swing.JTextField PrecioSegundoPanel;
+    private javax.swing.JPanel PrimerPanel;
+    private javax.swing.JLabel PrimeraImagenSegundoPanel;
+    private javax.swing.JLabel ProveedorSegundoPanel;
+    private javax.swing.JLabel SegundaImagenSegundoPanel;
+    private javax.swing.JPanel SegundoPanel;
+    private javax.swing.JButton SiguientePrimerPanel;
+    private javax.swing.JTable TablaPrimerPanel;
+    private javax.swing.JLabel TercerImagenSegundoPanel;
+    private javax.swing.JLabel TituloPrimerPanel;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
