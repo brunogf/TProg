@@ -15,6 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -90,7 +91,14 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         SegundoPanelDestino = new javax.swing.JCheckBox();
         SegundoPanelPaisDestino = new javax.swing.JComboBox<String>();
         SegundoPanelCiudadDestino = new javax.swing.JComboBox<String>();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
 
+        setPreferredSize(new java.awt.Dimension(405, 466));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         TablaPrimerPanel.setModel(new javax.swing.table.DefaultTableModel(
@@ -155,7 +163,7 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 .addComponent(TituloPrimerPanel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(SiguientePrimerPanel)
                 .addGap(20, 20, 20))
         );
@@ -239,15 +247,35 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
 
         SegundoPanelCiudadDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButton1.setText("Modificar Categorias");
+
         javax.swing.GroupLayout SegundoPanelLayout = new javax.swing.GroupLayout(SegundoPanel);
         SegundoPanel.setLayout(SegundoPanelLayout);
         SegundoPanelLayout.setHorizontalGroup(
             SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SegundoPanelLayout.createSequentialGroup()
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ActualizarSegundoPanel))
+                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(ProveedorSegundoPanel))
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(NombreServicioSegundoPanel))
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addGap(171, 171, 171)
+                                .addComponent(DescripcionLabelSegundoPanel))
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addComponent(SegundoPanelDestino)
+                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SegundoPanelPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(SegundoPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,28 +300,11 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                                         .addComponent(jLabel1)
                                         .addGap(151, 151, 151)
                                         .addComponent(SegundoPanelCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(SegundoPanelLayout.createSequentialGroup()
-                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(ProveedorSegundoPanel))
-                            .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(NombreServicioSegundoPanel))
-                            .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addGap(171, 171, 171)
-                                .addComponent(DescripcionLabelSegundoPanel))
-                            .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addComponent(SegundoPanelDestino)
-                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(SegundoPanelPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ActualizarSegundoPanel)))))
                 .addContainerGap())
         );
         SegundoPanelLayout.setVerticalGroup(
@@ -327,12 +338,57 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                     .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(SegundoPanelDestino)
                         .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addComponent(ActualizarSegundoPanel)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ActualizarSegundoPanel)
+                    .addComponent(jButton1))
+                .addGap(35, 35, 35))
         );
 
         getContentPane().add(SegundoPanel, "card3");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Categorias"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable1);
+
+        jScrollPane4.setViewportView(jTree1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel1, "card4");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -510,8 +566,12 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 im.add(im3);
             cp.modificarImagenesServicio(im);
             JOptionPane.showMessageDialog(null, "El servicio se actualizo con exito");
-            SwingUtilities.getWindowAncestor(this).repaint();
-            SwingUtilities.getWindowAncestor(this).revalidate();
+            JPanel jp;
+            jp = (JPanel)SwingUtilities.getAncestorOfClass(JPanel.class, this);
+            jp.remove(this);
+            jp.repaint();
+            jp.revalidate();
+            this.dispose();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -563,9 +623,15 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     private javax.swing.JTable TablaPrimerPanel;
     private javax.swing.JLabel TercerImagenSegundoPanel;
     private javax.swing.JLabel TituloPrimerPanel;
+    private javax.swing.JButton jButton1;
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }
