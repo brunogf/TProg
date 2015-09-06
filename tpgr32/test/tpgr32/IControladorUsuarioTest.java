@@ -33,6 +33,15 @@ public class IControladorUsuarioTest {
     
     @Before
     public void setUp() {
+        CargarDatos cd = new CargarDatos();
+        try
+        {
+            cd.cargar();
+        }
+        catch(Exception e)
+        {
+            
+        }
     }
     
     @After
@@ -41,10 +50,22 @@ public class IControladorUsuarioTest {
 
     /**
      * Test of altaCliente method, of class IControladorUsuario.
+     * @throws java.lang.Exception
      */
+    
+    //En @Before setup se cargaron los datos genericos
+    
+    @Test(expected=IllegalArgumentException.class) //El nick ya está registrado
+    public void testAltaCliente() throws Exception {
+        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+        cu.altaCliente("mHooch", "Madam", "Hooch", "Correo", new Date());
+        }
+
+    
+    /*
     @Test
     public void testAltaCliente() throws Exception {
-           System.out.println("altaCliente");
+        System.out.println("altaCliente");
         String nickName = "JeffW";
         String nombre = "Jeff";
         String apellido = "Wiliams";
