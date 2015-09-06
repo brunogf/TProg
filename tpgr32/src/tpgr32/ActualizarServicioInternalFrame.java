@@ -6,10 +6,14 @@
 package tpgr32;
 
 import java.awt.Image;
+import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,9 +26,15 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
      * Creates new form ActualizarServicioInternalFrame
      */
     private IControladorPublicacion cp;
+    private Image im1;
+    private Image im2;
+    private Image im3;
+    private DataServicio ds;
     public ActualizarServicioInternalFrame() {
         initComponents();
-        
+        im1 = null;
+        im2 = null;
+        im3 = null;
         
         PrimerPanel.setVisible(true);
         SegundoPanel.setVisible(false);
@@ -48,6 +58,7 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFileChooser1 = new javax.swing.JFileChooser();
         PrimerPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         TablaPrimerPanel = new javax.swing.JTable();
@@ -67,6 +78,12 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         PrecioSegundoPanel = new javax.swing.JTextField();
         ActualizarSegundoPanel = new javax.swing.JButton();
         CancelarSegundoPanel = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        SegundoPanelPaisOrigen = new javax.swing.JComboBox();
+        SegundoPanelCiudadOrigen = new javax.swing.JComboBox();
+        SegundoPanelDestino = new javax.swing.JCheckBox();
+        SegundoPanelPaisDestino = new javax.swing.JComboBox();
+        SegundoPanelCiudadDestino = new javax.swing.JComboBox();
 
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -94,6 +111,11 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
             }
         });
         TablaPrimerPanel.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        TablaPrimerPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TablaPrimerPanelMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TablaPrimerPanel);
 
         TituloPrimerPanel.setText("Actualizar Servicio");
@@ -106,6 +128,11 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         });
 
         CancelarPrimerPanel.setText("Cancelar");
+        CancelarPrimerPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelarPrimerPanelActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PrimerPanelLayout = new javax.swing.GroupLayout(PrimerPanel);
         PrimerPanel.setLayout(PrimerPanelLayout);
@@ -157,17 +184,32 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         PrimeraImagenSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PrimeraImagenSegundoPanel.setText("[Doble click]");
         PrimeraImagenSegundoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        PrimeraImagenSegundoPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                PrimeraImagenSegundoPanelMouseClicked(evt);
+            }
+        });
 
         SegundaImagenSegundoPanel.setForeground(new java.awt.Color(153, 153, 153));
         SegundaImagenSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         SegundaImagenSegundoPanel.setText("[Doble click]");
         SegundaImagenSegundoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        SegundaImagenSegundoPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SegundaImagenSegundoPanelMouseClicked(evt);
+            }
+        });
 
         TercerImagenSegundoPanel.setForeground(new java.awt.Color(153, 153, 153));
         TercerImagenSegundoPanel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         TercerImagenSegundoPanel.setText("[Doble click]");
         TercerImagenSegundoPanel.setToolTipText("");
         TercerImagenSegundoPanel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        TercerImagenSegundoPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TercerImagenSegundoPanelMouseClicked(evt);
+            }
+        });
 
         PrecioLabelSegundoPanel.setText("Precio (USD):");
 
@@ -175,8 +217,25 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         PrecioSegundoPanel.setText("1000");
 
         ActualizarSegundoPanel.setText("Actualizar");
+        ActualizarSegundoPanel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarSegundoPanelActionPerformed(evt);
+            }
+        });
 
         CancelarSegundoPanel.setText("Cancelar");
+
+        jLabel1.setText("Origen:");
+
+        SegundoPanelPaisOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        SegundoPanelCiudadOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        SegundoPanelDestino.setText("Destino");
+
+        SegundoPanelPaisDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        SegundoPanelCiudadDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout SegundoPanelLayout = new javax.swing.GroupLayout(SegundoPanel);
         SegundoPanel.setLayout(SegundoPanelLayout);
@@ -184,40 +243,58 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
             SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SegundoPanelLayout.createSequentialGroup()
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(CancelarSegundoPanel)
+                        .addGap(26, 26, 26)
+                        .addComponent(ActualizarSegundoPanel))
+                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                        .addComponent(PrecioLabelSegundoPanel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11))
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(SegundoPanelCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(151, 151, 151)
+                                        .addComponent(SegundoPanelCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(SegundoPanelLayout.createSequentialGroup()
                         .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SegundoPanelLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(ProveedorSegundoPanel))
                             .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addGap(170, 170, 170)
-                                .addComponent(DescripcionLabelSegundoPanel)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(SegundoPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
+                                .addContainerGap()
+                                .addComponent(NombreServicioSegundoPanel))
                             .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
-                                .addComponent(PrecioLabelSegundoPanel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(280, 280, 280))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CancelarSegundoPanel)
-                        .addGap(18, 18, 18)
-                        .addComponent(ActualizarSegundoPanel)))
+                                .addGap(171, 171, 171)
+                                .addComponent(DescripcionLabelSegundoPanel))
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addComponent(SegundoPanelDestino)
+                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SegundoPanelPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(SegundoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(NombreServicioSegundoPanel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SegundoPanelLayout.setVerticalGroup(
             SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -226,24 +303,34 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 .addComponent(NombreServicioSegundoPanel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ProveedorSegundoPanel)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(DescripcionLabelSegundoPanel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(10, 10, 10)
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(PrecioLabelSegundoPanel)
                     .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ActualizarSegundoPanel)
-                    .addComponent(CancelarSegundoPanel))
-                .addGap(25, 25, 25))
+                    .addComponent(jLabel1)
+                    .addComponent(SegundoPanelPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SegundoPanelCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(SegundoPanelDestino)
+                    .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SegundoPanelCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CancelarSegundoPanel)
+                    .addComponent(ActualizarSegundoPanel))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         getContentPane().add(SegundoPanel, "card3");
@@ -252,39 +339,139 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     }// </editor-fold>//GEN-END:initComponents
 
     private void SiguientePrimerPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguientePrimerPanelActionPerformed
-        if (TablaPrimerPanel.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un servicio", "Warning", JOptionPane.WARNING_MESSAGE);
-        else
-        {
-            DataServicio ds = cp.infoServicio((String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 0), (String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 1));
-            StringBuilder sb = new StringBuilder();
-            sb.append("Nombre: ");
-            sb.append(ds.getNombre());
-            NombreServicioSegundoPanel.setText(sb.toString());
-            sb = new StringBuilder();
-            sb.append("Proveedor: ");
-            sb.append(ds.getProveedor());
-            ProveedorSegundoPanel.setText(sb.toString());
-            DescripcionSegundoPanel.setText(ds.getDescripcion());
-            PrecioSegundoPanel.setText(Float.toString(ds.getPrecio()));
-            Set<Image> imagenes = ds.getImagenes();
-            if (!(imagenes.isEmpty()))
+        try{
+            if (TablaPrimerPanel.getSelectedRow() == -1)
+                JOptionPane.showMessageDialog(null, "Debes seleccionar un servicio", "Warning", JOptionPane.WARNING_MESSAGE);
+            else
             {
-                Iterator<Image> it = imagenes.iterator();
-                PrimeraImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
-                if (it.hasNext())
+                ds = cp.infoServicio((String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 0), (String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 1));
+                cp.seleccionarServicio((String)TablaPrimerPanel.getValueAt(TablaPrimerPanel.getSelectedRow(), 0), ds.getNombre());
+                StringBuilder sb = new StringBuilder();
+                sb.append("Nombre: ");
+                sb.append(ds.getNombre());
+                NombreServicioSegundoPanel.setText(sb.toString());
+                sb = new StringBuilder();
+                sb.append("Proveedor: ");
+                sb.append(ds.getProveedor());
+                ProveedorSegundoPanel.setText(sb.toString());
+                DescripcionSegundoPanel.setText(ds.getDescripcion());
+                PrecioSegundoPanel.setText(Float.toString(ds.getPrecio()));
+                Set<Image> imagenes = ds.getImagenes();
+                if (!(imagenes.isEmpty()))
                 {
-                    SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
+                    Iterator<Image> it = imagenes.iterator();
+                    PrimeraImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
                     if (it.hasNext())
-                        SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));                  
+                    {
+                        SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
+                        if (it.hasNext())
+                            SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));                  
+                    }
+
                 }
-                
+                PrimerPanel.setVisible(false);
+                SegundoPanel.setVisible(true);
             }
-            PrimerPanel.setVisible(false);
-            SegundoPanel.setVisible(true);
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(),"ERROR", JOptionPane.ERROR_MESSAGE);
         }
             
     }//GEN-LAST:event_SiguientePrimerPanelActionPerformed
+
+    private void TablaPrimerPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaPrimerPanelMouseClicked
+        if(evt.getClickCount() == 2)
+            SiguientePrimerPanel.doClick();
+    }//GEN-LAST:event_TablaPrimerPanelMouseClicked
+
+    private void CancelarPrimerPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarPrimerPanelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CancelarPrimerPanelActionPerformed
+
+    private void PrimeraImagenSegundoPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrimeraImagenSegundoPanelMouseClicked
+        if (evt.getClickCount() == 2)
+        {
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen","jpg");
+            jFileChooser1.setFileFilter(filter);
+            jFileChooser1.setVisible(true);
+            int opcion = jFileChooser1.showOpenDialog(null);
+            if (opcion == JFileChooser.APPROVE_OPTION)
+            {
+                String arch = jFileChooser1.getSelectedFile().getPath();
+                PrimeraImagenSegundoPanel.setIcon(new ImageIcon(arch));
+                ImageIcon icon = new ImageIcon(arch);
+                im1 = icon.getImage();
+                //Se modifica el tamaño de la imagen
+                Image imgmod = im1.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                ImageIcon nuevoIcono = new ImageIcon(imgmod);
+                PrimeraImagenSegundoPanel.setIcon(nuevoIcono);
+                PrimeraImagenSegundoPanel.setSize(100,100);
+                //PrimeraImagenSegundoPanel.setText(null);
+            }
+        }
+    }//GEN-LAST:event_PrimeraImagenSegundoPanelMouseClicked
+
+    private void SegundaImagenSegundoPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SegundaImagenSegundoPanelMouseClicked
+        if (evt.getClickCount() == 2)
+        {
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen","jpg");
+            jFileChooser1.setFileFilter(filter);
+            jFileChooser1.setVisible(true);
+            int opcion = jFileChooser1.showOpenDialog(null);
+            if (opcion == JFileChooser.APPROVE_OPTION)
+            {
+                String arch = jFileChooser1.getSelectedFile().getPath();
+                SegundaImagenSegundoPanel.setIcon(new ImageIcon(arch));
+                ImageIcon icon = new ImageIcon(arch);
+                im2 = icon.getImage();
+                //Se modifica el tamaño de la imagen
+                Image imgmod = im2.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                ImageIcon nuevoIcono = new ImageIcon(imgmod);
+                SegundaImagenSegundoPanel.setIcon(nuevoIcono);
+                SegundaImagenSegundoPanel.setSize(100,100);
+                //SegundaImagenSegundoPanel.setText(null);
+            }
+        }
+    }//GEN-LAST:event_SegundaImagenSegundoPanelMouseClicked
+
+    private void TercerImagenSegundoPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TercerImagenSegundoPanelMouseClicked
+        if (evt.getClickCount() == 2)
+        {
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen","jpg");
+            jFileChooser1.setFileFilter(filter);
+            jFileChooser1.setVisible(true);
+            int opcion = jFileChooser1.showOpenDialog(null);
+            if (opcion == JFileChooser.APPROVE_OPTION)
+            {
+                String arch = jFileChooser1.getSelectedFile().getPath();
+                TercerImagenSegundoPanel.setIcon(new ImageIcon(arch));
+                ImageIcon icon = new ImageIcon(arch);
+                im3 = icon.getImage();
+                //Se modifica el tamaño de la imagen
+                Image imgmod = im3.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                //Se genera el ImageIcon con la nueva imagen
+                ImageIcon nuevoIcono = new ImageIcon(imgmod);
+                TercerImagenSegundoPanel.setIcon(nuevoIcono);
+                TercerImagenSegundoPanel.setSize(100,100);
+                //TercerImagenSegundoPanel.setText(null);
+            }
+        }
+    }//GEN-LAST:event_TercerImagenSegundoPanelMouseClicked
+
+    private void ActualizarSegundoPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarSegundoPanelActionPerformed
+        try{
+            if (!(ds.getDescripcion().compareTo(DescripcionSegundoPanel.getText()) == 0))
+                cp.modificarDescripcionServicio(DescripcionSegundoPanel.getText());
+            if(!(ds.getPrecio() == Float.parseFloat(PrecioSegundoPanel.getText())))
+                cp.modificarPrecioServicio(Float.parseFloat(PrecioSegundoPanel.getText()));
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_ActualizarSegundoPanelActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -301,10 +488,17 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     private javax.swing.JLabel ProveedorSegundoPanel;
     private javax.swing.JLabel SegundaImagenSegundoPanel;
     private javax.swing.JPanel SegundoPanel;
+    private javax.swing.JComboBox SegundoPanelCiudadDestino;
+    private javax.swing.JComboBox SegundoPanelCiudadOrigen;
+    private javax.swing.JCheckBox SegundoPanelDestino;
+    private javax.swing.JComboBox SegundoPanelPaisDestino;
+    private javax.swing.JComboBox SegundoPanelPaisOrigen;
     private javax.swing.JButton SiguientePrimerPanel;
     private javax.swing.JTable TablaPrimerPanel;
     private javax.swing.JLabel TercerImagenSegundoPanel;
     private javax.swing.JLabel TituloPrimerPanel;
+    private javax.swing.JFileChooser jFileChooser1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
