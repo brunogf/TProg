@@ -4438,10 +4438,10 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="InfoPromocionProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="InfoPromocionNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="InfoPromocionDescuentoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="InfoPromocionPrecioFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="InfoPromocionProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -4543,28 +4543,28 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionNombreLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nombre"/>
+                    <Property name="text" type="java.lang.String" value="Nombre:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionNombrePLabel">
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionProveedorLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Proveedor"/>
+                    <Property name="text" type="java.lang.String" value="Proveedor:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionProveedorPLabel">
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionDescuentoLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Descuento"/>
+                    <Property name="text" type="java.lang.String" value="Descuento:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionDescuentoPLabel">
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionPrecioFinalLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Precio Final"/>
+                    <Property name="text" type="java.lang.String" value="Precio Final(USD):"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionPrecioFinalPLabel">
@@ -4676,6 +4676,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Finalizar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionFinalizarButtonActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="InfoPromocionAtrasButton">
                   <Properties>
@@ -4708,12 +4711,12 @@
                           <EmptySpace pref="53" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="InfoPromocionServicioLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="InfoPromocionNombreServicioSLabel" min="-2" pref="54" max="-2" attributes="0"/>
                               <Component id="InfoPromocionServicioScrollPane" min="-2" max="-2" attributes="0"/>
                               <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="InfoPromocionProveedorServicioSLabel" alignment="0" pref="59" max="32767" attributes="0"/>
                                   <Component id="InfoPromocionPrecioServicioSLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
+                              <Component id="InfoPromocionNombreServicioSLabel" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
                       </Group>
@@ -4783,6 +4786,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="InfoPromocionTextArea">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
                       </Properties>
@@ -4807,6 +4811,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Cerrar"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionCerrarButtonActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
