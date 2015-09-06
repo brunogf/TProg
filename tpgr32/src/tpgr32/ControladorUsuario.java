@@ -75,7 +75,10 @@ public class ControladorUsuario implements IControladorUsuario{
 
     public DataUsuario infoCliente(String nickname) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-        return mUsuario.encontrarUsuario(nickname).infoUsuario();
+        DataUsuario du = mUsuario.encontrarUsuario(nickname).infoUsuario();
+        if (!(du instanceof DataCliente))
+            throw new IllegalArgumentException("No se encontro el usuario");
+        return du;
     }
 
     

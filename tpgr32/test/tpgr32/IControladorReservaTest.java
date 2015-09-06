@@ -34,6 +34,15 @@ public class IControladorReservaTest {
     
     @Before
     public void setUp() {
+        CargarDatos cd = new CargarDatos();
+        try
+        {
+            cd.cargar();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
     @After
@@ -44,6 +53,15 @@ public class IControladorReservaTest {
      * Test of actualizarEstado method, of class IControladorReserva.
      */
     //TESTS
+    
+    @Test
+    public void testActualizarEstado() throws Exception
+    {
+        IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
+        cr.actualizarEstado(5, Estado.Pagada);
+        DataReserva dr = cr.infoReserva(5);
+        assertEquals(Estado.Pagada,dr.getEstado());
+    }
 
     public class IControladorReservaImpl implements IControladorReserva {
 
