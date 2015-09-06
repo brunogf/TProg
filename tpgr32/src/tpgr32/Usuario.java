@@ -72,5 +72,11 @@ public abstract class Usuario {
         return imagen;
     }
       
+    public int getCantImg() {
+        return this.cantImg;
+    }
       
+    public void setCantImg(int cant) {
+        this.cantImg = cant;
+    } 
 }
