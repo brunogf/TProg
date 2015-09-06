@@ -15,6 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -91,6 +92,7 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         SegundoPanelPaisDestino = new javax.swing.JComboBox<String>();
         SegundoPanelCiudadDestino = new javax.swing.JComboBox<String>();
 
+        setPreferredSize(new java.awt.Dimension(405, 466));
         getContentPane().setLayout(new java.awt.CardLayout());
 
         TablaPrimerPanel.setModel(new javax.swing.table.DefaultTableModel(
@@ -155,7 +157,7 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 .addComponent(TituloPrimerPanel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(SiguientePrimerPanel)
                 .addGap(20, 20, 20))
         );
@@ -245,34 +247,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
             SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SegundoPanelLayout.createSequentialGroup()
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(ActualizarSegundoPanel))
-                    .addGroup(SegundoPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                        .addComponent(PrecioLabelSegundoPanel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(33, 33, 33)
-                                .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11))
-                            .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(SegundoPanelCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addGap(151, 151, 151)
-                                        .addComponent(SegundoPanelCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(SegundoPanelLayout.createSequentialGroup()
                         .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SegundoPanelLayout.createSequentialGroup()
@@ -293,7 +267,35 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
                                         .addGap(18, 18, 18)
                                         .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2)
+                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(SegundoPanelCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(151, 151, 151)
+                                        .addComponent(SegundoPanelCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
+                                        .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(SegundoPanelLayout.createSequentialGroup()
+                                                .addComponent(PrecioLabelSegundoPanel)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(PrecioSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(PrimeraImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(33, 33, 33)
+                                        .addComponent(SegundaImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(36, 36, 36)
+                                        .addComponent(TercerImagenSegundoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(11, 11, 11))
+                                    .addComponent(ActualizarSegundoPanel, javax.swing.GroupLayout.Alignment.TRAILING))))))
                 .addContainerGap())
         );
         SegundoPanelLayout.setVerticalGroup(
@@ -327,9 +329,9 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                     .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(SegundoPanelDestino)
                         .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ActualizarSegundoPanel)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(35, 35, 35))
         );
 
         getContentPane().add(SegundoPanel, "card3");
@@ -510,8 +512,12 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 im.add(im3);
             cp.modificarImagenesServicio(im);
             JOptionPane.showMessageDialog(null, "El servicio se actualizo con exito");
-            SwingUtilities.getWindowAncestor(this).repaint();
-            SwingUtilities.getWindowAncestor(this).revalidate();
+            JPanel jp;
+            jp = (JPanel)SwingUtilities.getAncestorOfClass(JPanel.class, this);
+            jp.remove(this);
+            jp.repaint();
+            jp.revalidate();
+            this.dispose();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }

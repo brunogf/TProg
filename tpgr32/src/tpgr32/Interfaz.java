@@ -888,7 +888,7 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegServicioCiudadOrigenLabel))
                                 .addGap(53, 53, 53)
                                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(RegServicioCiudadOrigenComboBox, 0, 134, Short.MAX_VALUE)
+                                    .addComponent(RegServicioCiudadOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(RegServicioPaisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(RegServicioUbicacionPanelLayout.createSequentialGroup()
                                 .addComponent(RegServicioDeseaDestinoLabel)
@@ -901,18 +901,17 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegServicioPaisDestinoLabel)
                                     .addComponent(RegServicioCiudadDestinoLabel))
                                 .addGap(48, 48, 48)
-                                .addComponent(RegServicioPaisDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(RegServicioPaisDestinoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(RegServicioCiudadDestinoComboBox, 0, 1, Short.MAX_VALUE)))))
                     .addGroup(RegServicioUbicacionPanelLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(RegServicioUbicacionCancelarButton)
                         .addGap(39, 39, 39)
                         .addComponent(RegServicioUbicacionAtrasButton)
                         .addGap(31, 31, 31)
-                        .addComponent(RegServicioUbicacionSiguienteButton))
-                    .addGroup(RegServicioUbicacionPanelLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(RegServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(RegServicioUbicacionSiguienteButton)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RegServicioUbicacionPanelLayout.setVerticalGroup(
             RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -940,7 +939,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioCiudadDestinoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioUbicacionCancelarButton)
                     .addComponent(RegServicioUbicacionAtrasButton)
@@ -952,15 +951,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegServicioTituloImagenPanel.setText("Seleccionar Imágenes (máximo 3)");
 
-        RegServicioImagen1Label.setForeground(new java.awt.Color(153, 153, 153));
         RegServicioImagen1Label.setText("         Imagen 1");
         RegServicioImagen1Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        RegServicioImagen3Label.setForeground(new java.awt.Color(153, 153, 153));
         RegServicioImagen3Label.setText("         Imagen 3");
         RegServicioImagen3Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        RegServicioImagen2Label.setForeground(new java.awt.Color(153, 153, 153));
         RegServicioImagen2Label.setText("         Imagen 2");
         RegServicioImagen2Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -2234,15 +2230,12 @@ public class Interfaz extends javax.swing.JFrame {
 
         InfoServicioDatoCiudadDLabel.setText("jLabel10");
 
-        InfoServicioDatoImagen1Label.setForeground(new java.awt.Color(153, 153, 153));
         InfoServicioDatoImagen1Label.setText("          Imagen");
         InfoServicioDatoImagen1Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        InfoServicioDatoImagen2Label.setForeground(new java.awt.Color(153, 153, 153));
         InfoServicioDatoImagen2Label.setText("         Imagen");
         InfoServicioDatoImagen2Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        InfoServicioDatoImagen3Label.setForeground(new java.awt.Color(153, 153, 153));
         InfoServicioDatoImagen3Label.setText("          Imagen");
         InfoServicioDatoImagen3Label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -2316,32 +2309,34 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioInfoServicioNombreLabel)
                     .addComponent(InfoServicioDatoNombreLabel))
-                .addGap(6, 6, 6)
-                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(18, 18, 18)
+                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                         .addComponent(InfoServicioInfoServicoDescrLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(InfoServicioInfoServicioPrecioLabel))
-                    .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                        .addComponent(InfoServicioDatoPrecioLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoServicioInfoServicioProvLabel)
-                    .addComponent(InfoServicioDatoProvLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoServicioInfoServicioPaisOLabel)
-                    .addComponent(InfoServicioDatoPaisOLabel)
-                    .addComponent(InfoServicioInfoServicioCiudadOLabel)
-                    .addComponent(InfoServicioDatoCiudadOLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InfoServicioInfoServicioPaisDLabel)
-                    .addComponent(InfoServicioDatoPaisDLabel)
-                    .addComponent(InfoServicioInfoServicioCiudadDLabel)
-                    .addComponent(InfoServicioDatoCiudadDLabel))
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addGap(92, 92, 92)
+                                .addComponent(InfoServicioDatoPrecioLabel))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoServicioInfoServicioPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InfoServicioInfoServicioPrecioLabel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioProvLabel)
+                            .addComponent(InfoServicioDatoProvLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioPaisOLabel)
+                            .addComponent(InfoServicioDatoPaisOLabel)
+                            .addComponent(InfoServicioInfoServicioCiudadOLabel)
+                            .addComponent(InfoServicioDatoCiudadOLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InfoServicioInfoServicioPaisDLabel)
+                            .addComponent(InfoServicioDatoPaisDLabel)
+                            .addComponent(InfoServicioInfoServicioCiudadDLabel)
+                            .addComponent(InfoServicioDatoCiudadDLabel))))
                 .addGap(27, 27, 27)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(InfoServicioDatoImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3967,9 +3962,7 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.repaint();
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
-        RegistrarServicioPrecioTextField.setText(null); 
-        RegServicioPaisOrigenComboBox.setSelectedIndex(0);
-        RegServicioPaisDestinoComboBox.setSelectedIndex(0);
+        RegistrarServicioPrecioTextField.setText(null);  
     }//GEN-LAST:event_RegServicioUbicacionCancelarButtonActionPerformed
 
     private void RegServicioPaisOrigenComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioPaisOrigenComboBoxActionPerformed
@@ -4137,8 +4130,6 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
         RegistrarServicioPrecioTextField.setText(null);
-        RegServicioPaisOrigenComboBox.setSelectedIndex(0);
-        RegServicioPaisDestinoComboBox.setSelectedIndex(0);
         RegServicioImagen1Label.setIcon(null);
         RegServicioImagen2Label.setIcon(null);
         RegServicioImagen3Label.setIcon(null);
@@ -4345,8 +4336,6 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioPrecioTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
-        RegServicioPaisOrigenComboBox.setSelectedIndex(0);
-        RegServicioPaisDestinoComboBox.setSelectedIndex(0);
         RegServicioImagen1Label.setIcon(null);
         RegServicioImagen2Label.setIcon(null);
         RegServicioImagen3Label.setIcon(null);
@@ -4361,20 +4350,15 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioCargarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCargarCategoriaButtonActionPerformed
         // TODO add your handling code here:
-         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) RegServicioCategoriasTree.getLastSelectedPathComponent(); 
-        if ((cat.isRoot()))
-          JOptionPane.showMessageDialog(null, "No se puede elegir esta categoria","Warning",JOptionPane.WARNING_MESSAGE);
-        else{
         try
 	{
-	              
+	    DefaultMutableTreeNode cat = (DefaultMutableTreeNode) RegServicioCategoriasTree.getLastSelectedPathComponent();            
             categorias.add(cat.toString());
             JOptionPane.showMessageDialog(this, "Se ha agregado la categoria " + cat.toString());
 	}catch(Exception ex)
 	{
             JOptionPane.showMessageDialog(this, ex.getMessage());
 	}
-    }
     }//GEN-LAST:event_RegServicioCargarCategoriaButtonActionPerformed
 
     private void RegReservaSPubAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubAgregarButtonActionPerformed
@@ -4445,9 +4429,6 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void InfoServicioCategoriaSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoServicioCategoriaSiguienteButtonActionPerformed
         // TODO add your handling code here:
-        if (InfoServicioServiciosComboBox.getSelectedIndex() == 0)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Servicio","Warning",JOptionPane.WARNING_MESSAGE);
-        else{
         InfoServicioCategoriaPanel.setVisible(false);
         InfoServicioInfoServicioPanel.setVisible(true);
         IControladorPublicacion pub = fabrica.getControladorPublicacion();
@@ -4498,7 +4479,7 @@ public class Interfaz extends javax.swing.JFrame {
                 }
             }
         }
-        }
+        
     }//GEN-LAST:event_InfoServicioCategoriaSiguienteButtonActionPerformed
 
     private void AltaCiudadPaisComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaCiudadPaisComboBoxActionPerformed
@@ -4624,8 +4605,6 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
         RegistrarServicioPrecioTextField.setText(null);
-        RegServicioPaisOrigenComboBox.setSelectedIndex(0);
-        RegServicioPaisDestinoComboBox.setSelectedIndex(0);
         RegServicioImagen1Label.setIcon(null);
         RegServicioImagen2Label.setIcon(null);
         RegServicioImagen3Label.setIcon(null);
