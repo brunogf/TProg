@@ -36,6 +36,7 @@ public class ControladorUsuario implements IControladorUsuario{
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
             c.cambiarImagen(img);
+
         } catch (Exception ex) {
             throw ex;
         }

@@ -19,6 +19,7 @@ public abstract class DataUsuario {
     private Date fecha_;
     private String img_;
     
+    
     public DataUsuario(){}
     public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha)
     {
