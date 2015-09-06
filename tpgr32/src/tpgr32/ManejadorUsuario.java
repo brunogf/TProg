@@ -35,7 +35,7 @@ public class ManejadorUsuario {
     
     public void agregarUsuario(Usuario u) throws Exception {
         if (this.conjUsuarios.containsKey(u.getNickname())) {
-            Exception e = new Exception("El nickName ingresado ya existe en el Sistema");
+            Exception e = new IllegalArgumentException("El nickName ingresado ya existe en el Sistema");
             throw e;
         }
         else {

@@ -24,7 +24,12 @@ public class ControladorUsuario implements IControladorUsuario{
             Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
-        } catch (Exception ex) {
+        }
+        catch(IllegalArgumentException ia)
+        {
+            throw ia;
+        }
+        catch (Exception ex) {
             throw ex;
         }
     }
