@@ -511,7 +511,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="RegCategoriaScrollPane" pref="171" max="32767" attributes="0"/>
+                                      <Component id="RegCategoriaScrollPane" pref="167" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
@@ -554,7 +554,7 @@
                           <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="RegCategoriaScrollPane" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <EmptySpace pref="77" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="RegCategoriaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegCategoriaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -572,14 +572,14 @@
             </Component>
             <Component class="javax.swing.JLabel" name="RegCategoriaNomCategoriaLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Nombre"/>
+                <Property name="text" type="java.lang.String" value="Nombre:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="RegCategoriaNombreCategoriaTextField">
             </Component>
             <Component class="javax.swing.JLabel" name="RegCategoriaCategoriaPadreLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Categoria padre"/>
+                <Property name="text" type="java.lang.String" value="Categoria padre:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="RegCategoriaSinPadreRadioButton">
@@ -601,7 +601,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="RegCategoriaSelecCategoriaPadreLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Selecciona la categoria padre"/>
+                <Property name="text" type="java.lang.String" value="Selecciona la categoria padre:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="RegCategoriaScrollPane">
@@ -1434,37 +1434,6 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="RegistrarPromocionSeleccionarProveedorLabel" min="-2" max="-2" attributes="0"/>
-                                              <Component id="RegistrarPromocionSeleccionarProveedorButton" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="RegistrarPromocionProveedorScrollPane" min="-2" pref="168" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="RegistrarPromocionNombreLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="RegistrarPromocionNombreTextField" min="-2" pref="100" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                                          <Component id="RegistrarPromocionDescuentoLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="RegistrarPromocionDescuentoTextField" min="-2" pref="45" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="73" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -1501,6 +1470,37 @@
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="RegistrarPromocionSeleccionarProveedorLabel" min="-2" max="-2" attributes="0"/>
+                                              <Component id="RegistrarPromocionSeleccionarProveedorButton" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="RegistrarPromocionProveedorScrollPane" min="-2" pref="168" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="RegistrarPromocionNombreLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="RegistrarPromocionNombreTextField" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                                          <Component id="RegistrarPromocionDescuentoLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="RegistrarPromocionDescuentoTextField" min="-2" pref="45" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                                  <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="70" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -1508,7 +1508,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="RegistrarPromocionLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegistrarPromocionNombreTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegistrarPromocionNombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1553,14 +1553,14 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="RegistrarPromocionNombreLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nombre"/>
+                    <Property name="text" type="java.lang.String" value="Nombre:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="RegistrarPromocionNombreTextField">
                 </Component>
                 <Component class="javax.swing.JLabel" name="RegistrarPromocionSeleccionarProveedorLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Proveedores"/>
+                    <Property name="text" type="java.lang.String" value="Proveedores:"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="RegistrarPromocionProveedorScrollPane">
@@ -1590,7 +1590,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="RegistrarPromocionDescuentoLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Descuento"/>
+                    <Property name="text" type="java.lang.String" value="Descuento (%):"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="RegistrarPromocionDescuentoTextField">
@@ -1633,7 +1633,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="RegistrarPromocionPrecioFinalLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Precio Final"/>
+                    <Property name="text" type="java.lang.String" value="Precio Final:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="RegistrarPromocionAceptarButton">
@@ -4557,7 +4557,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionDescuentoLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Descuento:"/>
+                    <Property name="text" type="java.lang.String" value="Descuento (%):"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="InfoPromocionDescuentoPLabel">
@@ -4716,9 +4716,9 @@
                                   <Component id="InfoPromocionProveedorServicioSLabel" alignment="0" pref="59" max="32767" attributes="0"/>
                                   <Component id="InfoPromocionPrecioServicioSLabel" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="InfoPromocionNombreServicioSLabel" alignment="0" min="-2" pref="124" max="-2" attributes="0"/>
+                              <Component id="InfoPromocionNombreServicioSLabel" min="-2" pref="186" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
