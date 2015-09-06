@@ -30,8 +30,8 @@ public interface IControladorPublicacion {
     Set<DataServicio> listarServiciosDeCategoria(String cat);
     void modificarDescripcionServicio(String des);
     void modificarImagenesServicio(Set<Image> imgs);
-    void modificarOrigenServicio(String origen);
     void modificarPrecioServicio(float precio);
+    void eliminarDestinoServicio();
     void registrarCategoria(String nombre);
     void registrarCategoria(String nombre, String padre);
     void seleccionarServicio(String proveedor, String nombre);    

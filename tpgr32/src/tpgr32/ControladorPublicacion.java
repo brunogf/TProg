@@ -144,11 +144,12 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    
    public void modificarImagenesServicio(Set<Image> imagenes){
-       
+       instServicio.setImagenes(imagenes);
    }
    
-   public void modificarOrigenServicio(String origen){
-       
+   public void eliminarDestinoServicio()
+   {
+       instServicio.eliminarDestino();
    }
    
    public void modificarPrecioServicio(float nuevo){
@@ -157,12 +158,14 @@ public class ControladorPublicacion implements IControladorPublicacion{
    
    public void modificarOrigenServicio(String pais, String ciudad)          
    {
-       instServicio.
+       ManejadorPais mp = ManejadorPais.getInstance();
+       instServicio.setCiudadOrigen(mp.encontrarPais(pais).encontrarCiudad(ciudad));
    }
    
    public void modificarDestinoServicio(String pais, String ciudad)
    {
-       
+        ManejadorPais mp = ManejadorPais.getInstance();
+       instServicio.setCiudadDestino(mp.encontrarPais(pais).encontrarCiudad(ciudad));
    }
    
    public void registrarCategoria(String nombre){

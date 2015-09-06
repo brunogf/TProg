@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.awt.Image;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import javax.imageio.ImageIO;
@@ -31,11 +32,16 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     private Image im2;
     private Image im3;
     private DataServicio ds;
+    private boolean destino;
+    private boolean modim1;
+    private boolean modim2;
+    private boolean modim3;
     public ActualizarServicioInternalFrame() {
         initComponents();
         im1 = null;
         im2 = null;
         im3 = null;
+        destino = false;
         
         PrimerPanel.setVisible(true);
         SegundoPanel.setVisible(false);
@@ -371,12 +377,17 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 if (!(imagenes.isEmpty()))
                 {
                     Iterator<Image> it = imagenes.iterator();
-                    PrimeraImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
+                    im1 = it.next();
+                    PrimeraImagenSegundoPanel.setIcon(new ImageIcon(im1.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
                     if (it.hasNext())
                     {
-                        SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
+                        im2 = it.next();
+                        SegundaImagenSegundoPanel.setIcon(new ImageIcon(im2.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));
                         if (it.hasNext())
-                            SegundaImagenSegundoPanel.setIcon(new ImageIcon(it.next().getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));                  
+                        {
+                            im3 = it.next();
+                            SegundaImagenSegundoPanel.setIcon(new ImageIcon(im3.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH)));            
+                        }
                     }
 
                 }
@@ -389,12 +400,14 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 SegundoPanelPaisOrigen.setSelectedItem(ds.getPaisOrigen());
                 if (ds.getPaisDestino().compareTo("No tiene")== 0)
                 {
+                    destino = false;
                     SegundoPanelDestino.setSelected(false);
                     SegundoPanelPaisDestino.setVisible(false);
                     SegundoPanelCiudadDestino.setVisible(false);
                 }
                 else
                 {
+                    destino = true;
                     SegundoPanelDestino.setSelected(true);
                     SegundoPanelPaisDestino.setVisible(true);
                     SegundoPanelCiudadDestino.setVisible(true);
@@ -501,7 +514,24 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 cp.modificarDescripcionServicio(DescripcionSegundoPanel.getText());
             if(!(ds.getPrecio() == Float.parseFloat(PrecioSegundoPanel.getText())))
                 cp.modificarPrecioServicio(Float.parseFloat(PrecioSegundoPanel.getText()));
-            
+            if((!(ds.getPaisOrigen().compareTo((String)SegundoPanelPaisOrigen.getSelectedItem())==0)) || (!(ds.getCiudadOrigen().compareTo((String)SegundoPanelCiudadOrigen.getSelectedItem())==0)))
+                cp.modificarOrigenServicio((String)SegundoPanelPaisOrigen.getSelectedItem(), (String)SegundoPanelCiudadOrigen.getSelectedItem());
+            if((destino) || (SegundoPanelDestino.isSelected()))
+            {
+                if (SegundoPanelDestino.isSelected())
+                        cp.modificarDestinoServicio((String)SegundoPanelPaisDestino.getSelectedItem(), (String)SegundoPanelCiudadDestino.getSelectedItem());
+                else
+                    cp.eliminarDestinoServicio();
+            }
+            Set<Image> im = new HashSet<>();
+            if(im1 != null)
+                im.add(im1);
+            if(im2 != null)
+                im.add(im2);
+            if(im3 != null)
+                im.add(im3);
+            cp.modificarImagenesServicio(im);
+            JOptionPane.showMessageDialog(null, "El servicio se actualizo con exito");
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
