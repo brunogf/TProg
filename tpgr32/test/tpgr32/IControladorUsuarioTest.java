@@ -60,6 +60,22 @@ public class IControladorUsuarioTest {
         IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
         cu.altaCliente("mHooch", "Madam", "Hooch", "Correo", new Date());
         }
+    
+    @Test
+    public void testInfoCliente() {
+        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+        DataUsuario du = cu.infoCliente("eWatson");
+        assertEquals("eWatson", du.getNickname());
+        assertEquals("Emma", du.getNombre());
+        assertEquals("Watson", du.getApellido());
+        assertEquals("e.watson@gmail.com",du.getCorreo());
+    }
+    
+    @Test(expected=IllegalArgumentException.class)//DEBERIA DAR EXCEPCION PORQUE TCOOK ES PROVEEDOR!
+    public void TestInfoCliente2(){
+        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+        DataUsuario du = cu.infoCliente("tCook");
+    }
 
     
     /*
