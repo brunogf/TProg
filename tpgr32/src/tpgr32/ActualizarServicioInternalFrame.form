@@ -98,6 +98,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Siguiente"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SiguientePrimerPanelActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="CancelarPrimerPanel">
           <Properties>
@@ -126,10 +129,7 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="DescripcionLabelSegundoPanel" min="-2" max="-2" attributes="0"/>
-                                      <Component id="NombreServicioSegundoPanel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="DescripcionLabelSegundoPanel" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -161,6 +161,11 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="NombreServicioSegundoPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -199,7 +204,9 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="NombreServicioSegundoPanel">
           <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Nombre servicio"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="ProveedorSegundoPanel">
@@ -219,7 +226,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="DescripcionPrimerPanel">
+            <Component class="javax.swing.JTextArea" name="DescripcionSegundoPanel">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
