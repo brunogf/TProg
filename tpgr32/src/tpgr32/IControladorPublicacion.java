@@ -41,4 +41,6 @@ public interface IControladorPublicacion {
     void altaCiudad(String pais, String nombre);
     Set<DataPublicacion> listarPublicaciones();
     Set<DataServicio> listarServicioDeCategoriaCompleto(String cat);
+    public void modificarOrigenServicio(String pais, String ciudad);
+    public void modificarDestinoServicio(String pais, String ciudad);
 }

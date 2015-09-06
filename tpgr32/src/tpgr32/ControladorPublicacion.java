@@ -155,6 +155,16 @@ public class ControladorPublicacion implements IControladorPublicacion{
        instServicio.setPrecio(nuevo);
    }
    
+   public void modificarOrigenServicio(String pais, String ciudad)          
+   {
+       instServicio.
+   }
+   
+   public void modificarDestinoServicio(String pais, String ciudad)
+   {
+       
+   }
+   
    public void registrarCategoria(String nombre){
        mCategoria = ManejadorCategoria.getInstance();
        mCategoria.agregarCategoria(nombre);

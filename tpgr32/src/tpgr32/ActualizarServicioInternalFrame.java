@@ -10,6 +10,7 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.Set;
 import javax.imageio.ImageIO;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -79,11 +80,11 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         ActualizarSegundoPanel = new javax.swing.JButton();
         CancelarSegundoPanel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        SegundoPanelPaisOrigen = new javax.swing.JComboBox();
-        SegundoPanelCiudadOrigen = new javax.swing.JComboBox();
+        SegundoPanelPaisOrigen = new javax.swing.JComboBox<String>();
+        SegundoPanelCiudadOrigen = new javax.swing.JComboBox<String>();
         SegundoPanelDestino = new javax.swing.JCheckBox();
-        SegundoPanelPaisDestino = new javax.swing.JComboBox();
-        SegundoPanelCiudadDestino = new javax.swing.JComboBox();
+        SegundoPanelPaisDestino = new javax.swing.JComboBox<String>();
+        SegundoPanelCiudadDestino = new javax.swing.JComboBox<String>();
 
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -228,12 +229,22 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         jLabel1.setText("Origen:");
 
         SegundoPanelPaisOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SegundoPanelPaisOrigen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SegundoPanelPaisOrigenActionPerformed(evt);
+            }
+        });
 
         SegundoPanelCiudadOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         SegundoPanelDestino.setText("Destino");
 
         SegundoPanelPaisDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SegundoPanelPaisDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SegundoPanelPaisDestinoActionPerformed(evt);
+            }
+        });
 
         SegundoPanelCiudadDestino.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -369,6 +380,30 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                     }
 
                 }
+                //origen
+                DefaultComboBoxModel<String> dc = (DefaultComboBoxModel<String>) SegundoPanelPaisOrigen.getModel();
+                dc.removeAllElements();
+                Set<String> paises = cp.listarPaises();
+                for (String pais : paises)
+                    dc.addElement(pais);
+                SegundoPanelPaisOrigen.setSelectedItem(ds.getPaisOrigen());
+                if (ds.getPaisDestino().compareTo("No tiene")== 0)
+                {
+                    SegundoPanelDestino.setSelected(false);
+                    SegundoPanelPaisDestino.setVisible(false);
+                    SegundoPanelCiudadDestino.setVisible(false);
+                }
+                else
+                {
+                    SegundoPanelDestino.setSelected(true);
+                    SegundoPanelPaisDestino.setVisible(true);
+                    SegundoPanelCiudadDestino.setVisible(true);
+                    dc = (DefaultComboBoxModel<String>) SegundoPanelPaisDestino.getModel();
+                    dc.removeAllElements();
+                    for (String pais : paises)
+                        dc.addElement(pais);
+                    SegundoPanelPaisDestino.setSelectedItem(ds.getPaisDestino());
+                }
                 PrimerPanel.setVisible(false);
                 SegundoPanel.setVisible(true);
             }
@@ -473,6 +508,29 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         
     }//GEN-LAST:event_ActualizarSegundoPanelActionPerformed
 
+    private void SegundoPanelPaisOrigenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SegundoPanelPaisOrigenActionPerformed
+        DefaultComboBoxModel<String> dm = (DefaultComboBoxModel<String>) SegundoPanelCiudadOrigen.getModel();
+        dm.removeAllElements();
+        if (!(SegundoPanelPaisOrigen.getSelectedItem() == null))
+        {
+            Set<String> cities = cp.listarCiudades(((String)SegundoPanelPaisOrigen.getSelectedItem()));
+            for (String c : cities)
+                dm.addElement(c);
+        }
+       
+    }//GEN-LAST:event_SegundoPanelPaisOrigenActionPerformed
+
+    private void SegundoPanelPaisDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SegundoPanelPaisDestinoActionPerformed
+        DefaultComboBoxModel<String> dm = (DefaultComboBoxModel<String>) SegundoPanelCiudadDestino.getModel();
+        dm.removeAllElements();
+        if (!(SegundoPanelPaisDestino.getSelectedItem() == null))
+        {
+            Set<String> cities = cp.listarCiudades(((String)SegundoPanelPaisDestino.getSelectedItem()));
+            for (String c : cities)
+                dm.addElement(c);
+        }
+    }//GEN-LAST:event_SegundoPanelPaisDestinoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarSegundoPanel;
@@ -488,11 +546,11 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
     private javax.swing.JLabel ProveedorSegundoPanel;
     private javax.swing.JLabel SegundaImagenSegundoPanel;
     private javax.swing.JPanel SegundoPanel;
-    private javax.swing.JComboBox SegundoPanelCiudadDestino;
-    private javax.swing.JComboBox SegundoPanelCiudadOrigen;
+    private javax.swing.JComboBox<String> SegundoPanelCiudadDestino;
+    private javax.swing.JComboBox<String> SegundoPanelCiudadOrigen;
     private javax.swing.JCheckBox SegundoPanelDestino;
-    private javax.swing.JComboBox SegundoPanelPaisDestino;
-    private javax.swing.JComboBox SegundoPanelPaisOrigen;
+    private javax.swing.JComboBox<String> SegundoPanelPaisDestino;
+    private javax.swing.JComboBox<String> SegundoPanelPaisOrigen;
     private javax.swing.JButton SiguientePrimerPanel;
     private javax.swing.JTable TablaPrimerPanel;
     private javax.swing.JLabel TercerImagenSegundoPanel;
