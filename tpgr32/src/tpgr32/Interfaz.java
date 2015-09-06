@@ -22,6 +22,7 @@ import java.awt.event.*;
 import java.io.File;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
+import javax.swing.JInternalFrame;
 
 /**
  *
@@ -3307,7 +3308,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         PanelCentral.add(ConsultaUsuarioFrame, "card3");
 
-        MenuInicio.setText("Inicio");
+        MenuInicio.setText("Archivo");
         BarraMenu.add(MenuInicio);
 
         MenuRegistros.setText("Registros");
@@ -3482,6 +3483,8 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void MenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarUsuarioActionPerformed
       
 	ClienteOProveedor.add(RegUsuarioClienteRadioButton);
@@ -3643,7 +3646,8 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void MenuActualizarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActualizarServicioActionPerformed
         PanelCentral.removeAll();
-        PanelCentral.add(new ActualizarServicioInternalFrame());
+        JInternalFrame inf = new ActualizarServicioInternalFrame();
+        PanelCentral.add(inf);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
     }//GEN-LAST:event_MenuActualizarServicioActionPerformed
@@ -5217,6 +5221,8 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.remove(this.ConsultaUsuarioFrame);
     }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
 
+    
+    
     private void InfoReservasDelCLienteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasDelCLienteBotonActionPerformed
 
         if (!this.nombreClientes.isSelectionEmpty()) {

@@ -19,7 +19,7 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="MenuInicio">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Inicio"/>
+            <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuRegistros">

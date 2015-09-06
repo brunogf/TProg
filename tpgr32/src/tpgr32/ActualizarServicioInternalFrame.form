@@ -41,11 +41,7 @@
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace pref="22" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="CancelarPrimerPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="SiguientePrimerPanel" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="SiguientePrimerPanel" min="-2" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="370" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -60,10 +56,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="315" max="-2" attributes="0"/>
                   <EmptySpace pref="41" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SiguientePrimerPanel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="CancelarPrimerPanel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="SiguientePrimerPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -109,14 +102,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SiguientePrimerPanelActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="CancelarPrimerPanel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CancelarPrimerPanelActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="SegundoPanel">
@@ -133,8 +118,6 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Component id="CancelarSegundoPanel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="ActualizarSegundoPanel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
@@ -234,16 +217,15 @@
                       <Component id="SegundoPanelCiudadOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SegundoPanelDestino" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="SegundoPanelPaisDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="SegundoPanelCiudadDestino" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="SegundoPanelDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="SegundoPanelPaisDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="CancelarSegundoPanel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ActualizarSegundoPanel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="ActualizarSegundoPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="34" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -352,11 +334,6 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarSegundoPanelActionPerformed"/>
           </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="CancelarSegundoPanel">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cancelar"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>

@@ -15,6 +15,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
@@ -71,7 +72,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         TablaPrimerPanel = new javax.swing.JTable();
         TituloPrimerPanel = new javax.swing.JLabel();
         SiguientePrimerPanel = new javax.swing.JButton();
-        CancelarPrimerPanel = new javax.swing.JButton();
         SegundoPanel = new javax.swing.JPanel();
         NombreServicioSegundoPanel = new javax.swing.JLabel();
         ProveedorSegundoPanel = new javax.swing.JLabel();
@@ -84,7 +84,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         PrecioLabelSegundoPanel = new javax.swing.JLabel();
         PrecioSegundoPanel = new javax.swing.JTextField();
         ActualizarSegundoPanel = new javax.swing.JButton();
-        CancelarSegundoPanel = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         SegundoPanelPaisOrigen = new javax.swing.JComboBox<String>();
         SegundoPanelCiudadOrigen = new javax.swing.JComboBox<String>();
@@ -134,13 +133,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
             }
         });
 
-        CancelarPrimerPanel.setText("Cancelar");
-        CancelarPrimerPanel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CancelarPrimerPanelActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout PrimerPanelLayout = new javax.swing.GroupLayout(PrimerPanel);
         PrimerPanel.setLayout(PrimerPanelLayout);
         PrimerPanelLayout.setHorizontalGroup(
@@ -152,10 +144,7 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PrimerPanelLayout.createSequentialGroup()
                 .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(PrimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(PrimerPanelLayout.createSequentialGroup()
-                        .addComponent(CancelarPrimerPanel)
-                        .addGap(18, 18, 18)
-                        .addComponent(SiguientePrimerPanel))
+                    .addComponent(SiguientePrimerPanel)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
@@ -167,9 +156,7 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(PrimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SiguientePrimerPanel)
-                    .addComponent(CancelarPrimerPanel))
+                .addComponent(SiguientePrimerPanel)
                 .addGap(20, 20, 20))
         );
 
@@ -230,8 +217,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
             }
         });
 
-        CancelarSegundoPanel.setText("Cancelar");
-
         jLabel1.setText("Origen:");
 
         SegundoPanelPaisOrigen.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -262,8 +247,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SegundoPanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(CancelarSegundoPanel)
-                        .addGap(26, 26, 26)
                         .addComponent(ActualizarSegundoPanel))
                     .addGroup(SegundoPanelLayout.createSequentialGroup()
                         .addContainerGap()
@@ -339,14 +322,13 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                     .addComponent(SegundoPanelPaisOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SegundoPanelCiudadOrigen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SegundoPanelDestino)
-                    .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SegundoPanelCiudadDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SegundoPanelCiudadDestino, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(SegundoPanelDestino)
+                        .addComponent(SegundoPanelPaisDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(10, 10, 10)
-                .addGroup(SegundoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CancelarSegundoPanel)
-                    .addComponent(ActualizarSegundoPanel))
+                .addComponent(ActualizarSegundoPanel)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -431,10 +413,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
         if(evt.getClickCount() == 2)
             SiguientePrimerPanel.doClick();
     }//GEN-LAST:event_TablaPrimerPanelMouseClicked
-
-    private void CancelarPrimerPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarPrimerPanelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CancelarPrimerPanelActionPerformed
 
     private void PrimeraImagenSegundoPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PrimeraImagenSegundoPanelMouseClicked
         if (evt.getClickCount() == 2)
@@ -532,6 +510,8 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
                 im.add(im3);
             cp.modificarImagenesServicio(im);
             JOptionPane.showMessageDialog(null, "El servicio se actualizo con exito");
+            SwingUtilities.getWindowAncestor(this).repaint();
+            SwingUtilities.getWindowAncestor(this).revalidate();
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
@@ -564,8 +544,6 @@ public class ActualizarServicioInternalFrame extends javax.swing.JInternalFrame 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarSegundoPanel;
-    private javax.swing.JButton CancelarPrimerPanel;
-    private javax.swing.JButton CancelarSegundoPanel;
     private javax.swing.JLabel DescripcionLabelSegundoPanel;
     private javax.swing.JTextArea DescripcionSegundoPanel;
     private javax.swing.JLabel NombreServicioSegundoPanel;
