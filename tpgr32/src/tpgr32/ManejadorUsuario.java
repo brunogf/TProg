@@ -52,7 +52,7 @@ public class ManejadorUsuario {
                  this.conjUsuarios.put(u.getNickname(), u);
             }
             else { 
-                Exception e = new Exception("El Correo Electrónico ingresado ya existe en el Sistema");
+                Exception e = new IllegalArgumentException("El Correo Electrónico ingresado ya existe en el Sistema");
                 throw e;               
             }
         }        

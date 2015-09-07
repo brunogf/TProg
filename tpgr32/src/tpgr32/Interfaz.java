@@ -167,7 +167,7 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarPromocionNombreTextField = new javax.swing.JTextField();
         RegistrarPromocionSeleccionarProveedorLabel = new javax.swing.JLabel();
         RegistrarPromocionProveedorScrollPane = new javax.swing.JScrollPane();
-        RegistrarPromocionProveedorList = new javax.swing.JList();
+        RegistrarPromocionProveedorList = new javax.swing.JList<DataUsuario>();
         RegistrarPromocionSeleccionarProveedorButton = new javax.swing.JButton();
         RegistrarPromocionDescuentoLabel = new javax.swing.JLabel();
         RegistrarPromocionDescuentoTextField = new javax.swing.JTextField();
@@ -248,7 +248,7 @@ public class Interfaz extends javax.swing.JFrame {
         }
         ;
         SeleccionarEstadoLabel = new javax.swing.JLabel();
-        EstadosComboBox = new javax.swing.JComboBox();
+        EstadosComboBox = new javax.swing.JComboBox<Estado>();
         ActualizarEstadoReservaAceptarButton = new javax.swing.JButton();
         ActualizarEstadoReservaCancelarButton = new javax.swing.JButton();
         CancelarReservaFrame = new javax.swing.JInternalFrame();
@@ -270,7 +270,7 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioCategoriaCancelarButton = new javax.swing.JButton();
         InfoServicioCategoriaSiguienteButton = new javax.swing.JButton();
         InfoServicioSeleccServLabel = new javax.swing.JLabel();
-        InfoServicioServiciosComboBox = new javax.swing.JComboBox();
+        InfoServicioServiciosComboBox = new javax.swing.JComboBox<String>();
         InfoServicioInfoServicioPanel = new javax.swing.JPanel();
         InfoServicioInfoServicioTitleLabel = new javax.swing.JLabel();
         InfoServicioInfoServicioNombreLabel = new javax.swing.JLabel();
@@ -2120,7 +2120,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EliminarReservaButton)
                     .addComponent(CancelarBajaReservaButton))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         PanelCentral.add(CancelarReservaFrame, "card15");
@@ -2460,6 +2460,7 @@ public class Interfaz extends javax.swing.JFrame {
         InfoReservaInfoPanel.setLayout(InfoReservaInfoPanelLayout);
         InfoReservaInfoPanelLayout.setHorizontalGroup(
             InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
                 .addGroup(InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
@@ -2488,14 +2489,12 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(InfoReservaInfoBasicaLabel))))
                     .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
                         .addGap(158, 158, 158)
-                        .addComponent(InfoReservaPublicacionesLabel)))
-                .addContainerGap(17, Short.MAX_VALUE))
-            .addComponent(jScrollPane17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(InfoReservaPrecioLabel)
-                .addGap(18, 18, 18)
-                .addComponent(InfoReservaSRPrecioLabel)
+                        .addComponent(InfoReservaPublicacionesLabel))
+                    .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(InfoReservaPrecioLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(InfoReservaSRPrecioLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         InfoReservaInfoPanelLayout.setVerticalGroup(
@@ -3051,17 +3050,14 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(ConsultaProveedorServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                                 .addGap(119, 119, 119)
                                 .addComponent(ConsultaProveedorLabel2)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 3, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ConsultarInfoProveedorLayout.setVerticalGroup(
@@ -3675,7 +3671,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void MenuRegistrarPromocionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarPromocionActionPerformed
         PanelCentral.removeAll();
         ControladorUsuario cU = fabrica.getControladorUsuario();
-        DefaultListModel modelo = new DefaultListModel();
+        DefaultListModel<DataUsuario> modelo = new DefaultListModel<DataUsuario>();
         Set<DataUsuario> datosProveedores = cU.listarProveedores();
         for (DataUsuario dataU : datosProveedores) {
             modelo.addElement(dataU); //agrega los clientes a la jList
@@ -5469,7 +5465,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ConsultarProvImagenLabel;
     private javax.swing.JLabel ConsultarUsuarioImagen1Label;
     private javax.swing.JButton EliminarReservaButton;
-    private javax.swing.JComboBox EstadosComboBox;
+    private javax.swing.JComboBox<Estado> EstadosComboBox;
     private javax.swing.JFileChooser ImageFileChooser;
     private javax.swing.JButton InfoPromocionAtrasButton;
     private javax.swing.JButton InfoPromocionCancelarButton;
@@ -5564,7 +5560,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel InfoServicioInfoServicioTitleLabel;
     private javax.swing.JLabel InfoServicioInfoServicoDescrLabel;
     private javax.swing.JLabel InfoServicioSeleccServLabel;
-    private javax.swing.JComboBox InfoServicioServiciosComboBox;
+    private javax.swing.JComboBox<String> InfoServicioServiciosComboBox;
     private javax.swing.JLabel InfoServiciosProveedorDescLabel;
     private javax.swing.JLabel InfoServiciosProveedorImagen1;
     private javax.swing.JInternalFrame InformacionReservaFrame;
@@ -5714,7 +5710,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel RegistrarPromocionPanel;
     private javax.swing.JLabel RegistrarPromocionPrecioFinalCalculadoLabel;
     private javax.swing.JLabel RegistrarPromocionPrecioFinalLabel;
-    private javax.swing.JList RegistrarPromocionProveedorList;
+    private javax.swing.JList<DataUsuario> RegistrarPromocionProveedorList;
     private javax.swing.JScrollPane RegistrarPromocionProveedorScrollPane;
     private javax.swing.JScrollPane RegistrarPromocionScrollPane;
     private javax.swing.JButton RegistrarPromocionSeleccionarProveedorButton;

@@ -5,8 +5,12 @@
  */
 package tpgr32;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Set;
+import junit.framework.Assert;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -62,13 +66,18 @@ public class IControladorUsuarioTest {
         }
     
     @Test
-    public void testInfoCliente() {
+    public void testInfoCliente() throws ParseException {
         IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
         DataUsuario du = cu.infoCliente("eWatson");
         assertEquals("eWatson", du.getNickname());
         assertEquals("Emma", du.getNombre());
         assertEquals("Watson", du.getApellido());
         assertEquals("e.watson@gmail.com",du.getCorreo());
+        Assert.assertNotSame("",du.getImage());
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        try{
+        assertEquals(du.getFecha(),df.parse("15-04-1990"));
+        }catch(Exception e){}
     }
     
     @Test(expected=IllegalArgumentException.class)//DEBERIA DAR EXCEPCION PORQUE TCOOK ES PROVEEDOR!
@@ -77,6 +86,35 @@ public class IControladorUsuarioTest {
         DataUsuario du = cu.infoCliente("tCook");
     }
 
+    @Test
+    public void testAltaProveedor() throws ParseException
+    {
+       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+       DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+       Date f = df.parse("01-01-1990");
+       try{
+       cu.altaProveedor("NicknameASD", "NombreASD", "ApellidoASD", "correo@correo", f, "EmpresaASD", "URLASD");}
+       catch(Exception e){}
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testAltaProveedor2() throws ParseException, Exception
+    {
+       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+       DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+       Date f = df.parse("01-01-1990");
+       cu.altaProveedor("NicknameASD", "NombreASD", "ApellidoASD", "correo@correo", f, "EmpresaASD", "URLASD");
+    }
+    
+    @Test(expected=IllegalArgumentException.class)
+    public void testAltaProveedor3() throws ParseException, Exception
+    {
+       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+       DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+       Date f = df.parse("01-01-1990");
+       cu.altaProveedor("NicknameASB", "NombreASD", "ApellidoASD", "correo@correo", f, "EmpresaASD", "URLASD");
+    }
+   
     
     /*
     @Test
