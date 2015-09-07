@@ -6,6 +6,7 @@
 package tpgr32;
 
 import java.awt.Image;
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.tree.DefaultTreeModel;
 import org.junit.After;
@@ -59,6 +60,16 @@ public class IControladorPublicacionTest {
     {
         IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
         cp.altaPais("Uruguay");
+    }
+    
+    @Test(expected=IllegalArgumentException.class)   // Dos servicios de un proveedor con el mismo nombre
+    public void testAltaServicio()
+    {
+        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        Set<Image> imagenes = new HashSet<>();
+        Set<String> categorias = new HashSet<>();
+        DataUbicacion dtorigen = new DataUbicacion("Uruguay","Montevideo");
+        cp.altaServicio("Euro-Vuelo-S","nada",imagenes,22,categorias,"remus",dtorigen);
     }
     
     /*@Test
