@@ -107,7 +107,18 @@ public class IControladorPublicacionTest {
         assertEquals(Float.toString(ds.getPrecio()),"1100.0");
         assertEquals(ds.getProveedor(),"Remus Lupin (nickname: remus)");
         assertEquals(cp.listarPromociones().size(),8);
-        
+        cp.seleccionarServicio("remus", "Euro-Vuelo-S");
+        cp.modificarDescripcionServicio("Hola");
+        cp.modificarDestinoServicio("Argentina", "Buenos Aires");
+        cp.modificarOrigenServicio("España", "Valencia");
+        cp.modificarPrecioServicio(20);
+        ds = cp.infoServicio("remus", "Euro-Vuelo-S");
+        assertEquals(ds.getCiudadDestino(),"Buenos Aires");
+        assertEquals(ds.getDescripcion(),"Hola");
+        assertEquals(cp.listarPaises().size(),11);
+        assertEquals(cp.listarCiudades("Uruguay").size(), 1);
+        assertEquals(cp.listarPublicaciones().size(),20);
+        assertEquals(cp.listarServicioDeCategoriaCompleto("2 dormitorios").size(),3);
         
         
         
