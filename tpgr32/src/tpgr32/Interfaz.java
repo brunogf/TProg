@@ -377,9 +377,17 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaProveedor = new javax.swing.JButton();
         ConsultarProvImagenLabel = new javax.swing.JLabel();
         jScrollPane19 = new javax.swing.JScrollPane();
-        tablaDatosProveedor = new javax.swing.JTable();
+        tablaDatosProveedor = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         jScrollPane20 = new javax.swing.JScrollPane();
-        tablaDatosProveedor2 = new javax.swing.JTable();
+        tablaDatosProveedor2 = new javax.swing.JTable(){
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         InformacionServiciosDelProveedor = new javax.swing.JInternalFrame();
         ConsultaProvVerInfoServicioLabel = new javax.swing.JLabel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -402,7 +410,11 @@ public class Interfaz extends javax.swing.JFrame {
         InfoReservasDelCLienteBoton = new javax.swing.JButton();
         ConsultarUsuarioImagen1Label = new javax.swing.JLabel();
         jScrollPane18 = new javax.swing.JScrollPane();
-        tablaDatosUsuario = new javax.swing.JTable();
+        tablaDatosUsuario = new javax.swing.JTable(){
+            public boolean isCellEditable(int rowIndex, int colIndex) {
+                return false; //Disallow the editing of any cell
+            }
+        };
         BarraMenu = new javax.swing.JMenuBar();
         MenuArchivo = new javax.swing.JMenu();
         MenuSalir = new javax.swing.JMenuItem();
@@ -2323,7 +2335,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(InfoServicioInfoServicioPrecioLabel))
                     .addGroup(InfoServicioInfoServicioPanelLayout.createSequentialGroup()
                         .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(InfoServicioDatoPrecioLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InfoServicioInfoServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -3070,7 +3082,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGap(0, 46, Short.MAX_VALUE)
+                        .addGap(0, 49, Short.MAX_VALUE)
                         .addComponent(ConsultaProveedorBotonAtras))
                     .addComponent(ConsultarProvImagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -3271,7 +3283,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addComponent(ConsultaUsuarioBuscarButton)
-                        .addGap(28, 28, 28)
+                        .addGap(29, 29, 29)
                         .addComponent(InfoReservasDelCLienteBoton)
                         .addGap(39, 39, 39))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
@@ -3299,7 +3311,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultaUsuarioBuscarButton)
                     .addComponent(InfoReservasDelCLienteBoton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -5251,6 +5263,7 @@ public class Interfaz extends javax.swing.JFrame {
             tUsuario.addRow(new Object[]{dtC.getNickname(),dtC.getNombre(),dtC.getApellido(),
                 dtC.getFecha(),dtC.getCorreo()});
 
+                        
             
             
         ControladorUsuario cU = this.fabrica.getControladorUsuario();
@@ -5276,7 +5289,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         DefaultListModel modeloNuevo = new DefaultListModel();
         this.nombreClientes.setModel(modeloNuevo);
-
+        
         this.ConsultarUsuarioImagen1Label.setIcon(null);
         this.ConsultarUsuarioImagen1Label.setText("No hay Imagen");
         PanelCentral.remove(this.ConsultaUsuarioFrame);
