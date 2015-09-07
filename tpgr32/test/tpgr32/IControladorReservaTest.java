@@ -95,19 +95,11 @@ public class IControladorReservaTest {
         assertEquals(cr.infoReserva(1).getCreacion(),df.parse("07-09-2015"));
     }
     
-    @Test
-    public void testBajaReserva()
-    {
-        IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
-        List<DataReserva> reservas = cr.listarReservas();
-        try{
-            cr.bajaReserva(2);
-            reservas=cr.listarReservas();
-        }catch(Exception e){
-            System.out.println(e.getMessage());
-        }    
-        assertEquals(6,reservas.size());
-    }
+    
+    
+
+    
+    
 
     public class IControladorReservaImpl implements IControladorReserva {
 
@@ -126,6 +118,10 @@ public class IControladorReservaTest {
         }
 
         public List<DataReserva> listarReservas() {
+            return null;
+        }
+
+        public Set<DataReserva> listarReservasEliminables() {
             return null;
         }
 
