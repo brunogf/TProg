@@ -72,14 +72,6 @@ public class IControladorPublicacionTest {
         cp.altaServicio("Euro-Vuelo-S","nada",imagenes,22,categorias,"remus",dtorigen);
     }
     
-    @Test
-    public void testAltaPromocion()
-    {
-        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
-        Set<DataServicio> setDS = new HashSet<>();
-        setDS.add(cp.infoServicio("moody", "Euro-Car-1"));
-        cp.altaPromocion("la Promo Moody", "moody" ,setDS,10);       
-    }
     
     @Test
     public void testAltaCategoria()
@@ -92,7 +84,39 @@ public class IControladorPublicacionTest {
     public void testInfoPromocion()
     {
         IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
-        cp.infoPromocion("moody", "Euro-Cars-E-F");
+        DataPromocion dp = cp.infoPromocion("moody", "Euro-Cars-E-F");
+        assertEquals(Float.toString(dp.getDescuento()),"30.0");
+        dp.getPrecioTotal();
+        assertEquals(dp.getProveedor(),"moody");
+    }
+    
+    @Test
+    public void testControlador()
+    {
+        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        cp.seleccionarServicio("remus", "Euro-Vuelo-S");
+        cp.agregarCategoriaServicio("2 dormitorios");
+        cp.listarServiciosDeCategoria("2 dormitorios");
+        DataServicio ds = cp.infoServicio("remus", "Euro-Vuelo-S");
+        assertEquals(ds.getNombre(),"Euro-Vuelo-S");
+        assertEquals(ds.getDescripcion(),"Vuelo con excelente atención y comodidad.");
+        assertEquals(ds.getCiudadOrigen(),"Montevideo");
+        assertEquals(ds.getCiudadDestino(),"Valencia");
+        assertEquals(ds.getPaisOrigen(),"Uruguay");
+        assertEquals(ds.getPaisDestino(),"España");
+        assertEquals(Float.toString(ds.getPrecio()),"1100.0");
+        assertEquals(ds.getProveedor(),"Remus Lupin (nickname: remus)");
+        assertEquals(cp.listarPromociones().size(),8);
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     public class IControladorPublicacionImpl implements IControladorPublicacion {
