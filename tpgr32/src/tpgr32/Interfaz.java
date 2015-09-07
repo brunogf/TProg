@@ -4743,15 +4743,21 @@ public class Interfaz extends javax.swing.JFrame {
             }
             int desc = Integer.parseInt(RegistrarPromocionDescuentoTextField.getText());
             if (!(RegistrarPromocionNombreTextField.getText().equals(""))){
-                ctrlPublic.altaPromocion(RegistrarPromocionNombreTextField.getText(),dataProv.getNickname(), setDS, desc);
-                PanelCentral.remove(RegistrarPromocionFrame);
-                DefaultListModel nuevoModeloLista = new DefaultListModel();
-                RegistrarPromocionProveedorList.setModel(nuevoModeloLista);
-                DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
-                modelo.setRowCount(0);
-                RegistrarPromocionDescuentoTextField.setText("0");
-                RegistrarPromocionNombreTextField.setText("");
-                RegistrarPromocionPrecioFinalCalculadoLabel.setText("");
+                try{
+                    ctrlPublic.altaPromocion(RegistrarPromocionNombreTextField.getText(),dataProv.getNickname(), setDS, desc);
+                    PanelCentral.remove(RegistrarPromocionFrame);
+                    DefaultListModel nuevoModeloLista = new DefaultListModel();
+                    RegistrarPromocionProveedorList.setModel(nuevoModeloLista);
+                    DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
+                    modelo.setRowCount(0);
+                    RegistrarPromocionDescuentoTextField.setText("0");
+                    RegistrarPromocionNombreTextField.setText("");
+                    RegistrarPromocionPrecioFinalCalculadoLabel.setText("");
+                }
+                catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+                
             }
             else{
                 JOptionPane.showMessageDialog(null, "Debes ingresar un nombre a la promoción", "ERROR", JOptionPane.ERROR_MESSAGE);

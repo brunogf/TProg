@@ -55,13 +55,17 @@ public class IControladorPublicacionTest {
     //TESTS
     
     @Test(expected=IllegalArgumentException.class)
-    public void asd()
+    public void testAltaPais()
     {
         IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
         cp.altaPais("Uruguay");
     }
     
-    
+    /*@Test
+    public void testAltaPromocion(){
+        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        cp.altaPromocion("Euro-Cars-E-S","remus" , ,);
+    }*/
     
 
     public class IControladorPublicacionImpl implements IControladorPublicacion {
