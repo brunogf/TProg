@@ -901,17 +901,16 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegServicioPaisDestinoLabel)
                                     .addComponent(RegServicioCiudadDestinoLabel))
                                 .addGap(48, 48, 48)
-                                .addComponent(RegServicioPaisDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(RegServicioPaisDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(RegServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(RegServicioUbicacionPanelLayout.createSequentialGroup()
                         .addGap(83, 83, 83)
                         .addComponent(RegServicioUbicacionCancelarButton)
                         .addGap(39, 39, 39)
                         .addComponent(RegServicioUbicacionAtrasButton)
                         .addGap(31, 31, 31)
-                        .addComponent(RegServicioUbicacionSiguienteButton))
-                    .addGroup(RegServicioUbicacionPanelLayout.createSequentialGroup()
-                        .addGap(167, 167, 167)
-                        .addComponent(RegServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(RegServicioUbicacionSiguienteButton)))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         RegServicioUbicacionPanelLayout.setVerticalGroup(
@@ -3638,6 +3637,19 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.add(RegistrarServicioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
+        RegistrarServicioNombreTextField.setText(null);
+        RegistrarServicioDescripcionTextArea.setText(null);
+        RegistrarServicioPrecioTextField.setText(null);
+        RegServicioPaisOrigenComboBox.setSelectedIndex(0);
+        RegServicioPaisDestinoComboBox.setSelectedIndex(0);
+        RegServicioImagen1Label.setIcon(null);
+        RegServicioImagen2Label.setIcon(null);
+        RegServicioImagen3Label.setIcon(null);
+        img1 = null;
+        img2 = null;
+        img3 = null;
+        if (categorias != null)
+          categorias.clear();
         RegServicioDatosBasicosPanel.setVisible(true);
         RegServicioProveedorPanel.setVisible(false);
         RegServicioUbicacionPanel.setVisible(false);
@@ -4424,6 +4436,17 @@ public class Interfaz extends javax.swing.JFrame {
 	PanelCentral.add(InformacionServicioFrame);
 	PanelCentral.repaint();
 	PanelCentral.revalidate();
+        InfoServicioDatoNombreLabel.setText(null);
+        InfoServicioDatoDescrTextArea.setText(null);
+        InfoServicioDatoPrecioLabel.setText(null);
+        InfoServicioDatoProvLabel.setText(null);
+        InfoServicioDatoPaisOLabel.setText(null);
+        InfoServicioDatoCiudadOLabel.setText(null);
+        InfoServicioDatoPaisDLabel.setText(null);
+        InfoServicioDatoCiudadDLabel.setText(null);
+        InfoServicioDatoImagen1Label.setIcon(null);
+        InfoServicioDatoImagen2Label.setIcon(null);
+        InfoServicioDatoImagen3Label.setIcon(null);
         InfoServicioCategoriaPanel.setVisible(true);
         InfoServicioInfoServicioPanel.setVisible(false);
     }//GEN-LAST:event_infoServicioMenuBarActionPerformed

@@ -949,7 +949,10 @@
                                               <Component id="RegServicioCiudadDestinoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                          <Component id="RegServicioPaisDestinoComboBox" min="-2" pref="134" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="RegServicioPaisDestinoComboBox" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="RegServicioCiudadDestinoComboBox" min="-2" pref="134" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -960,10 +963,6 @@
                                   <Component id="RegServicioUbicacionAtrasButton" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                   <Component id="RegServicioUbicacionSiguienteButton" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="167" max="-2" attributes="0"/>
-                                  <Component id="RegServicioCiudadDestinoComboBox" min="-2" pref="134" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="50" max="32767" attributes="0"/>
