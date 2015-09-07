@@ -222,9 +222,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
            mp.agregarPais(p);
        }
        else
-           throw new IllegalArgumentException();
-       
-       
+           throw new IllegalArgumentException("El pais ya existe");
    }
    
    public void altaCiudad(String pais, String nombre)
