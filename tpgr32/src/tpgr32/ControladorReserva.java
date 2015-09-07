@@ -39,13 +39,9 @@ public class ControladorReserva implements IControladorReserva{
     public void bajaReserva(int nro) throws Exception{
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
-        if (r.esEliminable()){
-            mr.eliminarReserva(nro);
-            r.destroy();
-        }
-        else{
-            throw new IllegalArgumentException("La reserva no es eliminable");
-        }
+        
+        r.destroy();
+        mr.eliminarReserva(nro);
     }
     
     public int confirmarReserva()
