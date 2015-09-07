@@ -100,7 +100,7 @@ public class Reserva {
     }
     
     public boolean esEliminable(){
-        if (this.estado_==Estado.Registrada || this.estado_==Estado.Pagada){
+        if (this.estado_==Estado.Registrada || this.estado_==Estado.Cancelada){
             return true;
         }else return false; 
     }
