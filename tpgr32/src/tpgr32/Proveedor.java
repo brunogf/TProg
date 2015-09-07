@@ -106,4 +106,9 @@ public class Proveedor extends Usuario {
         return dataP;
     }
   
+    public DataPublicacion getInfoServicioCompleto(String nombre) {
+        Servicio p = (Servicio)this.publicaciones_.get(nombre);
+        return p.infoPublicacionCompleto();
+    }
+    
 }

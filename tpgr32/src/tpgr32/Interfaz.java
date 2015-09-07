@@ -395,11 +395,13 @@ public class Interfaz extends javax.swing.JFrame {
         ConsultaProveedorServiciosButton = new javax.swing.JButton();
         infoServiciosProveedorBotonAtras = new javax.swing.JButton();
         InfoServiciosProveedorDescLabel = new javax.swing.JLabel();
-        InfoServiciosProveedorImagen1 = new javax.swing.JLabel();
         jScrollPane21 = new javax.swing.JScrollPane();
         tablaDatosServiciosDelProv = new javax.swing.JTable();
         jScrollPane22 = new javax.swing.JScrollPane();
         descServiciosDelProveedor = new javax.swing.JList();
+        InfoServiciosProveedorImagen1 = new javax.swing.JLabel();
+        InfoServiciosProveedorImagen2 = new javax.swing.JLabel();
+        InfoServiciosProveedorImagen3 = new javax.swing.JLabel();
         ConsultaUsuarioFrame = new javax.swing.JInternalFrame();
         ConsultaUsuarioVerInfoLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -629,7 +631,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaCancelarButton)
                     .addComponent(RegCategoriaAceptarButton))
@@ -696,7 +698,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegistrarServicioCancelarBottonDBPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(67, 67, 67)
                         .addComponent(RegistrarServicioSiguienteBottonDBPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RegServicioDatosBasicosPanelLayout.setVerticalGroup(
             RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -897,7 +899,7 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(RegServicioCiudadOrigenLabel))
                                 .addGap(53, 53, 53)
                                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(RegServicioCiudadOrigenComboBox, 0, 134, Short.MAX_VALUE)
+                                    .addComponent(RegServicioCiudadOrigenComboBox, 0, 1, Short.MAX_VALUE)
                                     .addComponent(RegServicioPaisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(RegServicioUbicacionPanelLayout.createSequentialGroup()
                                 .addComponent(RegServicioDeseaDestinoLabel)
@@ -920,7 +922,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegServicioUbicacionAtrasButton)
                         .addGap(31, 31, 31)
                         .addComponent(RegServicioUbicacionSiguienteButton)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RegServicioUbicacionPanelLayout.setVerticalGroup(
             RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3057,7 +3059,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                                 .addGap(119, 119, 119)
                                 .addComponent(ConsultaProveedorLabel2)))
-                        .addGap(0, 3, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         ConsultarInfoProveedorLayout.setVerticalGroup(
@@ -3115,9 +3117,6 @@ public class Interfaz extends javax.swing.JFrame {
 
         InfoServiciosProveedorDescLabel.setText("Descripcion:");
 
-        InfoServiciosProveedorImagen1.setText("    No hay Imagen");
-        InfoServiciosProveedorImagen1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
         tablaDatosServiciosDelProv.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -3138,6 +3137,15 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jScrollPane22.setViewportView(descServiciosDelProveedor);
 
+        InfoServiciosProveedorImagen1.setText("No hay Imagen");
+        InfoServiciosProveedorImagen1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        InfoServiciosProveedorImagen2.setText("No hay Imagen");
+        InfoServiciosProveedorImagen2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
+        InfoServiciosProveedorImagen3.setText("No hay Imagen");
+        InfoServiciosProveedorImagen3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+
         javax.swing.GroupLayout InformacionServiciosDelProveedorLayout = new javax.swing.GroupLayout(InformacionServiciosDelProveedor.getContentPane());
         InformacionServiciosDelProveedor.getContentPane().setLayout(InformacionServiciosDelProveedorLayout);
         InformacionServiciosDelProveedorLayout.setHorizontalGroup(
@@ -3154,28 +3162,27 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                        .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(ConsultaProveedorServiciosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(ConsultaProveedorServiciosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                                .addGap(0, 129, Short.MAX_VALUE)
-                                .addComponent(InfoServiciosProveedorImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(73, 73, 73)
+                                .addComponent(InfoServiciosProveedorImagen1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InfoServiciosProveedorImagen2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(InfoServiciosProveedorImagen3)
+                                .addGap(4, 4, 4)
                                 .addComponent(infoServiciosProveedorBotonAtras, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                                 .addComponent(InfoServiciosProveedorDescLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addContainerGap())
+                                .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         InformacionServiciosDelProveedorLayout.setVerticalGroup(
             InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3190,17 +3197,22 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addComponent(InfoServiciosProveedorDescLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(infoServiciosProveedorBotonAtras)
-                    .addComponent(InfoServiciosProveedorImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12))
+                .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(infoServiciosProveedorBotonAtras))
+                    .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(InfoServiciosProveedorImagen1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(InfoServiciosProveedorImagen2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(InfoServiciosProveedorImagen3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         PanelCentral.add(InformacionServiciosDelProveedor, "card13");
@@ -5201,6 +5213,13 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void ConsultaProveedorServiciosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorServiciosButtonActionPerformed
         if (!this.nombreServiciosDelProveedor.isSelectionEmpty()) {
+
+            this.InfoServiciosProveedorImagen1.setIcon(null);
+        
+            this.InfoServiciosProveedorImagen2.setIcon(null);
+        
+            this.InfoServiciosProveedorImagen3.setIcon(null);
+            
             DataServicio dtS = (DataServicio)this.nombreServiciosDelProveedor.getSelectedValue();
             
             DefaultTableModel tServicioProv = (DefaultTableModel)this.tablaDatosServiciosDelProv.getModel();
@@ -5213,6 +5232,41 @@ public class Interfaz extends javax.swing.JFrame {
             DefaultListModel modelo = new DefaultListModel();
             modelo.addElement(dtS.getDescripcion());
             this.descServiciosDelProveedor.setModel(modelo);
+            
+            ManejadorUsuario mU = ManejadorUsuario.getInstance();
+            Proveedor p = mU.encontrarProveedor(dtS.getProveedor());
+            Publicacion pub = p.encontrarPublicacion(dtS.getNombre());
+            
+            DataServicio dtSer = (DataServicio)p.getInfoServicioCompleto(dtS.getNombre());
+            Set<Image> imagenes = dtSer.getImagenes();
+            
+            int i = 0;
+            for (Image img : imagenes) {
+                
+             
+                if (i == 0) {
+                    Image img1 = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon nuevoIcono = new ImageIcon(img1);
+                    InfoServiciosProveedorImagen1.setIcon(nuevoIcono);
+                    InfoServiciosProveedorImagen1.setSize(100,100);
+                    InfoServiciosProveedorImagen1.setText(null);
+                }
+                else if (i == 1) {
+                    Image img2 = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon nuevoIcono = new ImageIcon(img2);
+                    InfoServiciosProveedorImagen2.setIcon(nuevoIcono);
+                    InfoServiciosProveedorImagen2.setSize(100,100);
+                    InfoServiciosProveedorImagen2.setText(null);
+                }
+                else {
+                    Image img3 = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                    ImageIcon nuevoIcono = new ImageIcon(img3);
+                    InfoServiciosProveedorImagen3.setIcon(nuevoIcono);
+                    InfoServiciosProveedorImagen3.setSize(100,100);
+                    InfoServiciosProveedorImagen3.setText(null);                   
+                }
+                 i++;
+            }
         }
         else {
             JOptionPane.showMessageDialog(null, "Debes seleccionar un Servicio","Warning",JOptionPane.WARNING_MESSAGE);
@@ -5233,6 +5287,8 @@ public class Interfaz extends javax.swing.JFrame {
         this.descServiciosDelProveedor.setModel(modeloDesc);
 
         this.InfoServiciosProveedorImagen1.setIcon(null);
+        this.InfoServiciosProveedorImagen2.setIcon(null);
+        this.InfoServiciosProveedorImagen3.setIcon(null);
         PanelCentral.remove(this.InformacionServiciosDelProveedor);
         PanelCentral.add(this.ConsultarInfoProveedor);
     }//GEN-LAST:event_infoServiciosProveedorBotonAtrasActionPerformed
@@ -5563,6 +5619,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> InfoServicioServiciosComboBox;
     private javax.swing.JLabel InfoServiciosProveedorDescLabel;
     private javax.swing.JLabel InfoServiciosProveedorImagen1;
+    private javax.swing.JLabel InfoServiciosProveedorImagen2;
+    private javax.swing.JLabel InfoServiciosProveedorImagen3;
     private javax.swing.JInternalFrame InformacionReservaFrame;
     private javax.swing.JInternalFrame InformacionServicioFrame;
     private javax.swing.JInternalFrame InformacionServiciosDelProveedor;
