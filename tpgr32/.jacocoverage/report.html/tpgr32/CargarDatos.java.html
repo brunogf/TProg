@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>CargarDatos.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">CargarDatos.java</span></div><h1>CargarDatos.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.awt.Image;
+import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashSet;
+import java.util.Set;
+import javax.imageio.ImageIO;
+
+/**
+ *
+ * @author Nico
+ */
+public class CargarDatos {
+    
+<span class="fc" id="L22">    private static boolean cargado = false;</span>
+    
+<span class="fc" id="L24">    public CargarDatos(){}</span>
+    
+    public void cargar() throws Exception
+    {
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (!cargado)</span>
+        {
+            //Usuarios
+<span class="fc" id="L31">            FabricaControladores fabrica = FabricaControladores.getInstancia();</span>
+<span class="fc" id="L32">            IControladorPublicacion cp = fabrica.getControladorPublicacion();</span>
+<span class="fc" id="L33">            IControladorReserva cr = fabrica.getControladorReserva();</span>
+<span class="fc" id="L34">            IControladorUsuario cu = fabrica.getControladorUsuario();</span>
+            
+            
+            //carga usuarios
+<span class="fc" id="L38">            DateFormat df = new SimpleDateFormat(&quot;dd-MM-yyyy&quot;);</span>
+<span class="fc" id="L39">            cu.altaProveedorConImg(&quot;tCook&quot;, &quot;Tim&quot;, &quot;Cook&quot;, &quot;air.f@gmail.com&quot;, df.parse(&quot;01-11-1960&quot;),&quot;AirFrance&quot;, &quot;http://www.airfrance.com/&quot;, ((new File(&quot;Imagenes/tCook.jpg&quot;)).getAbsolutePath()) );</span>
+<span class="fc" id="L40">            cu.altaProveedorConImg(&quot;moody&quot;, &quot;Alastor&quot;, &quot;Moody&quot;, &quot;eu.car@eucar.com&quot;, df.parse(&quot;02-09-1965&quot;), &quot;EuropCar&quot;, &quot;http://www.europcar.com.uy/&quot;, ((new File(&quot;Imagenes/moody.jpeg&quot;)).getAbsolutePath()));</span>
+<span class="fc" id="L41">            cu.altaProveedorConImg(&quot;remus&quot;, &quot;Remus&quot;, &quot;Lupin&quot;, &quot;iberia@gmail.com&quot;, df.parse(&quot;04-05-1970&quot;),&quot;Iberia&quot;, &quot;http://www.iberia.com/uy/&quot;, ((new File(&quot;Imagenes/remus.jpg&quot;)).getAbsolutePath()));</span>
+<span class="fc" id="L42">            cu.altaProveedorConImg(&quot;adippet&quot;, &quot;Armando&quot;, &quot;Dippet&quot;, &quot;tam@outlook.com&quot;, df.parse(&quot;12-02-1967&quot;),&quot;Tam&quot;, &quot;http://www.tam.com.br/&quot;, ((new File(&quot;Imagenes/adippet.png&quot;)).getAbsolutePath()));</span>
+<span class="fc" id="L43">            cu.altaProveedorConImg(&quot;mHooch&quot;, &quot;Madam&quot;, &quot;Hooch&quot;, &quot;seghogar@gmail.com&quot;, df.parse(&quot;05-08-1963&quot;),&quot;Segundo Hogar&quot;, &quot;http://www.segundohogar.com/&quot;, ((new File(&quot;Imagenes/mHooch.jpg&quot;)).getAbsolutePath()));</span>
+<span class="fc" id="L44">            cu.altaClienteConImg(&quot;oWood&quot;, &quot;Oliver&quot;, &quot;Wood&quot;, &quot;quidditch28@gmail.com&quot;, df.parse(&quot;28-12-1988&quot;), ((new File(&quot;Imagenes/oWood.jpg&quot;)).getAbsolutePath()));</span>
+<span class="fc" id="L45">            cu.altaClienteConImg(&quot;eWatson&quot;, &quot;Emma&quot;, &quot;Watson&quot;, &quot;e.watson@gmail.com&quot;, df.parse(&quot;15-04-1990&quot;), ((new File(&quot;Imagenes/eWatson.jpg&quot;)).getAbsolutePath()));</span>
+<span class="fc" id="L46">            cu.altaCliente(&quot;BruceS&quot;, &quot;Bruce&quot;, &quot;Sewell&quot;, &quot;bruce.sewell@gmail.com&quot;, df.parse(&quot;03-12-1978&quot;));</span>
+<span class="fc" id="L47">            cu.altaCliente(&quot;JeffW&quot;, &quot;Jeff&quot;, &quot;Wiliams&quot;, &quot;jeff.williams@gmail.com&quot;, df.parse(&quot;27-11-1984&quot;));</span>
+            
+            //Categorias
+<span class="fc" id="L50">            cp.registrarCategoria(&quot;Vuelos&quot;);</span>
+<span class="fc" id="L51">            cp.registrarCategoria(&quot;Alojamientos&quot;);</span>
+<span class="fc" id="L52">            cp.registrarCategoria(&quot;Automóviles&quot;);</span>
+<span class="fc" id="L53">            cp.registrarCategoria(&quot;Cruceros&quot;);</span>
+<span class="fc" id="L54">            cp.registrarCategoria(&quot;Empresas&quot;, &quot;Vuelos&quot;);</span>
+<span class="fc" id="L55">            cp.registrarCategoria(&quot;Iberia&quot;, &quot;Empresas&quot;);</span>
+<span class="fc" id="L56">            cp.registrarCategoria(&quot;American Airlines&quot;, &quot;Empresas&quot;);</span>
+<span class="fc" id="L57">            cp.registrarCategoria(&quot;Air France&quot;, &quot;Empresas&quot;);</span>
+<span class="fc" id="L58">            cp.registrarCategoria(&quot;TAM&quot;, &quot;Empresas&quot;);</span>
+<span class="fc" id="L59">            cp.registrarCategoria(&quot;Tipo Vuelo&quot;, &quot;Vuelos&quot;);</span>
+<span class="fc" id="L60">            cp.registrarCategoria(&quot;LowCost&quot;, &quot;Tipo Vuelo&quot;);</span>
+<span class="fc" id="L61">            cp.registrarCategoria(&quot;Standard&quot;, &quot;Tipo Vuelo&quot;);</span>
+<span class="fc" id="L62">            cp.registrarCategoria(&quot;First Class&quot;, &quot;Tipo Vuelo&quot;);</span>
+<span class="fc" id="L63">            cp.registrarCategoria(&quot;Tipo Alojamiento&quot;, &quot;Alojamientos&quot;);</span>
+<span class="fc" id="L64">            cp.registrarCategoria(&quot;Ubicación&quot;, &quot;Alojamientos&quot;);</span>
+<span class="fc" id="L65">            cp.registrarCategoria(&quot;Habitaciones&quot;, &quot;Alojamientos&quot;);</span>
+<span class="fc" id="L66">            cp.registrarCategoria(&quot;Hotel&quot;, &quot;Tipo Alojamiento&quot;);</span>
+<span class="fc" id="L67">            cp.registrarCategoria(&quot;Hostal&quot;, &quot;Tipo Alojamiento&quot;);</span>
+<span class="fc" id="L68">            cp.registrarCategoria(&quot;Apartamento&quot;, &quot;Tipo Alojamiento&quot;);</span>
+<span class="fc" id="L69">            cp.registrarCategoria(&quot;Casa&quot;, &quot;Tipo Alojamiento&quot;);</span>
+<span class="fc" id="L70">            cp.registrarCategoria(&quot;Playa&quot;, &quot;Ubicación&quot;);</span>
+<span class="fc" id="L71">            cp.registrarCategoria(&quot;Rural&quot;, &quot;Ubicación&quot;);</span>
+<span class="fc" id="L72">            cp.registrarCategoria(&quot;Montaña&quot;, &quot;Ubicación&quot;);</span>
+<span class="fc" id="L73">            cp.registrarCategoria(&quot;1 ambiente&quot;, &quot;Habitaciones&quot;);</span>
+<span class="fc" id="L74">            cp.registrarCategoria(&quot;1 dormitorio&quot;, &quot;Habitaciones&quot;);</span>
+<span class="fc" id="L75">            cp.registrarCategoria(&quot;2 dormitorios&quot;, &quot;Habitaciones&quot;);</span>
+<span class="fc" id="L76">            cp.registrarCategoria(&quot;Tarifa&quot;, &quot;Automóviles&quot;);</span>
+<span class="fc" id="L77">            cp.registrarCategoria(&quot;Tipo Vehículo&quot;, &quot;Automóviles&quot;);</span>
+<span class="fc" id="L78">            cp.registrarCategoria(&quot;Marca&quot;, &quot;Automóviles&quot;);</span>
+<span class="fc" id="L79">            cp.registrarCategoria(&quot;Mini&quot;, &quot;Tarifa&quot;);</span>
+<span class="fc" id="L80">            cp.registrarCategoria(&quot;Económico&quot;, &quot;Tarifa&quot;);</span>
+<span class="fc" id="L81">            cp.registrarCategoria(&quot;Standard&quot;, &quot;Tarifa&quot;);</span>
+<span class="fc" id="L82">            cp.registrarCategoria(&quot;Full&quot;, &quot;Tarifa&quot;);</span>
+<span class="fc" id="L83">            cp.registrarCategoria(&quot;Auto&quot;, &quot;Tipo Vehículo&quot;);</span>
+<span class="fc" id="L84">            cp.registrarCategoria(&quot;Camioneta&quot;, &quot;Tipo Vehículo&quot;);</span>
+<span class="fc" id="L85">            cp.registrarCategoria(&quot;Camión&quot;, &quot;Tipo Vehículo&quot;);</span>
+<span class="fc" id="L86">            cp.registrarCategoria(&quot;Moto&quot;, &quot;Tipo Vehículo&quot;);</span>
+<span class="fc" id="L87">            cp.registrarCategoria(&quot;Chevrolet&quot;, &quot;Marca&quot;);</span>
+<span class="fc" id="L88">            cp.registrarCategoria(&quot;Peugeot&quot;, &quot;Marca&quot;);</span>
+<span class="fc" id="L89">            cp.registrarCategoria(&quot;Daihatsu&quot;, &quot;Marca&quot;);</span>
+<span class="fc" id="L90">            cp.registrarCategoria(&quot;Fiat&quot;, &quot;Marca&quot;);</span>
+<span class="fc" id="L91">            cp.registrarCategoria(&quot;Ford&quot;, &quot;Marca&quot;);</span>
+<span class="fc" id="L92">            cp.registrarCategoria(&quot;Mediterráneo&quot;, &quot;Cruceros&quot;);</span>
+<span class="fc" id="L93">            cp.registrarCategoria(&quot;Mar Negro&quot;, &quot;Cruceros&quot;);</span>
+<span class="fc" id="L94">            cp.registrarCategoria(&quot;Caribe&quot;, &quot;Cruceros&quot;);</span>
+<span class="fc" id="L95">            cp.registrarCategoria(&quot;Nilo&quot;, &quot;Cruceros&quot;);</span>
+<span class="fc" id="L96">            cp.registrarCategoria(&quot;Alaska&quot;, &quot;Cruceros&quot;);</span>
+            
+            //Paises
+<span class="fc" id="L99">            cp.altaPais(&quot;Uruguay&quot;);</span>
+<span class="fc" id="L100">            cp.altaPais(&quot;Argentina&quot;);</span>
+<span class="fc" id="L101">            cp.altaPais(&quot;Colombia&quot;);</span>
+<span class="fc" id="L102">            cp.altaPais(&quot;EEUU&quot;);</span>
+<span class="fc" id="L103">            cp.altaPais(&quot;España&quot;);</span>
+<span class="fc" id="L104">            cp.altaPais(&quot;Francia&quot;);</span>
+<span class="fc" id="L105">            cp.altaPais(&quot;Alemania&quot;);</span>
+<span class="fc" id="L106">            cp.altaPais(&quot;Suiza&quot;);</span>
+<span class="fc" id="L107">            cp.altaPais(&quot;Australia&quot;);</span>
+<span class="fc" id="L108">            cp.altaPais(&quot;Brasil&quot;);</span>
+<span class="fc" id="L109">            cp.altaPais(&quot;China&quot;);</span>
+<span class="fc" id="L110">            cp.altaCiudad(&quot;Uruguay&quot;, &quot;Montevideo&quot;);</span>
+<span class="fc" id="L111">            cp.altaCiudad(&quot;Argentina&quot;, &quot;Buenos Aires&quot;);</span>
+<span class="fc" id="L112">            cp.altaCiudad(&quot;Colombia&quot;, &quot;Bogotá&quot;);</span>
+<span class="fc" id="L113">            cp.altaCiudad(&quot;EEUU&quot;, &quot;Miami&quot;);</span>
+<span class="fc" id="L114">            cp.altaCiudad(&quot;España&quot;, &quot;Valencia&quot;);</span>
+<span class="fc" id="L115">            cp.altaCiudad(&quot;España&quot;, &quot;Madrid&quot;);</span>
+<span class="fc" id="L116">            cp.altaCiudad(&quot;Francia&quot;, &quot;Paris&quot;);</span>
+<span class="fc" id="L117">            cp.altaCiudad(&quot;Alemania&quot;, &quot;Berlín&quot;);</span>
+<span class="fc" id="L118">            cp.altaCiudad(&quot;Suiza&quot;, &quot;Ginebra&quot;);</span>
+<span class="fc" id="L119">            cp.altaCiudad(&quot;Australia&quot;, &quot;Sidney&quot;);</span>
+<span class="fc" id="L120">            cp.altaCiudad(&quot;China&quot;, &quot;Pekín&quot;);</span>
+<span class="fc" id="L121">            cp.altaCiudad(&quot;China&quot;, &quot;Cantón&quot;);</span>
+<span class="fc" id="L122">            cp.altaCiudad(&quot;Brasil&quot;, &quot;Florianópolis&quot;);</span>
+<span class="fc" id="L123">            cp.altaCiudad(&quot;Argentina&quot;, &quot;Bariloche&quot;);</span>
+            
+            //Servicios
+<span class="fc" id="L126">            Set&lt;Image&gt; hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L127">            Set&lt;String&gt; cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L128">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM7.jpg&quot;)));</span>
+<span class="fc" id="L129">            cat.add(&quot;Iberia&quot;);</span>
+<span class="fc" id="L130">            cat.add(&quot;Standard&quot;);</span>
+<span class="fc" id="L131">            cp.altaServicio(&quot;Euro-Vuelo-S&quot;, &quot;Vuelo con excelente atención y comodidad.&quot;,</span>
+                    hs, 1100 , cat, &quot;remus&quot;, new DataUbicacion(&quot;Uruguay&quot;, &quot;Montevideo&quot;), new DataUbicacion(&quot;España&quot;,&quot;Valencia&quot;));
+            
+<span class="fc" id="L134">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L135">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L136">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM7.jpg&quot;)));</span>
+<span class="fc" id="L137">            cat.add(&quot;Iberia&quot;);</span>
+<span class="fc" id="L138">            cat.add(&quot;LowCost&quot;);</span>
+<span class="fc" id="L139">            cp.altaServicio(&quot;Euro-Vuelo-LC&quot;, &quot;Vuelo con excelente atención y comodidad a un precio accesible.&quot;,</span>
+                    hs, 850 , cat, &quot;remus&quot;, new DataUbicacion(&quot;Uruguay&quot;, &quot;Montevideo&quot;), new DataUbicacion(&quot;España&quot;,&quot;Valencia&quot;));
+            
+<span class="fc" id="L142">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L143">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L144">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM7.jpg&quot;)));</span>
+<span class="fc" id="L145">            cat.add(&quot;Iberia&quot;);</span>
+<span class="fc" id="L146">            cat.add(&quot;First Class&quot;);</span>
+<span class="fc" id="L147">            cp.altaServicio(&quot;Euro-Vuelo-FC&quot;, &quot;Vuelo de primera clase. Excelente atención, comodidad y servicio.&quot;,</span>
+                    hs, 1300 , cat, &quot;remus&quot;, new DataUbicacion(&quot;Uruguay&quot;, &quot;Montevideo&quot;), new DataUbicacion(&quot;España&quot;,&quot;Valencia&quot;));
+            
+<span class="fc" id="L150">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L151">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L152">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM8.png&quot;)));</span>
+<span class="fc" id="L153">            cat.add(&quot;Económico&quot;);</span>
+<span class="fc" id="L154">            cat.add(&quot;Auto&quot;);</span>
+<span class="fc" id="L155">            cat.add(&quot;Chevrolet&quot;);</span>
+<span class="fc" id="L156">            cp.altaServicio(&quot;Euro-Car-1&quot;, &quot;Euro-Car. Autos de buena calidad y comodidad. Versión Económica&quot;,</span>
+                    hs, 300 , cat, &quot;moody&quot;, new DataUbicacion(&quot;España&quot;, &quot;Madrid&quot;), new DataUbicacion(&quot;España&quot;,&quot;Valencia&quot;));
+            
+<span class="fc" id="L159">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L160">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L161">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM9.jpg&quot;)));</span>
+<span class="fc" id="L162">            cat.add(&quot;Standard&quot;);</span>
+<span class="fc" id="L163">            cat.add(&quot;Auto&quot;);</span>
+<span class="fc" id="L164">            cat.add(&quot;Chevrolet&quot;);</span>
+<span class="fc" id="L165">            cp.altaServicio(&quot;Euro-Car-2&quot;, &quot;Euro-Car. Autos de buena calidad y comodidad. Versión Standard.&quot;,</span>
+                    hs, 300 , cat, &quot;moody&quot;, new DataUbicacion(&quot;España&quot;, &quot;Madrid&quot;), new DataUbicacion(&quot;España&quot;,&quot;Valencia&quot;));
+            
+<span class="fc" id="L168">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L169">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L170">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM10.jpg&quot;)));</span>
+<span class="fc" id="L171">            cat.add(&quot;Full&quot;);</span>
+<span class="fc" id="L172">            cat.add(&quot;Camioneta&quot;);</span>
+<span class="fc" id="L173">            cat.add(&quot;Chevrolet&quot;);</span>
+<span class="fc" id="L174">            cp.altaServicio(&quot;Euro-Car-3&quot;, &quot;Euro-Car. Autos de buena calidad y comodidad. Una camioneta para toda la familia.&quot;,</span>
+                    hs, 300 , cat, &quot;moody&quot;, new DataUbicacion(&quot;España&quot;, &quot;Valencia&quot;));
+
+<span class="fc" id="L177">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L178">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L179">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM1.jpg&quot;)));</span>
+<span class="fc" id="L180">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM2.jpg&quot;)));        </span>
+<span class="fc" id="L181">            cat.add(&quot;Casa&quot;);</span>
+<span class="fc" id="L182">            cat.add(&quot;2 dormitorios&quot;);</span>
+<span class="fc" id="L183">            cp.altaServicio(&quot;Casa para p4 BsAs&quot;, &quot;Esta hermosa casa, se encuentra ubicada en el corazón de Buenos Aires y ofrece una capacidad\n&quot; +</span>
+                            &quot;para cuatro personas. La propiedad cuenta con un dormitorio con dos camas simples, que pueden\n&quot; +
+                            &quot;transformarse en una matrimonial y dos baños completos, que incluyen toallas.&quot;,
+                    hs, 80 , cat, &quot;mHooch&quot;, new DataUbicacion(&quot;Argentina&quot;, &quot;Buenos Aires&quot;));
+            
+<span class="fc" id="L188">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L189">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L190">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM3.jpg&quot;)));</span>
+<span class="fc" id="L191">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM4.jpg&quot;)));      </span>
+<span class="fc" id="L192">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM5.jpg&quot;)));  </span>
+<span class="fc" id="L193">            cat.add(&quot;Casa&quot;);</span>
+<span class="fc" id="L194">            cat.add(&quot;2 dormitorios&quot;);</span>
+<span class="fc" id="L195">            cp.altaServicio(&quot;Floripa G. House&quot;, &quot;Estamos a sólo unos pasos de un supermercado, restaurantes, cajero automático, gasolinera,\n&quot; +</span>
+                            &quot;farmacia, gimnasio, etc. Lagoa da Conceição es 7 km de nuestra casa de huéspedes y tarda sólo 10-\n&quot; +
+                            &quot;15 minutos en el transporte público. Allí se encuentra una buena vida nocturna con bares y música\n&quot; +
+                            &quot;en vivo.&quot;,
+                    hs, 190 , cat, &quot;mHooch&quot;, new DataUbicacion(&quot;Brasil&quot;, &quot;Florianópolis&quot;));
+            
+<span class="fc" id="L201">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L202">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L203">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM6.jpg&quot;)));</span>
+<span class="fc" id="L204">            cat.add(&quot;Air France&quot;);</span>
+<span class="fc" id="L205">            cat.add(&quot;First Class&quot;);</span>
+<span class="fc" id="L206">            cp.altaServicio(&quot;Air-France-FC&quot;, &quot;¡Un vuelo de primera! Excelencia y experiencia en mejorar sus viajes.&quot;,</span>
+                    hs, 100 , cat, &quot;tCook&quot;, new DataUbicacion(&quot;Francia&quot;, &quot;Paris&quot;), new DataUbicacion(&quot;Alemania&quot;,&quot;Berlín&quot;));
+            
+<span class="fc" id="L209">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L210">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L211">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM11.jpg&quot;)));</span>
+<span class="fc" id="L212">            cat.add(&quot;TAM&quot;);</span>
+<span class="fc" id="L213">            cat.add(&quot;First Class&quot;);</span>
+<span class="fc" id="L214">            cp.altaServicio(&quot;TAM-FC&quot;, &quot;¡Un vuelo de primera! Excelencia y experiencia.&quot;,</span>
+                    hs, 150 , cat, &quot;adippet&quot;, new DataUbicacion(&quot;Brasil&quot;, &quot;Florianópolis&quot;), new DataUbicacion(&quot;China&quot;,&quot;Pekín&quot;));
+            
+<span class="fc" id="L217">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L218">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L219">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM12.jpg&quot;)));</span>
+<span class="fc" id="L220">            cat.add(&quot;Hotel&quot;);</span>
+<span class="fc" id="L221">            cat.add(&quot;Playa&quot;);</span>
+<span class="fc" id="L222">            cat.add(&quot;2 dormitorios&quot;);</span>
+<span class="fc" id="L223">            cp.altaServicio(&quot;Luxury south beach corner apartment&quot;, &quot;Beautiful large 2 bedrooms 2 bathrooms apartment CORNER UNIT. Marble floor throughout,\n&quot; +</span>
+                            &quot;beautiful open kitchen, granite counter top, spacious dining room area and living room area.\n&quot; +
+                            &quot;Spectacular views of Miami from all windows and balcony&quot;,
+                    hs, 300 , cat, &quot;mHooch&quot;, new DataUbicacion(&quot;EEUU&quot;, &quot;Miami&quot;));
+            
+<span class="fc" id="L228">            hs = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L229">            cat = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L230">            hs.add(ImageIO.read(new File(&quot;Imagenes/IM8.png&quot;)));</span>
+<span class="fc" id="L231">            cat.add(&quot;Económico&quot;);</span>
+<span class="fc" id="L232">            cat.add(&quot;Auto&quot;);</span>
+<span class="fc" id="L233">            cat.add(&quot;Chevrolet&quot;);</span>
+<span class="fc" id="L234">            cp.altaServicio(&quot;Coche-Miami&quot;, &quot;A useful car to travel around Miami.&quot;,</span>
+                    hs, 360 , cat, &quot;mHooch&quot;, new DataUbicacion(&quot;EEUU&quot;, &quot;Miami&quot;));
+            
+            //Promociones
+<span class="fc" id="L238">            Set&lt;DataServicio&gt; servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L239">            servicios.add(cp.infoServicio(&quot;moody&quot;, &quot;Euro-Car-1&quot;));</span>
+<span class="fc" id="L240">            servicios.add(cp.infoServicio(&quot;moody&quot;, &quot;Euro-Car-2&quot;));</span>
+<span class="fc" id="L241">            cp.altaPromocion(&quot;Euro-Cars-E-S&quot;, &quot;moody&quot;, servicios, 30);</span>
+            
+<span class="fc" id="L243">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L244">            servicios.add(cp.infoServicio(&quot;moody&quot;, &quot;Euro-Car-1&quot;));</span>
+<span class="fc" id="L245">            servicios.add(cp.infoServicio(&quot;moody&quot;, &quot;Euro-Car-3&quot;));</span>
+<span class="fc" id="L246">            cp.altaPromocion(&quot;Euro-Cars-E-F&quot;, &quot;moody&quot;, servicios, 30);</span>
+            
+<span class="fc" id="L248">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L249">            servicios.add(cp.infoServicio(&quot;moody&quot;, &quot;Euro-Car-2&quot;));</span>
+<span class="fc" id="L250">            servicios.add(cp.infoServicio(&quot;moody&quot;, &quot;Euro-Car-3&quot;));</span>
+<span class="fc" id="L251">            cp.altaPromocion(&quot;Euro-Cars-S-F&quot;, &quot;moody&quot;, servicios, 30);</span>
+            
+<span class="fc" id="L253">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L254">            servicios.add(cp.infoServicio(&quot;remus&quot;, &quot;Euro-Vuelo-S&quot;));</span>
+<span class="fc" id="L255">            servicios.add(cp.infoServicio(&quot;remus&quot;, &quot;Euro-Vuelo-LC&quot;));</span>
+<span class="fc" id="L256">            cp.altaPromocion(&quot;Euro-Vuelos-S-LC&quot;, &quot;remus&quot;, servicios, 40);</span>
+            
+<span class="fc" id="L258">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L259">            servicios.add(cp.infoServicio(&quot;remus&quot;, &quot;Euro-Vuelo-S&quot;));</span>
+<span class="fc" id="L260">            servicios.add(cp.infoServicio(&quot;remus&quot;, &quot;Euro-Vuelo-FC&quot;));</span>
+<span class="fc" id="L261">            cp.altaPromocion(&quot;Euro-Vuelos-S-FC&quot;, &quot;remus&quot;, servicios, 40);</span>
+            
+<span class="fc" id="L263">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L264">            servicios.add(cp.infoServicio(&quot;remus&quot;, &quot;Euro-Vuelo-LC&quot;));</span>
+<span class="fc" id="L265">            servicios.add(cp.infoServicio(&quot;remus&quot;, &quot;Euro-Vuelo-FC&quot;));</span>
+<span class="fc" id="L266">            cp.altaPromocion(&quot;Euro-Vuelos-LC-FC&quot;, &quot;remus&quot;, servicios, 40);</span>
+            
+<span class="fc" id="L268">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L269">            servicios.add(cp.infoServicio(&quot;mHooch&quot;, &quot;Casa para p4 BsAs&quot;));</span>
+<span class="fc" id="L270">            servicios.add(cp.infoServicio(&quot;mHooch&quot;, &quot;Floripa G. House&quot;));</span>
+<span class="fc" id="L271">            cp.altaPromocion(&quot;Sudamerica-Casas&quot;, &quot;mHooch&quot;, servicios, 50);</span>
+            
+<span class="fc" id="L273">            servicios = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L274">            servicios.add(cp.infoServicio(&quot;mHooch&quot;, &quot;Luxury south beach corner apartment&quot;));</span>
+<span class="fc" id="L275">            servicios.add(cp.infoServicio(&quot;mHooch&quot;, &quot;Coche-Miami&quot;));</span>
+<span class="fc" id="L276">            cp.altaPromocion(&quot;Miami-Viaje&quot;, &quot;mHooch&quot;, servicios, 30);</span>
+            
+            //Reservas  
+            int nro;
+<span class="fc" id="L280">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L281">            cr.seleccionarCliente(&quot;oWood&quot;);</span>
+<span class="fc" id="L282">            cr.seleccionarProveedor(&quot;remus&quot;);</span>
+<span class="fc" id="L283">            cr.seleccionarPublicacion(&quot;Euro-Vuelo-S&quot;, 1, df.parse(&quot;01-01-2015&quot;), df.parse(&quot;01-01-2015&quot;));</span>
+<span class="fc" id="L284">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L285">            cr.cambiarFechaCreacionReserva(df.parse(&quot;01-01-2015&quot;), nro);</span>
+<span class="fc" id="L286">            cr.actualizarEstado(nro, Estado.Facturada);</span>
+            
+<span class="fc" id="L288">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L289">            cr.seleccionarCliente(&quot;eWatson&quot;);</span>
+<span class="fc" id="L290">            cr.seleccionarProveedor(&quot;remus&quot;);</span>
+<span class="fc" id="L291">            cr.seleccionarPublicacion(&quot;Euro-Vuelo-S&quot;, 2, df.parse(&quot;01-01-2015&quot;), df.parse(&quot;01-01-2015&quot;));</span>
+<span class="fc" id="L292">            cr.seleccionarPublicacion(&quot;Euro-Vuelo-LC&quot;, 1, df.parse(&quot;01-01-2015&quot;), df.parse(&quot;01-01-2015&quot;));</span>
+<span class="fc" id="L293">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L294">            cr.cambiarFechaCreacionReserva(df.parse(&quot;01-01-2015&quot;), nro);</span>
+<span class="fc" id="L295">            cr.actualizarEstado(nro, Estado.Cancelada);</span>
+            
+<span class="fc" id="L297">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L298">            cr.seleccionarCliente(&quot;BruceS&quot;);</span>
+<span class="fc" id="L299">            cr.seleccionarProveedor(&quot;mHooch&quot;);</span>
+<span class="fc" id="L300">            cr.seleccionarPublicacion(&quot;Sudamerica-Casas&quot;, 1, df.parse(&quot;05-03-2015&quot;), df.parse(&quot;02-04-2015&quot;));</span>
+<span class="fc" id="L301">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L302">            cr.cambiarFechaCreacionReserva(df.parse(&quot;05-03-2015&quot;), nro);</span>
+<span class="fc" id="L303">            cr.actualizarEstado(nro, Estado.Pagada);</span>
+            
+<span class="fc" id="L305">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L306">            cr.seleccionarCliente(&quot;JeffW&quot;);</span>
+<span class="fc" id="L307">            cr.seleccionarProveedor(&quot;moody&quot;);</span>
+<span class="fc" id="L308">            cr.seleccionarPublicacion(&quot;Euro-Car-2&quot;, 1, df.parse(&quot;08-05-2015&quot;), df.parse(&quot;12-05-2015&quot;));</span>
+<span class="fc" id="L309">            cr.seleccionarPublicacion(&quot;Euro-Car-3&quot;, 1, df.parse(&quot;08-05-2015&quot;), df.parse(&quot;12-05-2015&quot;));</span>
+<span class="fc" id="L310">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L311">            cr.cambiarFechaCreacionReserva(df.parse(&quot;08-05-2015&quot;), nro);</span>
+<span class="fc" id="L312">            cr.actualizarEstado(nro, Estado.Pagada);</span>
+            
+<span class="fc" id="L314">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L315">            cr.seleccionarCliente(&quot;oWood&quot;);</span>
+<span class="fc" id="L316">            cr.seleccionarProveedor(&quot;tCook&quot;);</span>
+<span class="fc" id="L317">            cr.seleccionarPublicacion(&quot;Air-France-FC&quot;, 2, df.parse(&quot;07-08-2015&quot;), df.parse(&quot;10-08-2015&quot;));</span>
+<span class="fc" id="L318">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L319">            cr.cambiarFechaCreacionReserva(df.parse(&quot;07-08-2015&quot;), nro);</span>
+            
+<span class="fc" id="L321">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L322">            cr.seleccionarCliente(&quot;JeffW&quot;);</span>
+<span class="fc" id="L323">            cr.seleccionarProveedor(&quot;mHooch&quot;);</span>
+<span class="fc" id="L324">            cr.seleccionarPublicacion(&quot;Miami-Viaje&quot;, 1, df.parse(&quot;07-08-2015&quot;), df.parse(&quot;14-08-2015&quot;));</span>
+<span class="fc" id="L325">            cr.seleccionarPublicacion(&quot;Casa para p4 BsAs&quot;, 1, df.parse(&quot;14-08-2015&quot;), df.parse(&quot;21-08-2015&quot;));</span>
+<span class="fc" id="L326">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L327">            cr.cambiarFechaCreacionReserva(df.parse(&quot;07-08-2015&quot;), nro);</span>
+            
+<span class="fc" id="L329">            cr.borrarPublicacionesSeleccionadas();</span>
+<span class="fc" id="L330">            cr.seleccionarCliente(&quot;BruceS&quot;);</span>
+<span class="fc" id="L331">            cr.seleccionarProveedor(&quot;remus&quot;);</span>
+<span class="fc" id="L332">            cr.seleccionarPublicacion(&quot;Euro-Vuelo-LC&quot;, 2, df.parse(&quot;07-08-2015&quot;), df.parse(&quot;07-08-2015&quot;));</span>
+<span class="fc" id="L333">            nro = cr.confirmarReserva();</span>
+<span class="fc" id="L334">            cr.cambiarFechaCreacionReserva(df.parse(&quot;07-08-2015&quot;), nro);</span>
+            
+            
+            
+<span class="fc" id="L338">            cargado = true;</span>
+<span class="fc" id="L339">        }</span>
+        else
+<span class="fc" id="L341">            throw new IllegalArgumentException(&quot;Ya se ha realizado la carga una vez&quot;);</span>
+<span class="fc" id="L342">    }</span>
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

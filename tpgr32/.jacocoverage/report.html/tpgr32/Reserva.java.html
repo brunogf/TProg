@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Reserva.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">Reserva.java</span></div><h1>Reserva.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+import java.util.*;
+
+/**
+ *
+ * @author bruno
+ */
+public class Reserva {
+<span class="fc" id="L14">    private static int id=1;</span>
+    
+    private int numero_; 
+    private Date fecha_creacion_; 
+    private Estado estado_;
+    private float precio_total_; //calculado
+    private Cliente cliente_;
+    private Set&lt;ReservaPublicacion&gt; rp_;
+      
+    
+<span class="fc" id="L24">    public Reserva(Estado estado, Cliente cliente){</span>
+<span class="fc" id="L25">        this.numero_=id;</span>
+<span class="fc" id="L26">        this.fecha_creacion_=new Date();</span>
+<span class="fc" id="L27">        this.estado_=estado;</span>
+<span class="fc" id="L28">        this.precio_total_=0;//se calcula cada vez que se agrega una publicacion</span>
+<span class="fc" id="L29">        this.cliente_=cliente;</span>
+<span class="fc" id="L30">        this.rp_=new HashSet&lt;&gt;();</span>
+        
+<span class="fc" id="L32">        id++;</span>
+<span class="fc" id="L33">    }</span>
+    
+    //getters
+    
+    public static int getCurrentID()
+    {
+<span class="fc" id="L39">        return id;</span>
+    }
+    
+    public int getNumero(){
+<span class="fc" id="L43">        return numero_;</span>
+    }
+    
+    public Estado getEstado(){
+<span class="nc" id="L47">        return estado_;</span>
+    }
+    
+    public Date getFechaCreacion(){
+<span class="nc" id="L51">        return fecha_creacion_;</span>
+    }
+    public void setFechaCreacion(Date f)
+    {
+<span class="fc" id="L55">        fecha_creacion_=f;</span>
+<span class="fc" id="L56">    }</span>
+    
+    public float getPrecioTotal(){
+<span class="nc" id="L59">        return precio_total_;</span>
+    }
+    
+    public Cliente getCliente(){
+<span class="fc" id="L63">        return cliente_;</span>
+    }
+    
+    //setters
+            
+    public void setEstado(Estado e){
+<span class="fc" id="L69">        this.estado_=e;</span>
+<span class="fc" id="L70">    }</span>
+   
+    public void actualizarEstadoRegistrada(Estado e) throws Exception{
+<span class="pc bpc" id="L73" title="1 of 2 branches missed.">        if (this.estado_==Estado.Registrada){</span>
+<span class="fc" id="L74">            this.setEstado(e);</span>
+        }
+        else{
+<span class="nc" id="L77">            throw new IllegalArgumentException(&quot;El estado de la reserva debe ser Registrada&quot;);</span>
+        }
+<span class="fc" id="L79">    }</span>
+    
+    public void agregarReservaPublicacion(ReservaPublicacion rp){
+<span class="fc" id="L82">	precio_total_ = precio_total_ + rp.getPrecioTotal();</span>
+<span class="fc" id="L83">        this.rp_.add(rp);</span>
+<span class="fc" id="L84">    }</span>
+    
+    public Set&lt;ReservaPublicacion&gt; obtenerReservasPublicaciones(){
+<span class="nc" id="L87">        return this.rp_;</span>
+    }
+    
+    public DataReserva infoReserva(){
+<span class="fc" id="L91">        Set&lt;ParDPD&gt; conjDPD=new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L92" title="All 2 branches covered.">        for (ReservaPublicacion rp:rp_){</span>
+<span class="fc" id="L93">            ParDPD dpd=rp.infoReservaPublicacion();</span>
+<span class="fc" id="L94">            conjDPD.add(dpd);</span>
+<span class="fc" id="L95">        }</span>
+<span class="fc" id="L96">        DataReserva dr=new DataReserva(numero_, fecha_creacion_, estado_, </span>
+            precio_total_, conjDPD);
+        
+<span class="fc" id="L99">        return dr;</span>
+    }
+    
+    public boolean esEliminable(){
+<span class="nc" id="L103">        return true;</span>
+    }
+    
+    public void destroy() throws Exception{
+<span class="pc bpc" id="L107" title="2 of 4 branches missed.">        if (this.estado_==Estado.Cancelada || this.estado_==Estado.Registrada){</span>
+<span class="fc" id="L108">            Cliente c=this.cliente_;</span>
+<span class="fc" id="L109">            c.eliminarReserva(this);</span>
+        
+<span class="fc bfc" id="L111" title="All 2 branches covered.">            for (ReservaPublicacion rp:this.rp_){</span>
+<span class="fc" id="L112">                rp.destroy();</span>
+<span class="fc" id="L113">            }</span>
+<span class="fc" id="L114">        }else</span>
+<span class="nc" id="L115">            throw new IllegalArgumentException(&quot;La reserva debe estar en estado registrada o cancelada&quot;);</span>
+<span class="fc" id="L116">    }</span>
+    //agregar Publicacion (servicio o promocion)
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

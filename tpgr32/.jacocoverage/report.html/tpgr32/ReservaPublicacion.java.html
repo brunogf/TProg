@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ReservaPublicacion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">ReservaPublicacion.java</span></div><h1>ReservaPublicacion.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.util.Date;
+
+/**
+ *
+ * @author spesamosca
+ */
+public class ReservaPublicacion {
+    
+    private Date fechaIni_;
+    private Date fechaFin_;
+    private int cant_;
+    private Publicacion pub_;
+    private Reserva res_;
+    
+    
+    public ReservaPublicacion()
+<span class="nc" id="L24">    {</span>
+	//default constructor
+<span class="nc" id="L26">    }</span>
+    
+    public ReservaPublicacion(Reserva r, Publicacion p, Date inicio, Date fin, int cant)
+<span class="fc" id="L29">    {</span>
+<span class="fc" id="L30">	res_ = r;</span>
+<span class="fc" id="L31">        pub_ = p;</span>
+<span class="fc" id="L32">        fechaIni_ = inicio;</span>
+<span class="fc" id="L33">        fechaFin_ = fin;</span>
+<span class="fc" id="L34">        cant_ = cant;</span>
+<span class="fc" id="L35">    }</span>
+    
+    public ReservaPublicacion(Reserva r, Publicacion p, DataDisponibilidad d)
+    {
+<span class="fc" id="L39">	this(r,p,d.getFechaIni(),d.getFechaFin(),d.getCant());</span>
+<span class="fc" id="L40">    }</span>
+
+    public Date getFechaIni() {
+<span class="nc" id="L43">        return fechaIni_;</span>
+    }
+
+    public Date getFechaFin() {
+<span class="nc" id="L47">        return fechaFin_;</span>
+    }
+    
+    public String getNombrePublicacion(){
+<span class="nc" id="L51">        return pub_.getNombre();</span>
+    }
+    
+    public float getPrecioTotal()
+    {
+<span class="fc bfc" id="L56" title="All 2 branches covered.">	if (pub_ instanceof Servicio)</span>
+<span class="fc" id="L57">            return (((Servicio)pub_).getPrecio() * cant_);</span>
+        else
+<span class="fc" id="L59">            return (((Promocion)pub_).getPrecioTotal() * cant_); </span>
+    }
+    
+    public ParDPD infoReservaPublicacion(){
+<span class="fc" id="L63">        DataDisponibilidad d=new DataDisponibilidad(cant_, fechaIni_, fechaFin_);</span>
+<span class="fc" id="L64">        DataPublicacion dp=pub_.infoPublicacion();</span>
+        
+<span class="fc" id="L66">        ParDPD dpd=new ParDPD(dp, d);</span>
+<span class="fc" id="L67">        return dpd;</span>
+    }
+    
+    public void destroy(){
+<span class="fc" id="L71">        this.pub_.eliminarReservaPublicacion(this);</span>
+<span class="fc" id="L72">        this.res_=null;        </span>
+<span class="fc" id="L73">    }</span>
+
+     public int getCant () {
+<span class="nc" id="L76">        return this.cant_;</span>
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

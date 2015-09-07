@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Pais.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">Pais.java</span></div><h1>Pais.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ *
+ * @author spesamosca
+ */
+public class Pais {
+    
+    private String nombre_;
+    private Map&lt;String,Ciudad&gt; ciudades_;
+    
+    
+<span class="nc" id="L23">    public Pais(){</span>
+        
+<span class="nc" id="L25">    }</span>
+    
+<span class="fc" id="L27">    public Pais(String nombre){</span>
+<span class="fc" id="L28">        nombre_ = nombre;</span>
+<span class="fc" id="L29">        ciudades_ = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L30">    }</span>
+    
+    public void setNombre(String nombre){
+<span class="nc" id="L33">        nombre_ = nombre;</span>
+<span class="nc" id="L34">    }</span>
+    
+    public void agregarCiudadAPais(Ciudad c){
+<span class="fc" id="L37">        ciudades_.put(c.getNombre(),c);</span>
+<span class="fc" id="L38">    }</span>
+    
+    public String getNombre(){
+<span class="fc" id="L41">        return nombre_;</span>
+    }
+    
+    public  Map&lt;String,Ciudad&gt; getCiudades(){
+<span class="nc" id="L45">        return ciudades_;</span>
+    }
+    
+    public Ciudad encontrarCiudad(String nombre){
+<span class="pc bpc" id="L49" title="1 of 2 branches missed.">        if (this.ciudades_.containsKey(nombre)) {</span>
+<span class="fc" id="L50">            return this.ciudades_.get(nombre);</span>
+        }
+        else {
+<span class="nc" id="L53">            throw new IllegalArgumentException(&quot;La ciudad &quot; + nombre + &quot; no existe&quot;);</span>
+        }    
+    }
+    
+    public Set&lt;String&gt; listarCiudades(){
+<span class="fc" id="L58">       Set&lt;String&gt; ciudades = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">       for(Ciudad c: ciudades_.values()){</span>
+<span class="fc" id="L60">           ciudades.add(c.getNombre());</span>
+<span class="fc" id="L61">       }</span>
+<span class="fc" id="L62">       return ciudades;</span>
+    }
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

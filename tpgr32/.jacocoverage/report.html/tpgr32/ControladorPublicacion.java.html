@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ControladorPublicacion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">ControladorPublicacion.java</span></div><h1>ControladorPublicacion.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.util.Set;
+import java.awt.Image;
+import java.util.HashSet;
+import java.util.Iterator;
+import javax.swing.tree.DefaultTreeModel;
+
+/**
+ *
+ * @author piñe
+ */
+public class ControladorPublicacion implements IControladorPublicacion{
+    
+    private Servicio instServicio;
+    private Promocion instPromocion;
+    private ManejadorCategoria mCategoria;
+   
+    // comiste
+<span class="fc" id="L25">   public ControladorPublicacion(){</span>
+    
+<span class="fc" id="L27">   } </span>
+    
+   public void agregarCategoriaServicio(String cat){
+       
+<span class="fc" id="L31">   }</span>
+   
+   public void altaPromocion(String nombre,String proveedor, Set&lt;DataServicio&gt; servicios, float descuento){
+<span class="fc" id="L34">       ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L35">       Proveedor p = mu.encontrarProveedor(proveedor);</span>
+<span class="fc" id="L36">       Publicacion publ = p.encontrarPublicacion(nombre);</span>
+<span class="pc bpc" id="L37" title="3 of 4 branches missed.">       if ((publ != null) &amp;&amp; (publ instanceof Promocion))</span>
+<span class="nc" id="L38">           throw new IllegalArgumentException(&quot;Proveedor ya tiene Promocion con nombre &quot;+nombre);</span>
+       else{
+<span class="fc" id="L40">            instPromocion = new Promocion(nombre, descuento, p);</span>
+<span class="fc" id="L41">            Iterator&lt;DataServicio&gt; it = servicios.iterator();</span>
+<span class="fc bfc" id="L42" title="All 2 branches covered.">            while (it.hasNext()){</span>
+<span class="fc" id="L43">                 DataServicio dataS = it.next();</span>
+<span class="fc" id="L44">                 Publicacion pub = mu.encontrarProveedor(proveedor).encontrarPublicacion(dataS.getNombre());</span>
+<span class="fc" id="L45">                 Servicio ser = (Servicio) pub;   </span>
+<span class="fc" id="L46">                 instPromocion.agregarServicioaPromocion(ser);</span>
+<span class="fc" id="L47">            }</span>
+<span class="fc" id="L48">            p.agregarPublicacion(instPromocion);</span>
+       }
+<span class="fc" id="L50">   }</span>
+   
+ 
+   
+   // ALTA SERVICO CON DESTINO
+   public void altaServicio(String nombre, String descripcion,
+                          Set&lt;Image&gt; imagenes, float precio, Set&lt;String&gt;categorias,
+                          String proveedor, DataUbicacion origen, DataUbicacion destino){
+       
+       ManejadorUsuario mu;
+<span class="fc" id="L60">       mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L61">       Proveedor p = mu.encontrarProveedor(proveedor);</span>
+<span class="fc" id="L62">       Publicacion pub = p.encontrarPublicacion(nombre);</span>
+<span class="pc bpc" id="L63" title="3 of 4 branches missed.">       if ((pub != null) &amp;&amp; (pub instanceof Servicio))</span>
+<span class="nc" id="L64">           throw new IllegalArgumentException(&quot;Proveedor ya tiene Servicio con nombre: &quot;+nombre);</span>
+       else{
+<span class="fc" id="L66">         Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino,p);</span>
+<span class="fc" id="L67">         p.agregarPublicacion(serv);</span>
+       }
+<span class="fc" id="L69">   }</span>
+   
+  
+   // ALTA SERVICIO SIN DESTINO 
+   public void altaServicio(String nombre, String descripcion,
+                          Set&lt;Image&gt; imagenes, float precio, Set&lt;String&gt;categorias,
+                          String proveedor, DataUbicacion origen){
+       
+       ManejadorUsuario mu;
+<span class="fc" id="L78">       mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L79">       Proveedor p = mu.encontrarProveedor(proveedor);</span>
+<span class="fc" id="L80">       Publicacion pub = p.encontrarPublicacion(nombre);</span>
+<span class="pc bpc" id="L81" title="1 of 4 branches missed.">       if ((pub != null) &amp;&amp; (pub instanceof Servicio))</span>
+<span class="fc" id="L82">           throw new IllegalArgumentException(&quot;Proveedor ya tiene Servicio con nombre: &quot;+nombre);</span>
+       else{
+<span class="fc" id="L84">         Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen,p);</span>
+<span class="fc" id="L85">         p.agregarPublicacion(serv);</span>
+       }
+<span class="fc" id="L87">   }</span>
+   
+   public void eliminarCategoriaServicio(String cat){
+       
+<span class="nc" id="L91">   }</span>
+   
+   public DataPromocion infoPromocion(String proveedor, String promo){
+<span class="fc" id="L94">              ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L95">              Proveedor prov = mu.encontrarProveedor(proveedor);</span>
+<span class="fc" id="L96">              return prov.infoPromocion(promo);</span>
+   }
+   
+   public DataServicio infoServicio(String proveedor, String servicio){
+<span class="fc" id="L100">       ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L101">       Proveedor p = mu.encontrarProveedor(proveedor);</span>
+<span class="fc" id="L102">       DataServicio ser = p.infoServicio(servicio);</span>
+<span class="fc" id="L103">       return ser;</span>
+   }
+      
+   
+   public DefaultTreeModel listarCategorias(){
+<span class="nc" id="L108">       mCategoria = ManejadorCategoria.getInstance();</span>
+<span class="nc" id="L109">       return mCategoria.crearArbolCategorias();</span>
+   }
+   
+   public Set&lt;DataPromocion&gt; listarPromociones(){
+<span class="fc" id="L113">       Set&lt;DataPromocion&gt; setPromo = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L114">       ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L115">       Set&lt;DataUsuario&gt; setProv = mu.listarProveedores();</span>
+<span class="fc" id="L116">       Iterator itProv = setProv.iterator();</span>
+<span class="fc bfc" id="L117" title="All 2 branches covered.">       while (itProv.hasNext()){</span>
+<span class="fc" id="L118">           DataProveedor dataProv = (DataProveedor) itProv.next();</span>
+<span class="fc" id="L119">           Set&lt;DataPublicacion&gt; setPub = dataProv.getPublicaciones();</span>
+<span class="fc" id="L120">           Iterator itPub = setPub.iterator();</span>
+<span class="fc bfc" id="L121" title="All 2 branches covered.">           while (itPub.hasNext()){</span>
+<span class="fc" id="L122">               DataPublicacion dataPub = (DataPublicacion) itPub.next();</span>
+<span class="fc bfc" id="L123" title="All 2 branches covered.">               if (dataPub instanceof DataPromocion){</span>
+<span class="fc" id="L124">                   setPromo.add((DataPromocion) dataPub);</span>
+               }
+<span class="fc" id="L126">           }</span>
+<span class="fc" id="L127">       }</span>
+<span class="fc" id="L128">       return setPromo;</span>
+   }
+   
+   public Set&lt;DataServicio&gt; listarServicios(){
+<span class="fc" id="L132">       Set&lt;DataServicio&gt; setS = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L133">       ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L134">       Set&lt;DataUsuario&gt; setProv = mu.listarProveedores();</span>
+<span class="fc" id="L135">       Iterator itProv = setProv.iterator();</span>
+<span class="fc bfc" id="L136" title="All 2 branches covered.">       while (itProv.hasNext()){</span>
+<span class="fc" id="L137">           DataProveedor dataProv = (DataProveedor) itProv.next();</span>
+<span class="fc" id="L138">           Set&lt;DataPublicacion&gt; setPub = dataProv.getPublicaciones();</span>
+<span class="fc" id="L139">           Iterator itPub = setPub.iterator();</span>
+<span class="fc bfc" id="L140" title="All 2 branches covered.">           while (itPub.hasNext()){</span>
+<span class="fc" id="L141">               DataPublicacion dataPub = (DataPublicacion) itPub.next();</span>
+<span class="fc bfc" id="L142" title="All 2 branches covered.">               if (dataPub instanceof DataServicio){</span>
+<span class="fc" id="L143">                   setS.add((DataServicio) dataPub);</span>
+               }
+<span class="fc" id="L145">           }</span>
+<span class="fc" id="L146">       }</span>
+<span class="fc" id="L147">       return setS;</span>
+   }
+   
+   public Set&lt;DataServicio&gt; listarServiciosDeCategoria(String cat){
+<span class="fc" id="L151">       ManejadorCategoria mc = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L152">       Categoria c = mc.encontrarCategoria(cat);</span>
+<span class="fc" id="L153">       Set&lt;DataServicio&gt; servicios = c.listarServicios();</span>
+<span class="fc" id="L154">       return servicios;</span>
+   }
+   
+   public void modificarDescripcionServicio(String nuevaDescripcion){
+<span class="fc" id="L158">       instServicio.setDescripcion(nuevaDescripcion);</span>
+<span class="fc" id="L159">   }</span>
+   
+   public void modificarImagenesServicio(Set&lt;Image&gt; imagenes){
+<span class="nc" id="L162">       instServicio.setImagenes(imagenes);</span>
+<span class="nc" id="L163">   }</span>
+   
+   public void eliminarDestinoServicio()
+   {
+<span class="nc" id="L167">       instServicio.eliminarDestino();</span>
+<span class="nc" id="L168">   }</span>
+   
+   public void modificarPrecioServicio(float nuevo){
+<span class="fc" id="L171">       instServicio.setPrecio(nuevo);</span>
+<span class="fc" id="L172">   }</span>
+   
+   public void modificarOrigenServicio(String pais, String ciudad)          
+   {
+<span class="fc" id="L176">       ManejadorPais mp = ManejadorPais.getInstance();</span>
+<span class="fc" id="L177">       instServicio.setCiudadOrigen(mp.encontrarPais(pais).encontrarCiudad(ciudad));</span>
+<span class="fc" id="L178">   }</span>
+   
+   public void modificarDestinoServicio(String pais, String ciudad)
+   {
+<span class="fc" id="L182">        ManejadorPais mp = ManejadorPais.getInstance();</span>
+<span class="fc" id="L183">       instServicio.setCiudadDestino(mp.encontrarPais(pais).encontrarCiudad(ciudad));</span>
+<span class="fc" id="L184">   }</span>
+   
+   public void registrarCategoria(String nombre){
+<span class="fc" id="L187">       mCategoria = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L188">       mCategoria.agregarCategoria(nombre);</span>
+<span class="fc" id="L189">   }</span>
+   
+   public void registrarCategoria(String nombre, String padre){
+<span class="fc" id="L192">       mCategoria = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L193">       mCategoria.agregarCategoria(nombre, padre);</span>
+<span class="fc" id="L194">   }</span>
+   
+   public void seleccionarServicio(String proveedor, String nombre){
+<span class="fc" id="L197">       ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L198">       Proveedor p = mu.encontrarProveedor(proveedor);</span>
+<span class="fc" id="L199">       Publicacion pub = p.encontrarPublicacion(nombre);</span>
+<span class="pc bpc" id="L200" title="1 of 2 branches missed.">       if (pub instanceof Servicio)</span>
+<span class="fc" id="L201">           instServicio = (Servicio)pub;</span>
+       else
+<span class="nc" id="L203">           throw new IllegalArgumentException(&quot;La publicacion encontrada no es un servicio&quot;);</span>
+<span class="fc" id="L204">   }</span>
+   
+   
+   public Set&lt;String&gt; listarPaises()
+   {
+<span class="fc" id="L209">       ManejadorPais mp = ManejadorPais.getInstance();</span>
+<span class="fc" id="L210">       return mp.listarPaises();</span>
+   }
+   
+   public Set&lt;String&gt; listarCiudades(String pais){
+<span class="fc" id="L214">       ManejadorPais mp = ManejadorPais.getInstance();</span>
+<span class="fc" id="L215">       Pais p = mp.encontrarPais(pais);</span>
+<span class="fc" id="L216">       Set&lt;String&gt; ciudades = p.listarCiudades();</span>
+<span class="fc" id="L217">       return ciudades;</span>
+   }
+   
+   public void altaPais(String nombre)
+   {
+<span class="fc" id="L222">       ManejadorPais mp = ManejadorPais.getInstance();</span>
+<span class="fc" id="L223">       Pais p = mp.encontrarPais(nombre);</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">       if (p == null)</span>
+       {
+<span class="fc" id="L226">           p = new Pais(nombre);</span>
+<span class="fc" id="L227">           mp.agregarPais(p);</span>
+       }
+       else
+<span class="fc" id="L230">           throw new IllegalArgumentException(&quot;El pais ya existe&quot;);</span>
+<span class="fc" id="L231">   }</span>
+   
+   public void altaCiudad(String pais, String nombre)
+   {
+<span class="fc" id="L235">       ManejadorPais mp = ManejadorPais.getInstance();</span>
+<span class="fc" id="L236">       Pais p = mp.encontrarPais(pais);</span>
+<span class="fc" id="L237">       Ciudad c = new Ciudad(nombre,p);</span>
+<span class="fc" id="L238">       p.agregarCiudadAPais(c);</span>
+<span class="fc" id="L239">   }</span>
+   
+   
+   public Set&lt;DataPublicacion&gt; listarPublicaciones()
+   {
+<span class="fc" id="L244">       Set&lt;DataPromocion&gt; promociones = this.listarPromociones();</span>
+<span class="fc" id="L245">       Set&lt;DataServicio&gt; servicios = this.listarServicios();</span>
+<span class="fc" id="L246">       Set&lt;DataPublicacion&gt; publicaciones = new HashSet&lt;&gt;();</span>
+<span class="fc bfc" id="L247" title="All 2 branches covered.">       for(DataPromocion p : promociones)</span>
+<span class="fc" id="L248">           publicaciones.add(p);</span>
+<span class="fc bfc" id="L249" title="All 2 branches covered.">       for (DataServicio s : servicios)</span>
+<span class="fc" id="L250">           publicaciones.add(s);</span>
+<span class="fc" id="L251">       return publicaciones;</span>
+   }
+   
+   public Set&lt;DataServicio&gt; listarServicioDeCategoriaCompleto(String cat){
+<span class="fc" id="L255">       ManejadorCategoria mc = ManejadorCategoria.getInstance();</span>
+<span class="fc" id="L256">       Categoria c = mc.encontrarCategoria(cat);</span>
+<span class="fc" id="L257">       Set&lt;DataServicio&gt; servicios = c.listarServiciosCompleto();</span>
+<span class="fc" id="L258">       return servicios;</span>
+   }
+
+    private Exception IllegalArgumentException(String la_publicacion_encontrada_no_es_un_servic) {
+<span class="nc" id="L262">        throw new UnsupportedOperationException(&quot;Not supported yet.&quot;); //To change body of generated methods, choose Tools | Templates.</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Publicacion.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">Publicacion.java</span></div><h1>Publicacion.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.util.HashSet;
+import java.util.Set;
+
+/**
+ *
+ * @author spesamosca
+ */
+public abstract class Publicacion {
+    
+    private String nombre_;
+    private Usuario proveedor_;
+    private Set&lt;ReservaPublicacion&gt; rp_;
+    
+<span class="nc" id="L21">    public Publicacion(){</span>
+         
+<span class="nc" id="L23">    }</span>
+    
+    
+<span class="fc" id="L26">    public Publicacion(String nombre, Proveedor p){</span>
+<span class="fc" id="L27">        this.nombre_ = nombre;</span>
+<span class="fc" id="L28">        this.rp_ = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L29">        this.proveedor_ = p;</span>
+<span class="fc" id="L30">    }</span>
+    
+    public void setNombre(String nombre){
+<span class="nc" id="L33">        this.nombre_ = nombre;</span>
+<span class="nc" id="L34">    }</span>
+    
+    public String getNombre(){
+<span class="fc" id="L37">        return this.nombre_;</span>
+    }
+    
+    public Usuario getProveedor(){
+<span class="fc" id="L41">        return proveedor_;</span>
+    }
+    
+    public void agregarReservaPublicacion(ReservaPublicacion rp)
+    {
+<span class="fc" id="L46">	rp_.add(rp);</span>
+<span class="fc" id="L47">    }</span>
+    
+    public void eliminarReservaPublicacion(ReservaPublicacion rp){
+<span class="fc" id="L50">        this.rp_.remove(rp);</span>
+<span class="fc" id="L51">    }</span>
+    
+    public abstract DataPublicacion infoPublicacion();
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

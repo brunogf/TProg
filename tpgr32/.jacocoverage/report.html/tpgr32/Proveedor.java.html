@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Proveedor.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">Proveedor.java</span></div><h1>Proveedor.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ *
+ * @author Nicolás Rostán
+ */
+public class Proveedor extends Usuario {
+    private String nomEmpresa_;
+    private String url_;
+    private Map&lt;String, Publicacion&gt; publicaciones_;
+    
+    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url)
+    {
+<span class="fc" id="L25">	super(nom,apellido,nickName,cElec,f);</span>
+<span class="fc" id="L26">	nomEmpresa_ = empresa;</span>
+<span class="fc" id="L27">        publicaciones_ = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L28">	url_ = url;</span>
+<span class="fc" id="L29">    }</span>
+    
+    public String getNombreEmpresa()
+    {
+<span class="nc" id="L33">	return nomEmpresa_;</span>
+    }
+    
+    public String getURL()
+    {
+<span class="nc" id="L38">	return url_;</span>
+    }
+    
+    public void setNombreEmpresa(String n)
+    {
+<span class="nc" id="L43">	nomEmpresa_ = n;</span>
+<span class="nc" id="L44">    }</span>
+    
+    public void setURL(String u)
+    {
+<span class="nc" id="L48">	url_ = u;</span>
+<span class="nc" id="L49">    }</span>
+    
+    public Publicacion encontrarPublicacion(String pub)
+    {
+<span class="fc" id="L53">	Publicacion p = publicaciones_.get(pub);</span>
+<span class="fc" id="L54">	return p;</span>
+    }
+    
+    // al retornar el dt del Proveedor ya le agrego los dtPublicaciones de sus Publicaciones
+    @Override
+     public DataUsuario infoUsuario() {
+<span class="fc" id="L60">        DataProveedor dtProv = new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,</span>
+        this.nomEmpresa_,this.url_); 
+<span class="fc bfc" id="L62" title="All 2 branches covered.">        for(String key : this.publicaciones_.keySet()) {</span>
+<span class="fc" id="L63">            Publicacion p = this.publicaciones_.get(key);</span>
+<span class="fc" id="L64">            dtProv.agregarPublicacion(p.infoPublicacion());</span>
+<span class="fc" id="L65">        }</span>
+<span class="fc" id="L66">        return dtProv;     </span>
+    }
+         
+    public void agregarPublicacion(Publicacion p){
+<span class="fc" id="L70">        publicaciones_.put(p.getNombre(), p);</span>
+<span class="fc" id="L71">    }</span>
+    
+    public DataServicio infoServicio(String nombre){
+<span class="fc" id="L74">        Publicacion pub = publicaciones_.get(nombre);</span>
+<span class="pc bpc" id="L75" title="1 of 2 branches missed.">	if (!(pub instanceof Servicio))</span>
+<span class="nc" id="L76">	    throw new IllegalArgumentException(&quot;No se encontro el servicio&quot;);</span>
+<span class="fc" id="L77">	Servicio ser = (Servicio)pub;</span>
+<span class="fc" id="L78">        DataServicio servicio =(DataServicio) ser.infoPublicacionCompleto();</span>
+<span class="fc" id="L79">        return servicio;</span>
+    }
+    
+    public Set&lt;DataPublicacion&gt; listarPublicaciones()
+    {
+<span class="nc" id="L84">        Set&lt;DataPublicacion&gt; publicaciones = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        for(Map.Entry&lt;String, Publicacion&gt; entry : publicaciones_.entrySet())</span>
+        {
+<span class="nc" id="L87">            publicaciones.add(entry.getValue().infoPublicacion());</span>
+<span class="nc" id="L88">        }</span>
+<span class="nc" id="L89">        return publicaciones;</span>
+    }
+ 
+    // servicios del proveedor
+    public Set&lt;DataPublicacion&gt; listarServicios()
+    {
+<span class="nc" id="L95">         Set&lt;DataPublicacion&gt; s = new HashSet&lt;&gt;();</span>
+<span class="nc bnc" id="L96" title="All 2 branches missed.">        for(String key : this.publicaciones_.keySet()) {</span>
+<span class="nc" id="L97">            Publicacion p = this.publicaciones_.get(key);</span>
+<span class="nc" id="L98">            s.add(p.infoPublicacion());</span>
+<span class="nc" id="L99">        }</span>
+<span class="nc" id="L100">        return s;</span>
+    }
+    
+    public DataPromocion infoPromocion(String promo){
+<span class="fc" id="L104">        Promocion p = (Promocion) encontrarPublicacion(promo);</span>
+<span class="fc" id="L105">        DataPromocion dataP = new DataPromocion(p.getNombre(), p.getDescuento(), super.nickname, p.getPrecioTotal());</span>
+<span class="fc" id="L106">        return dataP;</span>
+    }
+  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

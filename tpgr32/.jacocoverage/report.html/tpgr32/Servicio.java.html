@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Servicio.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">Servicio.java</span></div><h1>Servicio.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+
+import java.awt.Image;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+/**
+ *
+ * @author piñe
+ */
+public class Servicio extends Publicacion {
+    
+    private String descripcion_;
+    private Set&lt;Image&gt; imagenes_;
+    private float precio_;
+    private Ciudad ciudadOrigen_;
+    private Ciudad ciudadDestino_;
+    private Map&lt;String,Categoria&gt; categorias_;
+    
+<span class="nc" id="L27">    public Servicio(){</span>
+        
+<span class="nc" id="L29">    }</span>
+    
+    public Servicio(String nombre, String descripcion, Set&lt;Image&gt; imagenes, float precio, Ciudad origen, Proveedor p){
+<span class="nc" id="L32">        super(nombre,p);</span>
+<span class="nc" id="L33">        this.descripcion_ = descripcion;</span>
+<span class="nc" id="L34">        this.imagenes_ = imagenes;</span>
+<span class="nc" id="L35">        this.precio_ = precio;</span>
+<span class="nc" id="L36">        this.ciudadOrigen_ = origen;</span>
+<span class="nc" id="L37">    }</span>
+    
+    
+    //CONSTRUCTOR CON DESTINO
+    public Servicio(String nombre, String descripcion, Set&lt;Image&gt; imagenes, float precio, Set&lt;String&gt; categorias, DataUbicacion origen,
+            DataUbicacion destino, Proveedor p){
+<span class="fc" id="L43">       super(nombre,p);</span>
+<span class="fc" id="L44">       this.descripcion_ = descripcion;</span>
+<span class="fc" id="L45">       this.imagenes_ = imagenes;</span>
+<span class="fc" id="L46">       this.precio_ = precio;</span>
+<span class="fc" id="L47">       this.categorias_ = new HashMap&lt;&gt;();</span>
+       
+       ManejadorCategoria mc;
+<span class="fc" id="L50">       mc = ManejadorCategoria.getInstance();</span>
+       
+       
+<span class="fc bfc" id="L53" title="All 2 branches covered.">       for(String cat: categorias){</span>
+           Categoria c;
+<span class="fc" id="L55">           c = mc.encontrarCategoria(cat);</span>
+<span class="fc" id="L56">           categorias_.put(cat, c);</span>
+           
+<span class="fc" id="L58">           c.agregarServicio(this); </span>
+<span class="fc" id="L59">       }</span>
+       
+       ManejadorPais mp;
+<span class="fc" id="L62">       mp = ManejadorPais.getInstance();</span>
+       
+<span class="fc" id="L64">       Pais porigen = mp.encontrarPais(origen.getPais());</span>
+<span class="fc" id="L65">       Ciudad corigen = porigen.encontrarCiudad(origen.getCiudad());</span>
+       
+<span class="fc" id="L67">       Pais pdestino = mp.encontrarPais(destino.getPais());</span>
+<span class="fc" id="L68">       Ciudad cdestino = pdestino.encontrarCiudad(destino.getCiudad());</span>
+       
+<span class="fc" id="L70">       ciudadOrigen_ = corigen;</span>
+<span class="fc" id="L71">       ciudadDestino_ = cdestino;</span>
+<span class="fc" id="L72">    }</span>
+    
+    
+    // CONSTRUCTOR SIN DESTINO
+    public Servicio(String nombre, String descripcion, Set&lt;Image&gt; imagenes, float precio, Set&lt;String&gt; categorias, DataUbicacion origen, Proveedor p){
+<span class="fc" id="L77">       super(nombre,p);</span>
+<span class="fc" id="L78">       this.descripcion_ = descripcion;</span>
+<span class="fc" id="L79">       this.imagenes_ = imagenes;</span>
+<span class="fc" id="L80">       this.precio_ = precio;</span>
+<span class="fc" id="L81">       this.categorias_ = new HashMap&lt;&gt;();</span>
+       
+       ManejadorCategoria mc;
+<span class="fc" id="L84">       mc = ManejadorCategoria.getInstance();</span>
+       
+       
+       ManejadorPais mp;
+<span class="fc" id="L88">       mp = ManejadorPais.getInstance();</span>
+       
+<span class="fc" id="L90">       Pais porigen = mp.encontrarPais(origen.getPais());</span>
+<span class="fc" id="L91">       Ciudad corigen = porigen.encontrarCiudad(origen.getCiudad());</span>
+       
+<span class="fc" id="L93">       ciudadOrigen_ = corigen;</span>
+       
+<span class="fc bfc" id="L95" title="All 2 branches covered.">       for(String cat: categorias){</span>
+           Categoria c;
+<span class="fc" id="L97">           c = mc.encontrarCategoria(cat);</span>
+<span class="fc" id="L98">           categorias_.put(cat, c);</span>
+           
+<span class="fc" id="L100">           c.agregarServicio(this); </span>
+<span class="fc" id="L101">       } </span>
+<span class="fc" id="L102">    }</span>
+    
+    public void setCiudadOrigen(Ciudad c)
+    {
+<span class="fc" id="L106">        ciudadOrigen_ = c;</span>
+<span class="fc" id="L107">    }</span>
+    public void setCiudadDestino(Ciudad c)
+    {
+<span class="fc" id="L110">        ciudadDestino_ = c;</span>
+<span class="fc" id="L111">    }</span>
+    
+    public void eliminarDestino()
+    {
+<span class="nc" id="L115">        ciudadDestino_ = null;</span>
+<span class="nc" id="L116">    }</span>
+    
+    public void setDescripcion(String descripcion){
+<span class="fc" id="L119">        this.descripcion_ = descripcion;</span>
+<span class="fc" id="L120">    }</span>
+    
+    public void setImagenes(Set&lt;Image&gt; imagenes){
+<span class="nc" id="L123">        imagenes_ = imagenes;</span>
+<span class="nc" id="L124">    }</span>
+    
+    public void setPrecio(float precio){
+<span class="fc" id="L127">        this.precio_ = precio;</span>
+<span class="fc" id="L128">    }</span>
+            
+    public String getDescripcion(){
+        
+<span class="nc" id="L132">        return descripcion_;</span>
+    }
+    
+    public Set&lt;Image&gt; getImagenes(){
+        
+<span class="nc" id="L137">        return imagenes_;</span>
+    }
+    
+    
+    public float getPrecio(){
+        
+<span class="fc" id="L143">        return precio_;</span>
+    } 
+    
+    
+    public DataPublicacion infoPublicacion(){
+<span class="fc" id="L148">        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNickname());</span>
+<span class="fc" id="L149">        return servicio;</span>
+    }
+    
+    
+    public DataPublicacion infoPublicacionCompleto(){
+        DataServicio servicio;
+<span class="fc bfc" id="L155" title="All 2 branches covered.">        if (ciudadDestino_ != null)</span>
+<span class="fc" id="L156">          servicio = new DataServicio(this.getNombre(),descripcion_,precio_,</span>
+<span class="fc" id="L157">                                       this.getProveedor().getNombre()+&quot; &quot;+this.getProveedor().getApellido()+&quot; (nickname: &quot;+this.getProveedor().getNickname()+&quot;)&quot;,</span>
+<span class="fc" id="L158">                                        ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),</span>
+<span class="fc" id="L159">                                        ciudadDestino_.getPais().getNombre(), ciudadDestino_.getNombre(),imagenes_);</span>
+        else
+<span class="fc" id="L161">          servicio = new DataServicio(this.getNombre(),descripcion_,precio_,</span>
+<span class="fc" id="L162">                                       this.getProveedor().getNombre()+&quot; &quot;+this.getProveedor().getApellido()+&quot; (nickname: &quot;+this.getProveedor().getNickname()+&quot;)&quot;,</span>
+<span class="fc" id="L163">                                        ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),</span>
+                                        &quot;No tiene&quot;, &quot;No tiene&quot;,imagenes_);
+            
+<span class="fc" id="L166">        return servicio;</span>
+    }
+    
+    
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DataUsuario.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">JaCoCoverage analysis of project &quot;tpgr32&quot; (powered by JaCoCo from EclEmma)</a> &gt; <a href="index.source.html" class="el_package">tpgr32</a> &gt; <span class="el_source">DataUsuario.java</span></div><h1>DataUsuario.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package tpgr32;
+import java.awt.Image;
+import java.util.Date;
+
+/**
+ *
+ * @author Nicolás Rostán
+ */
+public abstract class DataUsuario {
+    private String nickname_;
+    private String nombre_;
+    private String apellido_;
+    private String correo_;
+    private Date fecha_;
+    private String img_;
+    
+    
+<span class="nc" id="L23">    public DataUsuario(){}</span>
+    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha)
+<span class="fc" id="L25">    {</span>
+<span class="fc" id="L26">	nickname_ = nickname;</span>
+<span class="fc" id="L27">	nombre_ = nombre;</span>
+<span class="fc" id="L28">	apellido_ = apellido;</span>
+<span class="fc" id="L29">	correo_ = correo;</span>
+<span class="fc" id="L30">	fecha_ = fecha;</span>
+<span class="fc" id="L31">    }</span>
+    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha, String img)
+    {
+<span class="nc" id="L34">	this(nickname, nombre, apellido, correo, fecha);//llama constructor anterior</span>
+<span class="nc" id="L35">	img_ = img;	</span>
+<span class="nc" id="L36">    }</span>
+    
+    public String getNickname()
+    {
+<span class="fc" id="L40">	return nickname_;</span>
+    }
+    
+    public String getNombre()
+    {
+<span class="fc" id="L45">	return nombre_;</span>
+    }
+    
+    public String getApellido()
+    {
+<span class="fc" id="L50">	return apellido_;</span>
+    }
+    
+    public String getCorreo()
+    {
+<span class="fc" id="L55">	return correo_;</span>
+    }
+    
+    public Date getFecha()
+    {
+<span class="fc" id="L60">	return fecha_;</span>
+    }
+    
+    public String getImage()
+    {
+<span class="fc" id="L65">	return img_;</span>
+    }
+    
+    public void setNickname(String nick)
+    {
+<span class="nc" id="L70">	nickname_ = nick;</span>
+<span class="nc" id="L71">    }</span>
+    
+    public void setNombre(String nombre)
+    {
+<span class="nc" id="L75">	nombre_ = nombre;</span>
+<span class="nc" id="L76">    }</span>
+    
+    public void setApellido(String ap)
+    {
+<span class="nc" id="L80">	apellido_ = ap;</span>
+<span class="nc" id="L81">    }</span>
+    
+    public void setCorreo(String c)
+    {
+<span class="nc" id="L85">	correo_ = c;</span>
+<span class="nc" id="L86">    }</span>
+    
+    public void setFecha(Date f)
+    {
+<span class="nc" id="L90">	fecha_ = f;</span>
+<span class="nc" id="L91">    }</span>
+    
+    public void setImage(String i)
+    {
+<span class="nc" id="L95">	img_ = i;</span>
+<span class="nc" id="L96">    }</span>
+    
+     public String toString (){
+<span class="nc" id="L99">        String mensaje= &quot;&quot;+this.nombre_+&quot; &quot;+this.apellido_;</span>
+<span class="nc" id="L100">        return mensaje;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
