@@ -500,21 +500,12 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="RegCategoriaNomCategoriaLabel" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace pref="36" max="32767" attributes="0"/>
-                                      <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="RegCategoriaConPadreRadioButton" min="-2" max="-2" attributes="0"/>
-                                          <Component id="RegCategoriaNombreCategoriaTextField" min="-2" pref="182" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="RegCategoriaConPadreRadioButton" min="-2" max="-2" attributes="0"/>
+                                  <Component id="RegCategoriaNombreCategoriaTextField" min="-2" pref="182" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -524,31 +515,36 @@
                                       <Component id="RegCategoriaScrollPane" pref="167" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="RegCategoriaAceptarButton" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="RegCategoriaCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="RegCategoriaSinPadreRadioButton" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="RegCategoriaCancelarButton" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="RegCategoriaCategoriaPadreLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="RegCategoriaSinPadreRadioButton" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="14" pref="130" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+                      <Component id="RegCategoriaCancelarButton" min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                      <Component id="RegCategoriaAceptarButton" min="-2" pref="82" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="RegCategoriaLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="RegCategoriaNomCategoriaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegCategoriaNombreCategoriaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -564,12 +560,12 @@
                           <Component id="RegCategoriaSelecCategoriaPadreLabel" min="-2" pref="26" max="-2" attributes="0"/>
                           <Component id="RegCategoriaScrollPane" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace pref="7" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="RegCategoriaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="RegCategoriaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="RegCategoriaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -577,7 +573,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="RegCategoriaLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Registrar Categoria"/>
+                <Property name="text" type="java.lang.String" value="Registrar Categor&#xed;a"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="RegCategoriaNomCategoriaLabel">
@@ -589,7 +585,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="RegCategoriaCategoriaPadreLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Categoria padre:"/>
+                <Property name="text" type="java.lang.String" value="Categor&#xed;a padre:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="RegCategoriaSinPadreRadioButton">
@@ -611,7 +607,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="RegCategoriaSelecCategoriaPadreLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Selecciona la categoria padre:"/>
+                <Property name="text" type="java.lang.String" value="Selecciona la categor&#xed;a padre:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="RegCategoriaScrollPane">
@@ -672,46 +668,43 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="RegistrarServicioNombreLAbel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="RegistrarServicioDescripcionLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="RegistrarServicioPrecioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="RegistrarServicioNombreLAbel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jScrollPane7" max="32767" attributes="0"/>
-                                      <Component id="RegistrarServicioNombreTextField" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="RegistrarServicioNombreTextField" min="-2" pref="222" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
                                       <Component id="RegistrarServicioPrecioTextField" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="RegistrarServicioCancelarBottonDBPanel" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                  <Component id="RegistrarServicioSiguienteBottonDBPanel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="RegistrarServicioCancelarBottonDBPanel" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
+                                  <Component id="RegistrarServicioSiguienteBottonDBPanel" min="-2" pref="86" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="26" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="RegistrarServicioNombreLAbel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegistrarServicioNombreTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="RegistrarServicioNombreLAbel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="RegistrarServicioDescripcionLabel" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
@@ -721,12 +714,12 @@
                               <Component id="RegistrarServicioPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegistrarServicioPrecioTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="135" max="32767" attributes="0"/>
+                          <EmptySpace pref="66" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegistrarServicioCancelarBottonDBPanel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegistrarServicioSiguienteBottonDBPanel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -734,19 +727,19 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel1">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Registro de servicio"/>
+                    <Property name="text" type="java.lang.String" value="Registrar Servicio"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="RegistrarServicioNombreLAbel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Nombre de servicio:"/>
+                    <Property name="text" type="java.lang.String" value="Nombre del servicio:"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="RegistrarServicioNombreTextField">
                 </Component>
                 <Component class="javax.swing.JLabel" name="RegistrarServicioDescripcionLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Descripcion de servicio:"/>
+                    <Property name="text" type="java.lang.String" value="Descripci&#xf3;n del servicio:"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane7">
@@ -833,7 +826,7 @@
                           <Component id="RegServicioTituloLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane8" min="-2" pref="129" max="-2" attributes="0"/>
-                          <EmptySpace pref="189" max="32767" attributes="0"/>
+                          <EmptySpace pref="169" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegServicioSPSiguienteButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegServicioSPAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -965,7 +958,7 @@
                                   <Component id="RegServicioUbicacionSiguienteButton" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="50" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1000,7 +993,7 @@
                               <Component id="RegServicioCiudadDestinoLabel" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="RegServicioCiudadDestinoComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="101" max="32767" attributes="0"/>
+                          <EmptySpace pref="75" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegServicioUbicacionCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegServicioUbicacionAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1188,7 +1181,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="101" pref="74" max="32767" attributes="0"/>
+                          <EmptySpace min="101" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1207,7 +1200,7 @@
                               <Component id="RegServicioImagen2Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="RegServicioSeleccImagen2Button" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="29" max="32767" attributes="0"/>
+                          <EmptySpace pref="13" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegServicioImagen3Label" alignment="3" min="-2" pref="100" max="-2" attributes="0"/>
                               <Component id="RegServicioSeleccImagen3Button" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1373,7 +1366,7 @@
                               <Component id="RegServicioCategoriasAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegServicioCategoriasConfirmarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <EmptySpace pref="63" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1805,7 +1798,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                       <Component id="AltaCiudadAgregarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="291" max="32767" attributes="0"/>
+                      <EmptySpace pref="263" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1907,7 +1900,7 @@
                           <Component id="RegReservaSeleccClienteLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="RegReservaClienteTableScrollPane" min="-2" pref="170" max="-2" attributes="0"/>
-                          <EmptySpace pref="158" max="32767" attributes="0"/>
+                          <EmptySpace pref="131" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSigButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2017,7 +2010,7 @@
                           <Component id="RegReservaTitleLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jScrollPane3" min="-2" pref="129" max="-2" attributes="0"/>
-                          <EmptySpace pref="197" max="32767" attributes="0"/>
+                          <EmptySpace pref="169" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaSPSigButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaSPAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2358,7 +2351,7 @@
                                       <Component id="RegReservaConfirmarCInfoLabel" min="-2" max="-2" attributes="0"/>
                                       <Component id="RegReservaConfirmarPInfoLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="344" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane6" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -2430,7 +2423,7 @@
                               <Component id="RegReservaConfirmarTotalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaConfirmarPrecioLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="75" max="32767" attributes="0"/>
+                          <EmptySpace pref="33" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="RegReservaConfirmarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="RegReservaConfirmarAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2613,7 +2606,7 @@
                           <Component id="ActualizarEstadoReservaAceptarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ActualizarEstadoReservaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="116" max="32767" attributes="0"/>
+                      <EmptySpace pref="84" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2714,15 +2707,14 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="CancelarBajaReservaButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Component id="EliminarReservaButton" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                              <Component id="CancelarBajaReservaButton" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="EliminarReservaButton" min="-2" pref="140" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -2735,7 +2727,7 @@
                               <Component id="CancelarReservaLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="77" max="32767" attributes="0"/>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2753,7 +2745,7 @@
                           <Component id="EliminarReservaButton" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="CancelarBajaReservaButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="164" max="32767" attributes="0"/>
+                      <EmptySpace pref="141" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -2875,7 +2867,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="91" max="32767" attributes="0"/>
+                          <EmptySpace pref="92" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2891,7 +2883,7 @@
                               <Component id="InfoServicioSeleccServLabel" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="InfoServicioServiciosComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="71" max="32767" attributes="0"/>
+                          <EmptySpace pref="59" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="InfoServicioCategoriaCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="InfoServicioCategoriaSiguienteButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -2904,7 +2896,7 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="InfoServicioCategoriaLabel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Seleccione la categoria que desea ver sus servicios"/>
+                    <Property name="text" type="java.lang.String" value="Seleccione la categor&#xed;a;"/>
                   </Properties>
                 </Component>
                 <Container class="javax.swing.JScrollPane" name="jScrollPane14">
@@ -3358,16 +3350,17 @@
                                       <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
                                       <Component id="InfoReservaPublicacionesLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="InfoReservaPrecioLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="InfoReservaSRPrecioLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane17" alignment="1" pref="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="InfoReservaPrecioLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="InfoReservaSRPrecioLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -3616,7 +3609,7 @@
                       <Component id="InfoReservasClientesFIniLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane10" min="-2" pref="108" max="-2" attributes="0"/>
-                      <EmptySpace pref="81" max="32767" attributes="0"/>
+                      <EmptySpace pref="84" max="32767" attributes="0"/>
                       <Component id="infoReservasClienteBotonAtras" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -3639,7 +3632,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="InfoReservasClienteNumLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Numero:"/>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="InfoReservasClienteNumero">
@@ -3668,7 +3661,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="InfoReservasClienteFCreacionLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Fecha Creacion:"/>
+                <Property name="text" type="java.lang.String" value="Fecha Creaci&#xf3;n:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="InfoReservasClientesEstadoLabel">
@@ -3760,39 +3753,49 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="InfoPromocionVerPromocionButton" min="-2" max="-2" attributes="0"/>
-                                  <Component id="InfoPromocionLabel" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="InfoPromocionPromocionesLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="InfoPromocionPromocionesScrollPane" min="-2" pref="160" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="InfoPromocionLabel" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="InfoPromocionPromocionesLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="InfoPromocionPromocionesScrollPane" min="-2" pref="160" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <EmptySpace pref="131" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="InfoPromocionNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="InfoPromocionDescuentoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="InfoPromocionPrecioFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="InfoPromocionProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="InfoPromocionCancelarButton" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="InfoPromocionNombreLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoPromocionDescuentoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoPromocionPrecioFinalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="InfoPromocionProveedorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="InfoPromocionDescuentoPLabel" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="InfoPromocionPrecioFinalPLabel" pref="118" max="32767" attributes="0"/>
-                                      <Component id="InfoPromocionNombrePLabel" pref="118" max="32767" attributes="0"/>
-                                      <Component id="InfoPromocionProveedorPLabel" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="InfoPromocionVerServiciosButton" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="InfoPromocionVerPromocionButton" min="-2" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="InfoPromocionDescuentoPLabel" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="InfoPromocionPrecioFinalPLabel" pref="118" max="32767" attributes="0"/>
+                                                  <Component id="InfoPromocionNombrePLabel" pref="118" max="32767" attributes="0"/>
+                                                  <Component id="InfoPromocionProveedorPLabel" alignment="0" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
-                          <Component id="InfoPromocionVerServiciosButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="InfoPromocionCancelarButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3828,7 +3831,7 @@
                               <Component id="InfoPromocionPrecioFinalLabel" max="32767" attributes="0"/>
                               <Component id="InfoPromocionPrecioFinalPLabel" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="63" max="32767" attributes="0"/>
+                          <EmptySpace pref="30" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="InfoPromocionCancelarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="InfoPromocionVerServiciosButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -3912,7 +3915,7 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="InfoPromocionVerServiciosButton">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Ver Servicios de Promocion"/>
+                    <Property name="text" type="java.lang.String" value="Ver Servicios de Promoci&#xf3;n"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoPromocionVerServiciosButtonActionPerformed"/>
@@ -3944,7 +3947,7 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace pref="86" max="32767" attributes="0"/>
+                          <EmptySpace pref="87" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -3964,7 +3967,7 @@
                           <Component id="InfoPromocionServiciosScrollPane" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="InfoPromocionVerServicioButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="123" max="32767" attributes="0"/>
+                          <EmptySpace pref="104" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="InfoPromocionFinalizarButton" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="InfoPromocionAtrasButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -4085,7 +4088,7 @@
                               <Component id="InfoPromocionProveedorServicioLabel" max="32767" attributes="0"/>
                               <Component id="InfoPromocionProveedorServicioSLabel" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="85" max="32767" attributes="0"/>
+                          <EmptySpace pref="74" max="32767" attributes="0"/>
                           <Component id="InfoPromocionCerrarButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
@@ -4167,40 +4170,6 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="ConsultarProvImagenLabel" min="-2" pref="132" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
-                              <Component id="ConsultaProveedorBotonAtras" min="-2" pref="66" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="ConsultaProveedorLabel2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="ConsultaProveedor" min="-2" pref="179" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="ConsultaProveedorServicios" min="-2" pref="179" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jScrollPane19" min="-2" pref="391" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                               <Component id="proveedoresSistema" min="-2" max="-2" attributes="0"/>
@@ -4212,10 +4181,44 @@
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="ConsultarProvImagenLabel" min="-2" pref="132" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <Component id="ConsultaProveedorBotonAtras" min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                      <Component id="ConsultaProveedor" min="-2" pref="179" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="ConsultaProveedorServicios" min="-2" pref="179" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane19" min="-2" pref="391" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane20" min="-2" pref="391" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="119" max="-2" attributes="0"/>
+                                      <Component id="ConsultaProveedorLabel2" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane20" min="-2" pref="391" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -4240,7 +4243,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="0" pref="49" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="45" max="32767" attributes="0"/>
                               <Component id="ConsultaProveedorBotonAtras" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="ConsultarProvImagenLabel" alignment="0" max="32767" attributes="0"/>
@@ -4445,7 +4448,7 @@
                       <Component id="jScrollPane21" min="-2" pref="82" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                               <Component id="jScrollPane22" min="-2" pref="107" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -4591,7 +4594,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="ConsultaUsuarioBuscarButton" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                               <Component id="InfoReservasDelCLienteBoton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
@@ -4601,14 +4604,17 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                      <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+                              <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -4618,9 +4624,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="ConsultaUsuarioVerInfoLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="clientesSistema" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="65" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -4647,7 +4653,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="ConsultaUsuarioVerInfoLabel">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ver Informacion de Usuario"/>
+                <Property name="text" type="java.lang.String" value="Ver Informaci&#xf3;n de Usuario"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -4676,7 +4682,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="ConsultaUsuarioBuscarButton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Informacion Cliente"/>
+                <Property name="text" type="java.lang.String" value="Informaci&#xf3;n Cliente"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultaUsuarioBuscarButtonActionPerformed"/>
@@ -4692,7 +4698,7 @@
             </Component>
             <Component class="javax.swing.JButton" name="InfoReservasDelCLienteBoton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Informacion Reservas"/>
+                <Property name="text" type="java.lang.String" value="Informaci&#xf3;n Reservas"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InfoReservasDelCLienteBotonActionPerformed"/>

@@ -533,11 +533,11 @@ public class Interfaz extends javax.swing.JFrame {
 
         RegistrarCategoriaFrame.setVisible(true);
 
-        RegCategoriaLabel.setText("Registrar Categoria");
+        RegCategoriaLabel.setText("Registrar Categoría");
 
         RegCategoriaNomCategoriaLabel.setText("Nombre:");
 
-        RegCategoriaCategoriaPadreLabel.setText("Categoria padre:");
+        RegCategoriaCategoriaPadreLabel.setText("Categoría padre:");
 
         RegCategoriaSinPadreRadioButton.setSelected(true);
         RegCategoriaSinPadreRadioButton.setText("Sin padre");
@@ -554,7 +554,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        RegCategoriaSelecCategoriaPadreLabel.setText("Selecciona la categoria padre:");
+        RegCategoriaSelecCategoriaPadreLabel.setText("Selecciona la categoría padre:");
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Categorias");
         RegCategoriaTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
@@ -583,17 +583,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                         .addComponent(RegCategoriaNomCategoriaLabel)
-                        .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addComponent(RegCategoriaLabel)
-                                .addGap(158, 158, 158))
-                            .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(RegCategoriaConPadreRadioButton)
-                                    .addComponent(RegCategoriaNombreCategoriaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(RegCategoriaConPadreRadioButton)
+                            .addComponent(RegCategoriaNombreCategoriaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
                         .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
@@ -601,23 +595,28 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE))
                             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(RegCategoriaAceptarButton)
-                                    .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                                        .addComponent(RegCategoriaCategoriaPadreLabel)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(RegCategoriaSinPadreRadioButton)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(RegCategoriaCancelarButton)
-                                .addGap(14, 14, 14)))
+                                .addComponent(RegCategoriaCategoriaPadreLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(RegCategoriaSinPadreRadioButton)
+                                .addGap(14, 130, Short.MAX_VALUE)))
                         .addGap(34, 34, 34))))
+            .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
+                .addGap(122, 122, 122)
+                .addComponent(RegCategoriaCancelarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(RegCategoriaAceptarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarCategoriaFrameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RegCategoriaLabel)
+                .addGap(176, 176, 176))
         );
         RegistrarCategoriaFrameLayout.setVerticalGroup(
             RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegistrarCategoriaFrameLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(27, 27, 27)
                 .addComponent(RegCategoriaLabel)
-                .addGap(39, 39, 39)
+                .addGap(32, 32, 32)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegCategoriaNomCategoriaLabel)
                     .addComponent(RegCategoriaNombreCategoriaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -630,11 +629,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegCategoriaSelecCategoriaPadreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegCategoriaScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addGroup(RegistrarCategoriaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegCategoriaAceptarButton)
-                    .addComponent(RegCategoriaCancelarButton))
-                .addGap(36, 36, 36))
+                    .addComponent(RegCategoriaCancelarButton)
+                    .addComponent(RegCategoriaAceptarButton))
+                .addGap(78, 78, 78))
         );
 
         PanelCentral.add(RegistrarCategoriaFrame, "card4");
@@ -642,11 +641,11 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioFrame.setVisible(true);
         RegistrarServicioFrame.getContentPane().setLayout(new java.awt.CardLayout());
 
-        jLabel1.setText("Registro de servicio");
+        jLabel1.setText("Registrar Servicio");
 
-        RegistrarServicioNombreLAbel.setText("Nombre de servicio:");
+        RegistrarServicioNombreLAbel.setText("Nombre del servicio:");
 
-        RegistrarServicioDescripcionLabel.setText("Descripcion de servicio:");
+        RegistrarServicioDescripcionLabel.setText("Descripción del servicio:");
 
         RegistrarServicioDescripcionTextArea.setColumns(20);
         RegistrarServicioDescripcionTextArea.setRows(5);
@@ -682,35 +681,33 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(RegServicioDatosBasicosPanelLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(RegistrarServicioNombreLAbel)
-                        .addGap(47, 47, 47)
-                        .addComponent(jLabel1))
-                    .addGroup(RegServicioDatosBasicosPanelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RegistrarServicioDescripcionLabel)
-                            .addComponent(RegistrarServicioPrecioLabel))
+                            .addComponent(RegistrarServicioPrecioLabel)
+                            .addComponent(RegistrarServicioNombreLAbel))
                         .addGap(18, 18, 18)
-                        .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane7)
-                            .addComponent(RegistrarServicioNombreTextField)
+                        .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(RegistrarServicioNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(RegServicioDatosBasicosPanelLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(RegistrarServicioCancelarBottonDBPanel)
-                        .addGap(52, 52, 52)
-                        .addComponent(RegistrarServicioSiguienteBottonDBPanel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(100, 100, 100)
+                        .addComponent(RegistrarServicioCancelarBottonDBPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(67, 67, 67)
+                        .addComponent(RegistrarServicioSiguienteBottonDBPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         RegServicioDatosBasicosPanelLayout.setVerticalGroup(
             RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(RegServicioDatosBasicosPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1)
-                .addGap(17, 17, 17)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RegistrarServicioNombreLAbel)
-                    .addComponent(RegistrarServicioNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(RegistrarServicioNombreTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(RegistrarServicioNombreLAbel))
+                .addGap(21, 21, 21)
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(RegistrarServicioDescripcionLabel)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -718,11 +715,11 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioPrecioLabel)
                     .addComponent(RegistrarServicioPrecioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 135, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(RegServicioDatosBasicosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistrarServicioCancelarBottonDBPanel)
                     .addComponent(RegistrarServicioSiguienteBottonDBPanel))
-                .addGap(98, 98, 98))
+                .addGap(149, 149, 149))
         );
 
         RegistrarServicioFrame.getContentPane().add(RegServicioDatosBasicosPanel, "card2");
@@ -804,7 +801,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegServicioTituloLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(RegServicioProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioSPSiguienteButton)
                     .addComponent(RegServicioSPAtrasButton)
@@ -923,7 +920,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addComponent(RegServicioUbicacionAtrasButton)
                         .addGap(31, 31, 31)
                         .addComponent(RegServicioUbicacionSiguienteButton)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         RegServicioUbicacionPanelLayout.setVerticalGroup(
             RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -951,7 +948,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioCiudadDestinoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioCiudadDestinoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addGroup(RegServicioUbicacionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioUbicacionCancelarButton)
                     .addComponent(RegServicioUbicacionAtrasButton)
@@ -1046,7 +1043,7 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(RegServicioImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(RegServicioImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(RegServicioImagen1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(74, 74, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         RegServicioImagenPanelLayout.setVerticalGroup(
             RegServicioImagenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1061,7 +1058,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegServicioImagenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioImagen2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioSeleccImagen2Button))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                 .addGroup(RegServicioImagenPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegServicioImagen3Label, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RegServicioSeleccImagen3Button))
@@ -1146,7 +1143,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(RegServicioCategoriasCancelarButton)
                     .addComponent(RegServicioCategoriasAtrasButton)
                     .addComponent(RegServicioCategoriasConfirmarButton))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         RegistrarServicioFrame.getContentPane().add(RegServicioCategoriasPanel, "card6");
@@ -1420,7 +1417,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addComponent(AltaCiudadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(AltaCiudadAgregarButton)
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
         PanelCentral.add(AltaCiudadFrame, "card9");
@@ -1501,7 +1498,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaSeleccClienteLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarClientePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSigButton)
                     .addComponent(RegReservaCancelarButton))
@@ -1592,7 +1589,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(RegReservaTitleLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(RegReservaSeleccionarProveedorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaSPSigButton)
                     .addComponent(RegReservaSPAtrasButton)
@@ -1878,7 +1875,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RegReservaConfirmarCInfoLabel)
                             .addComponent(RegReservaConfirmarPInfoLabel))
-                        .addGap(0, 344, Short.MAX_VALUE))
+                        .addGap(0, 300, Short.MAX_VALUE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaConfirmarPanelLayout.createSequentialGroup()
@@ -1935,7 +1932,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarTotalLabel)
                     .addComponent(RegReservaConfirmarPrecioLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegReservaConfirmarButton)
                     .addComponent(RegReservaConfirmarAtrasButton)
@@ -2038,7 +2035,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ActualizarEstadoReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ActualizarEstadoReservaAceptarButton)
                     .addComponent(ActualizarEstadoReservaCancelarButton))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         PanelCentral.add(ActualizarEstadoReservaFrame, "card14");
@@ -2093,14 +2090,13 @@ public class Interfaz extends javax.swing.JFrame {
         CancelarReservaFrame.getContentPane().setLayout(CancelarReservaFrameLayout);
         CancelarReservaFrameLayout.setHorizontalGroup(
             CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CancelarReservaFrameLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(CancelarBajaReservaButton)
-                .addGap(56, 56, 56)
-                .addComponent(EliminarReservaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72))
             .addGroup(CancelarReservaFrameLayout.createSequentialGroup()
                 .addGroup(CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(CancelarReservaFrameLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(CancelarBajaReservaButton)
+                        .addGap(70, 70, 70)
+                        .addComponent(EliminarReservaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(CancelarReservaFrameLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2109,7 +2105,7 @@ public class Interfaz extends javax.swing.JFrame {
                     .addGroup(CancelarReservaFrameLayout.createSequentialGroup()
                         .addGap(151, 151, 151)
                         .addComponent(CancelarReservaLabel)))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         CancelarReservaFrameLayout.setVerticalGroup(
             CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2124,7 +2120,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(CancelarReservaFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EliminarReservaButton)
                     .addComponent(CancelarBajaReservaButton))
-                .addContainerGap(164, Short.MAX_VALUE))
+                .addContainerGap(141, Short.MAX_VALUE))
         );
 
         PanelCentral.add(CancelarReservaFrame, "card15");
@@ -2132,7 +2128,7 @@ public class Interfaz extends javax.swing.JFrame {
         InformacionServicioFrame.setVisible(true);
         InformacionServicioFrame.getContentPane().setLayout(new java.awt.CardLayout());
 
-        InfoServicioCategoriaLabel.setText("Seleccione la categoria que desea ver sus servicios");
+        InfoServicioCategoriaLabel.setText("Seleccione la categoría;");
 
         InfoServicioCategoriasTree.addTreeSelectionListener(new javax.swing.event.TreeSelectionListener() {
             public void valueChanged(javax.swing.event.TreeSelectionEvent evt) {
@@ -2180,7 +2176,7 @@ public class Interfaz extends javax.swing.JFrame {
                                     .addComponent(InfoServicioCategoriaCancelarButton)
                                     .addGap(66, 66, 66)
                                     .addComponent(InfoServicioCategoriaSiguienteButton))))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         InfoServicioCategoriaPanelLayout.setVerticalGroup(
             InfoServicioCategoriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2193,7 +2189,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoServicioCategoriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioSeleccServLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InfoServicioServiciosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
                 .addGroup(InfoServicioCategoriaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoServicioCategoriaCancelarButton)
                     .addComponent(InfoServicioCategoriaSiguienteButton))
@@ -2492,14 +2488,15 @@ public class Interfaz extends javax.swing.JFrame {
                                 .addComponent(InfoReservaInfoBasicaLabel))))
                     .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
                         .addGap(158, 158, 158)
-                        .addComponent(InfoReservaPublicacionesLabel))
-                    .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(InfoReservaPrecioLabel)
-                        .addGap(18, 18, 18)
-                        .addComponent(InfoReservaSRPrecioLabel)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(InfoReservaPublicacionesLabel)))
+                .addContainerGap(17, Short.MAX_VALUE))
             .addComponent(jScrollPane17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(InfoReservaInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(InfoReservaPrecioLabel)
+                .addGap(18, 18, 18)
+                .addComponent(InfoReservaSRPrecioLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         InfoReservaInfoPanelLayout.setVerticalGroup(
             InfoReservaInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2554,7 +2551,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        InfoReservasClienteNumLabel.setText("Numero:");
+        InfoReservasClienteNumLabel.setText("Número:");
 
         InfoReservasClienteNumero.setEditable(false);
         InfoReservasClienteNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -2577,7 +2574,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        InfoReservasClienteFCreacionLabel.setText("Fecha Creacion:");
+        InfoReservasClienteFCreacionLabel.setText("Fecha Creación:");
 
         InfoReservasClientesEstadoLabel.setText("Estado:");
 
@@ -2693,7 +2690,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(InfoReservasClientesFIniLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
                 .addComponent(infoReservasClienteBotonAtras)
                 .addContainerGap())
         );
@@ -2732,7 +2729,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        InfoPromocionVerServiciosButton.setText("Ver Servicios de Promocion");
+        InfoPromocionVerServiciosButton.setText("Ver Servicios de Promoción");
         InfoPromocionVerServiciosButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InfoPromocionVerServiciosButtonActionPerformed(evt);
@@ -2746,32 +2743,37 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(InfoPromocionVerPromocionButton)
-                        .addComponent(InfoPromocionLabel)
-                        .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
-                            .addComponent(InfoPromocionPromocionesLabel)
-                            .addGap(18, 18, 18)
-                            .addComponent(InfoPromocionPromocionesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                        .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InfoPromocionLabel)
+                            .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                                .addComponent(InfoPromocionPromocionesLabel)
+                                .addGap(18, 18, 18)
+                                .addComponent(InfoPromocionPromocionesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(131, Short.MAX_VALUE))
+                    .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                        .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(InfoPromocionCancelarButton)
+                            .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(InfoPromocionNombreLabel)
+                                .addComponent(InfoPromocionDescuentoLabel)
+                                .addComponent(InfoPromocionPrecioFinalLabel)
+                                .addComponent(InfoPromocionProveedorLabel)))
                         .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InfoPromocionNombreLabel)
-                            .addComponent(InfoPromocionDescuentoLabel)
-                            .addComponent(InfoPromocionPrecioFinalLabel)
-                            .addComponent(InfoPromocionProveedorLabel))
-                        .addGap(32, 32, 32)
-                        .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(InfoPromocionDescuentoPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                            .addComponent(InfoPromocionProveedorPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionPromocionesPanelLayout.createSequentialGroup()
-                .addContainerGap(86, Short.MAX_VALUE)
-                .addComponent(InfoPromocionVerServiciosButton)
-                .addGap(47, 47, 47)
-                .addComponent(InfoPromocionCancelarButton)
-                .addGap(45, 45, 45))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(InfoPromocionVerServiciosButton)
+                                .addGap(31, 31, 31))
+                            .addGroup(InfoPromocionPromocionesPanelLayout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(InfoPromocionVerPromocionButton)
+                                    .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(InfoPromocionDescuentoPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                        .addComponent(InfoPromocionNombrePLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                                        .addComponent(InfoPromocionProveedorPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))))
         );
         InfoPromocionPromocionesPanelLayout.setVerticalGroup(
             InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2800,7 +2802,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(InfoPromocionPrecioFinalLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(InfoPromocionPrecioFinalPLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(InfoPromocionPromocionesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoPromocionCancelarButton)
                     .addComponent(InfoPromocionVerServiciosButton))
@@ -2849,7 +2851,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
                             .addGap(85, 85, 85)
                             .addComponent(InfoPromocionServiciosScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(87, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoPromocionVerServiciosPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(InfoPromocionAtrasButton)
@@ -2866,7 +2868,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(InfoPromocionServiciosScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(InfoPromocionVerServicioButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addGroup(InfoPromocionVerServiciosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(InfoPromocionFinalizarButton)
                     .addComponent(InfoPromocionAtrasButton))
@@ -2943,7 +2945,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InfoPromocionServicioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(InfoPromocionProveedorServicioLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(InfoPromocionProveedorServicioSLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(InfoPromocionCerrarButton)
                 .addGap(74, 74, 74))
         );
@@ -3026,6 +3028,15 @@ public class Interfaz extends javax.swing.JFrame {
             ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                 .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(proveedoresSistema))
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultarInfoProveedorLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ConsultarProvImagenLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3035,32 +3046,23 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                                        .addComponent(ConsultaProveedorLabel2)
-                                        .addGap(70, 70, 70))
-                                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                                        .addComponent(ConsultaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ConsultaProveedorServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(ConsultaProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ConsultaProveedorServicios, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                        .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
+                                .addGap(119, 119, 119)
+                                .addComponent(ConsultaProveedorLabel2)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(proveedoresSistema))
-                    .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ConsultarInfoProveedorLayout.setVerticalGroup(
             ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -3082,7 +3084,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ConsultarInfoProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ConsultarInfoProveedorLayout.createSequentialGroup()
-                        .addGap(0, 49, Short.MAX_VALUE)
+                        .addGap(0, 45, Short.MAX_VALUE)
                         .addComponent(ConsultaProveedorBotonAtras))
                     .addComponent(ConsultarProvImagenLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -3192,7 +3194,7 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jScrollPane21, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                         .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
@@ -3209,7 +3211,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         ConsultaUsuarioFrame.setVisible(true);
 
-        ConsultaUsuarioVerInfoLabel.setText("Ver Informacion de Usuario");
+        ConsultaUsuarioVerInfoLabel.setText("Ver Información de Usuario");
 
         nombreClientes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = {};
@@ -3225,7 +3227,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        ConsultaUsuarioBuscarButton.setText("Informacion Cliente");
+        ConsultaUsuarioBuscarButton.setText("Información Cliente");
         ConsultaUsuarioBuscarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultaUsuarioBuscarButtonActionPerformed(evt);
@@ -3239,7 +3241,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
 
-        InfoReservasDelCLienteBoton.setText("Informacion Reservas");
+        InfoReservasDelCLienteBoton.setText("Información Reservas");
         InfoReservasDelCLienteBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InfoReservasDelCLienteBotonActionPerformed(evt);
@@ -3283,19 +3285,20 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addComponent(ConsultaUsuarioBuscarButton)
-                        .addGap(29, 29, 29)
+                        .addGap(58, 58, 58)
                         .addComponent(InfoReservasDelCLienteBoton)
                         .addGap(39, 39, 39))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(21, 21, 21))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConsultaUsuarioFrameLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(clientesSistema)
-                .addGap(172, 172, 172))
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(ConsultaUsuarioVerInfoLabel)
+                .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addComponent(ConsultaUsuarioVerInfoLabel))
+                    .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
+                        .addGap(170, 170, 170)
+                        .addComponent(clientesSistema)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         ConsultaUsuarioFrameLayout.setVerticalGroup(
@@ -3303,9 +3306,9 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(ConsultaUsuarioFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ConsultaUsuarioVerInfoLabel)
-                .addGap(12, 12, 12)
-                .addComponent(clientesSistema)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(clientesSistema)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(ConsultaUsuarioFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
