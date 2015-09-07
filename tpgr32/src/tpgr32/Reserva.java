@@ -100,21 +100,18 @@ public class Reserva {
     }
     
     public boolean esEliminable(){
-        return true;
+        if (this.estado_==Estado.Registrada || this.estado_==Estado.Pagada){
+            return true;
+        }else return false; 
     }
     
-    public void destroy() throws Exception{
-        if (this.estado_==Estado.Cancelada || this.estado_==Estado.Registrada){
-            Cliente c=this.cliente_;
-            c.eliminarReserva(this);
+    public void destroy(){
+        Cliente c=this.cliente_;
+        c.eliminarReserva(this);
         
-            for (ReservaPublicacion rp:this.rp_){
-                rp.destroy();
-            }
-        }else
-            throw new IllegalArgumentException("La reserva debe estar en estado registrada o cancelada");
-    }
+        for (ReservaPublicacion rp:this.rp_){
+            rp.destroy();
+        }
     //agregar Publicacion (servicio o promocion)
-    
-    
+    }
 }
