@@ -20,7 +20,6 @@ public interface IControladorReserva {
     public int confirmarReserva();
     public DataReserva infoReserva(int num);
     public List<DataReserva> listarReservas();
-    public Set<DataReserva> listarReservasEliminables();
     public void seleccionarCliente(String nickname);
     public void seleccionarPublicacion(String nombre,
             int cantidad, Date inicio, Date fin); 

@@ -40,8 +40,8 @@ public class ControladorReserva implements IControladorReserva{
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
         
-        mr.eliminarReserva(nro);
         r.destroy();
+        mr.eliminarReserva(nro);
     }
     
     public int confirmarReserva()
@@ -83,10 +83,6 @@ public class ControladorReserva implements IControladorReserva{
             }
         });
         return lista;
-    }
-    
-    public Set<DataReserva> listarReservasEliminables(){
-	return new HashSet<>(); 
     }
     
     public void seleccionarCliente(String cliente){
