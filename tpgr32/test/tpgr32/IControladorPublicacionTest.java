@@ -72,12 +72,28 @@ public class IControladorPublicacionTest {
         cp.altaServicio("Euro-Vuelo-S","nada",imagenes,22,categorias,"remus",dtorigen);
     }
     
-    /*@Test
-    public void testAltaPromocion(){
+    @Test
+    public void testAltaPromocion()
+    {
         IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
-        cp.altaPromocion("Euro-Cars-E-S","remus" , ,);
-    }*/
+        Set<DataServicio> setDS = new HashSet<>();
+        setDS.add(cp.infoServicio("moody", "Euro-Car-1"));
+        cp.altaPromocion("la Promo Moody", "moody" ,setDS,10);       
+    }
     
+    @Test
+    public void testAltaCategoria()
+    {
+        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        cp.registrarCategoria("Kawasaki","Moto");
+    }
+    
+    @Test
+    public void testInfoPromocion()
+    {
+        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        cp.infoPromocion("moody", "Euro-Cars-E-F");
+    }
 
     public class IControladorPublicacionImpl implements IControladorPublicacion {
 
