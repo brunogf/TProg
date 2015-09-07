@@ -100,19 +100,16 @@ public class Reserva {
     }
     
     public boolean esEliminable(){
-        return true;
+        return (this.estado_==Estado.Registrada||this.estado_==Estado.Cancelada);
     }
     
     public void destroy() throws Exception{
-        if (this.estado_==Estado.Cancelada || this.estado_==Estado.Registrada){
-            Cliente c=this.cliente_;
-            c.eliminarReserva(this);
+        Cliente c=this.cliente_;
+        c.eliminarReserva(this);
         
-            for (ReservaPublicacion rp:this.rp_){
-                rp.destroy();
-            }
-        }else
-            throw new IllegalArgumentException("La reserva debe estar en estado registrada o cancelada");
+        for (ReservaPublicacion rp:this.rp_){
+            rp.destroy();
+        }
     }
     //agregar Publicacion (servicio o promocion)
     
