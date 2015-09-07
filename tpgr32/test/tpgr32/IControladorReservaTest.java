@@ -62,6 +62,14 @@ public class IControladorReservaTest {
         DataReserva dr = cr.infoReserva(5);
         assertEquals(Estado.Pagada,dr.getEstado());
     }
+    
+    @Test
+    public void testListarreservas()
+    {
+        IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
+        List<DataReserva> reservas = cr.listarReservas();
+        assertEquals(7,reservas.size());
+    }
 
     public class IControladorReservaImpl implements IControladorReserva {
 
