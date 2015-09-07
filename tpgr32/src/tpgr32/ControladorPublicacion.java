@@ -61,7 +61,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Proveedor p = mu.encontrarProveedor(proveedor);
        Publicacion pub = p.encontrarPublicacion(nombre);
        if ((pub != null) && (pub instanceof Servicio))
-           throw new IllegalArgumentException("Proveedor ya tiene Servicio con nombre "+nombre);
+           throw new IllegalArgumentException("Proveedor ya tiene Servicio con nombre: "+nombre);
        else{
          Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino,p);
          p.agregarPublicacion(serv);
@@ -79,7 +79,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Proveedor p = mu.encontrarProveedor(proveedor);
        Publicacion pub = p.encontrarPublicacion(nombre);
        if ((pub != null) && (pub instanceof Servicio))
-           throw new IllegalArgumentException("Proveedor ya tiene Servicio con nombre "+nombre);
+           throw new IllegalArgumentException("Proveedor ya tiene Servicio con nombre: "+nombre);
        else{
          Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen,p);
          p.agregarPublicacion(serv);
