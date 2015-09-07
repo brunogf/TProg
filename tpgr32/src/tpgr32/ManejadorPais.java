@@ -46,7 +46,7 @@ public class ManejadorPais {
             return this.conjPaises_.get(nombre);
         }
         else {
-            throw new IllegalArgumentException("El pais " + nombre + " no existe");
+            return null;
         }    
     }
     

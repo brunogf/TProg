@@ -34,6 +34,15 @@ public class IControladorPublicacionTest {
     
     @Before
     public void setUp() {
+        CargarDatos cd = new CargarDatos();
+        try
+        {
+            cd.cargar();
+        }
+        catch(Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
     @After
@@ -45,7 +54,12 @@ public class IControladorPublicacionTest {
      */
     //TESTS
     
-    
+    @Test(expected=IllegalArgumentException.class)
+    public void asd()
+    {
+        IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
+        cp.altaPais("Uruguay");
+    }
     
     
     

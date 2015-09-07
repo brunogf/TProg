@@ -214,9 +214,17 @@ public class ControladorPublicacion implements IControladorPublicacion{
    
    public void altaPais(String nombre)
    {
-       Pais p = new Pais(nombre);
        ManejadorPais mp = ManejadorPais.getInstance();
-       mp.agregarPais(p);
+       Pais p = mp.encontrarPais(nombre);
+       if (p == null)
+       {
+           p = new Pais(nombre);
+           mp.agregarPais(p);
+       }
+       else
+           throw new IllegalArgumentException();
+       
+       
    }
    
    public void altaCiudad(String pais, String nombre)
