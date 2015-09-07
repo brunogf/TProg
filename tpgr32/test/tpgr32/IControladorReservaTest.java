@@ -5,6 +5,9 @@
  */
 package tpgr32;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -63,12 +66,33 @@ public class IControladorReservaTest {
         assertEquals(Estado.Pagada,dr.getEstado());
     }
     
+    
+    
     @Test
-    public void testListarreservas()
+    public void altaReserva() throws ParseException, Exception
     {
         IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
         List<DataReserva> reservas = cr.listarReservas();
         assertEquals(7,reservas.size());
+        cr.bajaReserva(7);
+        reservas = cr.listarReservas();
+        assertEquals(6,reservas.size());
+        cr.seleccionarCliente("eWatson");
+        cr.seleccionarProveedor("remus");
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        cr.seleccionarPublicacion("Euro-Vuelo-S", 1, df.parse("01-01-2015"), df.parse("01-01-2015"));
+        cr.confirmarReserva();
+        assertEquals("remus",cr.getNickProveedorSeleccionado());
+        DataUsuario dc = cr.getInfoClienteSeleccionado();
+        assertEquals("eWatson", dc.getNickname());
+        dc = cr.getInfoClienteReserva(5);
+        assertEquals(dc.getNickname(),"oWood");
+        dc = cr.getInfoProveedorSeleccionado();
+        assertEquals(dc.getNickname(),"remus");
+        cr.borrarPublicacionesSeleccionadas();
+        assertEquals(cr.getNumeroReservas(),9);
+        cr.cambiarFechaCreacionReserva(df.parse("07-09-2015"),1);
+        assertEquals(cr.infoReserva(1).getCreacion(),df.parse("07-09-2015"));
     }
     
     @Test
