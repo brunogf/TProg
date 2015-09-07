@@ -54,8 +54,13 @@ public class ControladorPublicacion implements IControladorPublicacion{
        ManejadorUsuario mu;
        mu = ManejadorUsuario.getInstance();
        Proveedor p = mu.encontrarProveedor(proveedor);
-       Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino,p);
-       p.agregarPublicacion(serv);
+       Publicacion pub = p.encontrarPublicacion(nombre);
+       if ((pub != null) && (pub instanceof Servicio))
+           throw new IllegalArgumentException("Proveedor ya tiene Servicio con nombre "+nombre);
+       else{
+         Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen, destino,p);
+         p.agregarPublicacion(serv);
+       }
    }
    
   
@@ -67,8 +72,13 @@ public class ControladorPublicacion implements IControladorPublicacion{
        ManejadorUsuario mu;
        mu = ManejadorUsuario.getInstance();
        Proveedor p = mu.encontrarProveedor(proveedor);
-       Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen,p);
-       p.agregarPublicacion(serv);
+       Publicacion pub = p.encontrarPublicacion(nombre);
+       if ((pub != null) && (pub instanceof Servicio))
+           throw new IllegalArgumentException("Proveedor ya tiene Servicio con nombre "+nombre);
+       else{
+         Servicio serv = new Servicio(nombre,descripcion,imagenes,precio,categorias,origen,p);
+         p.agregarPublicacion(serv);
+       }
    }
    
    public void eliminarCategoriaServicio(String cat){
