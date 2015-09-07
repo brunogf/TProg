@@ -2400,10 +2400,10 @@ public class Interfaz extends javax.swing.JFrame {
         });
         jScrollPane16.setViewportView(InfoReservaReservasTable);
 
-        InfoReservaCentralPanel.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 410, 104));
+        InfoReservaCentralPanel.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 410, 120));
 
-        InfoReservaTitleLabel.setText("Seleccione una reserva");
-        InfoReservaCentralPanel.add(InfoReservaTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 11, -1, -1));
+        InfoReservaTitleLabel.setText("Seleccione una reserva (doble click)");
+        InfoReservaCentralPanel.add(InfoReservaTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         InfoReservaNLabel.setText("Nº:");
 
@@ -3211,7 +3211,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         ConsultaUsuarioFrame.setVisible(true);
 
-        ConsultaUsuarioVerInfoLabel.setText("Ver Información de Usuario");
+        ConsultaUsuarioVerInfoLabel.setText("Ver Información de Cliente");
 
         nombreClientes.setModel(new javax.swing.AbstractListModel() {
             String[] strings = {};
