@@ -70,6 +70,20 @@ public class IControladorReservaTest {
         List<DataReserva> reservas = cr.listarReservas();
         assertEquals(7,reservas.size());
     }
+    
+    @Test
+    public void testBajaReserva()
+    {
+        IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
+        List<DataReserva> reservas = cr.listarReservas();
+        try{
+            cr.bajaReserva(2);
+            reservas=cr.listarReservas();
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }    
+        assertEquals(6,reservas.size());
+    }
 
     public class IControladorReservaImpl implements IControladorReserva {
 
@@ -88,10 +102,6 @@ public class IControladorReservaTest {
         }
 
         public List<DataReserva> listarReservas() {
-            return null;
-        }
-
-        public Set<DataReserva> listarReservasEliminables() {
             return null;
         }
 
