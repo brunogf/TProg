@@ -1880,7 +1880,7 @@
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
                           <Component id="RegReservaSeleccClienteLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="197" max="32767" attributes="0"/>
+                          <EmptySpace pref="181" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -2354,7 +2354,7 @@
                                       <Component id="RegReservaConfirmarCInfoLabel" min="-2" max="-2" attributes="0"/>
                                       <Component id="RegReservaConfirmarPInfoLabel" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="328" max="32767" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane6" alignment="0" pref="0" max="32767" attributes="0"/>
                           </Group>
@@ -4450,12 +4450,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace pref="17" max="32767" attributes="0"/>
                               <Component id="jScrollPane22" min="-2" pref="107" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                               <Component id="InfoServiciosProveedorDescLabel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">

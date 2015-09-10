@@ -4579,7 +4579,7 @@ public class Interfaz extends javax.swing.JFrame {
                     nombre = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,1);
                     cant = (Integer)RegReservaSPubSeleccionadasTable.getValueAt(i,5);
                     precio = (Float.parseFloat((String)RegReservaSPubSeleccionadasTable.getValueAt(i,2)));
-                    total = total + ( precio / cant );
+                    total = total + ( precio * cant );
                     ini = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,3);
                     f = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,4);
                     crAltaReserva.seleccionarPublicacion(nombre,cant,df.parse(ini),df.parse(f));
