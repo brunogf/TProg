@@ -4847,7 +4847,7 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void infoDeReservaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoDeReservaBotonActionPerformed
 
-    if (!reservasDelClienteComboBox.isShowing()) {     
+    //if (!reservasDelClienteComboBox.isShowing()) {     
         DataReserva dtR = (DataReserva)this.reservasDelClienteComboBox.getSelectedItem();
 
         this.InfoReservasClienteNumero.setText(Float.toString(dtR.getNum()));
@@ -4866,11 +4866,11 @@ public class Interfaz extends javax.swing.JFrame {
         for(ReservaPublicacion rP : resPub) {
             tReservaPub.addRow(new Object[]{rP.getCant(),rP.getFechaIni(),rP.getFechaFin(),rP.getNombrePublicacion()});
         }
-    } 
-    else {
-        JOptionPane.showMessageDialog(null, "Debes seleccionar una Reserva ","Warning",JOptionPane.WARNING_MESSAGE);
+    //} 
+    //else {
+    //    JOptionPane.showMessageDialog(null, "Debes seleccionar una Reserva ","Warning",JOptionPane.WARNING_MESSAGE);
 
-    }
+    //}
     }//GEN-LAST:event_infoDeReservaBotonActionPerformed
 
     private void InfoReservaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservaAceptarButtonActionPerformed
