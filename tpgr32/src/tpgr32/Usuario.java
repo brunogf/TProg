@@ -20,18 +20,20 @@ public abstract class Usuario {
     protected Date fechaNacimiento;
     protected int cantImg;
     protected String imagen; 
+    protected String password;
     public Usuario()//Default Constructor
     {
 	
     }
       
-    public Usuario(String nom, String apellido, String nickName, String cElec, Date f) {
+    public Usuario(String nom, String apellido, String nickName, String cElec, Date f, String password) {
         this.nombre = nom;
         this.cantImg = 0;
         this.apellido = apellido;
         this.nickname = nickName;
-        this.correoElec = cElec;
+        this.correoElec = cElec.toUpperCase();
 	fechaNacimiento = f;
+        this.password = password;
     }
     
     public String getNombre() {

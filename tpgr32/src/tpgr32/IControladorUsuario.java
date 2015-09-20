@@ -15,10 +15,10 @@ import java.util.Set;
  */
 public interface IControladorUsuario {
     
-    public void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac) throws Exception;
+    public void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac,String pass) throws Exception;
 
     public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String img) throws Exception;
+            Date fnac,String img,String pass) throws Exception;
     
     public void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url) throws Exception;
          

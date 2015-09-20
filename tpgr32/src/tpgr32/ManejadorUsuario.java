@@ -34,7 +34,7 @@ public class ManejadorUsuario {
     }
     
     public void agregarUsuario(Usuario u) throws Exception {
-        if (this.conjUsuarios.containsKey(u.getNickname())) {
+        if (this.conjUsuarios.containsKey(u.getNickname().toUpperCase())) {
             Exception e = new IllegalArgumentException("El nickName ingresado ya existe en el Sistema");
             throw e;
         }
@@ -43,13 +43,13 @@ public class ManejadorUsuario {
             Iterator it = this.conjUsuarios.keySet().iterator();
             while ((it.hasNext()) && (!existeCElec)) {
                 String key = it.next().toString();
-                if (u.getCorreoElectronico().equals(this.conjUsuarios.get(key).getCorreoElectronico())) {
+                if (u.getCorreoElectronico().equals(this.conjUsuarios.get(key).getCorreoElectronico().toUpperCase())) {
                     existeCElec = true;
                 }
             }
             
             if (!existeCElec) {
-                 this.conjUsuarios.put(u.getNickname(), u);
+                 this.conjUsuarios.put(u.getNickname().toUpperCase(), u);
             }
             else { 
                 Exception e = new IllegalArgumentException("El Correo Electrónico ingresado ya existe en el Sistema");
@@ -67,12 +67,12 @@ public class ManejadorUsuario {
     
     
     public Usuario encontrarUsuario(String nickName) {
-        if (!this.conjUsuarios.containsKey(nickName)) {
-            //Exception e = new Exception("El nickName ingresado no existe");
+        if (!this.conjUsuarios.containsKey(nickName.toUpperCase())) {
+            
             throw new IllegalArgumentException("No se encontró usuario");
         }
         else {
-            return this.conjUsuarios.get(nickName);
+            return this.conjUsuarios.get(nickName.toUpperCase());
         }
         //return this.conjUsuarios.get(nickName);
     }

@@ -22,7 +22,7 @@ public class Proveedor extends Usuario {
     
     public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url)
     {
-	super(nom,apellido,nickName,cElec,f);
+	super(nom,apellido,nickName,cElec,f,"");
 	nomEmpresa_ = empresa;
         publicaciones_ = new HashMap<>();
 	url_ = url;

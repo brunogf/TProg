@@ -19,9 +19,9 @@ public class ControladorUsuario implements IControladorUsuario{
     }
           
     public void altaCliente(String nickName,String nombre,String apellido,String correoElec,
-            Date f) throws Exception {
+            Date f,String pass) throws Exception {
         try {     
-            Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f);
+            Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f,pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
         }
@@ -35,9 +35,9 @@ public class ControladorUsuario implements IControladorUsuario{
     }
       
     public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String img) throws Exception {    
+            Date fnac,String img,String pass) throws Exception {    
         try {
-            Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac);
+            Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac,pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
             c.cambiarImagen(img);

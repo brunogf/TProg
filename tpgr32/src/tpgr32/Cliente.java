@@ -16,8 +16,8 @@ public class Cliente extends Usuario{
     private Set<Reserva> reservas_;
 
     
-    public Cliente(String nom, String apellido, String nickName, String cElec, Date f) {
-        super(nom,apellido,nickName,cElec,f);//llama constructor de Usuario
+    public Cliente(String nom, String apellido, String nickName, String cElec, Date f, String pass) {
+        super(nom,apellido,nickName,cElec,f,pass);//llama constructor de Usuario
 	reservas_ = new HashSet<>();
     }
     

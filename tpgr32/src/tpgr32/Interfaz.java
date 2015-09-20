@@ -3592,10 +3592,10 @@ public class Interfaz extends javax.swing.JFrame {
             if (RegUsuarioClienteRadioButton.isSelected())
             {
                 if (ImgUsuario == null)//sin imagen
-                    cu.altaCliente(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate());
+                    cu.altaCliente(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(),RegUsuarioNicknameTextField.getText());
                 else
                 {
-                    cu.altaClienteConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(),ImgUsuario);
+                    cu.altaClienteConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(),ImgUsuario,RegUsuarioNicknameTextField.getText());
                     ImgUsuario = null;
                 }
                 JOptionPane.showMessageDialog(null, "El cliente se creo correctamente");
