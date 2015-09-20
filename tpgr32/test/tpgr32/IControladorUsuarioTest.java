@@ -55,7 +55,7 @@ public class IControladorUsuarioTest {
     @Test(expected=IllegalArgumentException.class) //El nick ya está registrado
     public void testAltaCliente() throws Exception {
         IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-        cu.altaCliente("mHooch", "Madam", "Hooch", "Correo", new Date());
+        cu.altaCliente("mHooch", "Madam", "Hooch", "Correo", new Date(),"mHooch");
         }
     
     @Test
@@ -111,10 +111,10 @@ public class IControladorUsuarioTest {
 
     public class IControladorUsuarioImpl implements IControladorUsuario {
 
-        public void altaCliente(String nickname, String nombre, String apellido, String correo, Date fnac) throws Exception {
+        public void altaCliente(String nickname, String nombre, String apellido, String correo, Date fnac, String password) throws Exception {
         }
 
-        public void altaClienteConImg(String nickname, String nombre, String apellido, String correo, Date fnac, String img) throws Exception {
+        public void altaClienteConImg(String nickname, String nombre, String apellido, String correo, Date fnac, String img, String password) throws Exception {
         }
 
         public void altaProveedor(String nickname, String nombre, String apellido, String correo, Date fnac, String nombreEmp, String url) throws Exception {
