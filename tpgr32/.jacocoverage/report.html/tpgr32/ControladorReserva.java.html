@@ -40,126 +40,128 @@ public class ControladorReserva implements IControladorReserva{
 <span class="fc" id="L40">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
 <span class="fc" id="L41">        Reserva r=mr.encontrarReserva(nro);</span>
         
-<span class="fc" id="L43">        r.destroy();</span>
-<span class="fc" id="L44">        mr.eliminarReserva(nro);</span>
-<span class="fc" id="L45">    }</span>
+<span class="pc bpc" id="L43" title="1 of 2 branches missed.">        if (r.esEliminable()){</span>
+<span class="fc" id="L44">            mr.eliminarReserva(nro);</span>
+<span class="fc" id="L45">            r.destroy();</span>
+<span class="nc" id="L46">        }else throw new IllegalArgumentException(&quot;La reserva no se puede eliminar&quot;);</span>
+<span class="fc" id="L47">    }</span>
     
     public int confirmarReserva()
     {
-<span class="fc" id="L49">        Reserva r = new Reserva(Estado.Registrada, cliente_);</span>
-<span class="fc" id="L50">	Iterator&lt;ParPD&gt; it = colPub_.iterator();</span>
+<span class="fc" id="L51">        Reserva r = new Reserva(Estado.Registrada, cliente_);</span>
+<span class="fc" id="L52">	Iterator&lt;ParPD&gt; it = colPub_.iterator();</span>
 	ReservaPublicacion rp;
 	ParPD par;
-<span class="fc bfc" id="L53" title="All 2 branches covered.">	while(it.hasNext())</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">	while(it.hasNext())</span>
 	{
-<span class="fc" id="L55">	     par = it.next();</span>
-<span class="fc" id="L56">	     rp = new ReservaPublicacion(r,par.getPublicacion(),par.getDisponibilidad());</span>
+<span class="fc" id="L57">	     par = it.next();</span>
+<span class="fc" id="L58">	     rp = new ReservaPublicacion(r,par.getPublicacion(),par.getDisponibilidad());</span>
 	     //agrega la publicacion a la reserva
-<span class="fc" id="L58">	     r.agregarReservaPublicacion(rp);</span>
+<span class="fc" id="L60">	     r.agregarReservaPublicacion(rp);</span>
 	     //agrega la reserva a la publicacion
-<span class="fc" id="L60">	     par.getPublicacion().agregarReservaPublicacion(rp);</span>
+<span class="fc" id="L62">	     par.getPublicacion().agregarReservaPublicacion(rp);</span>
 	}
 	//agrega la reserva al cliente
-<span class="fc" id="L63">	cliente_.agregarReserva(r);</span>
-<span class="fc" id="L64">	ManejadorReserva mr=ManejadorReserva.getInstance();</span>
-<span class="fc" id="L65">        mr.agregarReserva(r);</span>
-<span class="fc" id="L66">        return r.getNumero();</span>
+<span class="fc" id="L65">	cliente_.agregarReserva(r);</span>
+<span class="fc" id="L66">	ManejadorReserva mr=ManejadorReserva.getInstance();</span>
+<span class="fc" id="L67">        mr.agregarReserva(r);</span>
+<span class="fc" id="L68">        return r.getNumero();</span>
     }
     
     public DataReserva infoReserva(int nro){
-<span class="fc" id="L70">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
-<span class="fc" id="L71">        Reserva r=mr.encontrarReserva(nro);</span>
+<span class="fc" id="L72">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
+<span class="fc" id="L73">        Reserva r=mr.encontrarReserva(nro);</span>
         
-<span class="fc" id="L73">        return r.infoReserva();</span>
+<span class="fc" id="L75">        return r.infoReserva();</span>
     }
     
     public List&lt;DataReserva&gt; listarReservas(){
-<span class="fc" id="L77">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
-<span class="fc" id="L78">        List&lt;DataReserva&gt; lista=mr.listarReservas();</span>
+<span class="fc" id="L79">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
+<span class="fc" id="L80">        List&lt;DataReserva&gt; lista=mr.listarReservas();</span>
         
-<span class="fc" id="L80">        Collections.sort(lista, new Comparator&lt;DataReserva&gt;() {</span>
+<span class="fc" id="L82">        Collections.sort(lista, new Comparator&lt;DataReserva&gt;() {</span>
             public int compare(DataReserva d1, DataReserva d2) {
-<span class="pc bpc" id="L82" title="2 of 4 branches missed.">                return (d1.getNum() &lt; d2.getNum() ? -1 : (d1.getNum() == d2.getNum() ? 0 : 1));</span>
+<span class="pc bpc" id="L84" title="2 of 4 branches missed.">                return (d1.getNum() &lt; d2.getNum() ? -1 : (d1.getNum() == d2.getNum() ? 0 : 1));</span>
             }
         });
-<span class="fc" id="L85">        return lista;</span>
+<span class="fc" id="L87">        return lista;</span>
     }
     
     public void seleccionarCliente(String cliente){
-<span class="fc" id="L89">        ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L91">        ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
 	try
 	{
-<span class="fc" id="L92">	    cliente_ = mu.encontrarCliente(cliente);</span>
-<span class="nc" id="L93">	}catch(Exception ex)</span>
+<span class="fc" id="L94">	    cliente_ = mu.encontrarCliente(cliente);</span>
+<span class="nc" id="L95">	}catch(Exception ex)</span>
 	{
 	    //ex.getMessage();
-<span class="nc" id="L96">	    throw ex;</span>
-<span class="fc" id="L97">	}</span>
-<span class="fc" id="L98">    }</span>
+<span class="nc" id="L98">	    throw ex;</span>
+<span class="fc" id="L99">	}</span>
+<span class="fc" id="L100">    }</span>
     
     public void seleccionarPublicacion(String nombre,
                                        int cantidad, Date inicio, Date fin){
 	
 	try
         {
-<span class="fc" id="L105">	     Publicacion pub = proveedor_.encontrarPublicacion(nombre);</span>
-<span class="pc bpc" id="L106" title="1 of 2 branches missed.">	     if (pub == null)</span>
-<span class="nc" id="L107">		 throw new IllegalArgumentException(&quot;No se encontro la publicacion&quot;);</span>
-<span class="fc" id="L108">	     DataDisponibilidad dd = new DataDisponibilidad(cantidad, inicio, fin);</span>
-<span class="fc" id="L109">               colPub_.add(new ParPD(pub,dd));//Guarda el PAR de la publicaicon y su disponibilidad	     </span>
-<span class="nc" id="L110">	}catch(Exception ex)</span>
+<span class="fc" id="L107">	     Publicacion pub = proveedor_.encontrarPublicacion(nombre);</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">	     if (pub == null)</span>
+<span class="nc" id="L109">		 throw new IllegalArgumentException(&quot;No se encontro la publicacion&quot;);</span>
+<span class="fc" id="L110">	     DataDisponibilidad dd = new DataDisponibilidad(cantidad, inicio, fin);</span>
+<span class="fc" id="L111">               colPub_.add(new ParPD(pub,dd));//Guarda el PAR de la publicaicon y su disponibilidad	     </span>
+<span class="nc" id="L112">	}catch(Exception ex)</span>
 	{
 	    //ex.getMessage();
-<span class="nc" id="L113">	    throw ex;</span>
-<span class="fc" id="L114">	}               </span>
-<span class="fc" id="L115">    }</span>
+<span class="nc" id="L115">	    throw ex;</span>
+<span class="fc" id="L116">	}               </span>
+<span class="fc" id="L117">    }</span>
     public void seleccionarProveedor(String nickname)
     {
-<span class="fc" id="L118">        ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
-<span class="fc" id="L119">        proveedor_ = mu.encontrarProveedor(nickname);</span>
-<span class="fc" id="L120">    }</span>
+<span class="fc" id="L120">        ManejadorUsuario mu = ManejadorUsuario.getInstance();</span>
+<span class="fc" id="L121">        proveedor_ = mu.encontrarProveedor(nickname);</span>
+<span class="fc" id="L122">    }</span>
     
     public String getNickProveedorSeleccionado()
     {
-<span class="fc" id="L124">        return proveedor_.getNickname();</span>
+<span class="fc" id="L126">        return proveedor_.getNickname();</span>
     }
     
     public DataProveedor getInfoProveedorSeleccionado()
     {
-<span class="pc bpc" id="L129" title="1 of 2 branches missed.">        if (!(proveedor_ instanceof Proveedor))</span>
-<span class="nc" id="L130">            throw new IllegalArgumentException(&quot;No se encuentra proveedor seleccionado.&quot;);</span>
-<span class="fc" id="L131">        return (DataProveedor)proveedor_.infoUsuario();</span>
+<span class="pc bpc" id="L131" title="1 of 2 branches missed.">        if (!(proveedor_ instanceof Proveedor))</span>
+<span class="nc" id="L132">            throw new IllegalArgumentException(&quot;No se encuentra proveedor seleccionado.&quot;);</span>
+<span class="fc" id="L133">        return (DataProveedor)proveedor_.infoUsuario();</span>
     }
     
     public DataCliente getInfoClienteSeleccionado()
     {
-<span class="pc bpc" id="L136" title="1 of 2 branches missed.">        if(!(cliente_ instanceof Cliente))</span>
-<span class="nc" id="L137">            throw new IllegalArgumentException(&quot;No se encontro el cliente seleccionado&quot;);</span>
-<span class="fc" id="L138">        return (DataCliente)cliente_.infoUsuario();</span>
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">        if(!(cliente_ instanceof Cliente))</span>
+<span class="nc" id="L139">            throw new IllegalArgumentException(&quot;No se encontro el cliente seleccionado&quot;);</span>
+<span class="fc" id="L140">        return (DataCliente)cliente_.infoUsuario();</span>
     }
     
     public void borrarPublicacionesSeleccionadas()
     {
-<span class="fc" id="L143">        colPub_ = new HashSet&lt;&gt;();</span>
-<span class="fc" id="L144">    }</span>
+<span class="fc" id="L145">        colPub_ = new HashSet&lt;&gt;();</span>
+<span class="fc" id="L146">    }</span>
     
     public int getNumeroReservas()
     {
-<span class="fc" id="L148">        return Reserva.getCurrentID();</span>
+<span class="fc" id="L150">        return Reserva.getCurrentID();</span>
     }
     
     public DataUsuario getInfoClienteReserva(int nro){
-<span class="fc" id="L152">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
-<span class="fc" id="L153">        Reserva r=mr.encontrarReserva(nro);</span>
+<span class="fc" id="L154">        ManejadorReserva mr=ManejadorReserva.getInstance();</span>
+<span class="fc" id="L155">        Reserva r=mr.encontrarReserva(nro);</span>
         
-<span class="fc" id="L155">        return r.getCliente().infoUsuario();</span>
+<span class="fc" id="L157">        return r.getCliente().infoUsuario();</span>
     }
     
     public void cambiarFechaCreacionReserva(Date f, int r)
     {
-<span class="fc" id="L160">        ManejadorReserva mr = ManejadorReserva.getInstance();</span>
-<span class="fc" id="L161">        Reserva res = mr.encontrarReserva(r);</span>
-<span class="fc" id="L162">        res.setFechaCreacion(f);</span>
-<span class="fc" id="L163">    }</span>
+<span class="fc" id="L162">        ManejadorReserva mr = ManejadorReserva.getInstance();</span>
+<span class="fc" id="L163">        Reserva res = mr.encontrarReserva(r);</span>
+<span class="fc" id="L164">        res.setFechaCreacion(f);</span>
+<span class="fc" id="L165">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

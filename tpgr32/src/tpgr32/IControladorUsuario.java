@@ -34,5 +34,7 @@ public interface IControladorUsuario {
     public Set<DataPublicacion> listarPublicacionesProveedor(String nick);
     
     public String getImagenDelUsuario(String nombre);
+    
+    public boolean comprobarUsuarioNick(String nick, String password);
    
 }

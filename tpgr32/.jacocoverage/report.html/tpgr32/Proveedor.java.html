@@ -106,5 +106,10 @@ public class Proveedor extends Usuario {
 <span class="fc" id="L106">        return dataP;</span>
     }
   
+    public DataPublicacion getInfoServicioCompleto(String nombre) {
+<span class="nc" id="L110">        Servicio p = (Servicio)this.publicaciones_.get(nombre);</span>
+<span class="nc" id="L111">        return p.infoPublicacionCompleto();</span>
+    }
+    
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

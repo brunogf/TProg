@@ -81,4 +81,11 @@ public abstract class Usuario {
     public void setCantImg(int cant) {
         this.cantImg = cant;
     } 
+    
+    public boolean comprobarPassword(String pass){
+            if (pass.compareTo(password) == 0)
+                return true;
+            else
+                return false;
+    }
 }

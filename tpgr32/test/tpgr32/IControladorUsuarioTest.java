@@ -142,6 +142,11 @@ public class IControladorUsuarioTest {
         public String getImagenDelUsuario(String nombre) {
             return "";
         }
+        
+        public boolean comprobarUsuarioNick(String nick, String password)
+        {
+            return false;
+        }
     }
     
 }

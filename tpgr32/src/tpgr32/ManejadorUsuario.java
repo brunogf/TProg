@@ -121,4 +121,14 @@ public class ManejadorUsuario {
 	return (Proveedor) usr;
     }
     
+    public boolean comprobarUsuario(String nombre, String password)
+    {
+        try{
+            Usuario usr = encontrarUsuario(nombre);
+            return usr.comprobarPassword(password);
+        }catch(IllegalArgumentException ex)
+        {
+            return false;
+        }
+    }
 }
