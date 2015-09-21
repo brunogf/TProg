@@ -23,6 +23,7 @@ public class FabricaControladores {
                 new CargarDatos().cargar();
             }catch(Exception ex)
             {}
+           
         }
         return instancia_;
     }
