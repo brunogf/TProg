@@ -35,6 +35,6 @@ public interface IControladorUsuario {
     
     public String getImagenDelUsuario(String nombre);
     
-    public boolean comprobarUsuarioNick(String nick, String password);
+    public DataUsuario comprobarUsuario(String nick, String password);
    
 }

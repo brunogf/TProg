@@ -121,14 +121,32 @@ public class ManejadorUsuario {
 	return (Proveedor) usr;
     }
     
-    public boolean comprobarUsuario(String nombre, String password)
+    public Usuario encontrarUsuarioViaMail(String mail)
+    {
+        Usuario usr = null;
+        for(Map.Entry<String, Usuario> e : conjUsuarios.entrySet())
+        {
+            if (e.getValue().getCorreoElectronico().compareTo(mail.toUpperCase()) == 0)
+                usr = e.getValue();
+        }
+        return usr;
+    }
+    
+    public Usuario comprobarUsuario(String usuario, String password)
     {
         try{
-            Usuario usr = encontrarUsuario(nombre);
-            return usr.comprobarPassword(password);
+            Usuario usr = encontrarUsuario(usuario);
+            if (usr.comprobarPassword(password))
+                return usr;
+            else
+                return null;
         }catch(IllegalArgumentException ex)
         {
-            return false;
+            Usuario usre = this.encontrarUsuarioViaMail(usuario);
+            if (usre.comprobarPassword(password))
+                return usre;
+            else
+                return null;
         }
     }
 }
