@@ -19,6 +19,10 @@ public class FabricaControladores {
     public static FabricaControladores getInstancia(){
         if (instancia_==null){
             instancia_=new FabricaControladores();
+            try{
+                new CargarDatos().cargar();
+            }catch(Exception ex)
+            {}
         }
         return instancia_;
     }
