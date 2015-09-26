@@ -25,9 +25,11 @@ public class CargarDatos {
     
     public void cargar() throws Exception
     {
+        
         if (!cargado)
         {
             //Usuarios
+            cargado = true;
             FabricaControladores fabrica = FabricaControladores.getInstancia();
             IControladorPublicacion cp = fabrica.getControladorPublicacion();
             IControladorReserva cr = fabrica.getControladorReserva();
@@ -332,10 +334,6 @@ public class CargarDatos {
             cr.seleccionarPublicacion("Euro-Vuelo-LC", 2, df.parse("07-08-2015"), df.parse("07-08-2015"));
             nro = cr.confirmarReserva();
             cr.cambiarFechaCreacionReserva(df.parse("07-08-2015"), nro);
-            
-            
-            
-            cargado = true;
         }
         else
             throw new IllegalArgumentException("Ya se ha realizado la carga una vez");

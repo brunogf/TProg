@@ -26,7 +26,7 @@ public class ManejadorUsuario {
       conjUsuarios = new HashMap<>();
     }
     
-    static ManejadorUsuario getInstance() {
+    static public ManejadorUsuario getInstance() {
         if (mUsuario == null) {
             mUsuario = new ManejadorUsuario();
         }

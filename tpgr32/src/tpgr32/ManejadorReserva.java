@@ -29,7 +29,7 @@ public class ManejadorReserva {
     }
     
     
-    static ManejadorReserva getInstance() {
+    static public ManejadorReserva getInstance() {
         if (instancia_ == null) {
             instancia_ = new ManejadorReserva();
         }

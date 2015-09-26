@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tpgr32;
+package Interfaz;
 
+import Interfaz.ActualizarServicioInternalFrame;
 import java.awt.Image;
 import java.util.*;
 import java.text.*;
@@ -23,11 +24,36 @@ import java.io.File;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.JInternalFrame;
-
+import tpgr32.*;
 /**
  *
  * @author Nicolás Rostán
  */
+import tpgr32.CargarDatos;
+import tpgr32.Cliente;
+import tpgr32.ControladorPublicacion;
+import tpgr32.ControladorUsuario;
+import tpgr32.DataCliente;
+import tpgr32.DataDisponibilidad;
+import tpgr32.DataPromocion;
+import tpgr32.DataProveedor;
+import tpgr32.DataPublicacion;
+import tpgr32.DataReserva;
+import tpgr32.DataServicio;
+import tpgr32.DataUbicacion;
+import tpgr32.DataUsuario;
+import tpgr32.Estado;
+import tpgr32.FabricaControladores;
+import tpgr32.IControladorPublicacion;
+import tpgr32.IControladorReserva;
+import tpgr32.IControladorUsuario;
+import tpgr32.ManejadorReserva;
+import tpgr32.ManejadorUsuario;
+import tpgr32.ParDPD;
+import tpgr32.Proveedor;
+import tpgr32.Publicacion;
+import tpgr32.Reserva;
+import tpgr32.ReservaPublicacion;
 public class Interfaz extends javax.swing.JFrame {
 
     /**
@@ -440,7 +466,6 @@ public class Interfaz extends javax.swing.JFrame {
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
-        CargarGenericosMenuItem = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tarea 1");
@@ -1481,7 +1506,7 @@ public class Interfaz extends javax.swing.JFrame {
             .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
                 .addGap(149, 149, 149)
                 .addComponent(RegReservaSeleccClienteLabel)
-                .addContainerGap(197, Short.MAX_VALUE))
+                .addContainerGap(181, Short.MAX_VALUE))
             .addGroup(RegReservaSeleccionarClientePanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(RegReservaClienteTableScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -1877,7 +1902,7 @@ public class Interfaz extends javax.swing.JFrame {
                         .addGroup(RegReservaConfirmarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(RegReservaConfirmarCInfoLabel)
                             .addComponent(RegReservaConfirmarPInfoLabel))
-                        .addGap(0, 300, Short.MAX_VALUE))
+                        .addGap(0, 328, Short.MAX_VALUE))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegReservaConfirmarPanelLayout.createSequentialGroup()
@@ -3198,12 +3223,10 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                        .addComponent(jScrollPane22, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(InfoServiciosProveedorDescLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(InfoServiciosProveedorDescLabel)))
                 .addGroup(InformacionServiciosDelProveedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InformacionServiciosDelProveedorLayout.createSequentialGroup()
                         .addGap(53, 53, 53)
@@ -3485,14 +3508,6 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         MenuCargarDatos.add(MenuAltaCiudad);
-
-        CargarGenericosMenuItem.setText("Cargar Genericos");
-        CargarGenericosMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CargarGenericosMenuItemActionPerformed(evt);
-            }
-        });
-        MenuCargarDatos.add(CargarGenericosMenuItem);
 
         BarraMenu.add(MenuCargarDatos);
 
@@ -4970,19 +4985,6 @@ public class Interfaz extends javax.swing.JFrame {
             RegistrarPromocionPrecioFinalCalculadoLabel.setText(""); 
     }//GEN-LAST:event_RegistrarPromocionCancelarButtonActionPerformed
 
-    private void CargarGenericosMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarGenericosMenuItemActionPerformed
-        try
-        {
-            CargarDatos c = new CargarDatos();
-            c.cargar();
-            JOptionPane.showMessageDialog(null, "Los datos genericos se cargaron correctamente");
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_CargarGenericosMenuItemActionPerformed
-
     private void InfoPromocionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionCancelarButtonActionPerformed
         PanelCentral.remove(InfoPromocionFrame);
         DefaultListModel nuevoModeloLista = new DefaultListModel();
@@ -5502,7 +5504,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JInternalFrame CancelarReservaFrame;
     private javax.swing.JLabel CancelarReservaLabel;
     private javax.swing.JMenuItem CancelarReservaMenu;
-    private javax.swing.JMenuItem CargarGenericosMenuItem;
     private javax.swing.ButtonGroup ClienteOProveedor;
     private javax.swing.ButtonGroup ConDestinoSinDestino;
     private javax.swing.ButtonGroup ConPadreOSinPadre;

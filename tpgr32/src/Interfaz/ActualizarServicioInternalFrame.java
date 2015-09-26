@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tpgr32;
+package Interfaz;
 
 import java.awt.Image;
 import java.io.File;
@@ -19,6 +19,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import tpgr32.DataServicio;
+import tpgr32.FabricaControladores;
+import tpgr32.IControladorPublicacion;
 
 /**
  *
