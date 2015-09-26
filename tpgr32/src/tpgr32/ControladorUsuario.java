@@ -103,8 +103,13 @@ public class ControladorUsuario implements IControladorUsuario{
         return p.listarPublicaciones();
     }
     
-    public DataUsuario comprobarUsuario(String nick, String password)
+    public int comprobarUsuario(String usuario, String password)
     {
-        return ManejadorUsuario.getInstance().comprobarUsuario(nick, password).infoUsuario();
+        return ManejadorUsuario.getInstance().comprobarUsuario(usuario, password);
+    }
+    
+    public String getNickUsuario(String usuario)
+    {
+        return ManejadorUsuario.getInstance().getNickUsuario(usuario);
     }
 }

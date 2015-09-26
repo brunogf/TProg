@@ -35,6 +35,7 @@ public interface IControladorUsuario {
     
     public String getImagenDelUsuario(String nombre);
     
-    public DataUsuario comprobarUsuario(String nick, String password);
-   
+    public int comprobarUsuario(String usuario, String password);/*0-OK 1- ERROR NOMBRE 2- ERROR PASS*/
+    
+    public String getNickUsuario(String usuario); //RECIBE NICK O CORREO Y DEVUELVE NICK
 }

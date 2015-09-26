@@ -132,21 +132,32 @@ public class ManejadorUsuario {
         return usr;
     }
     
-    public Usuario comprobarUsuario(String usuario, String password)
+    public String getNickUsuario(String usuario)
     {
         try{
             Usuario usr = encontrarUsuario(usuario);
-            if (usr.comprobarPassword(password))
-                return usr;
-            else
-                return null;
+            return usr.getNickname();
         }catch(IllegalArgumentException ex)
         {
             Usuario usre = this.encontrarUsuarioViaMail(usuario);
-            if (usre.comprobarPassword(password))
-                return usre;
+            if (usre != null)
+                return usre.getNickname();
             else
                 return null;
         }
+    }
+    
+    public int comprobarUsuario(String usuario, String password)
+    {
+        String nick = this.getNickUsuario(usuario);
+        if (nick != null)
+        {
+            if (this.encontrarUsuario(nick).comprobarPassword(password))
+                return 0;//OK
+            else
+                return 2;//ERROR PASSWORD
+        }
+        else
+            return 1;//ERROR NICK
     }
 }

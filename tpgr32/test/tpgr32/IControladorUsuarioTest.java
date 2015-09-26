@@ -143,9 +143,14 @@ public class IControladorUsuarioTest {
             return "";
         }
         
-        public DataUsuario comprobarUsuario(String nick, String password)
+        public int comprobarUsuario(String nick, String password)
         {
-            return null;
+            return 0;
+        }
+        
+        public String getNickUsuario(String nick)
+        {
+            return "";
         }
     }
     
