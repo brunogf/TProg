@@ -71,7 +71,7 @@ public class Interfaz extends javax.swing.JFrame {
     
     public Interfaz() {
 	initComponents();
-        fabrica = new FabricaControladores();
+        fabrica = FabricaControladores.getInstancia();
 	setLocationRelativeTo(null); //Centra el MainFrame en la pantalla
 	PanelCentral.removeAll();
 	PanelCentral.repaint();
