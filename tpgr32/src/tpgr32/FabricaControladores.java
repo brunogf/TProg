@@ -17,7 +17,8 @@ public class FabricaControladores {
                 new CargarDatos().cargar();  
             }
         catch(Exception ex)
-            {}
+            {//System.out.println(ex.getMessage());
+            }
     }
     
     //singleton

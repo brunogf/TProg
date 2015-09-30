@@ -219,6 +219,11 @@ public class IControladorPublicacionTest {
 
         public void modificarDestinoServicio(String pais, String ciudad) {
         }
+        
+        public Set<DataPublicacion> buscarPublicación(String criterio)
+        {
+            return null;
+        }
     }
     
 }

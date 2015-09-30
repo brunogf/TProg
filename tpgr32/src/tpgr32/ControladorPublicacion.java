@@ -257,8 +257,8 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Set<DataServicio> servicios = c.listarServiciosCompleto();
        return servicios;
    }
-
-    private Exception IllegalArgumentException(String la_publicacion_encontrada_no_es_un_servic) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   public Set<DataPublicacion> buscarPublicación(String criterio)
+   {
+       return listarPublicaciones();
+   }
 }

@@ -14,33 +14,34 @@ import javax.swing.tree.DefaultTreeModel;
  */
 
 public interface IControladorPublicacion {
-    
-    void agregarCategoriaServicio(String cat);
-    void altaPromocion(String nombre, String proveedor, Set<DataServicio> servicios, float descuento);
-    void altaServicio(String nombre, String descripcion, Set<Image> img, float precio,
+
+    public void agregarCategoriaServicio(String cat);
+    public void altaPromocion(String nombre, String proveedor, Set<DataServicio> servicios, float descuento);
+    public void altaServicio(String nombre, String descripcion, Set<Image> img, float precio,
         Set <String> categorias, String proveedor, DataUbicacion origen, DataUbicacion destino);
-    void altaServicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String>categorias,
+    public void altaServicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String>categorias,
                           String proveedor, DataUbicacion origen);
-    void eliminarCategoriaServicio(String cat);
-    DataPromocion infoPromocion(String proveedor, String promo);
-    DataServicio infoServicio(String proveedor, String servicio);
-    DefaultTreeModel listarCategorias();
-    Set<DataPromocion> listarPromociones();
-    Set<DataServicio> listarServicios();
-    Set<DataServicio> listarServiciosDeCategoria(String cat);
-    void modificarDescripcionServicio(String des);
-    void modificarImagenesServicio(Set<Image> imgs);
-    void modificarPrecioServicio(float precio);
-    void eliminarDestinoServicio();
-    void registrarCategoria(String nombre);
-    void registrarCategoria(String nombre, String padre);
-    void seleccionarServicio(String proveedor, String nombre);    
-    Set<String> listarPaises();
-    Set<String> listarCiudades(String pais);
-    void altaPais(String nombre);
-    void altaCiudad(String pais, String nombre);
-    Set<DataPublicacion> listarPublicaciones();
-    Set<DataServicio> listarServicioDeCategoriaCompleto(String cat);
+    public void eliminarCategoriaServicio(String cat);
+    public DataPromocion infoPromocion(String proveedor, String promo);
+    public DataServicio infoServicio(String proveedor, String servicio);
+    public DefaultTreeModel listarCategorias();
+    public Set<DataPromocion> listarPromociones();
+    public Set<DataServicio> listarServicios();
+    public Set<DataServicio> listarServiciosDeCategoria(String cat);
+    public void modificarDescripcionServicio(String des);
+    public void modificarImagenesServicio(Set<Image> imgs);
+    public void modificarPrecioServicio(float precio);
+    public void eliminarDestinoServicio();
+    public void registrarCategoria(String nombre);
+    public void registrarCategoria(String nombre, String padre);
+    public void seleccionarServicio(String proveedor, String nombre);
+    public Set<String> listarPaises();
+    public Set<String> listarCiudades(String pais);
+    public void altaPais(String nombre);
+    public void altaCiudad(String pais, String nombre);
+    public Set<DataPublicacion> listarPublicaciones();
+    public Set<DataServicio> listarServicioDeCategoriaCompleto(String cat);
     public void modificarOrigenServicio(String pais, String ciudad);
     public void modificarDestinoServicio(String pais, String ciudad);
+    public Set<DataPublicacion> buscarPublicación(String criterio);
 }
