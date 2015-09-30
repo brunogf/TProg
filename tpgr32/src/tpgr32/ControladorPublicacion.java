@@ -257,7 +257,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
        Set<DataServicio> servicios = c.listarServiciosCompleto();
        return servicios;
    }
-   public Set<DataPublicacion> buscarPublicación(String criterio)
+   public Set<DataPublicacion> buscarPublicacion(String criterio)
    {
        Set<DataPublicacion> total = listarPublicaciones();
        Set<DataPublicacion> found = new HashSet<>();

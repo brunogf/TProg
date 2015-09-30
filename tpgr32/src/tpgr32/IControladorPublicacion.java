@@ -43,5 +43,5 @@ public interface IControladorPublicacion {
     public Set<DataServicio> listarServicioDeCategoriaCompleto(String cat);
     public void modificarOrigenServicio(String pais, String ciudad);
     public void modificarDestinoServicio(String pais, String ciudad);
-    public Set<DataPublicacion> buscarPublicación(String criterio);
+    public Set<DataPublicacion> buscarPublicacion(String criterio);
 }

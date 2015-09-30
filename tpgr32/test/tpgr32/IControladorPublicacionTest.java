@@ -220,7 +220,7 @@ public class IControladorPublicacionTest {
         public void modificarDestinoServicio(String pais, String ciudad) {
         }
         
-        public Set<DataPublicacion> buscarPublicación(String criterio)
+        public Set<DataPublicacion> buscarPublicacion(String criterio)
         {
             return null;
         }
