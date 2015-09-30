@@ -259,6 +259,15 @@ public class ControladorPublicacion implements IControladorPublicacion{
    }
    public Set<DataPublicacion> buscarPublicación(String criterio)
    {
-       return listarPublicaciones();
+       Set<DataPublicacion> total = listarPublicaciones();
+       Set<DataPublicacion> found = new HashSet<>();
+       String nombre;
+       for(DataPublicacion p : total)
+       {
+           nombre = p.getNombre().toUpperCase();
+           if (nombre.contains(criterio.toUpperCase()))
+               found.add(p);
+       }
+       return found;
    }
 }
