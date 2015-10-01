@@ -12,18 +12,19 @@ package tpgr32;
 public class FabricaControladores {
     private static FabricaControladores instancia_=null;
     
-    private FabricaControladores(){
+    private FabricaControladores() {
         try{
                 new CargarDatos().cargar();  
             }
         catch(Exception ex)
-            {//System.out.println(ex.getMessage());
+            {
+                
             }
     }
     
     //singleton
     
-    public static FabricaControladores getInstancia(){
+    public static FabricaControladores getInstancia() {
         if (instancia_==null){
             instancia_=new FabricaControladores();
         }

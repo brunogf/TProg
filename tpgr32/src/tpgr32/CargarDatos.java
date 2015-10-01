@@ -30,10 +30,9 @@ public class CargarDatos {
         {
             //Usuarios
             cargado = true;
-            FabricaControladores fabrica = FabricaControladores.getInstancia();
-            IControladorPublicacion cp = fabrica.getControladorPublicacion();
-            IControladorReserva cr = fabrica.getControladorReserva();
-            IControladorUsuario cu = fabrica.getControladorUsuario();
+            IControladorPublicacion cp = new ControladorPublicacion();
+            IControladorReserva cr = new ControladorReserva();
+            IControladorUsuario cu = new ControladorUsuario();
             
             
             //carga usuarios
