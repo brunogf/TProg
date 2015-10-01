@@ -22,7 +22,10 @@ public class Cliente extends Usuario{
     }
     
     public DataUsuario infoUsuario() {
-        return new DataCliente(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,this.imagen);     
+        DataCliente dc = new DataCliente(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,this.imagen);
+        for(Reserva r : reservas_)
+            dc.agregarReserva(r.infoReserva());
+        return dc;     
     }
     
     public void agregarReserva(Reserva r)
