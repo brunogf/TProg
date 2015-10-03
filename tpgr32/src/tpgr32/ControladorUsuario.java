@@ -9,35 +9,31 @@ import java.awt.Image;
 import java.util.Date;
 import java.util.Set;
 
+public class ControladorUsuario implements IControladorUsuario {
 
-
-public class ControladorUsuario implements IControladorUsuario{
-        
     private String nick;
+
     public ControladorUsuario() {
-        
+
     }
-          
-    public void altaCliente(String nickName,String nombre,String apellido,String correoElec,
-            Date f,String pass) throws Exception {
-        try {     
-            Cliente c = new Cliente(nombre,apellido,nickName,correoElec,f,pass);
+
+    public void altaCliente(String nickName, String nombre, String apellido, String correoElec,
+            Date f, String pass) throws Exception {
+        try {
+            Cliente c = new Cliente(nombre, apellido, nickName, correoElec, f, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
-        }
-        catch(IllegalArgumentException ia)
-        {
+        } catch (IllegalArgumentException ia) {
             throw ia;
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             throw ex;
         }
     }
-      
-    public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String img,String pass) throws Exception {    
+
+    public void altaClienteConImg(String nickname, String nombre, String apellido, String correo,
+            Date fnac, String img, String pass) throws Exception {
         try {
-            Cliente c = new Cliente(nombre,apellido,nickname,correo,fnac,pass);
+            Cliente c = new Cliente(nombre, apellido, nickname, correo, fnac, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
             c.cambiarImagen(img);
@@ -46,70 +42,67 @@ public class ControladorUsuario implements IControladorUsuario{
             throw ex;
         }
     }
-    
+
     public void altaProveedor(String nickname, String nombre,
-                              String apellido, String correo,Date fecha,
-                              String nombreEmp, String url) throws Exception {
-        
-        try {   
-            Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fecha,nombreEmp,url);
+            String apellido, String correo, Date fecha,
+            String nombreEmp, String url) throws Exception {
+        try {
+            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fecha, nombreEmp, url);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
             throw ex;
-        }       
+        }
     }
-    
-    public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String nombreEmp,String url,String img) throws Exception {
-        
-        try {   
-            Proveedor c = new Proveedor(nombre,apellido,nickname,correo,fnac,nombreEmp,url/*Falta Imagen*/);
+
+    public void altaProveedorConImg(String nickname, String nombre, String apellido, String correo,
+            Date fnac, String nombreEmp, String url, String img) throws Exception {
+
+        try {
+            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fnac, nombreEmp, url/*Falta Imagen*/);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
             c.cambiarImagen(img);
         } catch (Exception ex) {
             throw ex;
-        }     
+        }
     }
 
     public DataUsuario infoCliente(String nickname) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
         DataUsuario du = mUsuario.encontrarUsuario(nickname).infoUsuario();
-        if (!(du instanceof DataCliente))
+        if (!(du instanceof DataCliente)) {
             throw new IllegalArgumentException("No se encontro el usuario");
+        }
         return du;
     }
 
-    
     public String getImagenDelUsuario(String nombre) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
         return mUsuario.encontrarUsuario(nombre).getImgUsuario();
     }
-    
-      public Set<DataUsuario> listarClientes() {
+
+    public Set<DataUsuario> listarClientes() {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-        return mUsuario.listarClientes();    }
+        return mUsuario.listarClientes();
+    }
 
     public Set<DataUsuario> listarProveedores() {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
         return mUsuario.listarProveedores();
     }
-    
-    public Set<DataPublicacion> listarPublicacionesProveedor(String nick)
-    {
+
+    public Set<DataPublicacion> listarPublicacionesProveedor(String nick) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
         Proveedor p = mUsuario.encontrarProveedor(nick);
         return p.listarPublicaciones();
     }
-    
-    public int comprobarUsuario(String usuario, String password)
-    {
+
+    public int comprobarUsuario(String usuario, String password) {
         return ManejadorUsuario.getInstance().comprobarUsuario(usuario, password);
     }
-    
-    public String getNickUsuario(String usuario)
-    {
+
+    public String getNickUsuario(String usuario) {
         return ManejadorUsuario.getInstance().getNickUsuario(usuario);
     }
 }

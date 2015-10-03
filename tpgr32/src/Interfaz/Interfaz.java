@@ -54,6 +54,7 @@ import tpgr32.Proveedor;
 import tpgr32.Publicacion;
 import tpgr32.Reserva;
 import tpgr32.ReservaPublicacion;
+
 public class Interfaz extends javax.swing.JFrame {
 
     /**
@@ -68,19 +69,20 @@ public class Interfaz extends javax.swing.JFrame {
     private Image img3;
     private String ImgUsuario;
     private IControladorReserva crAltaReserva;
-    
+
     public Interfaz() {
-	initComponents();
+        initComponents();
         fabrica = FabricaControladores.getInstancia();
-	setLocationRelativeTo(null); //Centra el MainFrame en la pantalla
-	PanelCentral.removeAll();
-	PanelCentral.repaint();
-	PanelCentral.revalidate(); //HACE QUE NO SE VEA NADA AL ABRIR EL PROGRAMA
+        setLocationRelativeTo(null); //Centra el MainFrame en la pantalla
+        PanelCentral.removeAll();
+        PanelCentral.repaint();
+        PanelCentral.revalidate(); //HACE QUE NO SE VEA NADA AL ABRIR EL PROGRAMA
         fila = 0;
         cantClick = 0;
         ImgUsuario = null;
         crAltaReserva = null;
-	
+        MenuRegistrarReserva.setEnabled(false);
+        MenuRegistrarReserva.setVisible(false);
     }
 
     /**
@@ -107,7 +109,6 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioFechaLabel = new javax.swing.JLabel();
         RegUsuarioNicknameTextField = new javax.swing.JTextField();
         RegUsuarioNombreTextField = new javax.swing.JTextField();
-        RegUsuarioApellidoTextField = new javax.swing.JTextField();
         RegUsuarioCorreoTextField = new javax.swing.JTextField();
         RegUsuarioClienteRadioButton = new javax.swing.JRadioButton();
         RegUsuarioProveedorRadioButton = new javax.swing.JRadioButton();
@@ -120,6 +121,11 @@ public class Interfaz extends javax.swing.JFrame {
         RegUsuarioFechaLabel1 = new javax.swing.JLabel();
         RegUsuarioFechaChooser = new com.toedter.calendar.JDateChooser();
         RegUsuarioImageLabel = new javax.swing.JLabel();
+        RegUsuarioConfContraseñaLabel = new javax.swing.JLabel();
+        RegUsuarioApellidoTextField1 = new javax.swing.JTextField();
+        RegUsuarioContraseñaLabel = new javax.swing.JLabel();
+        RegUsuarioConfContraseñaTextField = new javax.swing.JPasswordField();
+        RegUsuarioContraseñaTextField = new javax.swing.JPasswordField();
         RegistrarCategoriaFrame = new javax.swing.JInternalFrame();
         RegCategoriaLabel = new javax.swing.JLabel();
         RegCategoriaNomCategoriaLabel = new javax.swing.JLabel();
@@ -478,26 +484,25 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarUsuarioFrame.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         RegUsuarioLabel.setText("Registrar Usuario");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 11, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
 
         RegUsuarioNicknameLabel.setText("Nickname:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 39, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         RegUsuarioNombreLabel.setText("Nombre:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         RegUsuarioApellidoLabel.setText("Apellido:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 101, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         RegUsuarioCorreoLabel.setText("Correo:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 132, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
 
         RegUsuarioFechaLabel.setText("Desea Ingresar Imagen :");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNicknameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCorreoTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 190, -1));
 
         RegUsuarioClienteRadioButton.setSelected(true);
         RegUsuarioClienteRadioButton.setText("Cliente");
@@ -506,7 +511,7 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioClienteRadioButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioClienteRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, -1, -1));
 
         RegUsuarioProveedorRadioButton.setText("Proveedor");
         RegUsuarioProveedorRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -514,15 +519,15 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioProveedorRadioButtonActionPerformed(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioProveedorRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
 
         RegUsuarioNombreEmpresaLabel.setText("Nombre Empresa:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
         RegUsuarioURLLabel.setText("URL:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 190, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioNombreEmpresaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 350, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioURLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 190, -1));
 
         RegUsuarioAceptar.setText("Aceptar");
         RegUsuarioAceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -541,8 +546,8 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarUsuarioFrame.getContentPane().add(RegUsuarioCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
 
         RegUsuarioFechaLabel1.setText("Fecha de Nacimiento:");
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 163, -1, -1));
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioFechaChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 190, -1));
 
         RegUsuarioImageLabel.setForeground(new java.awt.Color(153, 153, 153));
         RegUsuarioImageLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -554,7 +559,16 @@ public class Interfaz extends javax.swing.JFrame {
                 RegUsuarioImageLabelMouseClicked(evt);
             }
         });
-        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 100, 100));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioImageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, 100));
+
+        RegUsuarioConfContraseñaLabel.setText("Confirmación contraseña: ");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioConfContraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioApellidoTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 190, -1));
+
+        RegUsuarioContraseñaLabel.setText("Contraseña: ");
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioContraseñaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioConfContraseñaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 190, -1));
+        RegistrarUsuarioFrame.getContentPane().add(RegUsuarioContraseñaTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 190, -1));
 
         PanelCentral.add(RegistrarUsuarioFrame, "card2");
 
@@ -3535,47 +3549,46 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
-    
+
     private void MenuRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarUsuarioActionPerformed
-      
-	ClienteOProveedor.add(RegUsuarioClienteRadioButton);
-	ClienteOProveedor.add(RegUsuarioProveedorRadioButton);
+
+        ClienteOProveedor.add(RegUsuarioClienteRadioButton);
+        ClienteOProveedor.add(RegUsuarioProveedorRadioButton);
         RegUsuarioFechaChooser.setDateFormatString("dd-MM-yyyy");
         RegUsuarioFechaChooser.setDate(new Date());
-	RegUsuarioNombreEmpresaLabel.setVisible(false);
+        RegUsuarioNombreEmpresaLabel.setVisible(false);
         RegUsuarioURLLabel.setVisible(false);
-	RegUsuarioNombreEmpresaTextField.setVisible(false);
-	RegUsuarioURLTextField.setVisible(false);
+        RegUsuarioNombreEmpresaTextField.setVisible(false);
+        RegUsuarioURLTextField.setVisible(false);
         RegUsuarioImageLabel.setIcon(null);
         RegUsuarioImageLabel.setText("[Doble click]");
         RegUsuarioClienteRadioButton.doClick();
-	PanelCentral.removeAll();
-	PanelCentral.add(RegistrarUsuarioFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
-	//Muestra el frame de registrar usario en el panel central
+        PanelCentral.removeAll();
+        PanelCentral.add(RegistrarUsuarioFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
+        //Muestra el frame de registrar usario en el panel central
     }//GEN-LAST:event_MenuRegistrarUsuarioActionPerformed
 
     private void RegUsuarioClienteRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioClienteRadioButtonActionPerformed
         RegUsuarioNombreEmpresaLabel.setVisible(false);
-	RegUsuarioURLLabel.setVisible(false);
-	RegUsuarioNombreEmpresaTextField.setVisible(false);
-	RegUsuarioURLTextField.setVisible(false);
+        RegUsuarioURLLabel.setVisible(false);
+        RegUsuarioNombreEmpresaTextField.setVisible(false);
+        RegUsuarioURLTextField.setVisible(false);
     }//GEN-LAST:event_RegUsuarioClienteRadioButtonActionPerformed
 
     private void RegUsuarioProveedorRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioProveedorRadioButtonActionPerformed
         RegUsuarioNombreEmpresaLabel.setVisible(true);
-	RegUsuarioURLLabel.setVisible(true);
-	RegUsuarioNombreEmpresaTextField.setVisible(true);
-	RegUsuarioURLTextField.setVisible(true);
+        RegUsuarioURLLabel.setVisible(true);
+        RegUsuarioNombreEmpresaTextField.setVisible(true);
+        RegUsuarioURLTextField.setVisible(true);
     }//GEN-LAST:event_RegUsuarioProveedorRadioButtonActionPerformed
 
     private void RegUsuarioCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioCancelarActionPerformed
         //this.RegUsuarioCancelar.doClick();
         this.RegUsuarioNicknameTextField.setText(null);
         this.RegUsuarioNombreTextField.setText(null);
-        this.RegUsuarioApellidoTextField.setText(null);
+        this.RegUsuarioConfContraseñaTextField.setText(null);
         this.RegUsuarioCorreoTextField.setText(null);
         this.RegUsuarioNombreEmpresaTextField.setText(null);
         this.RegUsuarioURLTextField.setText(null);
@@ -3583,64 +3596,72 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegUsuarioCancelarActionPerformed
 
     private void infoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoClienteActionPerformed
-        
-	PanelCentral.removeAll();
-	PanelCentral.add(ConsultaUsuarioFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+
+        PanelCentral.removeAll();
+        PanelCentral.add(ConsultaUsuarioFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_infoClienteActionPerformed
 
     private void RegUsuarioAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegUsuarioAceptarActionPerformed
-        if (RegUsuarioNicknameTextField.getText().compareTo("") == 0)
+        if (RegUsuarioNicknameTextField.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Debes poner un nickname", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else if (RegUsuarioNombreTextField.getText().compareTo("") == 0)
+        } else if (RegUsuarioNombreTextField.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Debes poner un nombre", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else if (RegUsuarioApellidoTextField.getText().compareTo("") == 0)
+        } else if (RegUsuarioApellidoTextField1.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Debes poner un apellido", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else if (RegUsuarioCorreoTextField.getText().compareTo("") == 0)
+        } else if (RegUsuarioCorreoTextField.getText().compareTo("") == 0) {
             JOptionPane.showMessageDialog(null, "Debes poner un correo", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else
-        {
-         try
-         {
-            IControladorUsuario cu = fabrica.getControladorUsuario();
-            if (RegUsuarioClienteRadioButton.isSelected())
-            {
-                if (ImgUsuario == null)//sin imagen
-                    cu.altaCliente(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(),RegUsuarioNicknameTextField.getText());
-                else
+        } else {
+            try {
+                IControladorUsuario cu = fabrica.getControladorUsuario();
+                if (RegUsuarioClienteRadioButton.isSelected()) {
+                    
+                    //// GETTEXT DEPRECATED, VER OTRA.
+                    
+                    if (RegUsuarioContraseñaTextField.getText().compareTo("") == 0)
+                        JOptionPane.showMessageDialog(null, "Debes poner una contraseña", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    else if (RegUsuarioConfContraseñaTextField.getText().compareTo("") == 0) 
+                        JOptionPane.showMessageDialog(null, "Debes confirmar la contraseña", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    else if (!(RegUsuarioContraseñaTextField.getText().compareTo(RegUsuarioConfContraseñaTextField.getText()) == 0))
+                        JOptionPane.showMessageDialog(null, "Contraseña y confirmación no coinciden", "ERROR", JOptionPane.ERROR_MESSAGE);
+                    else {
+                        if (ImgUsuario == null)//sin imagen
+                        {
+                            cu.altaCliente(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioContraseñaTextField.toString());
+                        } else {
+                            cu.altaClienteConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), ImgUsuario, RegUsuarioContraseñaTextField.toString());
+                            ImgUsuario = null;
+                        }
+                        JOptionPane.showMessageDialog(null, "El cliente se creo correctamente");
+                    }
+                } else//proveedor is selected
                 {
-                    cu.altaClienteConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(),ImgUsuario,RegUsuarioNicknameTextField.getText());
-                    ImgUsuario = null;
+                    if (ImgUsuario == null) {
+                        cu.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
+                    } else {
+                        cu.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(), ImgUsuario);
+                        ImgUsuario = null;
+                    }
+                    JOptionPane.showMessageDialog(null, "El proveedor se creo correctamente");
                 }
-                JOptionPane.showMessageDialog(null, "El cliente se creo correctamente");
+                RegUsuarioImageLabel.setIcon(null);
+                RegUsuarioImageLabel.setText("[Doble click]");
+                RegUsuarioNicknameTextField.setText("");
+                RegUsuarioNombreTextField.setText("");
+                RegUsuarioContraseñaTextField.setText("");
+                RegUsuarioConfContraseñaTextField.setText("");
+                RegUsuarioApellidoTextField1.setText("");
+                RegUsuarioCorreoTextField.setText("");
+                RegUsuarioFechaChooser.setDate(new Date());
+                RegUsuarioNombreEmpresaTextField.setText("");
+                RegUsuarioURLTextField.setText("");
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-            else//proveedor is selected
-            {
-                if (ImgUsuario == null)
-                    cu.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
-                else
-                {
-                    cu.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(),ImgUsuario);
-                    ImgUsuario = null;
-                }
-                JOptionPane.showMessageDialog(null, "El proveedor se creo correctamente");
-            }
-            RegUsuarioImageLabel.setIcon(null);
-            RegUsuarioImageLabel.setText("[Doble click]");
-            RegUsuarioNicknameTextField.setText("");
-            RegUsuarioNombreTextField.setText("");
-            RegUsuarioApellidoTextField.setText("");
-            RegUsuarioCorreoTextField.setText("");
-            RegUsuarioFechaChooser.setDate(new Date());
-            RegUsuarioNombreEmpresaTextField.setText("");
-            RegUsuarioURLTextField.setText("");
-         }catch(Exception e)
-         {
-             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
-         }
         }
-        
+        RegUsuarioContraseñaTextField.setText("");
+        RegUsuarioConfContraseñaTextField.setText("");
     }//GEN-LAST:event_RegUsuarioAceptarActionPerformed
 
     private void MenuRegistrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarCategoriaActionPerformed
@@ -3650,14 +3671,14 @@ public class Interfaz extends javax.swing.JFrame {
         RegCategoriaTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         ConPadreOSinPadre.add(RegCategoriaSinPadreRadioButton);
         ConPadreOSinPadre.add(RegCategoriaConPadreRadioButton);
-        if (RegCategoriaSinPadreRadioButton.isSelected()){
+        if (RegCategoriaSinPadreRadioButton.isSelected()) {
             RegCategoriaScrollPane.setVisible(false);
             RegCategoriaSelecCategoriaPadreLabel.setVisible(false);
-            }
+        }
         PanelCentral.removeAll();
         PanelCentral.add(RegistrarCategoriaFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_MenuRegistrarCategoriaActionPerformed
 
     private void RegCategoriaConPadreRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaConPadreRadioButtonActionPerformed
@@ -3673,8 +3694,8 @@ public class Interfaz extends javax.swing.JFrame {
     private void MenuRegistrarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarServicioActionPerformed
         PanelCentral.removeAll();
         PanelCentral.add(RegistrarServicioFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
         RegistrarServicioPrecioTextField.setText(null);
@@ -3686,8 +3707,9 @@ public class Interfaz extends javax.swing.JFrame {
         img1 = null;
         img2 = null;
         img3 = null;
-        if (categorias != null)
-          categorias.clear();
+        if (categorias != null) {
+            categorias.clear();
+        }
         RegServicioDatosBasicosPanel.setVisible(true);
         RegServicioProveedorPanel.setVisible(false);
         RegServicioUbicacionPanel.setVisible(false);
@@ -3705,16 +3727,16 @@ public class Interfaz extends javax.swing.JFrame {
         }
         RegistrarPromocionProveedorList.setModel(modelo); //muestra los datos en pantalla
         PanelCentral.add(RegistrarPromocionFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_MenuRegistrarPromocionActionPerformed
 
     private void MenuActualizarServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuActualizarServicioActionPerformed
         PanelCentral.removeAll();
         JInternalFrame inf = new ActualizarServicioInternalFrame();
         PanelCentral.add(inf);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_MenuActualizarServicioActionPerformed
 
     private void MenuAltaPaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuAltaPaisActionPerformed
@@ -3728,8 +3750,7 @@ public class Interfaz extends javax.swing.JFrame {
         IControladorPublicacion cp = fabrica.getControladorPublicacion();
         Set<String> paises = cp.listarPaises();
         AltaCiudadPaisComboBox.removeAllItems();
-        for(String s : paises)
-        {
+        for (String s : paises) {
             AltaCiudadPaisComboBox.addItem(s);
         }
         PanelCentral.removeAll();
@@ -3740,14 +3761,11 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void AltaPaisAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaPaisAgregarButtonActionPerformed
         IControladorPublicacion cp = fabrica.getControladorPublicacion();
-        try
-        {
+        try {
             cp.altaPais(AltaPaisNombreTextField.getText());
             JOptionPane.showMessageDialog(this, "El Pais se agrego correctamente");
             AltaPaisNombreTextField.setText("");
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             //do something
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
@@ -3755,18 +3773,15 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void AltaCiudadAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaCiudadAgregarButtonActionPerformed
         IControladorPublicacion cp = fabrica.getControladorPublicacion();
-         try
-        {
+        try {
             cp.altaCiudad((String) AltaCiudadPaisComboBox.getSelectedItem(), AltaCiudadTextField.getText());
             JOptionPane.showMessageDialog(this, "La ciudad se agregó correctamente");
             AltaCiudadTextField.setText("");
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             //do something
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-        
+
     }//GEN-LAST:event_AltaCiudadAgregarButtonActionPerformed
 
     private void RegReservaSPAtrasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPAtrasButtonActionPerformed
@@ -3777,59 +3792,32 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegReservaSPAtrasButtonActionPerformed
 
     private void RegReservaConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaConfirmarButtonActionPerformed
-        try
-        {
+        try {
             crAltaReserva.confirmarReserva();
             crAltaReserva.borrarPublicacionesSeleccionadas();
             JOptionPane.showMessageDialog(null, "La reserva se creo correctamente");
             MenuRegistrarReserva.doClick();
             crAltaReserva = null;
-        }catch(Exception e)
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_RegReservaConfirmarButtonActionPerformed
 
-    private void MenuRegistrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarReservaActionPerformed
-        PanelCentral.removeAll();
-	PanelCentral.add(RegistrarReservaFrame);
-        IControladorUsuario cUsr = fabrica.getControladorUsuario();
-        Set<DataUsuario> clientes = cUsr.listarClientes();
-        DefaultTableModel tClientesModel = (DefaultTableModel) RegReservaClientesTable.getModel();
-        while(tClientesModel.getRowCount() > 0)
-        {
-            tClientesModel.removeRow(0);
-        }
-        for(DataUsuario c : clientes)
-        {
-            tClientesModel.addRow(new Object[]{c.getNickname(),c.getNombre(),c.getApellido(),c.getCorreo()});
-        }
-        RegReservaSeleccionarClientePanel.setVisible(true);
-        RegReservaSeleccionarProveedorPanel.setVisible(false);
-        RegReservaSeleccionarPublicacionPanel.setVisible(false);
-        RegReservaConfirmarPanel.setVisible(false);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
-    }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
-
     private void RegReservaSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSigButtonActionPerformed
         crAltaReserva = fabrica.getControladorReserva();
         IControladorUsuario cUsr = fabrica.getControladorUsuario();
-        if(RegReservaClientesTable.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un cliente","Warning",JOptionPane.WARNING_MESSAGE);
-        else
-        {
-            crAltaReserva.seleccionarCliente((String)RegReservaClientesTable.getValueAt(RegReservaClientesTable.getSelectedRow(),0));
+        if (RegReservaClientesTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un cliente", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            crAltaReserva.seleccionarCliente((String) RegReservaClientesTable.getValueAt(RegReservaClientesTable.getSelectedRow(), 0));
             //SIGUIENTE PANEL
             DefaultTableModel dtm = (DefaultTableModel) RegReservaSPTable.getModel();
             Set<DataUsuario> proveedores = cUsr.listarProveedores();
-            while(dtm.getRowCount() > 0)
-            {
+            while (dtm.getRowCount() > 0) {
                 dtm.removeRow(0);
             }
-            for(DataUsuario p : proveedores)
-            {
-                dtm.addRow(new Object[]{p.getNickname(),((DataProveedor)p).getEmpresa(),((DataProveedor)p).getURL(),p.getCorreo()});
+            for (DataUsuario p : proveedores) {
+                dtm.addRow(new Object[]{p.getNickname(), ((DataProveedor) p).getEmpresa(), ((DataProveedor) p).getURL(), p.getCorreo()});
             }
             RegReservaSeleccionarClientePanel.setVisible(false);
             RegReservaSeleccionarProveedorPanel.setVisible(true);
@@ -3840,44 +3828,43 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegReservaSPCancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPCancelButtonActionPerformed
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_RegReservaSPCancelButtonActionPerformed
 
     private void RegReservaSPSigButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPSigButtonActionPerformed
         IControladorPublicacion cPub = fabrica.getControladorPublicacion();
         IControladorUsuario cUsr = fabrica.getControladorUsuario();
-        if(RegReservaSPTable.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
-        else
-        {
-            crAltaReserva.seleccionarProveedor((String)RegReservaSPTable.getValueAt(RegReservaSPTable.getSelectedRow(),0));
+        if (RegReservaSPTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            crAltaReserva.seleccionarProveedor((String) RegReservaSPTable.getValueAt(RegReservaSPTable.getSelectedRow(), 0));
             //SIGUIENTE PANEL
             DefaultTableModel dtm = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
             Set<DataPublicacion> publicaciones = cUsr.listarPublicacionesProveedor(crAltaReserva.getNickProveedorSeleccionado());
-            while(dtm.getRowCount() > 0)
-            {
+            while (dtm.getRowCount() > 0) {
                 dtm.removeRow(0);
             }
-            for(DataPublicacion p : publicaciones)
-            {
-                if (p instanceof DataServicio)
-                    dtm.addRow(new Object[]{"Servicio",p.getNombre(),
-                        ((Float)(((DataServicio)p).getPrecio())).toString()});
-                else if (p instanceof DataPromocion)
-                    dtm.addRow(new Object[]{"Promoción",p.getNombre(),
-                        ((Float)(((DataPromocion)p).getPrecioTotal())).toString()});
+            for (DataPublicacion p : publicaciones) {
+                if (p instanceof DataServicio) {
+                    dtm.addRow(new Object[]{"Servicio", p.getNombre(),
+                        ((Float) (((DataServicio) p).getPrecio())).toString()});
+                } else if (p instanceof DataPromocion) {
+                    dtm.addRow(new Object[]{"Promoción", p.getNombre(),
+                        ((Float) (((DataPromocion) p).getPrecioTotal())).toString()});
+                }
             }
-            
+
             //vaciar segunda tabla
             DefaultTableModel dtms = (DefaultTableModel) RegReservaSPubSeleccionadasTable.getModel();
-            while(dtms.getRowCount() > 0)
+            while (dtms.getRowCount() > 0) {
                 dtms.removeRow(0);
+            }
             RegReservaSPubInicioChooser.setDate(new Date());
             RegReservaSPubInicioChooser.setDateFormatString("dd-MM-yyyy");
             RegReservaSPubFinChooser.setDate(new Date());
             RegReservaSPubFinChooser.setDateFormatString("dd-MM-yyyy");
-            
+
             //Control de visibilidad
             RegReservaSPubSeleccionarTable.setModel(dtm);
             RegReservaSeleccionarClientePanel.setVisible(false);
@@ -3889,14 +3876,15 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegReservaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaCancelarButtonActionPerformed
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_RegReservaCancelarButtonActionPerformed
 
 
     private void RegReservaClientesTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaClientesTableMouseClicked
-        if (evt.getClickCount() == 2)
+        if (evt.getClickCount() == 2) {
             RegReservaSigButton.doClick();
+        }
     }//GEN-LAST:event_RegReservaClientesTableMouseClicked
 
     private void RegistrarServicioPrecioTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioPrecioTextFieldActionPerformed
@@ -3905,27 +3893,22 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegistrarServicioSiguienteBottonDBPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioSiguienteBottonDBPanelActionPerformed
         // TODO add your handling code here:
-        if(RegistrarServicioNombreTextField.getText().trim().length() == 0){
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un nombre al servicio","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else if (RegistrarServicioDescripcionTextArea.getText().trim().length() == 0){
-            JOptionPane.showMessageDialog(null, "Debes seleccionar una descripcion al servicio","Warning",JOptionPane.WARNING_MESSAGE);
-        }            
-        else if (RegistrarServicioPrecioTextField.getText().trim().length() == 0){
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un precio al servicio","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
+        if (RegistrarServicioNombreTextField.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un nombre al servicio", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (RegistrarServicioDescripcionTextArea.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una descripcion al servicio", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (RegistrarServicioPrecioTextField.getText().trim().length() == 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un precio al servicio", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
             //SIGUIENTE PANEL
             IControladorUsuario usr = fabrica.getControladorUsuario();
             DefaultTableModel dtm = (DefaultTableModel) RegServicioSPTable.getModel();
             Set<DataUsuario> proveedores = usr.listarProveedores();
-            while(dtm.getRowCount() > 0)
-            {
+            while (dtm.getRowCount() > 0) {
                 dtm.removeRow(0);
             }
-            for(DataUsuario p : proveedores)
-            {
-                dtm.addRow(new Object[]{p.getNickname(),((DataProveedor)p).getEmpresa(),((DataProveedor)p).getURL(),p.getCorreo()});
+            for (DataUsuario p : proveedores) {
+                dtm.addRow(new Object[]{p.getNickname(), ((DataProveedor) p).getEmpresa(), ((DataProveedor) p).getURL(), p.getCorreo()});
             }
             RegServicioDatosBasicosPanel.setVisible(false);
             RegServicioProveedorPanel.setVisible(true);
@@ -3937,38 +3920,37 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegistrarServicioCancelarBottonDBPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarServicioCancelarBottonDBPanelActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
         RegistrarServicioPrecioTextField.setText(null);
-        
+
     }//GEN-LAST:event_RegistrarServicioCancelarBottonDBPanelActionPerformed
 
     private void RegServicioSPSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSPSiguienteButtonActionPerformed
         // TODO add your handling code here:
         IControladorPublicacion cPub = fabrica.getControladorPublicacion();
-        if(RegServicioSPTable.getSelectedRow() == -1)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
-        else
-        {
-           //Panel Siguiente
-           fabrica = FabricaControladores.getInstancia();
-           //Se cargan los combobox
-           IControladorPublicacion pub = fabrica.getControladorPublicacion();
-           Set<String> paises = pub.listarPaises();
-           if (RegServicioPaisOrigenComboBox.getItemCount() <= 1){
-           for(String s: paises){
-              RegServicioPaisOrigenComboBox.addItem(s);
-              RegServicioPaisDestinoComboBox.addItem(s);
-           }
-           }
+        if (RegServicioSPTable.getSelectedRow() == -1) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            //Panel Siguiente
+            fabrica = FabricaControladores.getInstancia();
+            //Se cargan los combobox
+            IControladorPublicacion pub = fabrica.getControladorPublicacion();
+            Set<String> paises = pub.listarPaises();
+            if (RegServicioPaisOrigenComboBox.getItemCount() <= 1) {
+                for (String s : paises) {
+                    RegServicioPaisOrigenComboBox.addItem(s);
+                    RegServicioPaisDestinoComboBox.addItem(s);
+                }
+            }
             RegServicioDestinoNoRadioButton.setSelected(true);
             RegServicioPaisDestinoLabel.setVisible(false);
             RegServicioCiudadDestinoLabel.setVisible(false);
             RegServicioPaisDestinoComboBox.setVisible(false);
             RegServicioCiudadDestinoComboBox.setVisible(false);
-            
+
             RegServicioDatosBasicosPanel.setVisible(false);
             RegServicioProveedorPanel.setVisible(false);
             RegServicioUbicacionPanel.setVisible(true);
@@ -3990,7 +3972,7 @@ public class Interfaz extends javax.swing.JFrame {
         RegistrarServicioDescripcionTextArea.setText(null);
         RegistrarServicioPrecioTextField.setText(null);
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_RegServicioSPCancelarButtonActionPerformed
 
@@ -4013,11 +3995,11 @@ public class Interfaz extends javax.swing.JFrame {
     private void RegServicioUbicacionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioUbicacionCancelarButtonActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
-        RegistrarServicioPrecioTextField.setText(null); 
+        RegistrarServicioPrecioTextField.setText(null);
         RegServicioPaisOrigenComboBox.setSelectedIndex(0);
         RegServicioPaisDestinoComboBox.setSelectedIndex(0);
     }//GEN-LAST:event_RegServicioUbicacionCancelarButtonActionPerformed
@@ -4027,11 +4009,11 @@ public class Interfaz extends javax.swing.JFrame {
         //Se carga combobox de ciudad origen
         RegServicioCiudadOrigenComboBox.removeAllItems();
         RegServicioCiudadOrigenComboBox.addItem("Seleccionar ciudad");
-        if (RegServicioPaisOrigenComboBox.getSelectedIndex() != 0){
+        if (RegServicioPaisOrigenComboBox.getSelectedIndex() != 0) {
             fabrica = FabricaControladores.getInstancia();
             IControladorPublicacion pub = fabrica.getControladorPublicacion();
-            Set<String> ciudades = pub.listarCiudades((String)RegServicioPaisOrigenComboBox.getSelectedItem());
-            for(String c: ciudades){
+            Set<String> ciudades = pub.listarCiudades((String) RegServicioPaisOrigenComboBox.getSelectedItem());
+            for (String c : ciudades) {
                 RegServicioCiudadOrigenComboBox.addItem(c);
             }
         }
@@ -4042,11 +4024,11 @@ public class Interfaz extends javax.swing.JFrame {
         //Se carga combobox de ciudad destino
         RegServicioCiudadDestinoComboBox.removeAllItems();
         RegServicioCiudadDestinoComboBox.addItem("Seleccionar ciudad");
-        if (RegServicioPaisDestinoComboBox.getSelectedIndex() != 0){
+        if (RegServicioPaisDestinoComboBox.getSelectedIndex() != 0) {
             fabrica = FabricaControladores.getInstancia();
             IControladorPublicacion pub = fabrica.getControladorPublicacion();
-            Set<String> ciudades = pub.listarCiudades((String)RegServicioPaisDestinoComboBox.getSelectedItem());
-            for(String c: ciudades){
+            Set<String> ciudades = pub.listarCiudades((String) RegServicioPaisDestinoComboBox.getSelectedItem());
+            for (String c : ciudades) {
                 RegServicioCiudadDestinoComboBox.addItem(c);
             }
         }
@@ -4070,14 +4052,14 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioUbicacionSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioUbicacionSiguienteButtonActionPerformed
         // TODO add your handling code here:
-        if(RegServicioPaisOrigenComboBox.getSelectedIndex() == 0)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Pais de origen","Warning",JOptionPane.WARNING_MESSAGE);
-        else if(RegServicioCiudadOrigenComboBox.getSelectedIndex() == 0)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar una Ciduad de origen","Warning",JOptionPane.WARNING_MESSAGE);
-        else if ((RegServicioPaisDestinoComboBox.getSelectedIndex() != 0) &&
-                  (RegServicioCiudadDestinoComboBox.getSelectedIndex() == 0))
-            JOptionPane.showMessageDialog(null, "Debes seleccionar una Ciudad de destino","Warning",JOptionPane.WARNING_MESSAGE);
-        else{
+        if (RegServicioPaisOrigenComboBox.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Pais de origen", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if (RegServicioCiudadOrigenComboBox.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una Ciduad de origen", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else if ((RegServicioPaisDestinoComboBox.getSelectedIndex() != 0)
+                && (RegServicioCiudadDestinoComboBox.getSelectedIndex() == 0)) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una Ciudad de destino", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
             RegServicioDatosBasicosPanel.setVisible(false);
             RegServicioProveedorPanel.setVisible(false);
             RegServicioUbicacionPanel.setVisible(false);
@@ -4088,12 +4070,12 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioSeleccImagen1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen1ButtonActionPerformed
         // TODO add your handling code here:
-        
+
         RegServicioSelectorImagenFileChooser.setVisible(true);
-        
+
         //Opcion de boton Abrir
         int opcion = RegServicioSelectorImagenFileChooser.showOpenDialog(null);
-        if(opcion == JFileChooser.APPROVE_OPTION){
+        if (opcion == JFileChooser.APPROVE_OPTION) {
             //Obtener nombre del archivo
             String arch = RegServicioSelectorImagenFileChooser.getSelectedFile().getPath();
             //Obtener direccion donde se guardará la imagen
@@ -4107,21 +4089,21 @@ public class Interfaz extends javax.swing.JFrame {
             //Se agrega la imagen
             img1 = img;
             //Se modifica el tamaño de la imagen
-            Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+            Image imgmod = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
             ImageIcon nuevoIcono = new ImageIcon(imgmod);
             RegServicioImagen1Label.setIcon(nuevoIcono);
-            RegServicioImagen1Label.setSize(100,100);
+            RegServicioImagen1Label.setSize(100, 100);
         }
     }//GEN-LAST:event_RegServicioSeleccImagen1ButtonActionPerformed
 
     private void RegServicioSeleccImagen2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen2ButtonActionPerformed
         // TODO add your handling code here:
         RegServicioSelectorImagenFileChooser.setVisible(true);
-        
+
         //Opcion de boton Abrir
         int opcion = RegServicioSelectorImagenFileChooser.showOpenDialog(null);
-        if(opcion == JFileChooser.APPROVE_OPTION){
+        if (opcion == JFileChooser.APPROVE_OPTION) {
             //Obtener nombre del archivo
             String arch = RegServicioSelectorImagenFileChooser.getSelectedFile().getPath();
             //Obtener direccion donde se guardará la imagen
@@ -4135,21 +4117,21 @@ public class Interfaz extends javax.swing.JFrame {
             //Se agrega al set de imagenes
             img2 = img;
             //Se modifica el tamaño de la imagen
-            Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+            Image imgmod = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
             ImageIcon nuevoIcono = new ImageIcon(imgmod);
             RegServicioImagen2Label.setIcon(nuevoIcono);
-            RegServicioImagen2Label.setSize(100,100);
+            RegServicioImagen2Label.setSize(100, 100);
         }
     }//GEN-LAST:event_RegServicioSeleccImagen2ButtonActionPerformed
 
     private void RegServicioSeleccImagen3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioSeleccImagen3ButtonActionPerformed
         // TODO add your handling code here:
         RegServicioSelectorImagenFileChooser.setVisible(true);
-        
+
         //Opcion de boton Abrir
         int opcion = RegServicioSelectorImagenFileChooser.showOpenDialog(null);
-        if(opcion == JFileChooser.APPROVE_OPTION){
+        if (opcion == JFileChooser.APPROVE_OPTION) {
             //Obtener nombre del archivo
             String arch = RegServicioSelectorImagenFileChooser.getSelectedFile().getPath();
             //Obtener direccion donde se guardará la imagen
@@ -4163,26 +4145,26 @@ public class Interfaz extends javax.swing.JFrame {
             //Se agrega la imagen
             img3 = img;
             //Se modifica el tamaño de la imagen
-            Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+            Image imgmod = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
             //Se genera el ImageIcon con la nueva imagen
             ImageIcon nuevoIcono = new ImageIcon(imgmod);
             RegServicioImagen3Label.setIcon(nuevoIcono);
-            RegServicioImagen3Label.setSize(100,100);
+            RegServicioImagen3Label.setSize(100, 100);
         }
     }//GEN-LAST:event_RegServicioSeleccImagen3ButtonActionPerformed
 
     private void RegServicioImagenAtrasButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioImagenAtrasButtonActionPerformed
         // TODO add your handling code here:
-            RegServicioDatosBasicosPanel.setVisible(false);
-            RegServicioProveedorPanel.setVisible(false);
-            RegServicioUbicacionPanel.setVisible(true);
-            RegServicioImagenPanel.setVisible(false);
+        RegServicioDatosBasicosPanel.setVisible(false);
+        RegServicioProveedorPanel.setVisible(false);
+        RegServicioUbicacionPanel.setVisible(true);
+        RegServicioImagenPanel.setVisible(false);
     }//GEN-LAST:event_RegServicioImagenAtrasButtonActionPerformed
 
     private void RegServicioImagenCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioImagenCancelarButtonActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
@@ -4205,7 +4187,7 @@ public class Interfaz extends javax.swing.JFrame {
         RegServicioImagenPanel.setVisible(false);
         RegServicioCategoriasPanel.setVisible(true);
         //Siguiente Panel
-        
+
         ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
         DefaultTreeModel modelo = ctrlPublic.listarCategorias();
         RegServicioCategoriasTree.setModel(modelo);
@@ -4214,85 +4196,79 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegServicioImagenSiguienteButtonActionPerformed
 
     private void RegCategoriaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaAceptarButtonActionPerformed
-	    ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
-	    if(RegCategoriaConPadreRadioButton.isSelected())
-	    {     
-                DefaultMutableTreeNode padre = (DefaultMutableTreeNode) RegCategoriaTree.getLastSelectedPathComponent();
-                if (!(padre == null)){
-                    if (!(padre.toString().equals("Categorias"))){ 
-                        if (!(RegCategoriaNombreCategoriaTextField.getText().equals(""))){
-                            ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText(), padre.toString());             
-                            RegCategoriaNombreCategoriaTextField.setText(null);
-                            PanelCentral.remove(RegistrarCategoriaFrame);
-                        }
-                        else{
-                            JOptionPane.showMessageDialog(null, "Debes ingresarle un nombre a la categoría", "ERROR", JOptionPane.ERROR_MESSAGE);
-                        }
+        ControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
+        if (RegCategoriaConPadreRadioButton.isSelected()) {
+            DefaultMutableTreeNode padre = (DefaultMutableTreeNode) RegCategoriaTree.getLastSelectedPathComponent();
+            if (!(padre == null)) {
+                if (!(padre.toString().equals("Categorias"))) {
+                    if (!(RegCategoriaNombreCategoriaTextField.getText().equals(""))) {
+                        ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText(), padre.toString());
+                        RegCategoriaNombreCategoriaTextField.setText(null);
+                        PanelCentral.remove(RegistrarCategoriaFrame);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Debes ingresarle un nombre a la categoría", "ERROR", JOptionPane.ERROR_MESSAGE);
                     }
-                    else{
-                        JOptionPane.showMessageDialog(null, "No es una categoría válida", "ERROR", JOptionPane.ERROR_MESSAGE);        
-                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "No es una categoría válida", "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
-                else{
-                    JOptionPane.showMessageDialog(null, "Debes seleccionar una categoría padre", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Debes seleccionar una categoría padre", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-            else{
-                if (!(RegCategoriaNombreCategoriaTextField.getText().equals(""))){
-                    ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());
-                    RegCategoriaNombreCategoriaTextField.setText(null);
-                    PanelCentral.remove(RegistrarCategoriaFrame);
-                }
-                else{
-                    JOptionPane.showMessageDialog(null, "Debes ingresarle un nombre a la categoría", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }           
+        } else {
+            if (!(RegCategoriaNombreCategoriaTextField.getText().equals(""))) {
+                ctrlPublic.registrarCategoria(RegCategoriaNombreCategoriaTextField.getText());
+                RegCategoriaNombreCategoriaTextField.setText(null);
+                PanelCentral.remove(RegistrarCategoriaFrame);
+            } else {
+                JOptionPane.showMessageDialog(null, "Debes ingresarle un nombre a la categoría", "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }//GEN-LAST:event_RegCategoriaAceptarButtonActionPerformed
 
     private void RegCategoriaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegCategoriaCancelarButtonActionPerformed
         RegCategoriaNombreCategoriaTextField.setText(null);
-        PanelCentral.remove(RegistrarCategoriaFrame); 
+        PanelCentral.remove(RegistrarCategoriaFrame);
     }//GEN-LAST:event_RegCategoriaCancelarButtonActionPerformed
 
     private void infoProveedorMenuBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoProveedorMenuBarActionPerformed
         PanelCentral.removeAll();
-	PanelCentral.add(this.ConsultarInfoProveedor);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.add(this.ConsultarInfoProveedor);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_infoProveedorMenuBarActionPerformed
 
     private void ActualizarEstadoReservaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEstadoReservaMenuActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-	PanelCentral.add(ActualizarEstadoReservaFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.add(ActualizarEstadoReservaFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
         SeleccionarEstadoLabel.setVisible(false);
         EstadosComboBox.setVisible(false);
         EstadosComboBox.removeAllItems();
         EstadosComboBox.addItem(Estado.Facturada);
         EstadosComboBox.addItem(Estado.Pagada);
         EstadosComboBox.addItem(Estado.Cancelada);
-        
+
         listarReservasGUI();
     }//GEN-LAST:event_ActualizarEstadoReservaMenuActionPerformed
 
     private void ActualizarEstadoReservaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEstadoReservaAceptarButtonActionPerformed
         // TODO add your handling code here:
         IControladorReserva cr = fabrica.getControladorReserva();
-        
-        int row=ReservasTable.getSelectedRow();
-        if (row==-1){
+
+        int row = ReservasTable.getSelectedRow();
+        if (row == -1) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una reserva", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }else{
-            int nro=(int)ReservasTable.getValueAt(row, 0);
-            Estado e=(Estado)EstadosComboBox.getSelectedItem();
-        
-            try{
+        } else {
+            int nro = (int) ReservasTable.getValueAt(row, 0);
+            Estado e = (Estado) EstadosComboBox.getSelectedItem();
+
+            try {
                 cr.actualizarEstado(nro, e);
                 JOptionPane.showMessageDialog(null, "Reserva modificada con éxito", "Información", JOptionPane.INFORMATION_MESSAGE);
                 listarReservasGUI();
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
             //ReservasTable.repaint();
@@ -4302,27 +4278,27 @@ public class Interfaz extends javax.swing.JFrame {
     private void CancelarReservaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelarReservaMenuActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-	PanelCentral.add(CancelarReservaFrame);
+        PanelCentral.add(CancelarReservaFrame);
         PanelCentral.repaint();
-	PanelCentral.revalidate();     
-        
+        PanelCentral.revalidate();
+
         listarReservasGUI1();
     }//GEN-LAST:event_CancelarReservaMenuActionPerformed
 
     private void EliminarReservaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarReservaButtonActionPerformed
         // TODO add your handling code here:
         IControladorReserva cr = fabrica.getControladorReserva();
-        
-        int row=ReservasTable1.getSelectedRow();
-        if (row==-1){
+
+        int row = ReservasTable1.getSelectedRow();
+        if (row == -1) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar una reserva", "Advertencia", JOptionPane.WARNING_MESSAGE);
-        }else{
-            int nro=(int)ReservasTable1.getValueAt(row, 0);
-            try{
+        } else {
+            int nro = (int) ReservasTable1.getValueAt(row, 0);
+            try {
                 cr.bajaReserva(nro);
                 JOptionPane.showMessageDialog(null, "Reserva eliminada", "Información", JOptionPane.INFORMATION_MESSAGE);
                 listarReservasGUI1();
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
             //ReservasTable.repaint();
@@ -4334,7 +4310,7 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.removeAll();
         PanelCentral.repaint();
         PanelCentral.revalidate();
-        
+
     }//GEN-LAST:event_CancelarBajaReservaButtonActionPerformed
 
     private void ActualizarEstadoReservaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEstadoReservaCancelarButtonActionPerformed
@@ -4346,46 +4322,41 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegServicioCategoriasConfirmarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCategoriasConfirmarButtonActionPerformed
         // TODO add your handling code here:
-        try
-        {
+        try {
             IControladorPublicacion cp = fabrica.getControladorPublicacion();
-            DataUbicacion dtorigen = new DataUbicacion((String)RegServicioPaisOrigenComboBox.getSelectedItem()
-                                   ,(String)RegServicioCiudadOrigenComboBox.getSelectedItem());
-                                                     
+            DataUbicacion dtorigen = new DataUbicacion((String) RegServicioPaisOrigenComboBox.getSelectedItem(), (String) RegServicioCiudadOrigenComboBox.getSelectedItem());
+
             Set<Image> imagenes = new HashSet<>();
             Image i1, i2, i3;
-            if (img1 != null){
+            if (img1 != null) {
                 i1 = img1;
                 imagenes.add(i1);
             }
-            if (img2 != null){
+            if (img2 != null) {
                 i2 = img2;
                 imagenes.add(i2);
             }
-            if (img3 != null){
+            if (img3 != null) {
                 i3 = img3;
                 imagenes.add(i3);
             }
             //Alta servico con destino
-            if (RegServicioDestinoSiRadioButton.isSelected()){
-               DataUbicacion dtdestino = new DataUbicacion((String)RegServicioPaisDestinoComboBox.getSelectedItem(),
-                                                     (String)RegServicioCiudadDestinoComboBox.getSelectedItem());
-               cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
-                              imagenes,Float.parseFloat(RegistrarServicioPrecioTextField.getText()),categorias,
-                              (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),
-                              dtorigen,dtdestino);
-            }
-            //Alta servicio sin destino
-            else{
-                cp.altaServicio((String)RegistrarServicioNombreTextField.getText(),(String)RegistrarServicioDescripcionTextArea.getText(),
-                              imagenes,Float.parseFloat(RegistrarServicioPrecioTextField.getText()),categorias,
-                              (String)RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(),0),
-                              dtorigen);
+            if (RegServicioDestinoSiRadioButton.isSelected()) {
+                DataUbicacion dtdestino = new DataUbicacion((String) RegServicioPaisDestinoComboBox.getSelectedItem(),
+                        (String) RegServicioCiudadDestinoComboBox.getSelectedItem());
+                cp.altaServicio((String) RegistrarServicioNombreTextField.getText(), (String) RegistrarServicioDescripcionTextArea.getText(),
+                        imagenes, Float.parseFloat(RegistrarServicioPrecioTextField.getText()), categorias,
+                        (String) RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(), 0),
+                        dtorigen, dtdestino);
+            } //Alta servicio sin destino
+            else {
+                cp.altaServicio((String) RegistrarServicioNombreTextField.getText(), (String) RegistrarServicioDescripcionTextArea.getText(),
+                        imagenes, Float.parseFloat(RegistrarServicioPrecioTextField.getText()), categorias,
+                        (String) RegServicioSPTable.getValueAt(RegServicioSPTable.getSelectedRow(), 0),
+                        dtorigen);
             }
             JOptionPane.showMessageDialog(this, "El servicio se agregó correctamente");
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             //do something
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
@@ -4406,60 +4377,56 @@ public class Interfaz extends javax.swing.JFrame {
         RegServicioImagenPanel.setVisible(false);
         RegServicioCategoriasPanel.setVisible(false);
         PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_RegServicioCategoriasConfirmarButtonActionPerformed
 
     private void RegServicioCargarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCargarCategoriaButtonActionPerformed
         // TODO add your handling code here:
-         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) RegServicioCategoriasTree.getLastSelectedPathComponent(); 
-        if ((cat.isRoot()))
-          JOptionPane.showMessageDialog(null, "No se puede elegir esta categoria","Warning",JOptionPane.WARNING_MESSAGE);
-        else{
-        try
-	{
-	              
-            categorias.add(cat.toString());
-            JOptionPane.showMessageDialog(this, "Se ha agregado la categoria " + cat.toString());
-	}catch(Exception ex)
-	{
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-	}
-    }
+        DefaultMutableTreeNode cat = (DefaultMutableTreeNode) RegServicioCategoriasTree.getLastSelectedPathComponent();
+        if ((cat.isRoot())) {
+            JOptionPane.showMessageDialog(null, "No se puede elegir esta categoria", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            try {
+
+                categorias.add(cat.toString());
+                JOptionPane.showMessageDialog(this, "Se ha agregado la categoria " + cat.toString());
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
     }//GEN-LAST:event_RegServicioCargarCategoriaButtonActionPerformed
 
     private void RegReservaSPubAgregarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubAgregarButtonActionPerformed
         DefaultTableModel dtmt = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
         DefaultTableModel dtmb = (DefaultTableModel) RegReservaSPubSeleccionadasTable.getModel();
         int y = RegReservaSPubSeleccionarTable.getSelectedRow();
-        if (RegReservaSPubFinChooser.getDate() == null)
+        if (RegReservaSPubFinChooser.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Fecha Fin Incorrecta", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else if (RegReservaSPubInicioChooser.getDate() == null)
+        } else if (RegReservaSPubInicioChooser.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Fecha Inicio Incorrecta", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else if ((Integer)RegReservaSPubCantSpinner.getValue() < 1)
+        } else if ((Integer) RegReservaSPubCantSpinner.getValue() < 1) {
             JOptionPane.showMessageDialog(null, "Cantidad incorrecta", "ERROR", JOptionPane.ERROR_MESSAGE);
-        else if (y == -1)
+        } else if (y == -1) {
             JOptionPane.showMessageDialog(null, "Debes seleccionar una publicacion", "Warning", JOptionPane.WARNING_MESSAGE);
-        else
-        {
+        } else {
             DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
             String inicio = df.format(RegReservaSPubInicioChooser.getDate());
             String fin = df.format(RegReservaSPubFinChooser.getDate());
-            dtmb.addRow(new Object[]{dtmt.getValueAt(y,0), dtmt.getValueAt(y,1), dtmt.getValueAt(y,2), inicio, fin, RegReservaSPubCantSpinner.getValue()} );
+            dtmb.addRow(new Object[]{dtmt.getValueAt(y, 0), dtmt.getValueAt(y, 1), dtmt.getValueAt(y, 2), inicio, fin, RegReservaSPubCantSpinner.getValue()});
             dtmt.removeRow(y);
         }
         RegReservaSPubSeleccionadasTable.setModel(dtmb);
-        
+
     }//GEN-LAST:event_RegReservaSPubAgregarButtonActionPerformed
 
     private void RegReservaSPubRemoveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubRemoveButtonActionPerformed
         DefaultTableModel dtmt = (DefaultTableModel) RegReservaSPubSeleccionarTable.getModel();
         DefaultTableModel dtmb = (DefaultTableModel) RegReservaSPubSeleccionadasTable.getModel();
         int y = RegReservaSPubSeleccionadasTable.getSelectedRow();
-        if (y == -1)
+        if (y == -1) {
             JOptionPane.showMessageDialog(null, "Debes seleccionar una publicacion", "Warning", JOptionPane.WARNING_MESSAGE);
-        else
-        {
-            dtmt.addRow(new Object[]{dtmb.getValueAt(y,0 ), dtmb.getValueAt(y,1), dtmb.getValueAt(y,2)} );
+        } else {
+            dtmt.addRow(new Object[]{dtmb.getValueAt(y, 0), dtmb.getValueAt(y, 1), dtmb.getValueAt(y, 2)});
             dtmb.removeRow(y);
         }
     }//GEN-LAST:event_RegReservaSPubRemoveButtonActionPerformed
@@ -4471,9 +4438,9 @@ public class Interfaz extends javax.swing.JFrame {
         InfoServicioCategoriasTree.setModel(modelo);
         InfoServicioCategoriasTree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
         PanelCentral.removeAll();
-	PanelCentral.add(InformacionServicioFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.add(InformacionServicioFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
         InfoServicioDatoNombreLabel.setText(null);
         InfoServicioDatoDescrTextArea.setText(null);
         InfoServicioDatoPrecioLabel.setText(null);
@@ -4496,69 +4463,69 @@ public class Interfaz extends javax.swing.JFrame {
         IControladorPublicacion pub = fabrica.getControladorPublicacion();
         DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
         Set<DataServicio> serv;
-        if (cat != null){
-           serv = pub.listarServiciosDeCategoria(cat.toString());
-           for(DataServicio dt: serv){
-              InfoServicioServiciosComboBox.addItem(dt.getNombre());
-           }
+        if (cat != null) {
+            serv = pub.listarServiciosDeCategoria(cat.toString());
+            for (DataServicio dt : serv) {
+                InfoServicioServiciosComboBox.addItem(dt.getNombre());
+            }
         }
     }//GEN-LAST:event_InfoServicioCategoriasTreeValueChanged
 
     private void InfoServicioCategoriaSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoServicioCategoriaSiguienteButtonActionPerformed
         // TODO add your handling code here:
-        if (InfoServicioServiciosComboBox.getSelectedIndex() == 0)
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Servicio","Warning",JOptionPane.WARNING_MESSAGE);
-        else{
-        InfoServicioCategoriaPanel.setVisible(false);
-        InfoServicioInfoServicioPanel.setVisible(true);
-        IControladorPublicacion pub = fabrica.getControladorPublicacion();
-        
-        DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
-        Set<DataServicio> serv = pub.listarServicioDeCategoriaCompleto(cat.toString());
-        DataServicio s;
-        ImageIcon nuevoIcono;
-        Image imgmod;
-        Iterator it;
-        for (DataServicio dt: serv){
-            if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())){
-                s = new DataServicio(dt.getNombre(),dt.getDescripcion(),dt.getPrecio(),dt.getProveedor(),
-                                     dt.getPaisOrigen(),dt.getCiudadOrigen(),dt.getPaisDestino(),
-                                      dt.getCiudadDestino(),dt.getImagenes());
-                InfoServicioDatoNombreLabel.setText(s.getNombre());
-                InfoServicioDatoDescrTextArea.setEditable(false);
-                InfoServicioDatoDescrTextArea.setText(s.getDescripcion());
-                InfoServicioDatoPrecioLabel.setText(Float.toString(s.getPrecio()));
-                InfoServicioDatoProvLabel.setText(s.getProveedor());
-                InfoServicioDatoPaisOLabel.setText(s.getPaisOrigen());
-                InfoServicioDatoCiudadOLabel.setText(s.getCiudadOrigen());
-                InfoServicioDatoPaisDLabel.setText(s.getPaisDestino());
-                InfoServicioDatoCiudadDLabel.setText(s.getCiudadDestino());
-                
-                //Se modifica el tamaño de la imagen
-                it = s.getImagenes().iterator();
-                if (it.hasNext()){
-                  imgmod = ((Image)it.next()).getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
-                //Se genera el ImageIcon con la nueva imagen
-                nuevoIcono = new ImageIcon(imgmod);
-                InfoServicioDatoImagen1Label.setIcon(nuevoIcono);
-                InfoServicioDatoImagen1Label.setSize(100,100);
-                }
-                if (it.hasNext()){
-                  imgmod = ((Image)it.next()).getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
-                //Se genera el ImageIcon con la nueva imagen
-                nuevoIcono = new ImageIcon(imgmod);
-                InfoServicioDatoImagen2Label.setIcon(nuevoIcono);
-                InfoServicioDatoImagen2Label.setSize(100,100);
-                }
-                if (it.hasNext()){
-                  imgmod = ((Image)it.next()).getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
-                //Se genera el ImageIcon con la nueva imagen
-                nuevoIcono = new ImageIcon(imgmod);
-                InfoServicioDatoImagen3Label.setIcon(nuevoIcono);
-                InfoServicioDatoImagen3Label.setSize(100,100);
+        if (InfoServicioServiciosComboBox.getSelectedIndex() == 0) {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Servicio", "Warning", JOptionPane.WARNING_MESSAGE);
+        } else {
+            InfoServicioCategoriaPanel.setVisible(false);
+            InfoServicioInfoServicioPanel.setVisible(true);
+            IControladorPublicacion pub = fabrica.getControladorPublicacion();
+
+            DefaultMutableTreeNode cat = (DefaultMutableTreeNode) InfoServicioCategoriasTree.getLastSelectedPathComponent();
+            Set<DataServicio> serv = pub.listarServicioDeCategoriaCompleto(cat.toString());
+            DataServicio s;
+            ImageIcon nuevoIcono;
+            Image imgmod;
+            Iterator it;
+            for (DataServicio dt : serv) {
+                if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())) {
+                    s = new DataServicio(dt.getNombre(), dt.getDescripcion(), dt.getPrecio(), dt.getProveedor(),
+                            dt.getPaisOrigen(), dt.getCiudadOrigen(), dt.getPaisDestino(),
+                            dt.getCiudadDestino(), dt.getImagenes());
+                    InfoServicioDatoNombreLabel.setText(s.getNombre());
+                    InfoServicioDatoDescrTextArea.setEditable(false);
+                    InfoServicioDatoDescrTextArea.setText(s.getDescripcion());
+                    InfoServicioDatoPrecioLabel.setText(Float.toString(s.getPrecio()));
+                    InfoServicioDatoProvLabel.setText(s.getProveedor());
+                    InfoServicioDatoPaisOLabel.setText(s.getPaisOrigen());
+                    InfoServicioDatoCiudadOLabel.setText(s.getCiudadOrigen());
+                    InfoServicioDatoPaisDLabel.setText(s.getPaisDestino());
+                    InfoServicioDatoCiudadDLabel.setText(s.getCiudadDestino());
+
+                    //Se modifica el tamaño de la imagen
+                    it = s.getImagenes().iterator();
+                    if (it.hasNext()) {
+                        imgmod = ((Image) it.next()).getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                        //Se genera el ImageIcon con la nueva imagen
+                        nuevoIcono = new ImageIcon(imgmod);
+                        InfoServicioDatoImagen1Label.setIcon(nuevoIcono);
+                        InfoServicioDatoImagen1Label.setSize(100, 100);
+                    }
+                    if (it.hasNext()) {
+                        imgmod = ((Image) it.next()).getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                        //Se genera el ImageIcon con la nueva imagen
+                        nuevoIcono = new ImageIcon(imgmod);
+                        InfoServicioDatoImagen2Label.setIcon(nuevoIcono);
+                        InfoServicioDatoImagen2Label.setSize(100, 100);
+                    }
+                    if (it.hasNext()) {
+                        imgmod = ((Image) it.next()).getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
+                        //Se genera el ImageIcon con la nueva imagen
+                        nuevoIcono = new ImageIcon(imgmod);
+                        InfoServicioDatoImagen3Label.setIcon(nuevoIcono);
+                        InfoServicioDatoImagen3Label.setSize(100, 100);
+                    }
                 }
             }
-        }
         }
     }//GEN-LAST:event_InfoServicioCategoriaSiguienteButtonActionPerformed
 
@@ -4568,41 +4535,38 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegReservaSPubCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubCancelarButtonActionPerformed
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_RegReservaSPubCancelarButtonActionPerformed
 
     private void RegReservaSPubSiguienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegReservaSPubSiguienteButtonActionPerformed
         //Seleccionar Reservas
         float total = 0;
-        if (RegReservaSPubSeleccionadasTable.getRowCount() == 0)
+        if (RegReservaSPubSeleccionadasTable.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Debes seleccionar al menos una publicacion", "Warning", JOptionPane.WARNING_MESSAGE);
-        else
-        {
-            try{
+        } else {
+            try {
                 float precio;
                 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
                 String ini;
                 String f;
                 String nombre;
                 int cant;
-                DefaultTableModel dm =(DefaultTableModel) RegReservaConfirmarPubTable.getModel();
-                while(RegReservaConfirmarPubTable.getRowCount() > 0)
+                DefaultTableModel dm = (DefaultTableModel) RegReservaConfirmarPubTable.getModel();
+                while (RegReservaConfirmarPubTable.getRowCount() > 0) {
                     dm.removeRow(0);
-                for(int i = 0; i < RegReservaSPubSeleccionadasTable.getRowCount(); i++)
-                {
-                    nombre = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,1);
-                    cant = (Integer)RegReservaSPubSeleccionadasTable.getValueAt(i,5);
-                    precio = (Float.parseFloat((String)RegReservaSPubSeleccionadasTable.getValueAt(i,2)));
-                    total = total + ( precio * cant );
-                    ini = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,3);
-                    f = (String)RegReservaSPubSeleccionadasTable.getValueAt(i,4);
-                    crAltaReserva.seleccionarPublicacion(nombre,cant,df.parse(ini),df.parse(f));
-                    dm.addRow(new Object[]{(String)RegReservaSPubSeleccionadasTable.getValueAt(i,0), nombre, (String)RegReservaSPubSeleccionadasTable.getValueAt(i,2), ini, f, cant} );
                 }
-            }
-            catch(Exception e)
-            {
+                for (int i = 0; i < RegReservaSPubSeleccionadasTable.getRowCount(); i++) {
+                    nombre = (String) RegReservaSPubSeleccionadasTable.getValueAt(i, 1);
+                    cant = (Integer) RegReservaSPubSeleccionadasTable.getValueAt(i, 5);
+                    precio = (Float.parseFloat((String) RegReservaSPubSeleccionadasTable.getValueAt(i, 2)));
+                    total = total + (precio * cant);
+                    ini = (String) RegReservaSPubSeleccionadasTable.getValueAt(i, 3);
+                    f = (String) RegReservaSPubSeleccionadasTable.getValueAt(i, 4);
+                    crAltaReserva.seleccionarPublicacion(nombre, cant, df.parse(ini), df.parse(f));
+                    dm.addRow(new Object[]{(String) RegReservaSPubSeleccionadasTable.getValueAt(i, 0), nombre, (String) RegReservaSPubSeleccionadasTable.getValueAt(i, 2), ini, f, cant});
+                }
+            } catch (Exception e) {
                 crAltaReserva.borrarPublicacionesSeleccionadas();
                 JOptionPane.showMessageDialog(null, e.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
             }
@@ -4639,7 +4603,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void InfoServicioCategoriaCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoServicioCategoriaCancelarButtonActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_InfoServicioCategoriaCancelarButtonActionPerformed
 
@@ -4673,14 +4637,14 @@ public class Interfaz extends javax.swing.JFrame {
         IControladorReserva cr = fabrica.getControladorReserva();
         cr.borrarPublicacionesSeleccionadas();
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_RegReservaConfirmarCancelarButtonActionPerformed
 
     private void RegServicioCategoriasCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegServicioCategoriasCancelarButtonActionPerformed
         // TODO add your handling code here:
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
         RegistrarServicioNombreTextField.setText(null);
         RegistrarServicioDescripcionTextArea.setText(null);
@@ -4708,77 +4672,76 @@ public class Interfaz extends javax.swing.JFrame {
     private void infoReservaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoReservaMenuItemActionPerformed
         DefaultTableModel res = (DefaultTableModel) InfoReservaReservasTable.getModel();
         DefaultTableModel pub = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
-        while(InfoReservaReservasTable.getRowCount() > 0)
+        while (InfoReservaReservasTable.getRowCount() > 0) {
             res.removeRow(0);
-        while(InfoReservaPublicacionesTable.getRowCount() > 0)
+        }
+        while (InfoReservaPublicacionesTable.getRowCount() > 0) {
             pub.removeRow(0);
-        
+        }
+
         IControladorReserva cr = fabrica.getControladorReserva();
         List<DataReserva> reservas = cr.listarReservas();
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        for(DataReserva dr : reservas)
-            res.addRow(new Object[]{dr.getNum(),cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(),df.format(dr.getCreacion()), dr.getPrecio_total()});
-        
-        InfoReservaInfoPanel.setVisible(false);        
+        for (DataReserva dr : reservas) {
+            res.addRow(new Object[]{dr.getNum(), cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(), df.format(dr.getCreacion()), dr.getPrecio_total()});
+        }
+
+        InfoReservaInfoPanel.setVisible(false);
         PanelCentral.removeAll();
-	PanelCentral.add(InformacionReservaFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.add(InformacionReservaFrame);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
     }//GEN-LAST:event_infoReservaMenuItemActionPerformed
 
     private void RegistrarPromocionSeleccionarProveedorButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionSeleccionarProveedorButtonActionPerformed
         IControladorUsuario ctrlUsuario = fabrica.getControladorUsuario();
         IControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
-        DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();     
+        DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
         DataProveedor dataProv = (DataProveedor) RegistrarPromocionProveedorList.getSelectedValue();
-        if (!(dataProv == null)){
+        if (!(dataProv == null)) {
             Set<DataPublicacion> publicaciones = ctrlUsuario.listarPublicacionesProveedor(dataProv.getNickname());
-            while(modelo.getRowCount() > 0){
+            while (modelo.getRowCount() > 0) {
                 modelo.removeRow(0);
-            }       
+            }
             Iterator it = publicaciones.iterator();
-            while (it.hasNext()){
+            while (it.hasNext()) {
                 DataPublicacion dataPub = (DataPublicacion) it.next();
-                if (dataPub instanceof DataServicio){
+                if (dataPub instanceof DataServicio) {
                     DataServicio dataSer = (DataServicio) dataPub;
-                    if (dataSer.getProveedor().equals(dataProv.getNickname())){
+                    if (dataSer.getProveedor().equals(dataProv.getNickname())) {
                         modelo.addRow(new Object[]{dataSer.getNombre(), dataSer.getDescripcion(), dataSer.getPrecio()});
 
                     }
-                }                    
+                }
             }
             RegistrarPromocionTable.setModel(modelo);
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Debes seleccionar un proveedor", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_RegistrarPromocionSeleccionarProveedorButtonActionPerformed
 
     private void RegistrarPromocionFinalizarSeleccionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionFinalizarSeleccionButtonActionPerformed
         IControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
-        if (RegistrarPromocionTable.getRowCount() == 0)
+        if (RegistrarPromocionTable.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "La promoción no contiene servicios", "Warning", JOptionPane.WARNING_MESSAGE);
-        else
-        {    
+        } else {
             boolean servSeleccionados = false;
             float sumaServicios = 0;
             String nombre;
             String descripcion;
             DataProveedor dataProv = (DataProveedor) RegistrarPromocionProveedorList.getSelectedValue();
-            for(int i = 0; i < RegistrarPromocionTable.getRowCount(); i++)
-            {
-                if (RegistrarPromocionTable.isRowSelected(i)){
+            for (int i = 0; i < RegistrarPromocionTable.getRowCount(); i++) {
+                if (RegistrarPromocionTable.isRowSelected(i)) {
                     servSeleccionados = true;
-                    nombre = (String)RegistrarPromocionTable.getValueAt(i,0);
+                    nombre = (String) RegistrarPromocionTable.getValueAt(i, 0);
                     DataServicio dataS = ctrlPublic.infoServicio(dataProv.getNickname(), nombre);
                     sumaServicios = sumaServicios + dataS.getPrecio();
                 }
             }
-            if (servSeleccionados){
+            if (servSeleccionados) {
                 float f = sumaServicios - (sumaServicios * (Float.parseFloat(RegistrarPromocionDescuentoTextField.getText()) / 100));
                 RegistrarPromocionPrecioFinalCalculadoLabel.setText(Float.toString(f));
-            }
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Debes elegir algún servicio", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
@@ -4786,26 +4749,24 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void RegistrarPromocionAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionAceptarButtonActionPerformed
         IControladorPublicacion ctrlPublic = fabrica.getControladorPublicacion();
-        if (RegistrarPromocionTable.getRowCount() == 0)
+        if (RegistrarPromocionTable.getRowCount() == 0) {
             JOptionPane.showMessageDialog(null, "Debes seleccionar al menos un servicio", "Warning", JOptionPane.WARNING_MESSAGE);
-        else
-        {      
-            
+        } else {
+
             String nombre;
             Set<DataServicio> setDS = new HashSet<>();
             DataProveedor dataProv = (DataProveedor) RegistrarPromocionProveedorList.getSelectedValue();
-            for(int i = 0; i < RegistrarPromocionTable.getRowCount(); i++)
-            {
-                if (RegistrarPromocionTable.isRowSelected(i)){
-                    nombre = (String)RegistrarPromocionTable.getValueAt(i,0);
+            for (int i = 0; i < RegistrarPromocionTable.getRowCount(); i++) {
+                if (RegistrarPromocionTable.isRowSelected(i)) {
+                    nombre = (String) RegistrarPromocionTable.getValueAt(i, 0);
                     DataServicio dataS = ctrlPublic.infoServicio(dataProv.getNickname(), nombre);
                     setDS.add(dataS);
                 }
             }
             int desc = Integer.parseInt(RegistrarPromocionDescuentoTextField.getText());
-            if (!(RegistrarPromocionNombreTextField.getText().equals(""))){
-                try{
-                    ctrlPublic.altaPromocion(RegistrarPromocionNombreTextField.getText(),dataProv.getNickname(), setDS, desc);
+            if (!(RegistrarPromocionNombreTextField.getText().equals(""))) {
+                try {
+                    ctrlPublic.altaPromocion(RegistrarPromocionNombreTextField.getText(), dataProv.getNickname(), setDS, desc);
                     PanelCentral.remove(RegistrarPromocionFrame);
                     DefaultListModel nuevoModeloLista = new DefaultListModel();
                     RegistrarPromocionProveedorList.setModel(nuevoModeloLista);
@@ -4814,24 +4775,22 @@ public class Interfaz extends javax.swing.JFrame {
                     RegistrarPromocionDescuentoTextField.setText("0");
                     RegistrarPromocionNombreTextField.setText("");
                     RegistrarPromocionPrecioFinalCalculadoLabel.setText("");
-                }
-                catch (Exception ex){
+                } catch (Exception ex) {
                     JOptionPane.showMessageDialog(null, ex.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
                 }
-                
-            }
-            else{
+
+            } else {
                 JOptionPane.showMessageDialog(null, "Debes ingresar un nombre a la promoción", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_RegistrarPromocionAceptarButtonActionPerformed
 
     private void infoReservasClienteBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoReservasClienteBotonAtrasActionPerformed
-        
-       DefaultTableModel tResPublicacion = (DefaultTableModel)this.tablaReservaPublicacion.getModel();
-        while(tResPublicacion.getRowCount() > 0) {
+
+        DefaultTableModel tResPublicacion = (DefaultTableModel) this.tablaReservaPublicacion.getModel();
+        while (tResPublicacion.getRowCount() > 0) {
             tResPublicacion.removeRow(0);
-        } 
+        }
         this.InfoReservasClienteNumero.setText(null);
         this.InfoReservasClientesFcreacion.setText(null);
         this.InfoReservasClientesEstado.setText(null);
@@ -4862,8 +4821,8 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void infoDeReservaBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoDeReservaBotonActionPerformed
 
-    //if (!reservasDelClienteComboBox.isShowing()) {     
-        DataReserva dtR = (DataReserva)this.reservasDelClienteComboBox.getSelectedItem();
+        //if (!reservasDelClienteComboBox.isShowing()) {     
+        DataReserva dtR = (DataReserva) this.reservasDelClienteComboBox.getSelectedItem();
 
         this.InfoReservasClienteNumero.setText(Float.toString(dtR.getNum()));
         this.InfoReservasClientesPTotal.setText(Float.toString(dtR.getPrecio_total()));
@@ -4874,86 +4833,87 @@ public class Interfaz extends javax.swing.JFrame {
         Reserva r = mR.encontrarReserva(dtR.getNum());
         Set<ReservaPublicacion> resPub = r.obtenerReservasPublicaciones();
 
-        DefaultTableModel tReservaPub = (DefaultTableModel)this.tablaReservaPublicacion.getModel();
-        while(tReservaPub.getRowCount() > 0) {
+        DefaultTableModel tReservaPub = (DefaultTableModel) this.tablaReservaPublicacion.getModel();
+        while (tReservaPub.getRowCount() > 0) {
             tReservaPub.removeRow(0);
         }
-        for(ReservaPublicacion rP : resPub) {
-            tReservaPub.addRow(new Object[]{rP.getCant(),rP.getFechaIni(),rP.getFechaFin(),rP.getNombrePublicacion()});
+        for (ReservaPublicacion rP : resPub) {
+            tReservaPub.addRow(new Object[]{rP.getCant(), rP.getFechaIni(), rP.getFechaFin(), rP.getNombrePublicacion()});
         }
     //} 
-    //else {
-    //    JOptionPane.showMessageDialog(null, "Debes seleccionar una Reserva ","Warning",JOptionPane.WARNING_MESSAGE);
+        //else {
+        //    JOptionPane.showMessageDialog(null, "Debes seleccionar una Reserva ","Warning",JOptionPane.WARNING_MESSAGE);
 
-    //}
+        //}
     }//GEN-LAST:event_infoDeReservaBotonActionPerformed
 
     private void InfoReservaAceptarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservaAceptarButtonActionPerformed
         PanelCentral.removeAll();
-        PanelCentral.revalidate();    
+        PanelCentral.revalidate();
         PanelCentral.repaint();
     }//GEN-LAST:event_InfoReservaAceptarButtonActionPerformed
 
     private void InfoReservaReservasTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_InfoReservaReservasTableMouseClicked
-        if (InfoReservaReservasTable.getSelectedRow() != -1)
-        {
-            if (evt.getClickCount() == 2)
-            {
+        if (InfoReservaReservasTable.getSelectedRow() != -1) {
+            if (evt.getClickCount() == 2) {
                 IControladorReserva cr = fabrica.getControladorReserva();
                 DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
                 int f = InfoReservaReservasTable.getSelectedRow();
-                DataReserva dr = cr.infoReserva((Integer)InfoReservaReservasTable.getValueAt(f, 0));
+                DataReserva dr = cr.infoReserva((Integer) InfoReservaReservasTable.getValueAt(f, 0));
                 InfoReservaSRNLabel.setText(Integer.toString(dr.getNum()));
                 InfoReservaSREstadoLabel.setText(dr.getStringEstado());
                 InfoReservaSRCreacionLabel.setText(df.format(dr.getCreacion()));
                 InfoReservaSRClienteLabel.setText(cr.getInfoClienteReserva(dr.getNum()).getNickname());
                 InfoReservaSRPrecioLabel.setText(Float.toString(dr.getPrecio_total()));
                 DefaultTableModel pModel = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
-                while(InfoReservaPublicacionesTable.getRowCount() > 0)
+                while (InfoReservaPublicacionesTable.getRowCount() > 0) {
                     pModel.removeRow(0);//saca toas las filas de la segunda tabla
+                }
                 Set<ParDPD> publicaciones = dr.getdpd();
-                for(ParDPD p : publicaciones) 
-                {
+                for (ParDPD p : publicaciones) {
                     DataPublicacion dp = p.getDpub_();
                     DataDisponibilidad dd = p.getDd_();
-                    if (dp instanceof DataServicio)
-                        pModel.addRow(new Object[]{"Servicio", dp.getNombre(), ((DataServicio)dp).getPrecio(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
-                    else
-                        pModel.addRow(new Object[]{"Promoción", dp.getNombre(), ((DataPromocion)dp).getPrecioTotal(),dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant()) });
+                    if (dp instanceof DataServicio) {
+                        pModel.addRow(new Object[]{"Servicio", dp.getNombre(), ((DataServicio) dp).getPrecio(), dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant())});
+                    } else {
+                        pModel.addRow(new Object[]{"Promoción", dp.getNombre(), ((DataPromocion) dp).getPrecioTotal(), dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant())});
+                    }
                 }
                 InfoReservaInfoPanel.setVisible(true);
             }
-        }
-        else
+        } else {
             InfoReservaInfoPanel.setVisible(false);
+        }
     }//GEN-LAST:event_InfoReservaReservasTableMouseClicked
 
     private void RegReservaSPTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaSPTableMouseClicked
-        if (evt.getClickCount() == 2)
+        if (evt.getClickCount() == 2) {
             RegReservaSPSigButton.doClick();
+        }
     }//GEN-LAST:event_RegReservaSPTableMouseClicked
 
     private void RegReservaSPubSeleccionarTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaSPubSeleccionarTableMouseClicked
-        if (evt.getClickCount() == 2)
+        if (evt.getClickCount() == 2) {
             RegReservaSPubAgregarButton.doClick();
+        }
     }//GEN-LAST:event_RegReservaSPubSeleccionarTableMouseClicked
 
     private void RegReservaSPubSeleccionadasTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegReservaSPubSeleccionadasTableMouseClicked
-        if (evt.getClickCount() == 2)
+        if (evt.getClickCount() == 2) {
             RegReservaSPubRemoveButton.doClick();
+        }
     }//GEN-LAST:event_RegReservaSPubSeleccionadasTableMouseClicked
 
     private void RegUsuarioImageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegUsuarioImageLabelMouseClicked
-        if (evt.getClickCount() == 2)
-        {
+        if (evt.getClickCount() == 2) {
             //filtro
-            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen","jpg");
+            FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de imagen", "jpg");
             //ImageFileChooser.setCurrentDirectory(new File("Imagenes"));//Deberia abrir la carpeta del proyecto/Imagenes
             ImageFileChooser.setFileFilter(filter);
             ImageFileChooser.setVisible(true);
-            
+
             int opcion = ImageFileChooser.showOpenDialog(null);
-            if(opcion == JFileChooser.APPROVE_OPTION){
+            if (opcion == JFileChooser.APPROVE_OPTION) {
                 //Obtener nombre del archivo
                 String arch = ImageFileChooser.getSelectedFile().getPath();
                 //Obtener direccion donde se guardará la imagen
@@ -4964,31 +4924,31 @@ public class Interfaz extends javax.swing.JFrame {
                 Image img = icon.getImage();
                 ImgUsuario = arch;
                 //Se modifica el tamaño de la imagen
-                Image imgmod = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                Image imgmod = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                 //Se genera el ImageIcon con la nueva imagen
                 ImageIcon nuevoIcono = new ImageIcon(imgmod);
                 RegUsuarioImageLabel.setIcon(nuevoIcono);
-                RegUsuarioImageLabel.setSize(100,100);
+                RegUsuarioImageLabel.setSize(100, 100);
                 RegUsuarioImageLabel.setText(null);
             }
         }
     }//GEN-LAST:event_RegUsuarioImageLabelMouseClicked
 
     private void RegistrarPromocionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarPromocionCancelarButtonActionPerformed
-            PanelCentral.remove(RegistrarPromocionFrame);
-            DefaultListModel nuevoModeloLista = new DefaultListModel();
-            RegistrarPromocionProveedorList.setModel(nuevoModeloLista);
-            DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
-            modelo.setRowCount(0);
-            RegistrarPromocionDescuentoTextField.setText("0");
-            RegistrarPromocionNombreTextField.setText("");
-            RegistrarPromocionPrecioFinalCalculadoLabel.setText(""); 
+        PanelCentral.remove(RegistrarPromocionFrame);
+        DefaultListModel nuevoModeloLista = new DefaultListModel();
+        RegistrarPromocionProveedorList.setModel(nuevoModeloLista);
+        DefaultTableModel modelo = (DefaultTableModel) RegistrarPromocionTable.getModel();
+        modelo.setRowCount(0);
+        RegistrarPromocionDescuentoTextField.setText("0");
+        RegistrarPromocionNombreTextField.setText("");
+        RegistrarPromocionPrecioFinalCalculadoLabel.setText("");
     }//GEN-LAST:event_RegistrarPromocionCancelarButtonActionPerformed
 
     private void InfoPromocionCancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionCancelarButtonActionPerformed
         PanelCentral.remove(InfoPromocionFrame);
         DefaultListModel nuevoModeloLista = new DefaultListModel();
-        InfoPromocionPromocionesList.setModel(nuevoModeloLista);            
+        InfoPromocionPromocionesList.setModel(nuevoModeloLista);
         InfoPromocionNombreLabel.setText("");
         InfoPromocionProveedorLabel.setText("");
         InfoPromocionDescuentoLabel.setText("");
@@ -5019,15 +4979,15 @@ public class Interfaz extends javax.swing.JFrame {
         InfoPromocionPrecioFinalPLabel.setText("");
         InfoPromocionPromocionesList.setModel(modelo);
         PanelCentral.add(InfoPromocionFrame);
-	PanelCentral.repaint();
-	PanelCentral.revalidate();
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
         InfoPromocionPromocionesPanel.setVisible(true);
     }//GEN-LAST:event_infoPromocionMenuItemActionPerformed
 
     private void InfoPromocionVerPromocionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionVerPromocionButtonActionPerformed
-        try{
+        try {
             DataPromocion Promo = (DataPromocion) InfoPromocionPromocionesList.getSelectedValue();
-            if (!(Promo == null)){
+            if (!(Promo == null)) {
                 InfoPromocionNombreLabel.setText("Nombre:");
                 InfoPromocionProveedorLabel.setText("Proveedor:");
                 InfoPromocionDescuentoLabel.setText("Descuento (%):");
@@ -5035,13 +4995,11 @@ public class Interfaz extends javax.swing.JFrame {
                 InfoPromocionNombrePLabel.setText(Promo.getNombre());
                 InfoPromocionProveedorPLabel.setText(Promo.getProveedor());
                 InfoPromocionDescuentoPLabel.setText(Float.toString(Promo.getDescuento()));
-                InfoPromocionPrecioFinalPLabel.setText(Float.toString(Promo.getPrecioTotal())); 
-            }
-            else{
+                InfoPromocionPrecioFinalPLabel.setText(Float.toString(Promo.getPrecioTotal()));
+            } else {
                 JOptionPane.showMessageDialog(null, "Debes seleccionar una promocion", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             throw ex;
         }
     }//GEN-LAST:event_InfoPromocionVerPromocionButtonActionPerformed
@@ -5049,16 +5007,15 @@ public class Interfaz extends javax.swing.JFrame {
     private void InfoPromocionVerServiciosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionVerServiciosButtonActionPerformed
         DefaultListModel modelo = new DefaultListModel();
         DataPromocion Promo = (DataPromocion) InfoPromocionPromocionesList.getSelectedValue();
-        if (!(Promo == null)){
+        if (!(Promo == null)) {
             Set<DataServicio> setDS = Promo.getServicios();
-            if (setDS.size() == 0){
+            if (setDS.size() == 0) {
                 JOptionPane.showMessageDialog(null, "La promoción no contiene servicios", "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            else{                 
+            } else {
                 Iterator it = setDS.iterator();
-                while (it.hasNext()){
+                while (it.hasNext()) {
                     DataServicio ds = (DataServicio) it.next();
-                    modelo.addElement(ds);            
+                    modelo.addElement(ds);
                 }
                 InfoPromocionServiciosList.setModel(modelo);
                 PanelCentral.add(InfoPromocionFrame);
@@ -5066,9 +5023,8 @@ public class Interfaz extends javax.swing.JFrame {
                 PanelCentral.revalidate();
                 InfoPromocionPromocionesPanel.setVisible(false);
                 InfoPromocionVerServiciosPanel.setVisible(true);
-                }
-        }
-        else{
+            }
+        } else {
             JOptionPane.showMessageDialog(null, "Debes seleccionar una promoción", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_InfoPromocionVerServiciosButtonActionPerformed
@@ -5088,15 +5044,14 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void InfoPromocionVerServicioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoPromocionVerServicioButtonActionPerformed
         DataServicio Serv = (DataServicio) InfoPromocionServiciosList.getSelectedValue();
-        if (!(Serv == null)){
+        if (!(Serv == null)) {
             InfoPromocionNombreServicioSLabel.setText(Serv.getNombre());
             InfoPromocionTextArea.setText(Serv.getDescripcion());
             InfoPromocionPrecioServicioSLabel.setText(Float.toString(Serv.getPrecio()));
             InfoPromocionProveedorServicioSLabel.setText(Serv.getProveedor());
             InfoPromocionServicioPanel.setVisible(true);
             InfoPromocionVerServiciosPanel.setVisible(false);
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Debes seleccionar un servicio", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_InfoPromocionVerServicioButtonActionPerformed
@@ -5132,7 +5087,7 @@ public class Interfaz extends javax.swing.JFrame {
     private void ConsultaProveedorServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorServiciosActionPerformed
 
         if (!this.nombreProveedores.isSelectionEmpty()) {
-            DataProveedor dtP = (DataProveedor)this.nombreProveedores.getSelectedValue();
+            DataProveedor dtP = (DataProveedor) this.nombreProveedores.getSelectedValue();
 
             PanelCentral.removeAll();
             PanelCentral.remove(this.ConsultarInfoProveedor);
@@ -5152,21 +5107,20 @@ public class Interfaz extends javax.swing.JFrame {
             }
             //muestra los datos en pantalla
             this.nombreServiciosDelProveedor.setModel(modelo);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_ConsultaProveedorServiciosActionPerformed
 
     private void ConsultaProveedorBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaProveedorBotonAtrasActionPerformed
 
-        DefaultTableModel tProv = (DefaultTableModel)this.tablaDatosProveedor.getModel();
-        while(tProv.getRowCount() > 0) {
+        DefaultTableModel tProv = (DefaultTableModel) this.tablaDatosProveedor.getModel();
+        while (tProv.getRowCount() > 0) {
             tProv.removeRow(0);
         }
 
-        DefaultTableModel tProv2 = (DefaultTableModel)this.tablaDatosProveedor2.getModel();
-        while(tProv2.getRowCount() > 0) {
+        DefaultTableModel tProv2 = (DefaultTableModel) this.tablaDatosProveedor2.getModel();
+        while (tProv2.getRowCount() > 0) {
             tProv2.removeRow(0);
         }
 
@@ -5181,35 +5135,34 @@ public class Interfaz extends javax.swing.JFrame {
         //muestra la informacion del cliente seleccionado
 
         if (!this.nombreProveedores.isSelectionEmpty()) {
-            DataProveedor dtProv = (DataProveedor)this.nombreProveedores.getSelectedValue();
+            DataProveedor dtProv = (DataProveedor) this.nombreProveedores.getSelectedValue();
 
-            DefaultTableModel tProv = (DefaultTableModel)this.tablaDatosProveedor.getModel();
-            while(tProv.getRowCount() > 0) {
+            DefaultTableModel tProv = (DefaultTableModel) this.tablaDatosProveedor.getModel();
+            while (tProv.getRowCount() > 0) {
                 tProv.removeRow(0);
             }
 
-            tProv.addRow(new Object[]{dtProv.getNickname(),dtProv.getNombre(),dtProv.getApellido(),
-                dtProv.getFecha(),dtProv.getCorreo()});
+            tProv.addRow(new Object[]{dtProv.getNickname(), dtProv.getNombre(), dtProv.getApellido(),
+                dtProv.getFecha(), dtProv.getCorreo()});
 
-        DefaultTableModel tProv2 = (DefaultTableModel)this.tablaDatosProveedor2.getModel();
-        while(tProv2.getRowCount() > 0) {
-            tProv2.removeRow(0);
-        }
+            DefaultTableModel tProv2 = (DefaultTableModel) this.tablaDatosProveedor2.getModel();
+            while (tProv2.getRowCount() > 0) {
+                tProv2.removeRow(0);
+            }
 
-        tProv2.addRow(new Object[]{dtProv.getEmpresa(),dtProv.getURL()});
-        
-        ControladorUsuario cU = this.fabrica.getControladorUsuario();
-        
-        ImageIcon img = new ImageIcon(cU.getImagenDelUsuario(dtProv.getNickname()));
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(ConsultarProvImagenLabel.getWidth(),ConsultarProvImagenLabel.getHeight(), Image.SCALE_DEFAULT));
-        
-        this.ConsultarProvImagenLabel.setText(null);
-        //pongo la imagen en la label
-        this.ConsultarProvImagenLabel.setIcon(icono);
-       
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor","Warning",JOptionPane.WARNING_MESSAGE);
+            tProv2.addRow(new Object[]{dtProv.getEmpresa(), dtProv.getURL()});
+
+            ControladorUsuario cU = this.fabrica.getControladorUsuario();
+
+            ImageIcon img = new ImageIcon(cU.getImagenDelUsuario(dtProv.getNickname()));
+            Icon icono = new ImageIcon(img.getImage().getScaledInstance(ConsultarProvImagenLabel.getWidth(), ConsultarProvImagenLabel.getHeight(), Image.SCALE_DEFAULT));
+
+            this.ConsultarProvImagenLabel.setText(null);
+            //pongo la imagen en la label
+            this.ConsultarProvImagenLabel.setIcon(icono);
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Proveedor", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_ConsultaProveedorActionPerformed
 
@@ -5217,68 +5170,64 @@ public class Interfaz extends javax.swing.JFrame {
         if (!this.nombreServiciosDelProveedor.isSelectionEmpty()) {
 
             this.InfoServiciosProveedorImagen1.setIcon(null);
-        
+
             this.InfoServiciosProveedorImagen2.setIcon(null);
-        
+
             this.InfoServiciosProveedorImagen3.setIcon(null);
-            
-            DataServicio dtS = (DataServicio)this.nombreServiciosDelProveedor.getSelectedValue();
-            
-            DefaultTableModel tServicioProv = (DefaultTableModel)this.tablaDatosServiciosDelProv.getModel();
-            while(tServicioProv.getRowCount() > 0) {
+
+            DataServicio dtS = (DataServicio) this.nombreServiciosDelProveedor.getSelectedValue();
+
+            DefaultTableModel tServicioProv = (DefaultTableModel) this.tablaDatosServiciosDelProv.getModel();
+            while (tServicioProv.getRowCount() > 0) {
                 tServicioProv.removeRow(0);
             }
 
-            tServicioProv.addRow(new Object[]{dtS.getNombre(),dtS.getPrecio()});
+            tServicioProv.addRow(new Object[]{dtS.getNombre(), dtS.getPrecio()});
 
             DefaultListModel modelo = new DefaultListModel();
             modelo.addElement(dtS.getDescripcion());
             this.descServiciosDelProveedor.setModel(modelo);
-            
+
             ManejadorUsuario mU = ManejadorUsuario.getInstance();
             Proveedor p = mU.encontrarProveedor(dtS.getProveedor());
             Publicacion pub = p.encontrarPublicacion(dtS.getNombre());
-            
-            DataServicio dtSer = (DataServicio)p.getInfoServicioCompleto(dtS.getNombre());
+
+            DataServicio dtSer = (DataServicio) p.getInfoServicioCompleto(dtS.getNombre());
             Set<Image> imagenes = dtSer.getImagenes();
-            
+
             int i = 0;
             for (Image img : imagenes) {
-                
-             
+
                 if (i == 0) {
-                    Image img1 = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                    Image img1 = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                     ImageIcon nuevoIcono = new ImageIcon(img1);
                     InfoServiciosProveedorImagen1.setIcon(nuevoIcono);
-                    InfoServiciosProveedorImagen1.setSize(100,100);
+                    InfoServiciosProveedorImagen1.setSize(100, 100);
                     InfoServiciosProveedorImagen1.setText(null);
-                }
-                else if (i == 1) {
-                    Image img2 = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                } else if (i == 1) {
+                    Image img2 = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                     ImageIcon nuevoIcono = new ImageIcon(img2);
                     InfoServiciosProveedorImagen2.setIcon(nuevoIcono);
-                    InfoServiciosProveedorImagen2.setSize(100,100);
+                    InfoServiciosProveedorImagen2.setSize(100, 100);
                     InfoServiciosProveedorImagen2.setText(null);
-                }
-                else {
-                    Image img3 = img.getScaledInstance(100,100,java.awt.Image.SCALE_SMOOTH);
+                } else {
+                    Image img3 = img.getScaledInstance(100, 100, java.awt.Image.SCALE_SMOOTH);
                     ImageIcon nuevoIcono = new ImageIcon(img3);
                     InfoServiciosProveedorImagen3.setIcon(nuevoIcono);
-                    InfoServiciosProveedorImagen3.setSize(100,100);
-                    InfoServiciosProveedorImagen3.setText(null);                   
+                    InfoServiciosProveedorImagen3.setSize(100, 100);
+                    InfoServiciosProveedorImagen3.setText(null);
                 }
-                 i++;
+                i++;
             }
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Servicio","Warning",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Servicio", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_ConsultaProveedorServiciosButtonActionPerformed
 
     private void infoServiciosProveedorBotonAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoServiciosProveedorBotonAtrasActionPerformed
 
-        DefaultTableModel tServicioProv = (DefaultTableModel)this.tablaDatosServiciosDelProv.getModel();
-        while(tServicioProv.getRowCount() > 0) {
+        DefaultTableModel tServicioProv = (DefaultTableModel) this.tablaDatosServiciosDelProv.getModel();
+        while (tServicioProv.getRowCount() > 0) {
             tServicioProv.removeRow(0);
         }
 
@@ -5309,56 +5258,51 @@ public class Interfaz extends javax.swing.JFrame {
 
         if (!this.nombreClientes.isSelectionEmpty()) {
             //muestra la informacion del cliente seleccionado
-            DataUsuario dtC = (DataCliente)this.nombreClientes.getSelectedValue();
+            DataUsuario dtC = (DataCliente) this.nombreClientes.getSelectedValue();
 
             //muestra los datos del cliente en pantalla
-            DefaultTableModel tUsuario = (DefaultTableModel)this.tablaDatosUsuario.getModel();
-            while(tUsuario.getRowCount() > 0) {
+            DefaultTableModel tUsuario = (DefaultTableModel) this.tablaDatosUsuario.getModel();
+            while (tUsuario.getRowCount() > 0) {
                 tUsuario.removeRow(0);
             }
 
-            tUsuario.addRow(new Object[]{dtC.getNickname(),dtC.getNombre(),dtC.getApellido(),
-                dtC.getFecha(),dtC.getCorreo()});
+            tUsuario.addRow(new Object[]{dtC.getNickname(), dtC.getNombre(), dtC.getApellido(),
+                dtC.getFecha(), dtC.getCorreo()});
 
-                        
-            
-            
-        ControladorUsuario cU = this.fabrica.getControladorUsuario();
-        
-        ImageIcon img = new ImageIcon(cU.getImagenDelUsuario(dtC.getNickname()));
-        Icon icono = new ImageIcon(img.getImage().getScaledInstance(ConsultarUsuarioImagen1Label.getWidth(),ConsultarUsuarioImagen1Label.getHeight(), Image.SCALE_DEFAULT));
-        
-        this.ConsultarUsuarioImagen1Label.setText(null);
-        //pongo la imagen en la label
-        this.ConsultarUsuarioImagen1Label.setIcon(icono);
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente","Warning",JOptionPane.WARNING_MESSAGE);
+            ControladorUsuario cU = this.fabrica.getControladorUsuario();
+
+            ImageIcon img = new ImageIcon(cU.getImagenDelUsuario(dtC.getNickname()));
+            Icon icono = new ImageIcon(img.getImage().getScaledInstance(ConsultarUsuarioImagen1Label.getWidth(), ConsultarUsuarioImagen1Label.getHeight(), Image.SCALE_DEFAULT));
+
+            this.ConsultarUsuarioImagen1Label.setText(null);
+            //pongo la imagen en la label
+            this.ConsultarUsuarioImagen1Label.setIcon(icono);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_ConsultaUsuarioBuscarButtonActionPerformed
 
     private void ConsultaUsuBotonAtras1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaUsuBotonAtras1ActionPerformed
 
-        DefaultTableModel tUsuario = (DefaultTableModel)this.tablaDatosUsuario.getModel();
-        while(tUsuario.getRowCount() > 0) {
+        DefaultTableModel tUsuario = (DefaultTableModel) this.tablaDatosUsuario.getModel();
+        while (tUsuario.getRowCount() > 0) {
             tUsuario.removeRow(0);
         }
 
         DefaultListModel modeloNuevo = new DefaultListModel();
         this.nombreClientes.setModel(modeloNuevo);
-        
+
         this.ConsultarUsuarioImagen1Label.setIcon(null);
         this.ConsultarUsuarioImagen1Label.setText("No hay Imagen");
         PanelCentral.remove(this.ConsultaUsuarioFrame);
     }//GEN-LAST:event_ConsultaUsuBotonAtras1ActionPerformed
 
-    
-    
+
     private void InfoReservasDelCLienteBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InfoReservasDelCLienteBotonActionPerformed
 
         if (!this.nombreClientes.isSelectionEmpty()) {
 
-            DataCliente dtC = (DataCliente)this.nombreClientes.getSelectedValue();
+            DataCliente dtC = (DataCliente) this.nombreClientes.getSelectedValue();
 
             ManejadorUsuario mU = ManejadorUsuario.getInstance();
             Cliente c = mU.encontrarCliente(dtC.getNickname());
@@ -5374,9 +5318,8 @@ public class Interfaz extends javax.swing.JFrame {
             PanelCentral.remove(this.ConsultaUsuarioFrame);
             PanelCentral.repaint();
             PanelCentral.revalidate();
-        }
-        else {
-            JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente","Warning",JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar un Cliente", "Warning", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_InfoReservasDelCLienteBotonActionPerformed
 
@@ -5384,102 +5327,116 @@ public class Interfaz extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_MenuSalirActionPerformed
 
-    public void listarReservasGUI(){
+    private void MenuRegistrarReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRegistrarReservaActionPerformed
+        PanelCentral.removeAll();
+        PanelCentral.add(RegistrarReservaFrame);
+        IControladorUsuario cUsr = fabrica.getControladorUsuario();
+        Set<DataUsuario> clientes = cUsr.listarClientes();
+        DefaultTableModel tClientesModel = (DefaultTableModel) RegReservaClientesTable.getModel();
+        while (tClientesModel.getRowCount() > 0) {
+            tClientesModel.removeRow(0);
+        }
+        for (DataUsuario c : clientes) {
+            tClientesModel.addRow(new Object[]{c.getNickname(), c.getNombre(), c.getApellido(), c.getCorreo()});
+        }
+        RegReservaSeleccionarClientePanel.setVisible(true);
+        RegReservaSeleccionarProveedorPanel.setVisible(false);
+        RegReservaSeleccionarPublicacionPanel.setVisible(false);
+        RegReservaConfirmarPanel.setVisible(false);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
+    }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
+
+    public void listarReservasGUI() {
         IControladorReserva cr = fabrica.getControladorReserva();
-        
-        List<DataReserva> dr=cr.listarReservas();
-        
+
+        List<DataReserva> dr = cr.listarReservas();
+
         DefaultTableModel modelo = new DefaultTableModel();
         ReservasTable.setModel(modelo);
         modelo.addColumn("Numero");
         modelo.addColumn("Cliente");
         modelo.addColumn("Estado");
         //llena la tabla de reservas
-        Iterator<DataReserva> it=dr.iterator();
-        Object [] fila = new Object[3];
-              
-        while (it.hasNext()){
-            DataReserva dr1=it.next();
-            DataUsuario du1=cr.getInfoClienteReserva(dr1.getNum());
+        Iterator<DataReserva> it = dr.iterator();
+        Object[] fila = new Object[3];
+
+        while (it.hasNext()) {
+            DataReserva dr1 = it.next();
+            DataUsuario du1 = cr.getInfoClienteReserva(dr1.getNum());
             fila[0] = dr1.getNum();
             fila[1] = du1.getNombre();
             fila[2] = dr1.getEstado();
-            
+
             modelo.addRow(fila);
         }
-            ReservasTable.addMouseListener(new MouseAdapter() 
-            {
-                public void mouseClicked(MouseEvent e){
-                    SeleccionarEstadoLabel.setVisible(true);
-                    EstadosComboBox.setVisible(true);
-                }
-            });
+        ReservasTable.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                SeleccionarEstadoLabel.setVisible(true);
+                EstadosComboBox.setVisible(true);
+            }
+        });
     }
-    
-    public void listarReservasGUI1(){
+
+    public void listarReservasGUI1() {
         IControladorReserva cr = fabrica.getControladorReserva();
-        
-        List<DataReserva> dr=cr.listarReservas();
-        
+
+        List<DataReserva> dr = cr.listarReservas();
+
         DefaultTableModel modelo = new DefaultTableModel();
         ReservasTable1.setModel(modelo);
         modelo.addColumn("Numero");
         modelo.addColumn("Cliente");
         modelo.addColumn("Estado");
-                       
+
         //llena la tabla de reservas
-        Iterator<DataReserva> it=dr.iterator();
-        Object [] fila = new Object[3];
-              
-        while (it.hasNext()){
-            DataReserva dr1=it.next();
-            DataUsuario du1=cr.getInfoClienteReserva(dr1.getNum());
+        Iterator<DataReserva> it = dr.iterator();
+        Object[] fila = new Object[3];
+
+        while (it.hasNext()) {
+            DataReserva dr1 = it.next();
+            DataUsuario du1 = cr.getInfoClienteReserva(dr1.getNum());
             fila[0] = dr1.getNum();
             fila[1] = du1.getNombre();
             fila[2] = dr1.getEstado();
-            
+
             modelo.addRow(fila);
         }
     }
-    
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-	/* Set the Nimbus look and feel */
+        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-	 * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-	 */
-	try {
-	    for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-		if ("Nimbus".equals(info.getName())) {
-		    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-		    break;
-		}
-	    }
-	}
-	catch (ClassNotFoundException ex) {
-	    java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	}
-	catch (InstantiationException ex) {
-	    java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	}
-	catch (IllegalAccessException ex) {
-	    java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	}
-	catch (javax.swing.UnsupportedLookAndFeelException ex) {
-	    java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-	}
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         //</editor-fold>
 
-	/* Create and display the form */
-	java.awt.EventQueue.invokeLater(new Runnable() {
-	    public void run() {
-		new Interfaz().setVisible(true);
-	    }
-	});
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Interfaz().setVisible(true);
+            }
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -5737,9 +5694,13 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton RegServicioUbicacionSiguienteButton;
     private javax.swing.JButton RegUsuarioAceptar;
     private javax.swing.JLabel RegUsuarioApellidoLabel;
-    private javax.swing.JTextField RegUsuarioApellidoTextField;
+    private javax.swing.JTextField RegUsuarioApellidoTextField1;
     private javax.swing.JButton RegUsuarioCancelar;
     private javax.swing.JRadioButton RegUsuarioClienteRadioButton;
+    private javax.swing.JLabel RegUsuarioConfContraseñaLabel;
+    private javax.swing.JPasswordField RegUsuarioConfContraseñaTextField;
+    private javax.swing.JLabel RegUsuarioContraseñaLabel;
+    private javax.swing.JPasswordField RegUsuarioContraseñaTextField;
     private javax.swing.JLabel RegUsuarioCorreoLabel;
     private javax.swing.JTextField RegUsuarioCorreoTextField;
     private com.toedter.calendar.JDateChooser RegUsuarioFechaChooser;
