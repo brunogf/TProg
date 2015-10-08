@@ -12,6 +12,7 @@ import java.util.*;
  */
 public class DataReserva {
     private int num_;
+    private String cliente_;
     private Date creacion_;
     private Estado estado_;
     private float precio_total_;
@@ -20,12 +21,13 @@ public class DataReserva {
     public DataReserva(){
     }
 
-    public DataReserva(int num_, Date creacion_, Estado estado_, float precio_total_, Set<ParDPD> dpd_) {
+    public DataReserva(int num_, Date creacion_, Estado estado_, float precio_total_, Set<ParDPD> dpd_, String cliente) {
         this.num_ = num_;
         this.creacion_ = creacion_;
         this.estado_ = estado_;
         this.precio_total_ = precio_total_;
         this.dpd_ = dpd_;
+        cliente_ = cliente;
     }
 
     public int getNum() {
@@ -50,6 +52,10 @@ public class DataReserva {
     
     public void agregarParDPD(ParDPD dpd){
         dpd_.add(dpd);
+    }
+    
+    public String getCliente(){
+        return cliente_;
     }
     
     public String getStringEstado()
