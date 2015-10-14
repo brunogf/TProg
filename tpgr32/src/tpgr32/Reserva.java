@@ -94,7 +94,7 @@ public class Reserva {
             conjDPD.add(dpd);
         }
         DataReserva dr=new DataReserva(numero_, fecha_creacion_, estado_, 
-            precio_total_, conjDPD);
+            precio_total_, conjDPD, cliente_.getNickname());
         
         return dr;
     }
