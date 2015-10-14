@@ -13,6 +13,7 @@ import java.util.Set;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
+
 /**
  *
  * @author piñe
@@ -35,6 +36,10 @@ public class ManejadorCategoria {
         return instancia_;
     }
     
+    public Map<String, Categoria> getConjCategorias(){
+        return conjCategorias_;
+    }
+    
     public void agregarCategoria(String nombre){
        Categoria c = new Categoria(nombre); 
        conjCategorias_.put(c.getNombre(),c);
@@ -54,6 +59,17 @@ public class ManejadorCategoria {
     public Categoria encontrarCategoria(String nombre){
         if (this.conjCategorias_.containsKey(nombre)) {
             return this.conjCategorias_.get(nombre);
+        }
+        else {
+            throw new IllegalArgumentException("La categoría" + nombre + "no existe");
+        }    
+    }
+    
+    public DataCategoria encontrarDataCategoria(String nombre){
+        if (this.conjCategorias_.containsKey(nombre)){
+            DataCategoria dt = new DataCategoria(this.conjCategorias_.get(nombre).getNombre(),this.conjCategorias_.get(nombre).getConjSubCategoriasString(),
+                    this.conjCategorias_.get(nombre).getConjServiciosString(), this.conjCategorias_.get(nombre).getPadreString());
+            return dt;
         }
         else {
             throw new IllegalArgumentException("La categoría" + nombre + "no existe");

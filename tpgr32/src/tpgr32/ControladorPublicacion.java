@@ -109,6 +109,19 @@ public class ControladorPublicacion implements IControladorPublicacion{
        return mCategoria.crearArbolCategorias();
    }
    
+   public Set<DataCategoria> listarDataCategorias(){
+       Set<DataCategoria> setDC = new HashSet<>();
+       Iterator it = mCategoria.getConjCategorias().keySet().iterator();
+       while (it.hasNext()){
+           setDC.add(mCategoria.encontrarDataCategoria(it.next().toString()));
+       }
+       return setDC;
+   }
+   
+   public DataCategoria encontrarDataCategoria(String nombre){
+       return mCategoria.encontrarDataCategoria(nombre);
+   }
+   
    public Set<DataPromocion> listarPromociones(){
        Set<DataPromocion> setPromo = new HashSet<>();
        ManejadorUsuario mu = ManejadorUsuario.getInstance();

@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -66,10 +67,33 @@ public class Categoria {
     public Map<String, Categoria> getConjSubCategorias(){
         return this.conjSubCategorias_;
     }
-    
+       
     public Map<String, Servicio> getConjServicios(){
         return this.conjServicios_;
     }
+    
+    public Set<String> getConjSubCategoriasString(){
+        Set<String> setCSC = new HashSet<>();
+        Iterator it = conjSubCategorias_.keySet().iterator();
+        while (it.hasNext()){
+            setCSC.add(it.next().toString());
+        }
+        return setCSC;
+    }
+    
+    public Set<String> getConjServiciosString(){
+        Set<String> setCS = new HashSet<>();
+        Iterator it = conjServicios_.keySet().iterator();
+        while (it.hasNext()){
+            setCS.add(it.next().toString());
+        }
+        return setCS;
+    }
+    
+    public String getPadreString(){
+        return this.padre_.getNombre();
+    }
+    
     
     public Categoria getPadre(){
         return this.padre_;

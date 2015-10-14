@@ -25,6 +25,8 @@ public interface IControladorPublicacion {
     public DataPromocion infoPromocion(String proveedor, String promo);
     public DataServicio infoServicio(String proveedor, String servicio);
     public DefaultTreeModel listarCategorias();
+    public Set<DataCategoria> listarDataCategorias();
+    public DataCategoria encontrarDataCategoria(String nombre);
     public Set<DataPromocion> listarPromociones();
     public Set<DataServicio> listarServicios();
     public Set<DataServicio> listarServiciosDeCategoria(String cat);
