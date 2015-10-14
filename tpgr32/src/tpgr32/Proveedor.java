@@ -102,7 +102,13 @@ public class Proveedor extends Usuario {
     
     public DataPromocion infoPromocion(String promo){
         Promocion p = (Promocion) encontrarPublicacion(promo);
-        DataPromocion dataP = new DataPromocion(p.getNombre(), p.getDescuento(), super.nickname, p.getPrecioTotal());
+        DataPromocion dataP = new DataPromocion(p.getNombre(), p.getDescuento(), super.nickname, p.getPrecioTotal());       
+        Set<DataPublicacion> publicaciones = listarPublicaciones();        
+        for (DataPublicacion pub: publicaciones){
+                if (pub instanceof DataServicio){
+                    dataP.agregarServicio((DataServicio)pub);
+                }
+        }
         return dataP;
     }
   
