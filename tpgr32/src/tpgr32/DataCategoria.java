@@ -6,6 +6,7 @@
 package tpgr32;
 
 
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -22,7 +23,9 @@ public class DataCategoria {
  
     public DataCategoria(String nombre, Set<String> SubCategorias, Set<String> Servicios, String padre){
         nombre_ = nombre;
+        conjSubCategorias_ = new HashSet<>();
         conjSubCategorias_ = SubCategorias;
+        conjServicios_ = new HashSet<>();
         conjServicios_ = Servicios;
         padre_ = padre;
     }
