@@ -224,6 +224,16 @@ public class IControladorPublicacionTest {
         {
             return null;
         }
+        
+        public DataCategoria encontrarDataCategoria(String nombre){
+            
+            return null;
+        }
+        
+        public Set<DataCategoria> listarDataCategorias(){
+            
+            return null;
+        }
     }
     
 }
