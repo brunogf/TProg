@@ -238,6 +238,11 @@ public class IControladorPublicacionTest {
         {
             return null;
         }
+        
+        public CatTree getCatTree()
+        {
+            return null;
+        }
     }
     
 }

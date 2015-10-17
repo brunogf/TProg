@@ -104,4 +104,8 @@ public class ManejadorCategoria {
        return modelo;
     }
     
+    public Set<Categoria> getPadres()
+    {
+        return conjCategoriasPadre_;
+    }
 }

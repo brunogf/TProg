@@ -9,6 +9,7 @@ import java.util.Set;
 import java.awt.Image;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -308,5 +309,27 @@ public class ControladorPublicacion implements IControladorPublicacion{
            }
        }
        return found;
+   }
+   
+   
+   private void rec (Categoria cat, CatTree padre)
+   {
+       CatTree nuevoPadre = new CatTree(cat.getNombre());
+       padre.agregarHijo(nuevoPadre);
+       for(Map.Entry<String, Categoria> h : cat.getConjSubCategorias().entrySet())
+           rec(h.getValue(),nuevoPadre);
+       
+   }
+   
+   public CatTree getCatTree()
+   {
+       Set<Categoria> categorias = ManejadorCategoria.getInstance().getPadres();
+       CatTree raiz = new CatTree("Categorias");
+       
+       for(Categoria c : categorias)
+       {
+           rec(c,raiz);
+       }
+       return raiz;
    }
 }
