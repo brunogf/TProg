@@ -26,7 +26,9 @@ public interface IControladorUsuario {
             Date fnac,String nombreEmp,String url,String img)throws Exception;
 
     public DataUsuario infoCliente(String nickname); 
-
+    
+    public DataUsuario infoProveedor(String nickname);
+    
     public Set<DataUsuario> listarClientes();
 
     public Set<DataUsuario> listarProveedores();

@@ -76,6 +76,15 @@ public class ControladorUsuario implements IControladorUsuario {
         }
         return du;
     }
+    
+    public DataUsuario infoProveedor(String nickname) {
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        DataUsuario du = mUsuario.encontrarUsuario(nickname).infoUsuario();
+        if (!(du instanceof DataProveedor)) {
+            throw new IllegalArgumentException("No se encontro el proveedor");
+        }
+        return du;
+    }
 
     public String getImagenDelUsuario(String nombre) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
