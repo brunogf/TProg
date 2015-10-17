@@ -27,12 +27,12 @@ public class DataServicio extends DataPublicacion {
     {
 	//default constructor
     }
-    public DataServicio(String nombre, String descripcion, float precio, String proveedor)
+    public DataServicio(String nombre, String descripcion, float precio, String proveedor, Set<String> categorias)
     {
 	super(nombre, proveedor);
 	descripcion_ = descripcion;
 	precio_ = precio;
-	
+	categorias_= categorias;
     }
     
     

@@ -152,7 +152,12 @@ public class Servicio extends Publicacion {
     
     
     public DataPublicacion infoPublicacion(){
-        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNickname());
+        Set<String> cats = new HashSet<>();
+        for (Map.Entry<String, Categoria> entry : categorias_.entrySet())
+        {
+            cats.add(entry.getValue().getNombre());
+        }
+        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNickname(), cats);
         return servicio;
     }
     
