@@ -298,11 +298,11 @@ public class ControladorPublicacion implements IControladorPublicacion{
            if (p instanceof DataServicio)
            {
                descripcion = ((DataServicio)p).getDescripcion().toUpperCase();
-               if(descripcion.contains(criterio) && (!found.contains(p)))
+               if(descripcion.contains(criterio.toUpperCase()) && (!found.contains(p)))
                    found.add(p);
                for(String s : ((DataServicio)p).getCategorias())
                {
-                   if(s.contains(criterio) &&(!found.contains(p)))
+                   if(s.toUpperCase().contains(criterio.toUpperCase()) &&(!found.contains(p)))
                        found.add(p);
                }
            }
