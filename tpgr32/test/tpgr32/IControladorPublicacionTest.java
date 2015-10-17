@@ -234,6 +234,10 @@ public class IControladorPublicacionTest {
             
             return null;
         }
+        public Set<DataPublicacion> buscarPublicacionCompleta(String criterio)
+        {
+            return null;
+        }
     }
     
 }

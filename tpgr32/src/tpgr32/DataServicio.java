@@ -21,6 +21,7 @@ public class DataServicio extends DataPublicacion {
     private String paisDestino_;
     private String ciudadDestino_;
     private Set<Image> imagenes_; 
+    private Set<String> categorias_;
     
     public DataServicio()
     {
@@ -36,7 +37,7 @@ public class DataServicio extends DataPublicacion {
     
     
     public DataServicio(String nombre, String descripcion, float precio, String proveedor, String paisOrigen,
-                        String ciudadOrigen, String paisDestino, String ciudadDestino, Set<Image> imagenes)
+                        String ciudadOrigen, String paisDestino, String ciudadDestino, Set<Image> imagenes, Set<String> categorias)
     {
 	super(nombre, proveedor);
 	descripcion_ = descripcion;
@@ -47,7 +48,7 @@ public class DataServicio extends DataPublicacion {
         ciudadDestino_ = ciudadDestino;
         imagenes_ = new HashSet<>();
         imagenes_ = imagenes;
-	
+        categorias_ = categorias;
     }
     
     
@@ -97,6 +98,11 @@ public class DataServicio extends DataPublicacion {
     public void setPrecio(float precio)
     {
 	precio_ = precio;
+    }
+    
+    public Set<String> getCategorias()
+    {
+        return categorias_;
     }
     
 }

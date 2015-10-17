@@ -283,4 +283,30 @@ public class ControladorPublicacion implements IControladorPublicacion{
        }
        return found;
    }
+   
+   public Set<DataPublicacion> buscarPublicacionCompleta(String criterio)
+   {
+       Set<DataPublicacion> total = listarPublicaciones();
+       Set<DataPublicacion> found = new HashSet<>();
+       String nombre;
+       String descripcion;
+       for(DataPublicacion p : total)
+       {
+           nombre = p.getNombre().toUpperCase();
+           if (nombre.contains(criterio.toUpperCase()))
+               found.add(p);
+           if (p instanceof DataServicio)
+           {
+               descripcion = ((DataServicio)p).getDescripcion().toUpperCase();
+               if(descripcion.contains(criterio) && (!found.contains(p)))
+                   found.add(p);
+               for(String s : ((DataServicio)p).getCategorias())
+               {
+                   if(s.contains(criterio) &&(!found.contains(p)))
+                       found.add(p);
+               }
+           }
+       }
+       return found;
+   }
 }

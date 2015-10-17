@@ -152,6 +152,11 @@ public class IControladorUsuarioTest {
         {
             return "";
         }
+        
+        public DataUsuario infoProveedor(String nickname)
+        {
+            return null;
+        }
     }
     
 }

@@ -4490,7 +4490,7 @@ public class Interfaz extends javax.swing.JFrame {
                 if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())) {
                     s = new DataServicio(dt.getNombre(), dt.getDescripcion(), dt.getPrecio(), dt.getProveedor(),
                             dt.getPaisOrigen(), dt.getCiudadOrigen(), dt.getPaisDestino(),
-                            dt.getCiudadDestino(), dt.getImagenes());
+                            dt.getCiudadDestino(), dt.getImagenes(),null);
                     InfoServicioDatoNombreLabel.setText(s.getNombre());
                     InfoServicioDatoDescrTextArea.setEditable(false);
                     InfoServicioDatoDescrTextArea.setText(s.getDescripcion());

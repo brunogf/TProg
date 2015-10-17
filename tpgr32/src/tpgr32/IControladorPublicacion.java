@@ -46,4 +46,5 @@ public interface IControladorPublicacion {
     public void modificarOrigenServicio(String pais, String ciudad);
     public void modificarDestinoServicio(String pais, String ciudad);
     public Set<DataPublicacion> buscarPublicacion(String criterio);
+    public Set<DataPublicacion> buscarPublicacionCompleta(String criterio);
 }

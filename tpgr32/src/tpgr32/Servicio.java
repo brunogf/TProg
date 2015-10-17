@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.awt.Image;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -27,6 +28,12 @@ public class Servicio extends Publicacion {
     public Servicio(){
         
     }
+    
+    public Map<String, Categoria> getCategorias()
+    {
+        return categorias_;
+    }
+   
     
     public Servicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Ciudad origen, Proveedor p){
         super(nombre,p);
@@ -152,16 +159,21 @@ public class Servicio extends Publicacion {
     
     public DataPublicacion infoPublicacionCompleto(){
         DataServicio servicio;
+        Set<String> cats = new HashSet<>();
+        for (Map.Entry<String, Categoria> entry : categorias_.entrySet())
+        {
+            cats.add(entry.getValue().getNombre());
+        }
         if (ciudadDestino_ != null)
           servicio = new DataServicio(this.getNombre(),descripcion_,precio_,
                                        this.getProveedor().getNickname(),
                                         ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),
-                                        ciudadDestino_.getPais().getNombre(), ciudadDestino_.getNombre(),imagenes_);
+                                        ciudadDestino_.getPais().getNombre(), ciudadDestino_.getNombre(),imagenes_, cats);
         else
           servicio = new DataServicio(this.getNombre(),descripcion_,precio_,
                                        this.getProveedor().getNickname(),
                                         ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),
-                                        "No tiene", "No tiene",imagenes_);
+                                        "No tiene", "No tiene",imagenes_, cats);
             
         return servicio;
     }
