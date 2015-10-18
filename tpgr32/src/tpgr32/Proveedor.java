@@ -67,7 +67,7 @@ public class Proveedor extends Usuario {
     @Override
      public DataUsuario infoUsuario() {
         DataProveedor dtProv = new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
-        this.nomEmpresa_,this.url_); 
+        this.nomEmpresa_,this.url_, this.imagen); 
         for(String key : this.publicaciones_.keySet()) {
             Publicacion p = this.publicaciones_.get(key);
             dtProv.agregarPublicacion(p.infoPublicacion());

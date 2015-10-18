@@ -16,7 +16,6 @@ public abstract class Usuario {
     protected String apellido;
     protected String nickname;
     protected String correoElec;
-    protected String imagenes;
     protected Date fechaNacimiento;
     protected String imagen; 
     protected String password;
