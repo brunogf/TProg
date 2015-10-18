@@ -5,6 +5,7 @@
  */
 package tpgr32;
 
+import java.awt.Image;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -139,8 +140,8 @@ public class IControladorUsuarioTest {
             return null;
         }
 
-        public String getImagenDelUsuario(String nombre) {
-            return "";
+        public Image getImagenDelUsuario(String nombre) {
+            return null;
         }
         
         public int comprobarUsuario(String nick, String password)

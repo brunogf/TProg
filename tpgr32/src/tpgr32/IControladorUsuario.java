@@ -35,7 +35,7 @@ public interface IControladorUsuario {
     
     public Set<DataPublicacion> listarPublicacionesProveedor(String nick);
     
-    public String getImagenDelUsuario(String nombre);
+    public Image getImagenDelUsuario(String nombre);
     
     public int comprobarUsuario(String usuario, String password);/*0-OK 1- ERROR NOMBRE 2- ERROR PASS*/
     

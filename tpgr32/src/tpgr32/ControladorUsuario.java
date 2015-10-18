@@ -6,8 +6,11 @@
 package tpgr32;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.Date;
 import java.util.Set;
+import javax.imageio.ImageIO;
 
 public class ControladorUsuario implements IControladorUsuario {
 
@@ -86,9 +89,14 @@ public class ControladorUsuario implements IControladorUsuario {
         return du;
     }
 
-    public String getImagenDelUsuario(String nombre) {
+    public Image getImagenDelUsuario(String nombre) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-        return mUsuario.encontrarUsuario(nombre).getImgUsuario();
+        BufferedImage img = null;
+        try{
+            img = ImageIO.read(new File(mUsuario.encontrarUsuario(nombre).getImgUsuario()));
+        }catch(Exception ex){
+        }
+        return img;
     }
 
     public Set<DataUsuario> listarClientes() {
