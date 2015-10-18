@@ -87,7 +87,7 @@ public class IControladorUsuarioTest {
        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
        Date f = df.parse("01-01-1990");
        try{
-       cu.altaProveedor("NicknameASD", "NombreASD", "ApellidoASD", "correo@correo", f, "EmpresaASD", "URLASD");}
+       cu.altaProveedor("NicknameASD", "NombreASD", "ApellidoASD", "correo@correo", f, "EmpresaASD", "URLASD", "123");}
        catch(Exception e){}
     }
 
@@ -97,7 +97,7 @@ public class IControladorUsuarioTest {
        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
        Date f = df.parse("01-01-1990");
-       cu.altaProveedor("NicknameASB", "NombreASD", "ApellidoASD", "e.watson@gmail.com", f, "EmpresaASD", "URLASD");
+       cu.altaProveedor("NicknameASB", "NombreASD", "ApellidoASD", "e.watson@gmail.com", f, "EmpresaASD", "URLASD", "123");
     }
     
     @Test(expected=Exception.class)//DEBE TIRAR EXCEPCION PORQUE NICKNAME ESTA EN SISTEMA
@@ -106,7 +106,7 @@ public class IControladorUsuarioTest {
        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
        Date f = df.parse("01-01-1990");
-       cu.altaProveedor("eWatson", "NombreASD", "ApellidoASD", "correo", f, "EmpresaASD", "URLASD");
+       cu.altaProveedor("eWatson", "NombreASD", "ApellidoASD", "correo", f, "EmpresaASD", "URLASD", "123");
     }
     
 
@@ -118,10 +118,10 @@ public class IControladorUsuarioTest {
         public void altaClienteConImg(String nickname, String nombre, String apellido, String correo, Date fnac, String img, String password) throws Exception {
         }
 
-        public void altaProveedor(String nickname, String nombre, String apellido, String correo, Date fnac, String nombreEmp, String url) throws Exception {
+        public void altaProveedor(String nickname, String nombre, String apellido, String correo, Date fnac, String nombreEmp, String url, String pass) throws Exception {
         }
 
-        public void altaProveedorConImg(String nickname, String nombre, String apellido, String correo, Date fnac, String nombreEmp, String url, String img) throws Exception {
+        public void altaProveedorConImg(String nickname, String nombre, String apellido, String correo, Date fnac, String nombreEmp, String url, String img, String pass) throws Exception {
         }
 
         public DataUsuario infoCliente(String nickname) {

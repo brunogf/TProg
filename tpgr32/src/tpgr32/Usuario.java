@@ -18,7 +18,6 @@ public abstract class Usuario {
     protected String correoElec;
     protected String imagenes;
     protected Date fechaNacimiento;
-    protected int cantImg;
     protected String imagen; 
     protected String password;
     public Usuario()//Default Constructor
@@ -28,7 +27,6 @@ public abstract class Usuario {
       
     public Usuario(String nom, String apellido, String nickName, String cElec, Date f, String password) {
         this.nombre = nom;
-        this.cantImg = 0;
         this.apellido = apellido;
         this.nickname = nickName;
         this.correoElec = cElec.toUpperCase();
@@ -74,13 +72,6 @@ public abstract class Usuario {
         return imagen;
     }
       
-    public int getCantImg() {
-        return this.cantImg;
-    }
-      
-    public void setCantImg(int cant) {
-        this.cantImg = cant;
-    } 
     
     public boolean comprobarPassword(String pass){
             if (pass.compareTo(password) == 0)

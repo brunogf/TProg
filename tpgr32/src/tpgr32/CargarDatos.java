@@ -37,15 +37,15 @@ public class CargarDatos {
             
             //carga usuarios
             DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-            cu.altaProveedorConImg("tCook", "Tim", "Cook", "air.f@gmail.com", df.parse("01-11-1960"),"AirFrance", "http://www.airfrance.com/", ((new File("Imagenes/tCook.jpg")).getAbsolutePath()) );
-            cu.altaProveedorConImg("moody", "Alastor", "Moody", "eu.car@eucar.com", df.parse("02-09-1965"), "EuropCar", "http://www.europcar.com.uy/", ((new File("Imagenes/moody.jpeg")).getAbsolutePath()));
-            cu.altaProveedorConImg("remus", "Remus", "Lupin", "iberia@gmail.com", df.parse("04-05-1970"),"Iberia", "http://www.iberia.com/uy/", ((new File("Imagenes/remus.jpg")).getAbsolutePath()));
-            cu.altaProveedorConImg("adippet", "Armando", "Dippet", "tam@outlook.com", df.parse("12-02-1967"),"Tam", "http://www.tam.com.br/", ((new File("Imagenes/adippet.png")).getAbsolutePath()));
-            cu.altaProveedorConImg("mHooch", "Madam", "Hooch", "seghogar@gmail.com", df.parse("05-08-1963"),"Segundo Hogar", "http://www.segundohogar.com/", ((new File("Imagenes/mHooch.jpg")).getAbsolutePath()));
-            cu.altaClienteConImg("oWood", "Oliver", "Wood", "quidditch28@gmail.com", df.parse("28-12-1988"), ((new File("Imagenes/oWood.jpg")).getAbsolutePath()),"oWood");
-            cu.altaClienteConImg("eWatson", "Emma", "Watson", "e.watson@gmail.com", df.parse("15-04-1990"), ((new File("Imagenes/eWatson.jpg")).getAbsolutePath()),"eWatson");
-            cu.altaCliente("BruceS", "Bruce", "Sewell", "bruce.sewell@gmail.com", df.parse("03-12-1978"),"BruceS");
-            cu.altaCliente("JeffW", "Jeff", "Wiliams", "jeff.williams@gmail.com", df.parse("27-11-1984"),"JeffW");
+            cu.altaProveedorConImg("tCook", "Tim", "Cook", "air.f@gmail.com", df.parse("01-11-1960"),"AirFrance", "http://www.airfrance.com/", ((new File("Imagenes/tCook.jpg")).getAbsolutePath()),"123" );
+            cu.altaProveedorConImg("moody", "Alastor", "Moody", "eu.car@eucar.com", df.parse("02-09-1965"), "EuropCar", "http://www.europcar.com.uy/", ((new File("Imagenes/moody.jpeg")).getAbsolutePath()), "123");
+            cu.altaProveedorConImg("remus", "Remus", "Lupin", "iberia@gmail.com", df.parse("04-05-1970"),"Iberia", "http://www.iberia.com/uy/", ((new File("Imagenes/remus.jpg")).getAbsolutePath()), "123");
+            cu.altaProveedorConImg("adippet", "Armando", "Dippet", "tam@outlook.com", df.parse("12-02-1967"),"Tam", "http://www.tam.com.br/", ((new File("Imagenes/adippet.png")).getAbsolutePath()), "123");
+            cu.altaProveedorConImg("mHooch", "Madam", "Hooch", "seghogar@gmail.com", df.parse("05-08-1963"),"Segundo Hogar", "http://www.segundohogar.com/", ((new File("Imagenes/mHooch.jpg")).getAbsolutePath()), "123");
+            cu.altaClienteConImg("oWood", "Oliver", "Wood", "quidditch28@gmail.com", df.parse("28-12-1988"), ((new File("Imagenes/oWood.jpg")).getAbsolutePath()),"123");
+            cu.altaClienteConImg("eWatson", "Emma", "Watson", "e.watson@gmail.com", df.parse("15-04-1990"), ((new File("Imagenes/eWatson.jpg")).getAbsolutePath()),"123");
+            cu.altaCliente("BruceS", "Bruce", "Sewell", "bruce.sewell@gmail.com", df.parse("03-12-1978"),"123");
+            cu.altaCliente("JeffW", "Jeff", "Wiliams", "jeff.williams@gmail.com", df.parse("27-11-1984"),"123");
             
             //Categorias
             cp.registrarCategoria("Vuelos");

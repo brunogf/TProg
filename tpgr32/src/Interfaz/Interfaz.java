@@ -3638,9 +3638,9 @@ public class Interfaz extends javax.swing.JFrame {
                 } else//proveedor is selected
                 {
                     if (ImgUsuario == null) {
-                        cu.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText());
+                        cu.altaProveedor(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(),"123");
                     } else {
-                        cu.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(), ImgUsuario);
+                        cu.altaProveedorConImg(RegUsuarioNicknameTextField.getText(), RegUsuarioNombreTextField.getText(), RegUsuarioApellidoTextField1.getText(), RegUsuarioCorreoTextField.getText(), RegUsuarioFechaChooser.getDate(), RegUsuarioNombreEmpresaTextField.getText(), RegUsuarioURLTextField.getText(), ImgUsuario,"123");
                         ImgUsuario = null;
                     }
                     JOptionPane.showMessageDialog(null, "El proveedor se creo correctamente");

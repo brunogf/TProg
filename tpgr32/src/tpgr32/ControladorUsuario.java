@@ -48,9 +48,9 @@ public class ControladorUsuario implements IControladorUsuario {
 
     public void altaProveedor(String nickname, String nombre,
             String apellido, String correo, Date fecha,
-            String nombreEmp, String url) throws Exception {
+            String nombreEmp, String url, String pass) throws Exception {
         try {
-            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fecha, nombreEmp, url);
+            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fecha, nombreEmp, url, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
         } catch (Exception ex) {
@@ -59,10 +59,10 @@ public class ControladorUsuario implements IControladorUsuario {
     }
 
     public void altaProveedorConImg(String nickname, String nombre, String apellido, String correo,
-            Date fnac, String nombreEmp, String url, String img) throws Exception {
+            Date fnac, String nombreEmp, String url, String img, String pass) throws Exception {
 
         try {
-            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fnac, nombreEmp, url/*Falta Imagen*/);
+            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fnac, nombreEmp, url, img, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
             mUsuario.agregarUsuario(c);
             c.cambiarImagen(img);

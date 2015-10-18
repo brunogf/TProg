@@ -20,10 +20,10 @@ public interface IControladorUsuario {
     public void altaClienteConImg(String nickname,String nombre,String apellido,String correo,
             Date fnac,String img,String pass) throws Exception;
     
-    public void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url) throws Exception;
+    public void altaProveedor(String nickname,String nombre,String apellido,String correo,Date fnac,String nombreEmp,String url, String pass) throws Exception;
          
     public void altaProveedorConImg(String nickname,String nombre,String apellido,String correo,
-            Date fnac,String nombreEmp,String url,String img)throws Exception;
+            Date fnac,String nombreEmp,String url,String img, String pass)throws Exception;
 
     public DataUsuario infoCliente(String nickname); 
     

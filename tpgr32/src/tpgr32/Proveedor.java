@@ -20,11 +20,20 @@ public class Proveedor extends Usuario {
     private String url_;
     private Map<String, Publicacion> publicaciones_;
     
-    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url)
+    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url, String pass)
     {
-	super(nom,apellido,nickName,cElec,f,"");
+	super(nom,apellido,nickName,cElec,f,pass);
 	nomEmpresa_ = empresa;
         publicaciones_ = new HashMap<>();
+	url_ = url;
+    }
+    
+    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url, String img, String pass)
+    {
+	super(nom,apellido,nickName,cElec,f,pass);
+	nomEmpresa_ = empresa;
+        publicaciones_ = new HashMap<>();
+        super.cambiarImagen(img);
 	url_ = url;
     }
     
