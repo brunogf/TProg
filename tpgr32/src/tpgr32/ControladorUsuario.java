@@ -122,4 +122,16 @@ public class ControladorUsuario implements IControladorUsuario {
     public String getNickUsuario(String usuario) {
         return ManejadorUsuario.getInstance().getNickUsuario(usuario);
     }
+    
+    public DataUsuario infoUsuario(String nickname)
+    {
+        DataUsuario info;
+        try{
+            info = infoCliente(nickname);
+        }catch(Exception e)
+        {
+            info = infoProveedor(nickname);
+        }
+        return info;
+    }
 }

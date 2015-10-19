@@ -158,6 +158,10 @@ public class IControladorUsuarioTest {
         {
             return null;
         }
+        
+        public DataUsuario infoUsuario(String nickname){
+            return null;
+        }
     }
     
 }

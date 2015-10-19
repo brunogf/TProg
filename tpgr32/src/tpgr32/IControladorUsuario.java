@@ -40,4 +40,6 @@ public interface IControladorUsuario {
     public int comprobarUsuario(String usuario, String password);/*0-OK 1- ERROR NOMBRE 2- ERROR PASS*/
     
     public String getNickUsuario(String usuario); //RECIBE NICK O CORREO Y DEVUELVE NICK
+    
+    public DataUsuario infoUsuario(String nickname);
 }
