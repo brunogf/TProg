@@ -53,6 +53,15 @@ public class Promocion extends Publicacion {
         return conjServicios_;
     }
     
+    public Set<DataServicio> getConjDataServicios(){
+        Set<DataServicio> SetDS = new HashSet();
+        Set<Servicio> SetS = getConjServicios();
+        for (Servicio s: SetS){
+            SetDS.add((DataServicio) s.infoPublicacion());
+        }
+        return SetDS;
+    }
+    
     public DataPromocion infoPublicacion(){
         DataPromocion dp=new DataPromocion(super.getNombre(), descuento_, super.getProveedor().getNickname(), precioTotalCDescuento_);
         for (Servicio s:conjServicios_){
