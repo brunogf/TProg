@@ -42,4 +42,6 @@ public interface IControladorUsuario {
     public String getNickUsuario(String usuario); //RECIBE NICK O CORREO Y DEVUELVE NICK
     
     public DataUsuario infoUsuario(String nickname);
+    
+    public boolean existeMail(String email);
 }

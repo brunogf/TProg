@@ -162,6 +162,10 @@ public class IControladorUsuarioTest {
         public DataUsuario infoUsuario(String nickname){
             return null;
         }
+        
+        public boolean existeMail(String email){
+            return false;
+        }
     }
     
 }

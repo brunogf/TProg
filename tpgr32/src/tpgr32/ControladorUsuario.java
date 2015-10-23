@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.Set;
 import javax.imageio.ImageIO;
 
@@ -133,5 +134,29 @@ public class ControladorUsuario implements IControladorUsuario {
             info = infoProveedor(nickname);
         }
         return info;
+    }
+    
+    public boolean existeMail(String email)
+    {
+        ManejadorUsuario manejador_usuario = ManejadorUsuario.getInstance();
+        Set<DataUsuario> usuarios = manejador_usuario.listarClientes();
+        Iterator itr = usuarios.iterator();
+        boolean encontrado = false;
+        while ((itr.hasNext())&&(!encontrado))
+        {
+            if ((((DataUsuario)itr.next()).getCorreo().toUpperCase()).equals(email.toUpperCase()))
+                encontrado = true;
+        }
+        if(!encontrado){
+            usuarios = manejador_usuario.listarProveedores();
+            itr = usuarios.iterator();
+            while ((itr.hasNext())&&(!encontrado))
+            {
+                if ((((DataUsuario)itr.next()).getCorreo().toUpperCase()).equals(email.toUpperCase()))
+                    encontrado = true;
+            }   
+        }
+        return encontrado;
+        
     }
 }
