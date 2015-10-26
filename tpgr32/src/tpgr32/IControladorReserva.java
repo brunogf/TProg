@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface IControladorReserva {
     
-    public void actualizarEstado(int num, Estado e) throws Exception;
+    public void actualizarEstado(int num, Estado est) throws Exception;
     public void bajaReserva(int num) throws Exception;
     public int confirmarReserva();
     public DataReserva infoReserva(int num);
@@ -30,5 +30,5 @@ public interface IControladorReserva {
     public DataProveedor getInfoProveedorSeleccionado();
     public void borrarPublicacionesSeleccionadas();
     public int getNumeroReservas();//retorna el ultimo numero usado por una reserva
-    public void cambiarFechaCreacionReserva(Date f, int r);        
+    public void cambiarFechaCreacionReserva(Date fecha, int res);        
 }

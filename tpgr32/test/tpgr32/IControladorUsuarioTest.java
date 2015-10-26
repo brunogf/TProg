@@ -30,9 +30,9 @@ public class IControladorUsuarioTest {
     
     @BeforeClass
     public static void setUpClass() {
-        CargarDatos cd = new CargarDatos();
+        CargarDatos cdt = new CargarDatos();
         try{
-        cd.cargar();}catch(Exception e){
+        cdt.cargar();}catch(Exception e){
             System.out.println(e.getMessage());
         }
         
@@ -55,58 +55,58 @@ public class IControladorUsuarioTest {
      */
     @Test(expected=IllegalArgumentException.class) //El nick ya está registrado
     public void testAltaCliente() throws Exception {
-        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-        cu.altaCliente("mHooch", "Madam", "Hooch", "Correo", new Date(),"mHooch");
+        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+        cusr.altaCliente("mHooch", "Madam", "Hooch", "Correo", new Date(),"mHooch");
         }
     
     @Test
     public void testInfoCliente() throws ParseException {
-        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-        DataUsuario du = cu.infoCliente("eWatson");
-        assertEquals("eWatson", du.getNickname());
-        assertEquals("Emma", du.getNombre());
-        assertEquals("Watson", du.getApellido());
-        assertEquals("e.watson@gmail.com",du.getCorreo());
-        Assert.assertNotSame("",du.getImage());
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+        DataUsuario dusr = cusr.infoCliente("eWatson");
+        assertEquals("eWatson", dusr.getNickname());
+        assertEquals("Emma", dusr.getNombre());
+        assertEquals("Watson", dusr.getApellido());
+        assertEquals("e.watson@gmail.com",dusr.getCorreo());
+        Assert.assertNotSame("",dusr.getImage());
+        DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
         try{
-        assertEquals(du.getFecha(),df.parse("15-04-1990"));
+        assertEquals(dusr.getFecha(),dtf.parse("15-04-1990"));
         }catch(Exception e){}
     }
     
     @Test(expected=IllegalArgumentException.class)//DEBERIA DAR EXCEPCION PORQUE TCOOK ES PROVEEDOR!
     public void TestInfoCliente2(){
-        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-        DataUsuario du = cu.infoCliente("tCook");
+        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+        DataUsuario dusr = cusr.infoCliente("tCook");
     }
 
     @Test
     public void testAltaProveedor() throws ParseException
     {
-       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-       DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-       Date f = df.parse("01-01-1990");
+       IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+       DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
+       Date fecha = dtf.parse("01-01-1990");
        try{
-       cu.altaProveedor("NicknameASD", "NombreASD", "ApellidoASD", "correo@correo", f, "EmpresaASD", "URLASD", "123");}
+       cusr.altaProveedor("NicknameASD", "NombreASD", "ApellidoASD", "correo@correo", fecha, "EmpresaASD", "URLASD", "123");}
        catch(Exception e){}
     }
 
     @Test(expected=Exception.class)//DEBE TIRAR EXCEPCION PORQUE CORREO ESTA EN SISTEMA
     public void testAltaProveedor2() throws ParseException, Exception
     {
-       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-       DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-       Date f = df.parse("01-01-1990");
-       cu.altaProveedor("NicknameASB", "NombreASD", "ApellidoASD", "e.watson@gmail.com", f, "EmpresaASD", "URLASD", "123");
+       IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+       DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
+       Date fecha = dtf.parse("01-01-1990");
+       cusr.altaProveedor("NicknameASB", "NombreASD", "ApellidoASD", "e.watson@gmail.com", fecha, "EmpresaASD", "URLASD", "123");
     }
     
     @Test(expected=Exception.class)//DEBE TIRAR EXCEPCION PORQUE NICKNAME ESTA EN SISTEMA
     public void testAltaProveedor3() throws ParseException, Exception
     {
-       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
-       DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-       Date f = df.parse("01-01-1990");
-       cu.altaProveedor("eWatson", "NombreASD", "ApellidoASD", "correo", f, "EmpresaASD", "URLASD", "123");
+       IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+       DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
+       Date fecha = dtf.parse("01-01-1990");
+       cusr.altaProveedor("eWatson", "NombreASD", "ApellidoASD", "correo", fecha, "EmpresaASD", "URLASD", "123");
     }
     
 

@@ -25,18 +25,18 @@ public class ReservaPublicacion {
 	//default constructor
     }
     
-    public ReservaPublicacion(Reserva r, Publicacion p, Date inicio, Date fin, int cant)
+    public ReservaPublicacion(Reserva res, Publicacion pub, Date inicio, Date fin, int cant)
     {
-	res_ = r;
-        pub_ = p;
+	res_ = res;
+        pub_ = pub;
         fechaIni_ = inicio;
         fechaFin_ = fin;
         cant_ = cant;
     }
     
-    public ReservaPublicacion(Reserva r, Publicacion p, DataDisponibilidad d)
+    public ReservaPublicacion(Reserva res, Publicacion pub, DataDisponibilidad dtd)
     {
-	this(r,p,d.getFechaIni(),d.getFechaFin(),d.getCant());
+	this(res,pub,dtd.getFechaIni(),dtd.getFechaFin(),dtd.getCant());
     }
 
     public Date getFechaIni() {
@@ -51,6 +51,10 @@ public class ReservaPublicacion {
         return pub_.getNombre();
     }
     
+    public Reserva getReserva(){
+        return res_;
+    }
+    
     public float getPrecioTotal()
     {
 	if (pub_ instanceof Servicio)
@@ -60,10 +64,10 @@ public class ReservaPublicacion {
     }
     
     public ParDPD infoReservaPublicacion(){
-        DataDisponibilidad d=new DataDisponibilidad(cant_, fechaIni_, fechaFin_);
-        DataPublicacion dp=pub_.infoPublicacion();
+        DataDisponibilidad dtd=new DataDisponibilidad(cant_, fechaIni_, fechaFin_);
+        DataPublicacion dtp=pub_.infoPublicacion();
         
-        ParDPD dpd=new ParDPD(dp, d);
+        ParDPD dpd=new ParDPD(dtp, dtd);
         return dpd;
     }
     

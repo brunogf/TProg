@@ -23,9 +23,9 @@ public class CatTree {
         hijos_ = new HashSet<CatTree>();
     }
     
-    public void agregarHijo(CatTree ct)
+    public void agregarHijo(CatTree ctree)
     {
-        hijos_.add(ct);
+        hijos_.add(ctree);
     }
     
     public Set<CatTree> getHijos()

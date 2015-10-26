@@ -15,18 +15,17 @@ import javax.imageio.ImageIO;
 
 public class ControladorUsuario implements IControladorUsuario {
 
-    private String nick;
 
     public ControladorUsuario() {
 
     }
 
     public void altaCliente(String nickName, String nombre, String apellido, String correoElec,
-            Date f, String pass) throws Exception {
+            Date fecha, String pass) throws Exception {
         try {
-            Cliente c = new Cliente(nombre, apellido, nickName, correoElec, f, pass);
+            Cliente cli = new Cliente(nombre, apellido, nickName, correoElec, fecha, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-            mUsuario.agregarUsuario(c);
+            mUsuario.agregarUsuario(cli);
         } catch (IllegalArgumentException ia) {
             throw ia;
         } catch (Exception ex) {
@@ -37,10 +36,10 @@ public class ControladorUsuario implements IControladorUsuario {
     public void altaClienteConImg(String nickname, String nombre, String apellido, String correo,
             Date fnac, String img, String pass) throws Exception {
         try {
-            Cliente c = new Cliente(nombre, apellido, nickname, correo, fnac, pass);
+            Cliente cli = new Cliente(nombre, apellido, nickname, correo, fnac, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-            mUsuario.agregarUsuario(c);
-            c.cambiarImagen(img);
+            mUsuario.agregarUsuario(cli);
+            cli.cambiarImagen(img);
 
         } catch (Exception ex) {
             throw ex;
@@ -51,9 +50,9 @@ public class ControladorUsuario implements IControladorUsuario {
             String apellido, String correo, Date fecha,
             String nombreEmp, String url, String pass) throws Exception {
         try {
-            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fecha, nombreEmp, url, pass);
+            Proveedor prov = new Proveedor(nombre, apellido, nickname, correo, fecha, nombreEmp, url, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-            mUsuario.agregarUsuario(c);
+            mUsuario.agregarUsuario(prov);
         } catch (Exception ex) {
             throw ex;
         }
@@ -63,10 +62,10 @@ public class ControladorUsuario implements IControladorUsuario {
             Date fnac, String nombreEmp, String url, String img, String pass) throws Exception {
 
         try {
-            Proveedor c = new Proveedor(nombre, apellido, nickname, correo, fnac, nombreEmp, url, img, pass);
+            Proveedor prov = new Proveedor(nombre, apellido, nickname, correo, fnac, nombreEmp, url, img, pass);
             ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-            mUsuario.agregarUsuario(c);
-            c.cambiarImagen(img);
+            mUsuario.agregarUsuario(prov);
+            prov.cambiarImagen(img);
         } catch (Exception ex) {
             throw ex;
         }
@@ -74,20 +73,20 @@ public class ControladorUsuario implements IControladorUsuario {
 
     public DataUsuario infoCliente(String nickname) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-        DataUsuario du = mUsuario.encontrarUsuario(nickname).infoUsuario();
-        if (!(du instanceof DataCliente)) {
+        DataUsuario dtu = mUsuario.encontrarUsuario(nickname).infoUsuario();
+        if (!(dtu instanceof DataCliente)) {
             throw new IllegalArgumentException("No se encontro el usuario");
         }
-        return du;
+        return dtu;
     }
     
     public DataUsuario infoProveedor(String nickname) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-        DataUsuario du = mUsuario.encontrarUsuario(nickname).infoUsuario();
-        if (!(du instanceof DataProveedor)) {
+        DataUsuario dtu = mUsuario.encontrarUsuario(nickname).infoUsuario();
+        if (!(dtu instanceof DataProveedor)) {
             throw new IllegalArgumentException("No se encontro el proveedor");
         }
-        return du;
+        return dtu;
     }
 
     public Image getImagenDelUsuario(String nombre) {
@@ -112,8 +111,8 @@ public class ControladorUsuario implements IControladorUsuario {
 
     public Set<DataPublicacion> listarPublicacionesProveedor(String nick) {
         ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
-        Proveedor p = mUsuario.encontrarProveedor(nick);
-        return p.listarPublicaciones();
+        Proveedor prov = mUsuario.encontrarProveedor(nick);
+        return prov.listarPublicaciones();
     }
 
     public int comprobarUsuario(String usuario, String password) {

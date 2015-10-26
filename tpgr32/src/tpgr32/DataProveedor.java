@@ -62,4 +62,6 @@ public class DataProveedor extends DataUsuario{
     {
 	publicaciones_.add(dp);
     }
+
+    public void abstractMethod(){}
 }

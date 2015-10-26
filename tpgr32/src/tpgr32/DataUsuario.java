@@ -75,28 +75,30 @@ public abstract class DataUsuario {
 	nombre_ = nombre;
     }
     
-    public void setApellido(String ap)
+    public void setApellido(String ape)
     {
-	apellido_ = ap;
+	apellido_ = ape;
     }
     
-    public void setCorreo(String c)
+    public void setCorreo(String correo)
     {
-	correo_ = c;
+	correo_ = correo;
     }
     
-    public void setFecha(Date f)
-    {
-	fecha_ = f;
+    public void setFecha(Date fecha){
+        fecha_ = fecha;
     }
     
-    public void setImage(String i)
+    public void setImage(String img)
     {
-	img_ = i;
+	img_ = img;
     }
     
      public String toString (){
         String mensaje= ""+this.nombre_+" "+this.apellido_;
         return mensaje;
     }
+     
+     public abstract void abstractMethod();
+     
 }

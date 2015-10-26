@@ -37,10 +37,10 @@ public class IControladorReservaTest {
     
     @Before
     public void setUp() {
-        CargarDatos cd = new CargarDatos();
+        CargarDatos cdt = new CargarDatos();
         try
         {
-            cd.cargar();
+            cdt.cargar();
         }
         catch(Exception e)
         {
@@ -60,10 +60,10 @@ public class IControladorReservaTest {
     @Test
     public void testActualizarEstado() throws Exception
     {
-        IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
-        cr.actualizarEstado(5, Estado.Pagada);
-        DataReserva dr = cr.infoReserva(5);
-        assertEquals(Estado.Pagada,dr.getEstado());
+        IControladorReserva cres = FabricaControladores.getInstancia().getControladorReserva();
+        cres.actualizarEstado(5, Estado.Pagada);
+        DataReserva dtr = cres.infoReserva(5);
+        assertEquals(Estado.Pagada,dtr.getEstado());
     }
     
     
@@ -71,28 +71,28 @@ public class IControladorReservaTest {
     @Test
     public void altaReserva() throws ParseException, Exception
     {
-        IControladorReserva cr = FabricaControladores.getInstancia().getControladorReserva();
-        List<DataReserva> reservas = cr.listarReservas();
+        IControladorReserva cres = FabricaControladores.getInstancia().getControladorReserva();
+        List<DataReserva> reservas = cres.listarReservas();
         assertEquals(7,reservas.size());
-        cr.bajaReserva(7);
-        reservas = cr.listarReservas();
+        cres.bajaReserva(7);
+        reservas = cres.listarReservas();
         assertEquals(6,reservas.size());
-        cr.seleccionarCliente("eWatson");
-        cr.seleccionarProveedor("remus");
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        cr.seleccionarPublicacion("Euro-Vuelo-S", 1, df.parse("01-01-2015"), df.parse("01-01-2015"));
-        cr.confirmarReserva();
-        assertEquals("remus",cr.getNickProveedorSeleccionado());
-        DataUsuario dc = cr.getInfoClienteSeleccionado();
-        assertEquals("eWatson", dc.getNickname());
-        dc = cr.getInfoClienteReserva(5);
-        assertEquals(dc.getNickname(),"oWood");
-        dc = cr.getInfoProveedorSeleccionado();
-        assertEquals(dc.getNickname(),"remus");
-        cr.borrarPublicacionesSeleccionadas();
-        assertEquals(cr.getNumeroReservas(),9);
-        cr.cambiarFechaCreacionReserva(df.parse("07-09-2015"),1);
-        assertEquals(cr.infoReserva(1).getCreacion(),df.parse("07-09-2015"));
+        cres.seleccionarCliente("eWatson");
+        cres.seleccionarProveedor("remus");
+        DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
+        cres.seleccionarPublicacion("Euro-Vuelo-S", 1, dtf.parse("01-01-2015"), dtf.parse("01-01-2015"));
+        cres.confirmarReserva();
+        assertEquals("remus",cres.getNickProveedorSeleccionado());
+        DataUsuario dtc = cres.getInfoClienteSeleccionado();
+        assertEquals("eWatson", dtc.getNickname());
+        dtc = cres.getInfoClienteReserva(5);
+        assertEquals(dtc.getNickname(),"oWood");
+        dtc = cres.getInfoProveedorSeleccionado();
+        assertEquals(dtc.getNickname(),"remus");
+        cres.borrarPublicacionesSeleccionadas();
+        assertEquals(cres.getNumeroReservas(),9);
+        cres.cambiarFechaCreacionReserva(dtf.parse("07-09-2015"),1);
+        assertEquals(cres.infoReserva(1).getCreacion(),dtf.parse("07-09-2015"));
     }
     
     
@@ -103,7 +103,7 @@ public class IControladorReservaTest {
 
     public class IControladorReservaImpl implements IControladorReserva {
 
-        public void actualizarEstado(int num, Estado e) throws Exception {
+        public void actualizarEstado(int num, Estado est) throws Exception {
         }
 
         public void bajaReserva(int num) throws Exception {
@@ -157,7 +157,7 @@ public class IControladorReservaTest {
             return 0;
         }
 
-        public void cambiarFechaCreacionReserva(Date f, int r) {
+        public void cambiarFechaCreacionReserva(Date fecha, int res) {
         }
     }
     

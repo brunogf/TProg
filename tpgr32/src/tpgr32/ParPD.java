@@ -12,13 +12,13 @@ package tpgr32;
 
 public class ParPD {
     private final Publicacion pub_;
-    private final DataDisponibilidad d_;
+    private final DataDisponibilidad dtd_;
     
     
-    public ParPD(Publicacion p, DataDisponibilidad d)
+    public ParPD(Publicacion dtp, DataDisponibilidad dtd)
     {
-	pub_ = p;
-	d_ = d;
+	pub_ = dtp;
+	dtd_ = dtd;
     }
     
     public Publicacion getPublicacion()
@@ -28,7 +28,7 @@ public class ParPD {
     
     public DataDisponibilidad getDisponibilidad()
     {
-	return d_;
+	return dtd_;
     }
     
 }

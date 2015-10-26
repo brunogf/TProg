@@ -24,27 +24,27 @@ public abstract class Usuario {
 	
     }
       
-    public Usuario(String nom, String apellido, String nickName, String cElec, Date f, String password) {
+    public Usuario(String nom, String apellido, String nickName, String cElec, Date fecha, String password) {
         this.nombre = nom;
         this.apellido = apellido;
         this.nickname = nickName;
         this.correoElec = cElec.toUpperCase();
-	fechaNacimiento = f;
+	fechaNacimiento = fecha;
         this.password = password;
     }
     
     public String getNombre() {
         return this.nombre;
     }
-    public void setNombre(String n) {
-        this.nombre = n;
+    public void setNombre(String nom) {
+        this.nombre = nom;
     }
     
     public String getApellido() {
         return this.apellido;
     }
-    public void setApellido(String a) {
-        this.apellido = a;
+    public void setApellido(String ape) {
+        this.apellido = ape;
     }
     
     public String getNickname() {
@@ -57,8 +57,8 @@ public abstract class Usuario {
     public String getCorreoElectronico() {
         return this.correoElec;
     }
-    public void setCorreoElectronico(String ce) {
-        this.correoElec = ce;
+    public void setCorreoElectronico(String correo) {
+        this.correoElec = correo;
     }
     
       public abstract DataUsuario infoUsuario();

@@ -35,6 +35,6 @@ public class DataCliente extends DataUsuario {
 	reservas_.add(dr);
     }
     
-    
+    public void abstractMethod(){}
     
 }
