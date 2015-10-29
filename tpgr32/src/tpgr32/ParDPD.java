@@ -14,8 +14,7 @@ public class ParDPD {
     private final DataPublicacion dpub_;
     private final DataDisponibilidad dd_;
     
-    public ParDPD(DataPublicacion dtp, DataDisponibilidad dtd)
-    {
+    public ParDPD(DataPublicacion dtp, DataDisponibilidad dtd){
 	dpub_ = dtp;
 	dd_ = dtd;
     }

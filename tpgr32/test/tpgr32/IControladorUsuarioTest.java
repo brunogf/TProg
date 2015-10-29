@@ -81,8 +81,7 @@ public class IControladorUsuarioTest {
     }
 
     @Test
-    public void testAltaProveedor() throws ParseException
-    {
+    public void testAltaProveedor() throws ParseException{
        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
        DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
        Date fecha = dtf.parse("01-01-1990");
@@ -92,8 +91,7 @@ public class IControladorUsuarioTest {
     }
 
     @Test(expected=Exception.class)//DEBE TIRAR EXCEPCION PORQUE CORREO ESTA EN SISTEMA
-    public void testAltaProveedor2() throws ParseException, Exception
-    {
+    public void testAltaProveedor2() throws ParseException, Exception{
        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
        DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
        Date fecha = dtf.parse("01-01-1990");
@@ -101,8 +99,7 @@ public class IControladorUsuarioTest {
     }
     
     @Test(expected=Exception.class)//DEBE TIRAR EXCEPCION PORQUE NICKNAME ESTA EN SISTEMA
-    public void testAltaProveedor3() throws ParseException, Exception
-    {
+    public void testAltaProveedor3() throws ParseException, Exception{
        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
        DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
        Date fecha = dtf.parse("01-01-1990");
@@ -144,18 +141,15 @@ public class IControladorUsuarioTest {
             return null;
         }
         
-        public int comprobarUsuario(String nick, String password)
-        {
+        public int comprobarUsuario(String nick, String password){
             return 0;
         }
         
-        public String getNickUsuario(String nick)
-        {
+        public String getNickUsuario(String nick){
             return "";
         }
         
-        public DataUsuario infoProveedor(String nickname)
-        {
+        public DataUsuario infoProveedor(String nickname){
             return null;
         }
         

@@ -13,24 +13,19 @@ public abstract class DataPublicacion {
     protected String nombre_;
     protected String proveedor_;
     
-    public DataPublicacion()
-    {
-	//default constructor
+    public DataPublicacion(){
     }
     
-    public DataPublicacion(String nombre, String proveedor)
-    {
+    public DataPublicacion(String nombre, String proveedor){
 	nombre_ = nombre;
         proveedor_=proveedor; 
     }
     
-    public String getNombre()
-    {
+    public String getNombre(){
 	return nombre_;
     }
     
-    public void setNombre(String nombre)
-    {
+    public void setNombre(String nombre){
 	nombre_ = nombre;
     }
     

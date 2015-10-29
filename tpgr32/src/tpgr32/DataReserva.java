@@ -60,8 +60,7 @@ public class DataReserva {
         return cliente_;
     }
     
-    public String getStringEstado()
-    {
+    public String getStringEstado(){
         String est = "";
         if (estado_ == Estado.Registrada)
             est = "Registrada";

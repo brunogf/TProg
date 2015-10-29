@@ -19,8 +19,7 @@ public abstract class Usuario {
     protected Date fechaNacimiento;
     protected String imagen; 
     protected String password;
-    public Usuario()//Default Constructor
-    {
+    public Usuario(){
 	
     }
       

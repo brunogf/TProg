@@ -23,18 +23,15 @@ public class CatTree {
         hijos_ = new HashSet<CatTree>();
     }
     
-    public void agregarHijo(CatTree ctree)
-    {
+    public void agregarHijo(CatTree ctree){
         hijos_.add(ctree);
     }
     
-    public Set<CatTree> getHijos()
-    {
+    public Set<CatTree> getHijos(){
         return hijos_;
     }
     
-    public boolean tieneHijos()
-    {
+    public boolean tieneHijos(){
         return !(hijos_.isEmpty());
     }
     

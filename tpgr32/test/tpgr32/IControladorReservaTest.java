@@ -38,12 +38,10 @@ public class IControladorReservaTest {
     @Before
     public void setUp() {
         CargarDatos cdt = new CargarDatos();
-        try
-        {
+        try{
             cdt.cargar();
         }
-        catch(Exception e)
-        {
+        catch(Exception e){
             System.out.println(e.getMessage());
         }
     }
@@ -58,8 +56,7 @@ public class IControladorReservaTest {
     //TESTS
     
     @Test
-    public void testActualizarEstado() throws Exception
-    {
+    public void testActualizarEstado() throws Exception{
         IControladorReserva cres = FabricaControladores.getInstancia().getControladorReserva();
         cres.actualizarEstado(5, Estado.Pagada);
         DataReserva dtr = cres.infoReserva(5);
@@ -69,8 +66,7 @@ public class IControladorReservaTest {
     
     
     @Test
-    public void altaReserva() throws ParseException, Exception
-    {
+    public void altaReserva() throws ParseException, Exception{
         IControladorReserva cres = FabricaControladores.getInstancia().getControladorReserva();
         List<DataReserva> reservas = cres.listarReservas();
         assertEquals(7,reservas.size());

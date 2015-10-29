@@ -20,13 +20,11 @@ public class ReservaPublicacion {
     private Reserva res_;
     
     
-    public ReservaPublicacion()
-    {
+    public ReservaPublicacion(){
 	//default constructor
     }
     
-    public ReservaPublicacion(Reserva res, Publicacion pub, Date inicio, Date fin, int cant)
-    {
+    public ReservaPublicacion(Reserva res, Publicacion pub, Date inicio, Date fin, int cant){
 	res_ = res;
         pub_ = pub;
         fechaIni_ = inicio;
@@ -34,16 +32,15 @@ public class ReservaPublicacion {
         cant_ = cant;
     }
     
-    public ReservaPublicacion(Reserva res, Publicacion pub, DataDisponibilidad dtd)
-    {
+    public ReservaPublicacion(Reserva res, Publicacion pub, DataDisponibilidad dtd){
 	this(res,pub,dtd.getFechaIni(),dtd.getFechaFin(),dtd.getCant());
     }
 
-    public Date getFechaIni() {
+    public Date getFechaIni(){
         return fechaIni_;
     }
 
-    public Date getFechaFin() {
+    public Date getFechaFin(){
         return fechaFin_;
     }
     
@@ -55,8 +52,7 @@ public class ReservaPublicacion {
         return res_;
     }
     
-    public float getPrecioTotal()
-    {
+    public float getPrecioTotal(){
 	if (pub_ instanceof Servicio)
             return (((Servicio)pub_).getPrecio() * cant_);
         else

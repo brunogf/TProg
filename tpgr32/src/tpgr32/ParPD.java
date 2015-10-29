@@ -15,19 +15,16 @@ public class ParPD {
     private final DataDisponibilidad dtd_;
     
     
-    public ParPD(Publicacion dtp, DataDisponibilidad dtd)
-    {
+    public ParPD(Publicacion dtp, DataDisponibilidad dtd){
 	pub_ = dtp;
 	dtd_ = dtd;
     }
     
-    public Publicacion getPublicacion()
-    {
+    public Publicacion getPublicacion(){
 	return pub_;
     }
     
-    public DataDisponibilidad getDisponibilidad()
-    {
+    public DataDisponibilidad getDisponibilidad(){
 	return dtd_;
     }
     

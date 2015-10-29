@@ -16,8 +16,7 @@ public class FabricaControladores {
         try{
                 new CargarDatos().cargar();  
             }
-        catch(Exception ex)
-            {
+        catch(Exception ex){
                 
             }
     }

@@ -21,67 +21,55 @@ public abstract class DataUsuario {
     
     
     public DataUsuario(){}
-    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha)
-    {
+    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha){
 	nickname_ = nickname;
 	nombre_ = nombre;
 	apellido_ = apellido;
 	correo_ = correo;
 	fecha_ = fecha;
     }
-    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha, String img)
-    {
+    public DataUsuario(String nickname, String nombre, String apellido, String correo, Date fecha, String img){
 	this(nickname, nombre, apellido, correo, fecha);//llama constructor anterior
 	img_ = img;	
     }
     
-    public String getNickname()
-    {
+    public String getNickname(){
 	return nickname_;
     }
     
-    public String getNombre()
-    {
+    public String getNombre(){
 	return nombre_;
     }
     
-    public String getApellido()
-    {
+    public String getApellido(){
 	return apellido_;
     }
     
-    public String getCorreo()
-    {
+    public String getCorreo(){
 	return correo_;
     }
     
-    public Date getFecha()
-    {
+    public Date getFecha(){
 	return fecha_;
     }
     
-    public String getImage()
-    {
+    public String getImage(){
 	return img_;
     }
     
-    public void setNickname(String nick)
-    {
+    public void setNickname(String nick){
 	nickname_ = nick;
     }
     
-    public void setNombre(String nombre)
-    {
+    public void setNombre(String nombre){
 	nombre_ = nombre;
     }
     
-    public void setApellido(String ape)
-    {
+    public void setApellido(String ape){
 	apellido_ = ape;
     }
     
-    public void setCorreo(String correo)
-    {
+    public void setCorreo(String correo){
 	correo_ = correo;
     }
     
@@ -89,8 +77,7 @@ public abstract class DataUsuario {
         fecha_ = fecha;
     }
     
-    public void setImage(String img)
-    {
+    public void setImage(String img){
 	img_ = img;
     }
     

@@ -123,34 +123,29 @@ public class ControladorUsuario implements IControladorUsuario {
         return ManejadorUsuario.getInstance().getNickUsuario(usuario);
     }
     
-    public DataUsuario infoUsuario(String nickname)
-    {
+    public DataUsuario infoUsuario(String nickname){
         DataUsuario info;
         try{
             info = infoCliente(nickname);
-        }catch(Exception e)
-        {
+        }catch(Exception e){
             info = infoProveedor(nickname);
         }
         return info;
     }
     
-    public boolean existeMail(String email)
-    {
+    public boolean existeMail(String email){
         ManejadorUsuario manejador_usuario = ManejadorUsuario.getInstance();
         Set<DataUsuario> usuarios = manejador_usuario.listarClientes();
         Iterator itr = usuarios.iterator();
         boolean encontrado = false;
-        while ((itr.hasNext())&&(!encontrado))
-        {
+        while ((itr.hasNext())&&(!encontrado)){
             if ((((DataUsuario)itr.next()).getCorreo().toUpperCase()).equals(email.toUpperCase()))
                 encontrado = true;
         }
         if(!encontrado){
             usuarios = manejador_usuario.listarProveedores();
             itr = usuarios.iterator();
-            while ((itr.hasNext())&&(!encontrado))
-            {
+            while ((itr.hasNext())&&(!encontrado)){
                 if ((((DataUsuario)itr.next()).getCorreo().toUpperCase()).equals(email.toUpperCase()))
                     encontrado = true;
             }   

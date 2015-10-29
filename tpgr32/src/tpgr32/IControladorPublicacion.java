@@ -17,10 +17,8 @@ public interface IControladorPublicacion {
 
     public void agregarCategoriaServicio(String cat);
     public void altaPromocion(String nombre, String proveedor, Set<DataServicio> servicios, float descuento);
-    public void altaServicio(String nombre, String descripcion, Set<Image> img, float precio,
-        Set <String> categorias, String proveedor, DataUbicacion origen, DataUbicacion destino);
-    public void altaServicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String>categorias,
-                          String proveedor, DataUbicacion origen);
+    public void altaServicio(String nombre, String descripcion, Set<Image> img, float precio, Set <String> categorias, String proveedor, DataUbicacion origen, DataUbicacion destino);
+    public void altaServicio(String nombre, String descripcion, Set<Image> imagenes, float precio, Set<String>categorias, String proveedor, DataUbicacion origen);
     public void eliminarCategoriaServicio(String cat);
     public DataPromocion infoPromocion(String proveedor, String promo);
     public DataServicio infoServicio(String proveedor, String servicio);
