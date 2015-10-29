@@ -4683,7 +4683,7 @@ public class Interfaz extends javax.swing.JFrame {
         List<DataReserva> reservas = cr.listarReservas();
         DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
         for (DataReserva dr : reservas) {
-            res.addRow(new Object[]{dr.getNum(), cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(), df.format(dr.getCreacion()), dr.getPrecio_total()});
+            res.addRow(new Object[]{dr.getNum(), cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(), df.format(dr.getCreacion()), dr.getPrecioTotal()});
         }
 
         InfoReservaInfoPanel.setVisible(false);
@@ -4825,7 +4825,7 @@ public class Interfaz extends javax.swing.JFrame {
         DataReserva dtR = (DataReserva) this.reservasDelClienteComboBox.getSelectedItem();
 
         this.InfoReservasClienteNumero.setText(Float.toString(dtR.getNum()));
-        this.InfoReservasClientesPTotal.setText(Float.toString(dtR.getPrecio_total()));
+        this.InfoReservasClientesPTotal.setText(Float.toString(dtR.getPrecioTotal()));
         this.InfoReservasClientesEstado.setText(dtR.getEstado().toString());
         this.InfoReservasClientesFcreacion.setText(dtR.getCreacion().toString());
 
@@ -4864,15 +4864,15 @@ public class Interfaz extends javax.swing.JFrame {
                 InfoReservaSREstadoLabel.setText(dr.getStringEstado());
                 InfoReservaSRCreacionLabel.setText(df.format(dr.getCreacion()));
                 InfoReservaSRClienteLabel.setText(cr.getInfoClienteReserva(dr.getNum()).getNickname());
-                InfoReservaSRPrecioLabel.setText(Float.toString(dr.getPrecio_total()));
+                InfoReservaSRPrecioLabel.setText(Float.toString(dr.getPrecioTotal()));
                 DefaultTableModel pModel = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
                 while (InfoReservaPublicacionesTable.getRowCount() > 0) {
                     pModel.removeRow(0);//saca toas las filas de la segunda tabla
                 }
                 Set<ParDPD> publicaciones = dr.getdpd();
                 for (ParDPD p : publicaciones) {
-                    DataPublicacion dp = p.getDpub_();
-                    DataDisponibilidad dd = p.getDd_();
+                    DataPublicacion dp = p.getDpub();
+                    DataDisponibilidad dd = p.getDd();
                     if (dp instanceof DataServicio) {
                         pModel.addRow(new Object[]{"Servicio", dp.getNombre(), ((DataServicio) dp).getPrecio(), dp.getProveedor(), df.format(dd.getFechaIni()), df.format(dd.getFechaFin()), Integer.toString(dd.getCant())});
                     } else {

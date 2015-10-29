@@ -44,7 +44,7 @@ public class DataReserva {
         return estado_;
     }
 
-    public float getPrecio_total() {
+    public float getPrecioTotal() {
         return precio_total_;
     }
 

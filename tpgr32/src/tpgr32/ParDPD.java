@@ -19,11 +19,11 @@ public class ParDPD {
 	dd_ = dtd;
     }
 
-    public DataPublicacion getDpub_() {
+    public DataPublicacion getDpub() {
         return dpub_;
     }
 
-    public DataDisponibilidad getDd_() {
+    public DataDisponibilidad getDd() {
         return dd_;
     }
 }
