@@ -104,5 +104,9 @@ public class DataServicio extends DataPublicacion {
     {
         return categorias_;
     }
+    public void setProveedor(String prov)
+    {
+        proveedor_ = prov;
+    }
     
 }

@@ -50,4 +50,9 @@ public class DataPromocion extends DataPublicacion{
             throw new IllegalArgumentException("No es un servicio");
 	servicios_.add((DataServicio)ds);
     }
+    
+    public void setProveedor(String prov)
+    {
+        proveedor_ = prov;
+    }
 }

@@ -10,8 +10,8 @@ package tpgr32;
  * @author Nicolás Rostán
  */
 public abstract class DataPublicacion {
-    private String nombre_;
-    private String proveedor_;
+    protected String nombre_;
+    protected String proveedor_;
     
     public DataPublicacion()
     {
