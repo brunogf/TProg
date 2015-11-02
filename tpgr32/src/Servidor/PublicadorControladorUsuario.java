@@ -14,6 +14,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Endpoint;
+import tpgr32.DataCliente;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorUsuario;
 
@@ -51,12 +52,14 @@ public class PublicadorControladorUsuario {
     @WebMethod
     public void altaCliente(String nickname,String nombre,String apellido,String correo,Date fnac,String pass) throws Exception{
         IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
-        try{
-            cusr.altaCliente(nickname, nombre, apellido, correo, fnac, pass);
-        }catch(Exception e)
-        {
-            throw e;
-        }
+        cusr.altaCliente(nickname, nombre, apellido, correo, fnac, pass);
+
+    }
+    
+    @WebMethod
+    public DataCliente infoUsuario(String nickname){
+       IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+       return (DataCliente)cusr.infoCliente(nickname);
     }
     
     

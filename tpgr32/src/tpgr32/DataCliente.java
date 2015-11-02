@@ -6,10 +6,14 @@
 package tpgr32;
 import java.awt.Image;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 /**
  *
  * @author Nicolás Rostán
  */
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataCliente extends DataUsuario {
     private Set<DataReserva> reservas_;
     public DataCliente(){}
