@@ -25,6 +25,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.xml.ws.Endpoint;
 import tpgr32.DataCliente;
 import tpgr32.DataProveedor;
+import tpgr32.DataProveedorBean;
 import tpgr32.DataPublicacion;
 import tpgr32.DataUsuario;
 import tpgr32.FabricaControladores;
@@ -124,13 +125,35 @@ public class PublicadorControladorUsuario {
     @WebMethod
     public DataCliente infoCliente(String nickname){
        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
-       return (DataCliente)cusr.infoCliente(nickname);
+       DataCliente dtc;
+       try{
+           dtc = (DataCliente)cusr.infoCliente(nickname);
+       }catch(Exception e){
+           dtc = null;
+       }
+       return dtc;
     }
     
     @WebMethod
-    public DataProveedor infoProveedor(String nickname){
+    public DataProveedorBean infoProveedor(String nickname){
        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
-       return (DataProveedor)cusr.infoProveedor(nickname);
+       DataProveedor dtp; 
+       try{
+           dtp = (DataProveedor)cusr.infoProveedor(nickname);
+       }catch(Exception e){
+           dtp = null;
+       }
+       return new DataProveedorBean(dtp.getNickname(), dtp.getNombre(), dtp.getApellido(), dtp.getCorreo(), dtp.getFecha(), dtp.getEmpresa(), dtp.getURL());
+    }
+    
+    @WebMethod
+    public DataUsuario infoUsuario(String nickname){
+       IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+       DataUsuario dtu; 
+       dtu = cusr.infoUsuario(nickname);
+       if (dtu instanceof DataProveedor)
+           return new DataProveedorBean(dtu.getNickname(), dtu.getNombre(), dtu.getApellido(), dtu.getCorreo(), dtu.getFecha(), ((DataProveedor)dtu).getEmpresa(),((DataProveedor)dtu).getURL());
+       return dtu;
     }
     
     @WebMethod
@@ -153,7 +176,8 @@ public class PublicadorControladorUsuario {
        DataUsuario[] adtu = new DataUsuario[sdtu.size()];
        int i = 0;
        for(DataUsuario dtu : sdtu){
-           adtu[i] = dtu;
+           if (dtu instanceof DataProveedor)
+                adtu[i] = new DataProveedorBean(dtu.getNickname(), dtu.getNombre(), dtu.getApellido(), dtu.getCorreo(), dtu.getFecha(), ((DataProveedor)dtu).getEmpresa(),((DataProveedor)dtu).getURL());;
            i++;
        }
        return adtu; 
