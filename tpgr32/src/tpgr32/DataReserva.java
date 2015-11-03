@@ -7,11 +7,14 @@ package tpgr32;
 
 import java.util.Date;
 import java.util.Set;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author bruno
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataReserva {
     private int num_;
     private String cliente_;

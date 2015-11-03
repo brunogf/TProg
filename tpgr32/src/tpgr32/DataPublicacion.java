@@ -5,10 +5,14 @@
  */
 package tpgr32;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author Nicolás Rostán
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class DataPublicacion {
     protected String nombre_;
     protected String proveedor_;

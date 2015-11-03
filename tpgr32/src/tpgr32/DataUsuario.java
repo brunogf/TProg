@@ -6,11 +6,18 @@
 package tpgr32;
 import java.awt.Image;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementRef;
+import javax.xml.bind.annotation.XmlElementRefs;
+import javax.xml.bind.annotation.XmlSeeAlso;
+
 
 /**
  *
  * @author Nicolás Rostán
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class DataUsuario {
     private String nickname_;
     private String nombre_;

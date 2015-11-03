@@ -7,11 +7,15 @@ package tpgr32;
 
 import java.awt.Image;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Nicolás Rostán
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataProveedor extends DataUsuario{
     private String nombre_empresa_;
     private String url_;
