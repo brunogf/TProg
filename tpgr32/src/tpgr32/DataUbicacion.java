@@ -5,10 +5,14 @@
  */
 package tpgr32;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author piñe
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataUbicacion {
     
     private String pais_;
