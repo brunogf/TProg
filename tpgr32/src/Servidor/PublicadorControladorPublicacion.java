@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.FileReader;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,11 +17,16 @@ import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
+import javax.swing.tree.DefaultTreeModel;
 import javax.xml.ws.Endpoint;
+import tpgr32.CatTree;
+import tpgr32.DataPromocion;
+import tpgr32.DataPublicacion;
 import tpgr32.DataServicio;
 import tpgr32.DataServicioBean;
 import tpgr32.DataUbicacion;
 import tpgr32.FabricaControladores;
+import tpgr32.IControladorPublicacion;
 
 /**
  *
@@ -30,6 +36,8 @@ import tpgr32.FabricaControladores;
 @SOAPBinding(style = SOAPBinding.Style.RPC, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 public class PublicadorControladorPublicacion {
     private Endpoint endpoint = null;
+    //private IControladorPublicacion cpub = null;
+    
     
     public PublicadorControladorPublicacion(){}
     
@@ -53,10 +61,6 @@ public class PublicadorControladorPublicacion {
     }
     
     
-    @WebMethod
-    public void agregarCategoriaServicio(String cat){
-        FabricaControladores.getInstancia().getControladorPublicacion().agregarCategoriaServicio(cat);
-    }
     
     @WebMethod
     public void altaPromocion(String nombre, String proveedor, DataServicioBean[] servicios, float descuento){
@@ -113,10 +117,260 @@ public class PublicadorControladorPublicacion {
     }
     
     
-    @WebMethod
+    /*@WebMethod
     public void eliminarCategoriaServicio(String cat){
-        FabricaControladores.getInstancia().getControladorPublicacion().eliminarCategoriaServicio(cat);
+        cpub.eliminarCategoriaServicio(cat);
+    }*/
+    
+    @WebMethod
+    public DataPromocion infoPromocion(String proveedor, String promo){
+        return FabricaControladores.getInstancia().getControladorPublicacion().infoPromocion(proveedor, promo);
     }
     
+    @WebMethod
+    public DataServicioBean infoServicio(String proveedor, String servicio){
+        DataServicio dts = FabricaControladores.getInstancia().getControladorPublicacion().infoServicio(proveedor, servicio);
+        String[] cats = new String[dts.getCategorias().size()];
+        int iter = 0;
+        for (String cat : dts.getCategorias()){
+            cats[iter] = cat;
+            iter++;
+        }
+        DataServicioBean dtsb = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(), cats);
+        
+        Set<Image> simg = dts.getImagenes();
+        byte[][] imagenes = new byte[simg.size()][];
+        iter = 0;
+        BufferedImage bimg = null;
+        ByteArrayOutputStream bArray = new ByteArrayOutputStream();
+        for(Image img : simg){
+            if (img != null){
+                try{
+                    ImageIO.write((BufferedImage)img, "jpg", bArray);
+                    imagenes[iter] = bArray.toByteArray();
+                    bArray = null;
+                }catch(Exception e){
+                    imagenes[iter] = null;
+                }
+            }
+            iter++;
+        }
+        dtsb.setImagenes(imagenes);
+        return dtsb;
+    }
+    
+    @WebMethod
+    public DataPromocion[] listarPromociones(){
+        Set<DataPromocion> sdtp = FabricaControladores.getInstancia().getControladorPublicacion().listarPromociones();
+        DataPromocion[] ret = new DataPromocion[sdtp.size()];
+        int iter = 0;
+        for(DataPromocion dtp : sdtp){
+            ret[iter] = dtp;
+            iter++;
+        }
+        return ret;
+    }
+    
+    @WebMethod
+    public DataServicioBean[] listarServicios(){
+        Set<DataServicio> sdts = FabricaControladores.getInstancia().getControladorPublicacion().listarServicios();
+        DataServicioBean[] ret = new DataServicioBean[sdts.size()];
+        int iter = 0;
+        String[] cats;
+        for(DataServicio dts : sdts){
+            cats = new String[dts.getCategorias().size()];
+            int iter2 = 0;
+            for (String cat : dts.getCategorias()){
+                cats[iter2] = cat;
+            iter2++;
+            }
+            
+            ret[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats);
+            
+            iter2 = 0;                
+            Set<Image> simg = dts.getImagenes();
+            if ((simg != null) &&(simg.size() > 0)){
+                byte[][] imagenes = new byte[simg.size()][];
+                ByteArrayOutputStream bArray = new ByteArrayOutputStream();
+                for(Image img : simg){
+                    if (img != null){
+                        try{
+                            ImageIO.write((BufferedImage)img, "jpg", bArray);
+                            imagenes[iter2] = bArray.toByteArray();
+                            bArray = null;
+                        }catch(Exception e){
+                            imagenes[iter2] = null;
+                        }
+                    }
+                    iter2++;
+                }
+            }
+            iter++;
+            
+        }
+        return ret;
+    }
+    
+    @WebMethod
+    public DataServicioBean[] listarServiciosDeCategoria(String cat){
+        Set<DataServicio> sdts = FabricaControladores.getInstancia().getControladorPublicacion().listarServiciosDeCategoria(cat);
+        DataServicioBean[] ret = new DataServicioBean[sdts.size()];
+        int iter = 0;
+        String[] cats;
+        for(DataServicio dts : sdts){
+            cats = new String[dts.getCategorias().size()];
+            int iter2 = 0;
+            for (String categoria : dts.getCategorias()){
+                cats[iter2] = categoria;
+            iter2++;
+            }
+            
+            ret[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats);
+            
+            iter2 = 0;                
+            Set<Image> simg = dts.getImagenes();
+            if ((simg != null) &&(simg.size() > 0)){
+                byte[][] imagenes = new byte[simg.size()][];
+                ByteArrayOutputStream bArray = new ByteArrayOutputStream();
+                for(Image img : simg){
+                    if (img != null){
+                        try{
+                            ImageIO.write((BufferedImage)img, "jpg", bArray);
+                            imagenes[iter2] = bArray.toByteArray();
+                            bArray = null;
+                        }catch(Exception e){
+                            imagenes[iter2] = null;
+                        }
+                    }
+                    iter2++;
+                }
+                ret[iter].setImagenes(imagenes);
+            }
+            iter++;
+            
+        }
+        return ret;
+    }
+    
+    /*@WebMethod
+    public void modificarDescripcionServicio(String des){
+        cpub.modificarDescripcionServicio(des);
+    }
+    
+    @WebMethod
+    public void modificarImagenesServicio(byte[][] imagenes){
+        Set<Image> imgs= new HashSet<Image>();
+        BufferedImage bimg = null;
+        for(int i = 0; i < imagenes.length; i++){
+            try{
+                bimg = ImageIO.read(new ByteArrayInputStream(imagenes[i]));
+            }catch(Exception e){
+                System.out.print("Error al leer una imagen en altaServicioSinDestino linea 81");
+            }
+            imgs.add(bimg);
+        }
+        
+        cpub.modificarImagenesServicio(imgs);
+    }
+    
+    @WebMethod
+    public void modificarPrecioServicio(float precio){
+        cpub.modificarPrecioServicio(precio);
+    }
+    
+    @WebMethod
+    public void eliminarDestinoServicio(){
+        cpub.eliminarDestinoServicio();
+    }*/
+    
+    @WebMethod
+    public void registrarCategoria(String nombre){
+        FabricaControladores.getInstancia().getControladorPublicacion().registrarCategoria(nombre);
+    }
+    
+    @WebMethod
+    public void registrarCategoriaConPadre(String nombre, String padre){
+        FabricaControladores.getInstancia().getControladorPublicacion().registrarCategoria(nombre, padre);
+    }
+    /*
+    @WebMethod
+    public void seleccionarServicio(String proveedor, String nombre){
+        cpub = FabricaControladores.getInstancia().getControladorPublicacion();
+        cpub.seleccionarServicio(proveedor, nombre);
+    }*/
+    
+    @WebMethod
+    public DataPublicacion[] buscarPublicacion(String criterio){
+        Set<DataPublicacion> sdtp = FabricaControladores.getInstancia().getControladorPublicacion().buscarPublicacion(criterio);
+        DataPublicacion[] adtp = new DataPublicacion[sdtp.size()];
+        int iter = 0;
+        for(DataPublicacion dtp : sdtp){
+            if(dtp instanceof DataServicio){
+                String[] cats;
+                cats = new String[((DataServicio)dtp).getCategorias().size()];
+                int iter2 = 0;
+                for (String categoria : ((DataServicio)dtp).getCategorias()){
+                    cats[iter2] = categoria;
+                iter2++;
+                }
+                adtp[iter] = new DataServicioBean(dtp.getNombre(), ((DataServicio)dtp).getDescripcion(), ((DataServicio)dtp).getPrecio(),((DataServicio)dtp).getProveedor(), cats);
+            }
+            else
+                adtp[iter] = dtp;
+            iter++;
+        }
+        return adtp;
+    }
+    
+    @WebMethod
+    public DataPublicacion[] buscarPublicacionCompleta(String criterio){
+        Set<DataPublicacion> sdtp = FabricaControladores.getInstancia().getControladorPublicacion().buscarPublicacionCompleta(criterio);
+        DataPublicacion[] adtp = new DataPublicacion[sdtp.size()];
+        int iter = 0;
+        for(DataPublicacion dtp : sdtp){
+            if(dtp instanceof DataServicio){
+                String[] cats;
+                cats = new String[((DataServicio)dtp).getCategorias().size()];
+                int iter2 = 0;
+                for (String categoria : ((DataServicio)dtp).getCategorias()){
+                    cats[iter2] = categoria;
+                iter2++;
+                }
+                adtp[iter] = new DataServicioBean(dtp.getNombre(), ((DataServicio)dtp).getDescripcion(), ((DataServicio)dtp).getPrecio(),((DataServicio)dtp).getProveedor(), cats);
+                //Si es necsario ver imagenes en datatypes de este metodo borrar comentario
+                /*
+                Set<Image> simg = ((DataServicio)dtp).getImagenes();
+                iter2 = 0;                
+                if ((simg != null) &&(simg.size() > 0)){
+                    byte[][] imagenes = new byte[simg.size()][];
+                    ByteArrayOutputStream bArray = new ByteArrayOutputStream();
+                    for(Image img : simg){
+                        if (img != null){
+                            try{
+                                ImageIO.write((BufferedImage)img, "jpg", bArray);
+                                imagenes[iter2] = bArray.toByteArray();
+                                bArray = null;
+                            }catch(Exception e){
+                                imagenes[iter2] = null;
+                            }
+                        }
+                        iter2++;
+                    }
+                    
+                    ((DataServicioBean)adtp[iter]).setImagenes(imagenes);
+                }*/
+            }
+            else
+                adtp[iter] = dtp;
+            iter++;
+        }
+        return adtp;
+    }
+    
+    
+    @WebMethod
+     public CatTree getCatTree(){
+         return FabricaControladores.getInstancia().getControladorPublicacion().getCatTree();
+     }
     
 }

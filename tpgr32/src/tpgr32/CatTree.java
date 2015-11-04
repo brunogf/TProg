@@ -7,12 +7,14 @@ package tpgr32;
 
 import java.util.HashSet;
 import java.util.Set;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author Nico
  */
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CatTree {
    private String cat_;
    private Set<CatTree> hijos_;

@@ -5,11 +5,14 @@
  */
 package tpgr32;
 import java.util.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author Nicolás Rostán
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataPromocion extends DataPublicacion{
     private float descuento_;
     private float precioTotal_;
