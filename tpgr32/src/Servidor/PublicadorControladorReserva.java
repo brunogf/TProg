@@ -18,9 +18,11 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.Endpoint;
+import tpgr32.DataCliente;
 import tpgr32.DataReserva;
 import tpgr32.DataServicio;
 import tpgr32.DataServicioBean;
+import tpgr32.DataUsuario;
 import tpgr32.Estado;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorReserva;
@@ -62,7 +64,7 @@ public class PublicadorControladorReserva {
     }
     
     @WebMethod
-    public void generarReserva(ParDPD[] apdpd, String nickname){
+    public int generarReserva(ParDPD[] apdpd, String nickname){
         IControladorReserva cont_r = FabricaControladores.getInstancia().getControladorReserva();
         cont_r.borrarPublicacionesSeleccionadas();
         for (int i = 0; i < apdpd.length; i++){
@@ -70,7 +72,7 @@ public class PublicadorControladorReserva {
             cont_r.seleccionarCliente(nickname);
             cont_r.seleccionarPublicacion(apdpd[i].getDpub().getNombre(),apdpd[i].getDd().getCant(),apdpd[i].getDd().getFechaIni(),apdpd[i].getDd().getFechaFin());
         }
-        cont_r.confirmarReserva(); 
+        return cont_r.confirmarReserva(); 
     }
     
     @WebMethod
@@ -98,5 +100,10 @@ public class PublicadorControladorReserva {
         }
         r.setParDPD(sdpd);
         return r;
+    }
+    
+    @WebMethod
+    public DataUsuario getInfoClienteReserva(int nro){
+        return FabricaControladores.getInstancia().getControladorReserva().getInfoClienteReserva(nro);
     }
 }

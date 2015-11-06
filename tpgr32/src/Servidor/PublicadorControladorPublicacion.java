@@ -372,5 +372,29 @@ public class PublicadorControladorPublicacion {
      public CatTree getCatTree(){
          return FabricaControladores.getInstancia().getControladorPublicacion().getCatTree();
      }
+     
+     @WebMethod
+     public DataServicioBean[] listarServiciosDePromocion(String proveedor, String promo){
+         DataPromocion dtp = FabricaControladores.getInstancia().getControladorPublicacion().infoPromocion(proveedor, promo);
+         Set<DataServicio> sdts = dtp.getServicios();
+         DataServicioBean[] dtsba = null;
+         if ((sdts != null)|| (!sdts.isEmpty())){
+             int iter = 0;
+             dtsba = new DataServicioBean[sdts.size()];
+             for(DataServicio dts : sdts){
+                String[] cats;
+                cats = new String[dts.getCategorias().size()];
+                int iter2 = 0;
+                for (String categoria : dts.getCategorias()){
+                    cats[iter2] = categoria;
+                iter2++;
+                }
+                dtsba[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(), cats);
+                iter++;
+             }
+             
+         }
+         return dtsba;
+     }
     
 }
