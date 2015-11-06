@@ -6,11 +6,14 @@
 package tpgr32;
 
 import java.util.Date;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 /**
  *
  * @author piñe
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DataDisponibilidad {
     
     private int cant_;

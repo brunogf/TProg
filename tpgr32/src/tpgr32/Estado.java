@@ -5,10 +5,14 @@
  */
 package tpgr32;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author bruno
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public enum Estado {
     Registrada, Cancelada, Pagada, Facturada
 }

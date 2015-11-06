@@ -7,6 +7,7 @@ package Interfaz;
 
 import Interfaz.ActualizarServicioInternalFrame;
 import Servidor.PublicadorControladorPublicacion;
+import Servidor.PublicadorControladorReserva;
 import Servidor.PublicadorControladorUsuario;
 import java.awt.Image;
 import java.util.*;
@@ -76,6 +77,7 @@ public class Interfaz extends javax.swing.JFrame {
         PublicadorControladorUsuario pcu = new PublicadorControladorUsuario();
         pcu.publicar();
         (new PublicadorControladorPublicacion()).publicar();
+        (new PublicadorControladorReserva()).publicar();
         initComponents();
         fabrica = FabricaControladores.getInstancia();
         setLocationRelativeTo(null); //Centra el MainFrame en la pantalla

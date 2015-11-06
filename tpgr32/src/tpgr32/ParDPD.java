@@ -5,10 +5,14 @@
  */
 package tpgr32;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author Bruno González
  */
+@XmlAccessorType(XmlAccessType.FIELD)
 public class ParDPD {
     
     private final DataPublicacion dpub_;
