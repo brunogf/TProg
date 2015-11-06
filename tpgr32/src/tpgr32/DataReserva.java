@@ -59,6 +59,10 @@ public class DataReserva {
         dpd_.add(dpd);
     }
     
+    public void setParDPD(Set<ParDPD> dpd){
+        dpd_ = dpd;
+    }
+    
     public String getCliente(){
         return cliente_;
     }

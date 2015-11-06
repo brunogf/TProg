@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ParDPD {
     
-    private final DataPublicacion dpub_;
+    private DataPublicacion dpub_;
     private final DataDisponibilidad dd_;
     
     public ParDPD(DataPublicacion dtp, DataDisponibilidad dtd){
@@ -29,5 +29,9 @@ public class ParDPD {
 
     public DataDisponibilidad getDd() {
         return dd_;
+    }
+    
+    public void setDataPub(DataPublicacion dt){
+        dpub_ = dt;
     }
 }

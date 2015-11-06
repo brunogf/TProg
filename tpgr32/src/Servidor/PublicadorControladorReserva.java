@@ -11,12 +11,16 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.ws.Endpoint;
 import tpgr32.DataReserva;
+import tpgr32.DataServicio;
+import tpgr32.DataServicioBean;
 import tpgr32.Estado;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorReserva;
@@ -78,6 +82,21 @@ public class PublicadorControladorReserva {
     
     @WebMethod
     public DataReserva infoReserva(int nro){
-        return FabricaControladores.getInstancia().getControladorReserva().infoReserva(nro);
+        DataReserva r = FabricaControladores.getInstancia().getControladorReserva().infoReserva(nro);
+        Set<ParDPD> sdpd = r.getdpd();
+        for(ParDPD pdpd : sdpd){
+            if(pdpd.getDpub() instanceof DataServicio){
+                Set<String> categorias = ((DataServicio)(pdpd.getDpub())).getCategorias();
+                String[] cats = new String[categorias.size()];
+                int iter = 0;
+                for (String c : categorias){
+                    cats[iter] = c;
+                    iter++;
+                }
+                pdpd.setDataPub(new DataServicioBean(((DataServicio)(pdpd.getDpub())).getNombre(), ((DataServicio)(pdpd.getDpub())).getDescripcion(), ((DataServicio)(pdpd.getDpub())).getPrecio(), ((DataServicio)(pdpd.getDpub())).getProveedor(),cats));
+            }
+        }
+        r.setParDPD(sdpd);
+        return r;
     }
 }

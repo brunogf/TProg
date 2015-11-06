@@ -7,12 +7,14 @@ package tpgr32;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlSeeAlso;
 
 /**
  *
  * @author Nicolás Rostán
  */
 @XmlAccessorType(XmlAccessType.FIELD)
+ @XmlSeeAlso({DataServicioBean.class,DataPromocion.class})
 public abstract class DataPublicacion {
     protected String nombre_;
     protected String proveedor_;
