@@ -226,4 +226,13 @@ public class PublicadorControladorUsuario {
     public boolean existeMail(String email){
         return FabricaControladores.getInstancia().getControladorUsuario().existeMail(email);
     }
+    
+    @WebMethod
+    public boolean tieneImagen(String nickname){
+        DataUsuario dtu = FabricaControladores.getInstancia().getControladorUsuario().infoUsuario(nickname);
+        boolean tiene = false;
+        if((dtu.getImage() != null)&&(!dtu.getImage().isEmpty()))
+            tiene = true;
+        return tiene;
+    }
 }
