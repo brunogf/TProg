@@ -5,6 +5,8 @@
  */
 package Servidor;
 
+import com.google.gson.Gson;
+import com.google.gson.internal.LinkedTreeMap;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.text.DateFormat;
@@ -63,15 +65,43 @@ public class PublicadorControladorReserva {
         FabricaControladores.getInstancia().getControladorReserva().actualizarEstado(num, est);
     }
     
+    
     @WebMethod
-    public int generarReserva(ParDPD[] apdpd, String nickname){
+    public int generarReserva(String jsonParDPDCollection, String nickname){
         IControladorReserva cont_r = FabricaControladores.getInstancia().getControladorReserva();
-        cont_r.borrarPublicacionesSeleccionadas();
-        for (int i = 0; i < apdpd.length; i++){
-            cont_r.seleccionarProveedor(apdpd[i].getDpub().getProveedor());
+        Set<LinkedTreeMap> st = new Gson().fromJson(jsonParDPDCollection, HashSet.class);
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        for(LinkedTreeMap ltm : st){
+            LinkedTreeMap dpub = (LinkedTreeMap)ltm.get("dpub");
+            LinkedTreeMap dd = (LinkedTreeMap)ltm.get("dd");      
+            String nombre = (String)dpub.get("nombre");
+            String proveedor = (String)dpub.get("proveedor");
+            Double o = (Double)dd.get("cant");
+            int cant = o.intValue();
+            LinkedTreeMap fini = (LinkedTreeMap) dd.get("fechaIni"); 
+            LinkedTreeMap ffin = (LinkedTreeMap) dd.get("fechaFin");
+            int dia = ((Double)(fini.get("day"))).intValue();
+            int MM = ((Double)(fini.get("month"))).intValue();
+            int year = ((Double)(fini.get("year"))).intValue();
+            String dte = "";
+            dte = dte + Integer.toString(dia)+ "-" + Integer.toString(MM) +"-"+ Integer.toString(year);
+            Date dateini;
+            try{
+             dateini = df.parse(dte);
+            }catch(Exception e){dateini = new Date();}
+            dia = ((Double)(ffin.get("day"))).intValue();
+            MM = ((Double)(ffin.get("month"))).intValue();
+            year = ((Double)(ffin.get("year"))).intValue();
+            dte = "" + Integer.toString(dia)+ "-" + Integer.toString(MM) +"-"+ Integer.toString(year);
+            Date datefin;
+            try{
+             datefin = df.parse(dte);
+            }catch(Exception e){datefin = new Date();}
+            cont_r.seleccionarProveedor(proveedor);
             cont_r.seleccionarCliente(nickname);
-            cont_r.seleccionarPublicacion(apdpd[i].getDpub().getNombre(),apdpd[i].getDd().getCant(),apdpd[i].getDd().getFechaIni(),apdpd[i].getDd().getFechaFin());
+            cont_r.seleccionarPublicacion(nombre, cant, dateini, datefin);
         }
+        
         return cont_r.confirmarReserva(); 
     }
     
