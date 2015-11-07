@@ -4,7 +4,12 @@
  * and open the template in the editor.
  */
 package tpgr32;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 
 /**
  *
@@ -121,7 +126,91 @@ public class Reserva {
         }
         if(flag){//Facturar
             estado_ = Estado.Facturada;
-            //NOTIFICAR A CLIENTE!
+            //NOTIFICAR A CLIENTE Y CREAR COLUMNA EN DTB!
+            // Recipient's email ID needs to be mentioned.
+            String to = cliente_.getCorreoElectronico().toLowerCase();
+
+            // Sender's email ID needs to be mentioned
+            String from = "do_not_respond@h4t.com";
+
+            // Assuming you are sending email from localhost
+            String host = "localhost";
+
+            // Get system properties
+            Properties properties = System.getProperties();
+
+            // Setup mail server
+            properties.setProperty("mail.smtp.host", host);
+
+            // Get the default Session object.
+            Session session = Session.getDefaultInstance(properties);
+
+            try{
+               // Create a default MimeMessage object.
+               MimeMessage message = new MimeMessage(session);
+
+               // Set From: header field of the header.
+               message.setFrom(new InternetAddress(from));
+
+               // Set To: header field of the header.
+               message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+               // Set Subject: header field
+               DateFormat df = new SimpleDateFormat("dd-MM-yyyy HH:mm");
+               message.setSubject("[Help4Traveling] [" + df.format(new Date()) + "]");
+
+               // Now set the actual message
+               String Message = "Estimado " + cliente_.getNombre() + " " + cliente_.getApellido();
+               Message = Message + ". Su compra ha sido facturada con exito: \n\n";
+               Message = Message + "--Detalles de la compra\n";
+               for(ReservaPublicacion rsp : rp_){
+                   ParDPD pdpd = rsp.infoReservaPublicacion();
+                   boolean flag2 = false;
+                   if(pdpd.getDpub() instanceof DataServicio){
+                       if (!flag2){
+                           Message = Message + "-Servicios:\n";
+                           flag2 = true;
+                       }
+                       Message = Message + "   -Nombre: " + pdpd.getDpub().getNombre();
+                       Message = Message + " -Cantidad: " + Integer.toString(pdpd.getDd().getCant());
+                       Message = Message + " -$" + String.format("%.2f",(pdpd.getDd().getCant() * ((DataServicio)pdpd.getDpub()).getPrecio()));
+                       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+                       DataUsuario dtu = cu.infoProveedor(pdpd.getDpub().getProveedor());
+                       
+                       Message = Message + " -Proveedor: " + dtu.getNombre() + " " + dtu.getApellido() + "\n";
+                   }
+               }
+                for(ReservaPublicacion rsp : rp_){
+                   ParDPD pdpd = rsp.infoReservaPublicacion();
+                   boolean flag2 = false;
+                   if(pdpd.getDpub() instanceof DataPromocion){
+                       if (!flag2){
+                           Message = Message + "-Promociones:\n";
+                           flag2 = true;
+                       }
+                       Message = Message + "   -Nombre: " + pdpd.getDpub().getNombre();
+                       Message = Message + " -Cantidad: " + Integer.toString(pdpd.getDd().getCant());
+                       Message = Message + " -$" + String.format("%.2f",(pdpd.getDd().getCant() * ((DataPromocion)pdpd.getDpub()).getPrecioTotal()));
+                       IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
+                       DataUsuario dtu = cu.infoProveedor(pdpd.getDpub().getProveedor());
+                       
+                       Message = Message + " -Proveedor: " + dtu.getNombre() + " " + dtu.getApellido() + "\n";
+                   }
+                }
+                
+                Message = Message + "-Precio total: $" + String.format("%.2f", precio_total_) + "\n";
+                
+                Message = Message + "\n\nGracias por preferirnos,\nSaludos.\nHelp4Traveling";
+               
+               message.setText(Message);
+
+               // Send message
+               Transport.send(message);
+               System.out.println("Sent message successfully....");
+            }catch (MessagingException mex) {
+               System.out.println("Error al enviar el correo... revisar el servidor.");
+            }
+            
         }
     }
     
