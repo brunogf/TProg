@@ -124,4 +124,11 @@ public class Proveedor extends Usuario {
         return p.infoPublicacionCompleto();
     }
     
+    public void facturarReserva(int nro){
+        for(String key : this.publicaciones_.keySet()) {
+            Publicacion p = this.publicaciones_.get(key);
+            p.facturarReserva(nro);
+        }
+    }
+    
 }

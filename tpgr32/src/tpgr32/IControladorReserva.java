@@ -30,5 +30,6 @@ public interface IControladorReserva {
     public DataProveedor getInfoProveedorSeleccionado();
     public void borrarPublicacionesSeleccionadas();
     public int getNumeroReservas();//retorna el ultimo numero usado por una reserva
-    public void cambiarFechaCreacionReserva(Date fecha, int res);        
+    public void cambiarFechaCreacionReserva(Date fecha, int res);   
+    public void facturarReserva(String nickname, int nro);
 }

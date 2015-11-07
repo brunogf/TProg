@@ -18,10 +18,12 @@ public class ReservaPublicacion {
     private int cant_;
     private Publicacion pub_;
     private Reserva res_;
+    boolean facturada;
     
     
     public ReservaPublicacion(){
 	//default constructor
+        facturada = false;
     }
     
     public ReservaPublicacion(Reserva res, Publicacion pub, Date inicio, Date fin, int cant){
@@ -30,6 +32,7 @@ public class ReservaPublicacion {
         fechaIni_ = inicio;
         fechaFin_ = fin;
         cant_ = cant;
+        facturada = false;
     }
     
     public ReservaPublicacion(Reserva res, Publicacion pub, DataDisponibilidad dtd){
@@ -51,6 +54,7 @@ public class ReservaPublicacion {
     public Reserva getReserva(){
         return res_;
     }
+    
     
     public float getPrecioTotal(){
 	if (pub_ instanceof Servicio)
@@ -75,6 +79,20 @@ public class ReservaPublicacion {
      public int getCant () {
         return this.cant_;
     }
+     
+     public int getNroReserva(){
+         return res_.getNumero();
+     }
+     
+     public boolean estaFacturada(){
+         return facturada;
+     }
+     
+     public void facturarReserva(){
+        facturada = true;
+        if (res_.getEstado() != Estado.Facturada)
+            res_.notificarFacturacion();
+     }
 }
 
 

@@ -155,6 +155,10 @@ public class IControladorReservaTest {
 
         public void cambiarFechaCreacionReserva(Date fecha, int res) {
         }
+        
+        public void facturarReserva(String nickname, int nro){
+            
+        }
     }
     
 }

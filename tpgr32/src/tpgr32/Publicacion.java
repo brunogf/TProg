@@ -51,5 +51,13 @@ public abstract class Publicacion {
     }
     
     public abstract DataPublicacion infoPublicacion();
+    
+    public void facturarReserva(int nro){
+        for(ReservaPublicacion rp : rp_){
+            if (rp.getNroReserva() == nro){
+                rp.facturarReserva();
+            }
+        }
+    }
 
 }

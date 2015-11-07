@@ -113,5 +113,16 @@ public class Reserva {
     }
     //agregar Publicacion (servicio o promocion)
     
+    public void notificarFacturacion(){
+        Iterator iter = rp_.iterator();
+        boolean flag = true;
+        while(iter.hasNext() && flag){
+            flag = ((ReservaPublicacion)iter.next()).estaFacturada();
+        }
+        if(flag){//Facturar
+            estado_ = Estado.Facturada;
+            //NOTIFICAR A CLIENTE!
+        }
+    }
     
 }
