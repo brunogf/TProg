@@ -148,7 +148,7 @@ public class PublicadorControladorPublicacion {
                 try{
                     ImageIO.write((BufferedImage)img, "jpg", bArray);
                     imagenes[iter] = bArray.toByteArray();
-                    bArray = null;
+                    bArray = new ByteArrayOutputStream();
                 }catch(Exception e){
                     imagenes[iter] = null;
                 }
