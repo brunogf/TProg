@@ -133,7 +133,8 @@ public class PublicadorControladorReserva {
     }
     
     @WebMethod
-    public DataUsuario getInfoClienteReserva(int nro){
-        return FabricaControladores.getInstancia().getControladorReserva().getInfoClienteReserva(nro);
+    public String getClienteReserva(int nro){
+        DataUsuario dtu = FabricaControladores.getInstancia().getControladorReserva().getInfoClienteReserva(nro);
+        return dtu.getNickname();
     }
 }
