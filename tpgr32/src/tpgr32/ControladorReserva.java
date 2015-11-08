@@ -5,6 +5,14 @@
  */
 package tpgr32;
 
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -13,6 +21,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -172,4 +184,33 @@ public class ControladorReserva implements IControladorReserva{
             ((Proveedor)prov).facturarReserva(nro);
         }       
     }
+    
+    public byte[] obtenerFactura(int id){
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try{
+            EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("tpgr32PU");
+            EntityManager em = emf.createEntityManager();
+            Facturas factura = em.find(Facturas.class, id);
+            Document document = new Document();
+            PdfWriter.getInstance(document, baos);
+            document.open();
+            DateFormat df = new SimpleDateFormat("dd-MM-yyy");
+            String infoFactura = "Nro: " + factura.getNroReserva() + "\n";
+            infoFactura = infoFactura + "Cliente: " + factura.getNickCliente() + "\n";
+            infoFactura = infoFactura + "Fecha: " + df.format(factura.getFechaGenerada()) + "\n";
+            infoFactura = infoFactura + "Precio total: $" + String.format("%.2f", factura.getMontoTotal());
+            document.add(new Paragraph(infoFactura));
+            //Query query = em.createNamedQuery("SELECT pf FROM PublicacionFactura pf", PublicacionFactura.class);
+            //List<PublicacionFactura> lista = query.getResultList();
+            document.close();
+            
+            //FileOutputStream fos = new FileOutputStream("D://generated.pdf");
+            //fos.write(baos.toByteArray());
+            //fos.close();
+        }catch(Exception e){
+            System.out.print(e.getMessage());
+        }
+        return baos.toByteArray();
+    }
+    
 }

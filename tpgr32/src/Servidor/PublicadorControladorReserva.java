@@ -142,4 +142,9 @@ public class PublicadorControladorReserva {
     public void facturarReserva(String nick, int nro){
         FabricaControladores.getInstancia().getControladorReserva().facturarReserva(nick, nro);
     }
+    
+    @WebMethod
+    public byte[] obtenerFactura(int id){
+        return FabricaControladores.getInstancia().getControladorReserva().obtenerFactura(id);
+    }
 }

@@ -159,6 +159,10 @@ public class IControladorReservaTest {
         public void facturarReserva(String nickname, int nro){
             
         }
+        
+        public byte[] obtenerFactura(int id){
+            return null;
+        }
     }
     
 }
