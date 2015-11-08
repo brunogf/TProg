@@ -239,6 +239,8 @@ public class Reserva {
                 
                 Message = Message + "-Precio total: $" + String.format("%.2f", precio_total_) + "\n";
                 
+                Message = Message + " Puedes ver la factura siguiendo este link: <a href='http://localhost:8080/t2tpgr32/VerFactura?id=" + factura.getId() + "'>Ver factura</a>\n";
+                
                 Message = Message + "\n\nGracias por preferirnos,\nSaludos.\nHelp4Traveling";
                
                message.setText(Message);
