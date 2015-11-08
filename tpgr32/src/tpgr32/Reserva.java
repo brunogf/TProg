@@ -162,6 +162,7 @@ public class Reserva {
                 }
                 em.persist(factura);
                 em.getTransaction().commit();
+                idFactura = factura.getId();
             }catch(Exception e){
                 System.out.print(e.getMessage());
             }finally{
@@ -248,7 +249,7 @@ public class Reserva {
 
                // Send message
                Transport.send(message);
-               idFactura = factura.getId();
+               
             }catch (MessagingException mex) {
                System.out.println("Error al enviar el correo... revisar el servidor.");
             }

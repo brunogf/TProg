@@ -7,7 +7,10 @@ package tpgr32;
 
 
 import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.TabStop.Alignment;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
@@ -25,6 +28,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import javax.swing.GroupLayout;
 
 /**
  *
@@ -192,29 +196,75 @@ public class ControladorReserva implements IControladorReserva{
             EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("tpgr32PU");
             EntityManager em = emf.createEntityManager();
             //Busco la factura en la DB
-            Facturas factura = em.find(Facturas.class, id);
+            TypedQuery<Facturas> query1 = em.createQuery("SELECT f FROM Facturas f WHERE f.id = " + String.valueOf(id),Facturas.class);
+            List<Facturas> lista1 = query1.getResultList();
+            Facturas factura = null;
+            if (lista1.size() < 1)
+                throw new IllegalArgumentException("No se encontro la factura");
+            for(Facturas fac : lista1)
+                factura = fac;
             Document document = new Document();
             PdfWriter.getInstance(document, baos);//Creo PDF en ByteArray
             document.open();
+            Font fuente = new Font();
+            fuente.setSize(20);
+            Paragraph parrafo = new Paragraph(("Factura " + String.valueOf(factura.getId()) +"\n"), fuente);
+            parrafo.setAlignment(Element.ALIGN_CENTER);
+            document.add(parrafo);
+            parrafo = new Paragraph("Información básica de reserva:");
+            parrafo.setAlignment(Element.ALIGN_CENTER);
+            document.add(parrafo);
             DateFormat df = new SimpleDateFormat("dd-MM-yyy");
             String infoFactura = "Nro: " + factura.getNroReserva() + "\n";
             infoFactura = infoFactura + "Cliente: " + factura.getNickCliente() + "\n";
             infoFactura = infoFactura + "Fecha: " + df.format(factura.getFechaGenerada()) + "\n";
-            infoFactura = infoFactura + "Precio total: $" + String.format("%.2f", factura.getMontoTotal());
-            //Busco todas las publicaciones de la factura en DB
-            TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.factura.id = " + String.valueOf(factura.getId()),PublicacionFactura.class);
+            
+            //Busco todas los servicios de la factura en DB
+            TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Servicio' AND p.factura.id = " + String.valueOf(factura.getId()),PublicacionFactura.class);
             List<PublicacionFactura> lista = query.getResultList();
             document.add(new Paragraph(infoFactura));
-            String infoPub = "Publicaciones:\n";
-            for(PublicacionFactura pbf : lista){
-                infoPub = infoPub +"-Tipo: " + pbf.getTipo() + " -Nombre: " + pbf.getNombre();
-                infoPub = infoPub + " -Proveedor: " + pbf.getNickProveedor() + " -Cantidad" + pbf.getCant();
-                infoPub = infoPub + " -Fecha inicio: " + df.format(pbf.getFechaInicio()) + " -Fecha fin: " + df.format(pbf.getFechaFin());
-                infoPub = infoPub + " -Precio: $" + String.format("%.2f", pbf.getPrecio());
-                document.add(new Paragraph(infoPub));
-                infoPub = "";
+            String infoPub = "";
+            if (lista.size() > 0){
+                fuente.setSize(18);
+                parrafo = new Paragraph("Servicios",fuente);
+                parrafo.setAlignment(Element.ALIGN_CENTER);
+                document.add(parrafo);
+                fuente.setSize(10);
+                
+                for(PublicacionFactura pbf : lista){
+                    infoPub = infoPub + " -Nombre: " + pbf.getNombre();
+                    infoPub = infoPub + " -Proveedor: " + pbf.getNickProveedor() + " -Cantidad " + pbf.getCant();
+                    infoPub = infoPub + " -Desde " + df.format(pbf.getFechaInicio()) + " hasta " + df.format(pbf.getFechaFin());
+                    infoPub = infoPub + " -Precio: $" + String.format("%.2f", pbf.getPrecio());
+                    document.add(new Paragraph(infoPub, fuente));
+                    infoPub = "";
+                }
             }
             
+            query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Promocion' AND p.factura.id = " + String.valueOf(factura.getId()),PublicacionFactura.class);
+            lista = query.getResultList();
+            if(lista.size() > 0){
+                fuente.setSize(18);
+                parrafo = new Paragraph("Promociones",fuente);
+                parrafo.setAlignment(Element.ALIGN_CENTER);
+                document.add(parrafo);
+                fuente.setSize(10);
+                infoPub = "";
+                for(PublicacionFactura pbf : lista){
+                    infoPub = infoPub + " -Nombre: " + pbf.getNombre();
+                    infoPub = infoPub + " -Proveedor: " + pbf.getNickProveedor() + " -Cantidad " + pbf.getCant();
+                    infoPub = infoPub + " -Desde " + df.format(pbf.getFechaInicio()) + " hasta " + df.format(pbf.getFechaFin());
+                    infoPub = infoPub + " -Precio: $" + String.format("%.2f", pbf.getPrecio());
+                    document.add(new Paragraph(infoPub, fuente));
+                    infoPub = "";
+                }
+            }
+            fuente.setSize(18);
+            document.add(new Paragraph("\n\n\n"));
+            Paragraph precio = new Paragraph("Precio Total: $" + String.format("%.2f", factura.getMontoTotal()), fuente);
+            precio.setAlignment(Element.ALIGN_RIGHT);
+            document.add(precio);
+            //infoFactura = infoFactura + "Precio total: $" + String.format("%.2f", factura.getMontoTotal());
             document.close();
             //FileOutputStream fos = new FileOutputStream("D://generated.pdf");
             //fos.write(baos.toByteArray());
