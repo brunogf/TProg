@@ -10,6 +10,8 @@ import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
 import javax.activation.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 
 /**
  *
@@ -127,6 +129,43 @@ public class Reserva {
         if(flag){//Facturar
             estado_ = Estado.Facturada;
             //NOTIFICAR A CLIENTE Y CREAR COLUMNA EN DTB!
+            //DATABASE 
+            EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("tpgr32PU");
+            EntityManager em = emf.createEntityManager();
+            em.getTransaction().begin();
+            Facturas factura = new Facturas();
+            factura.setFechaGenerada(this.fecha_creacion_);
+            factura.setMontoTotal(precio_total_);
+            factura.setNickCliente(cliente_.getNickname());
+            factura.setNroReserva(numero_);
+            
+            try{
+                for(ReservaPublicacion rsp : rp_){
+                    ParDPD pdpd = rsp.infoReservaPublicacion();
+                    PublicacionFactura pubf = new PublicacionFactura();
+                    pubf.setCant(pdpd.getDd().getCant());
+                    pubf.setFactura(factura);
+                    pubf.setFechaFin(pdpd.getDd().getFechaFin());
+                    pubf.setFechaInicio(pdpd.getDd().getFechaIni());
+                    pubf.setNickProveedor(pdpd.getDpub().getProveedor());
+                    pubf.setNombre(pdpd.getDpub().getNombre());
+                    if(pdpd.getDpub() instanceof DataServicio){
+                        pubf.setPrecio(((DataServicio)pdpd.getDpub()).getPrecio());
+                        pubf.setTipo("Servicio");
+                    }
+                    else if(pdpd.getDpub() instanceof DataPromocion){
+                        pubf.setPrecio(((DataPromocion)pdpd.getDpub()).getPrecioTotal());
+                        pubf.setTipo("Promocion");
+                    }
+                    em.persist(pubf);
+                }
+                em.persist(factura);
+                em.getTransaction().commit();
+            }catch(Exception e){
+                System.out.print(e.getMessage());
+            }finally{
+                em.close();
+            }
             // Recipient's email ID needs to be mentioned.
             String to = cliente_.getCorreoElectronico().toLowerCase();
 
