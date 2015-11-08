@@ -190,26 +190,38 @@ public class ControladorReserva implements IControladorReserva{
         try{
             EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("tpgr32PU");
             EntityManager em = emf.createEntityManager();
+            //Busco la factura en la DB
             Facturas factura = em.find(Facturas.class, id);
             Document document = new Document();
-            PdfWriter.getInstance(document, baos);
+            PdfWriter.getInstance(document, baos);//Creo PDF en ByteArray
             document.open();
             DateFormat df = new SimpleDateFormat("dd-MM-yyy");
             String infoFactura = "Nro: " + factura.getNroReserva() + "\n";
             infoFactura = infoFactura + "Cliente: " + factura.getNickCliente() + "\n";
             infoFactura = infoFactura + "Fecha: " + df.format(factura.getFechaGenerada()) + "\n";
             infoFactura = infoFactura + "Precio total: $" + String.format("%.2f", factura.getMontoTotal());
+            //Busco todas las publicaciones de la factura en DB
+            TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.factura.id = " + String.valueOf(factura.getId()),PublicacionFactura.class);
+            List<PublicacionFactura> lista = query.getResultList();
             document.add(new Paragraph(infoFactura));
-            //Query query = em.createNamedQuery("SELECT pf FROM PublicacionFactura pf", PublicacionFactura.class);
-            //List<PublicacionFactura> lista = query.getResultList();
-            document.close();
+            String infoPub = "Publicaciones:\n";
+            for(PublicacionFactura pbf : lista){
+                infoPub = infoPub +"-Tipo: " + pbf.getTipo() + " -Nombre: " + pbf.getNombre();
+                infoPub = infoPub + " -Proveedor: " + pbf.getNickProveedor() + " -Cantidad" + pbf.getCant();
+                infoPub = infoPub + " -Fecha inicio: " + df.format(pbf.getFechaInicio()) + " -Fecha fin: " + df.format(pbf.getFechaFin());
+                infoPub = infoPub + " -Precio: $" + String.format("%.2f", pbf.getPrecio());
+                document.add(new Paragraph(infoPub));
+                infoPub = "";
+            }
             
+            document.close();
             //FileOutputStream fos = new FileOutputStream("D://generated.pdf");
             //fos.write(baos.toByteArray());
             //fos.close();
         }catch(Exception e){
             System.out.print(e.getMessage());
         }
+        //Convierto a Byte[]
         return baos.toByteArray();
     }
     
