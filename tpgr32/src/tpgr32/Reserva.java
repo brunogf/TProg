@@ -206,7 +206,7 @@ public class Reserva {
 
                // Send message
                Transport.send(message);
-               System.out.println("Sent message successfully....");
+               System.out.println("Message sent successfully...");
             }catch (MessagingException mex) {
                System.out.println("Error al enviar el correo... revisar el servidor.");
             }
