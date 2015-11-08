@@ -176,13 +176,14 @@ public class ControladorReserva implements IControladorReserva{
         res.setFechaCreacion(f);
     }
     
-    public void facturarReserva(String nickname, int nro){
+    public int facturarReserva(String nickname, int nro){
         ManejadorReserva mr = ManejadorReserva.getInstance();
         if (mr.encontrarReserva(nro).getEstado() == Estado.Pagada){
             ManejadorUsuario mu = ManejadorUsuario.getInstance();
             Usuario prov = mu.encontrarProveedor(nickname);
-            ((Proveedor)prov).facturarReserva(nro);
+            return ((Proveedor)prov).facturarReserva(nro);
         }       
+        return -1;
     }
     
     public byte[] obtenerFactura(int id){

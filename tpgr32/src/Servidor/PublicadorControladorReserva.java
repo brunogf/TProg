@@ -139,8 +139,9 @@ public class PublicadorControladorReserva {
     }
     
     @WebMethod
-    public void facturarReserva(String nick, int nro){
-        FabricaControladores.getInstancia().getControladorReserva().facturarReserva(nick, nro);
+    public int facturarReserva(String nick, int nro){ 
+        //RETORNA -1 SI NO SE FACTURO, EL NRO DE LA FACTURA EN OTRO CASO (ID FACTURA EN DB)
+        return FabricaControladores.getInstancia().getControladorReserva().facturarReserva(nick, nro);
     }
     
     @WebMethod

@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -124,11 +125,15 @@ public class Proveedor extends Usuario {
         return p.infoPublicacionCompleto();
     }
     
-    public void facturarReserva(int nro){
-        for(String key : this.publicaciones_.keySet()) {
-            Publicacion p = this.publicaciones_.get(key);
-            p.facturarReserva(nro);
+    public int facturarReserva(int nro){
+        int idFactura = -1;
+        Set<String> keys = publicaciones_.keySet();
+        Iterator iter = keys.iterator();
+        while(iter.hasNext() && (idFactura == -1)) {
+            Publicacion p = this.publicaciones_.get(iter.next());
+            idFactura = p.facturarReserva(nro);
         }
+        return idFactura;
     }
     
 }

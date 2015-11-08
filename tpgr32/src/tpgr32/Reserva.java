@@ -120,8 +120,9 @@ public class Reserva {
     }
     //agregar Publicacion (servicio o promocion)
     
-    public void notificarFacturacion(){
+    public int notificarFacturacion(){
         Iterator iter = rp_.iterator();
+        int idFactura = -1;
         boolean flag = true;
         while(iter.hasNext() && flag){
             flag = ((ReservaPublicacion)iter.next()).estaFacturada();
@@ -247,11 +248,14 @@ public class Reserva {
 
                // Send message
                Transport.send(message);
+               idFactura = factura.getId();
             }catch (MessagingException mex) {
                System.out.println("Error al enviar el correo... revisar el servidor.");
             }
             
         }
+        return idFactura;
+        
     }
     
 }

@@ -52,12 +52,14 @@ public abstract class Publicacion {
     
     public abstract DataPublicacion infoPublicacion();
     
-    public void facturarReserva(int nro){
+    public int facturarReserva(int nro){
+        int idFactura = -1;
         for(ReservaPublicacion rp : rp_){
-            if (rp.getNroReserva() == nro){
-                rp.facturarReserva();
+            if ((rp.getNroReserva() == nro) && (idFactura == -1)){
+                idFactura = rp.facturarReserva();
             }
         }
+        return idFactura;
     }
 
 }

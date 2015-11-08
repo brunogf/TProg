@@ -88,10 +88,11 @@ public class ReservaPublicacion {
          return facturada;
      }
      
-     public void facturarReserva(){
+     public int facturarReserva(){
         facturada = true;
         if (res_.getEstado() != Estado.Facturada)
-            res_.notificarFacturacion();
+            return res_.notificarFacturacion();
+        return -1;
      }
 }
 

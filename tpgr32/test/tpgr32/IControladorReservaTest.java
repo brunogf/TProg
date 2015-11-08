@@ -156,8 +156,8 @@ public class IControladorReservaTest {
         public void cambiarFechaCreacionReserva(Date fecha, int res) {
         }
         
-        public void facturarReserva(String nickname, int nro){
-            
+        public int facturarReserva(String nickname, int nro){
+            return -1;
         }
         
         public byte[] obtenerFactura(int id){
