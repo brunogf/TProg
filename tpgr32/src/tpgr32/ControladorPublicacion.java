@@ -21,8 +21,9 @@ public class ControladorPublicacion implements IControladorPublicacion{
     private Servicio instServicio;
     private Promocion instPromocion;
     private ManejadorCategoria mCategoria;
+    private ManejadorLog mLog;
    
-    // comiste
+    
    public ControladorPublicacion(){
     
    } 
@@ -331,5 +332,22 @@ public class ControladorPublicacion implements IControladorPublicacion{
            rec(c,raiz);
        }
        return raiz;
+   }
+   
+   public void agregarVisita(Servicio ser){
+       ManejadorLog ml = ManejadorLog.getInstance();
+       if (ml.servicioEnTopVisitados(ser.getNombre(), ser.getProveedor().getNombre())){
+           ml.agregarVisitaATopVisitado(ser);
+       }
+       else{
+       /*    ManejadorUsuario mu = ManejadorUsuario.getInstance();
+       Proveedor p = mu.encontrarProveedor(proveedor);
+       Publicacion pub = p.encontrarPublicacion(nombre);
+       if (pub instanceof Servicio) POR SI ME PASAN EL NOMBRE Y PROVEEDOR EN VEZ DE EL SERVICIO COMO PARAMETRO*/
+           ser.agregarVisita();
+           if (ser.getVisitas() >= ml.getVisitasServicioMenosVisitado()){
+               ml.agregarTopVisitado(ser);
+           }
+       }
    }
 }

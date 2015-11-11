@@ -24,6 +24,8 @@ public class Servicio extends Publicacion {
     private Ciudad ciudadOrigen_;
     private Ciudad ciudadDestino_;
     private Map<String,Categoria> categorias_;
+    private int visitas_;
+    private IObserver observer_;
     
     public Servicio(){
         
@@ -41,6 +43,8 @@ public class Servicio extends Publicacion {
         this.imagenes_ = imagenes;
         this.precio_ = precio;
         this.ciudadOrigen_ = origen;
+        this.visitas_ = 0;
+        this.observer_ = ManejadorLog.getInstance();
     }
     
     
@@ -52,6 +56,8 @@ public class Servicio extends Publicacion {
        this.imagenes_ = imagenes;
        this.precio_ = precio;
        this.categorias_ = new HashMap<>();
+       this.visitas_ = 0;
+       this.observer_ = ManejadorLog.getInstance();
        
        ManejadorCategoria mc;
        mc = ManejadorCategoria.getInstance();
@@ -86,6 +92,8 @@ public class Servicio extends Publicacion {
        this.imagenes_ = imagenes;
        this.precio_ = precio;
        this.categorias_ = new HashMap<>();
+       this.visitas_ = 0;
+       this.observer_ = ManejadorLog.getInstance();
        
        ManejadorCategoria mc;
        mc = ManejadorCategoria.getInstance();
@@ -133,6 +141,10 @@ public class Servicio extends Publicacion {
     public void setPrecio(float precio){
         this.precio_ = precio;
     }
+    
+    public void agregarVisita(){
+        visitas_++;
+    }
             
     public String getDescripcion(){
         
@@ -149,6 +161,10 @@ public class Servicio extends Publicacion {
         
         return precio_;
     } 
+    
+    public int getVisitas(){
+        return visitas_;
+    }
     
     
     public DataPublicacion infoPublicacion(){
