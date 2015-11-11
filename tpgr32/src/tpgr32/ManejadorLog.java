@@ -76,8 +76,8 @@ public class ManejadorLog implements IObserver{
         }
         else{
             topVisitados_.put(9-topVisitados_.size(),serv);
-        }
-        actualizar();
+            actualizar();
+        }       
         /*Integer key = 10 - topVisitados_.size();
         Iterator it = topVisitados_.keySet().iterator();
         while (it.hasNext()){ // DONDE ARRANCA EL ITERADOR SI TENGO ELEMENTOS SOLO EN EL KEY 7 8 9 POR EJEMPLO???
