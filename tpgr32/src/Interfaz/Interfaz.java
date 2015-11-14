@@ -476,6 +476,7 @@ public class Interfaz extends javax.swing.JFrame {
         infoServicioMenuBar = new javax.swing.JMenuItem();
         infoReservaMenuItem = new javax.swing.JMenuItem();
         infoPromocionMenuItem = new javax.swing.JMenuItem();
+        infoRegistroMenuItem = new javax.swing.JMenuItem();
         MenuCargarDatos = new javax.swing.JMenu();
         MenuAltaPais = new javax.swing.JMenuItem();
         MenuAltaCiudad = new javax.swing.JMenuItem();
@@ -3510,6 +3511,14 @@ public class Interfaz extends javax.swing.JFrame {
         });
         MenuConsultas.add(infoPromocionMenuItem);
 
+        infoRegistroMenuItem.setText("Ver Registro de Accesos");
+        infoRegistroMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoRegistroMenuItemActionPerformed(evt);
+            }
+        });
+        MenuConsultas.add(infoRegistroMenuItem);
+
         BarraMenu.add(MenuConsultas);
 
         MenuCargarDatos.setText("Cargar Datos");
@@ -4497,7 +4506,7 @@ public class Interfaz extends javax.swing.JFrame {
                 if (dt.getNombre().equals(InfoServicioServiciosComboBox.getSelectedItem().toString())) {
                     s = new DataServicio(dt.getNombre(), dt.getDescripcion(), dt.getPrecio(), dt.getProveedor(),
                             dt.getPaisOrigen(), dt.getCiudadOrigen(), dt.getPaisDestino(),
-                            dt.getCiudadDestino(), dt.getImagenes(),null);
+                            dt.getCiudadDestino(), dt.getImagenes(),null, dt.getCantVisitas());
                     InfoServicioDatoNombreLabel.setText(s.getNombre());
                     InfoServicioDatoDescrTextArea.setEditable(false);
                     InfoServicioDatoDescrTextArea.setText(s.getDescripcion());
@@ -4677,6 +4686,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_RegServicioCategoriasAtrasButtonActionPerformed
 
     private void infoReservaMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoReservaMenuItemActionPerformed
+        
         DefaultTableModel res = (DefaultTableModel) InfoReservaReservasTable.getModel();
         DefaultTableModel pub = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
         while (InfoReservaReservasTable.getRowCount() > 0) {
@@ -5354,6 +5364,30 @@ public class Interfaz extends javax.swing.JFrame {
         PanelCentral.revalidate();
     }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
 
+    private void infoRegistroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoRegistroMenuItemActionPerformed
+        /*DefaultTableModel log = (DefaultTableModel) inf.
+        DefaultTableModel pub = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
+        while (InfoReservaReservasTable.getRowCount() > 0) {
+            res.removeRow(0);
+        }
+        while (InfoReservaPublicacionesTable.getRowCount() > 0) {
+            pub.removeRow(0);
+        }
+
+        IControladorReserva cr = fabrica.getControladorReserva();
+        List<DataReserva> reservas = cr.listarReservas();
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        for (DataReserva dr : reservas) {
+            res.addRow(new Object[]{dr.getNum(), cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(), df.format(dr.getCreacion()), dr.getPrecioTotal()});
+        }
+        */
+        PanelCentral.removeAll();
+        JInternalFrame inf = new TopServiciosInternalFrame();
+        PanelCentral.add(inf);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
+    }//GEN-LAST:event_infoRegistroMenuItemActionPerformed
+
     public void listarReservasGUI() {
         IControladorReserva cr = fabrica.getControladorReserva();
 
@@ -5766,6 +5800,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton infoDeReservaBoton;
     private javax.swing.JMenuItem infoPromocionMenuItem;
     private javax.swing.JMenuItem infoProveedorMenuBar;
+    private javax.swing.JMenuItem infoRegistroMenuItem;
     private javax.swing.JMenuItem infoReservaMenuItem;
     private javax.swing.JButton infoReservasClienteBotonAtras;
     private javax.swing.JMenuItem infoServicioMenuBar;

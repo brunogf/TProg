@@ -24,16 +24,17 @@ public class DataServicioBean extends DataPublicacion{
     private String ciudadDestino_;
     private byte[][] imagenes_; 
     private String[] categorias_;
-    
+    private int cantVisitas_;
     
     public DataServicioBean(){
         
     }
-    public DataServicioBean(String nombre, String descripcion, float precio, String proveedor, String[] categorias){
+    public DataServicioBean(String nombre, String descripcion, float precio, String proveedor, String[] categorias, int cantVisitas){
         super(nombre, proveedor);
 	descripcion_ = descripcion;
 	precio_ = precio;
 	categorias_= categorias;
+        cantVisitas_ = cantVisitas;
     }
     
     public void setImagenes(byte[][] imagenes){
@@ -54,6 +55,10 @@ public class DataServicioBean extends DataPublicacion{
     
     public byte[][] getImagenes(){
         return imagenes_;
+    }
+    
+    public int getCantVisitas(){
+        return cantVisitas_;
     }
         
     @Override

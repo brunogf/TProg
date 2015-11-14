@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.Set;
 import java.awt.Image;
+import java.util.Map;
 import javax.swing.tree.DefaultTreeModel;
 /**
  *
@@ -47,4 +48,5 @@ public interface IControladorPublicacion {
     public Set<DataPublicacion> buscarPublicacionCompleta(String criterio);
     public CatTree getCatTree();
     public void agregarLog(DataLog log, String nombre, String proveedor); 
+    public Map<Integer, DataServicio> listarTopServicios();
 }

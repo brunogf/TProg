@@ -7,6 +7,7 @@ package tpgr32;
 
 import java.util.Set;
 import java.awt.Image;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
@@ -361,8 +362,19 @@ public class ControladorPublicacion implements IControladorPublicacion{
        }
     }
     
+    public Map<Integer, DataServicio> listarTopServicios(){
+        Map<Integer, DataServicio> mapTVDS = new HashMap<>();
+        ManejadorLog ml = ManejadorLog.getInstance();
+        Map<Integer,Servicio> mapTV= ml.getTopVisitados();       
+        for(int k=0; k<=9 ;k++)
+        {
+            if (mapTV.containsKey(k)){
+                Servicio ser = mapTV.get(k);
+                DataServicio ds = (DataServicio) ser.infoPublicacionCompleto();
+                mapTVDS.put(k, ds);
+            }
+        }
+        return mapTVDS;        
+    }
     
-    
-   
-   
 }

@@ -173,7 +173,7 @@ public class Servicio extends Publicacion {
         {
             cats.add(entry.getValue().getNombre());
         }
-        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNickname(), cats);
+        DataPublicacion servicio = new DataServicio(this.getNombre(),descripcion_,precio_,this.getProveedor().getNickname(), cats, visitas_);
         return servicio;
     }
     
@@ -189,12 +189,12 @@ public class Servicio extends Publicacion {
           servicio = new DataServicio(this.getNombre(),descripcion_,precio_,
                                        this.getProveedor().getNickname(),
                                         ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),
-                                        ciudadDestino_.getPais().getNombre(), ciudadDestino_.getNombre(),imagenes_, cats);
+                                        ciudadDestino_.getPais().getNombre(), ciudadDestino_.getNombre(),imagenes_, cats, visitas_);
         else
           servicio = new DataServicio(this.getNombre(),descripcion_,precio_,
                                        this.getProveedor().getNickname(),
                                         ciudadOrigen_.getPais().getNombre(), ciudadOrigen_.getNombre(),
-                                        "No tiene", "No tiene",imagenes_, cats);
+                                        "No tiene", "No tiene",imagenes_, cats, visitas_);
             
         return servicio;
     }

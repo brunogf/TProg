@@ -125,7 +125,7 @@ public class PublicadorControladorReserva {
                     cats[iter] = c;
                     iter++;
                 }
-                pdpd.setDataPub(new DataServicioBean(((DataServicio)(pdpd.getDpub())).getNombre(), ((DataServicio)(pdpd.getDpub())).getDescripcion(), ((DataServicio)(pdpd.getDpub())).getPrecio(), ((DataServicio)(pdpd.getDpub())).getProveedor(),cats));
+                pdpd.setDataPub(new DataServicioBean(((DataServicio)(pdpd.getDpub())).getNombre(), ((DataServicio)(pdpd.getDpub())).getDescripcion(), ((DataServicio)(pdpd.getDpub())).getPrecio(), ((DataServicio)(pdpd.getDpub())).getProveedor(),cats, ((DataServicio)(pdpd.getDpub())).getCantVisitas()));
             }
         }
         r.setParDPD(sdpd);

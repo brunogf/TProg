@@ -22,22 +22,24 @@ public class DataServicio extends DataPublicacion {
     private String ciudadDestino_;
     private Set<Image> imagenes_; 
     private Set<String> categorias_;
+    private int cantVisitas_;
     
     public DataServicio()
     {
 	//default constructor
     }
-    public DataServicio(String nombre, String descripcion, float precio, String proveedor, Set<String> categorias)
+    public DataServicio(String nombre, String descripcion, float precio, String proveedor, Set<String> categorias, int cantVisitas)
     {
 	super(nombre, proveedor);
 	descripcion_ = descripcion;
 	precio_ = precio;
 	categorias_= categorias;
+        cantVisitas_ = cantVisitas;
     }
     
     
     public DataServicio(String nombre, String descripcion, float precio, String proveedor, String paisOrigen,
-                        String ciudadOrigen, String paisDestino, String ciudadDestino, Set<Image> imagenes, Set<String> categorias)
+                        String ciudadOrigen, String paisDestino, String ciudadDestino, Set<Image> imagenes, Set<String> categorias, int cantVisitas)
     {
 	super(nombre, proveedor);
 	descripcion_ = descripcion;
@@ -49,6 +51,7 @@ public class DataServicio extends DataPublicacion {
         imagenes_ = new HashSet<>();
         imagenes_ = imagenes;
         categorias_ = categorias;
+        cantVisitas_ = cantVisitas;
     }
     
     
@@ -85,7 +88,9 @@ public class DataServicio extends DataPublicacion {
         return imagenes_;
     }
     
-    
+    public int getCantVisitas(){
+        return cantVisitas_;
+    }
     
     //setters
     
@@ -109,4 +114,7 @@ public class DataServicio extends DataPublicacion {
         proveedor_ = prov;
     }
     
+    public void setCantVisitas(int cantVisitas){
+        cantVisitas_ = cantVisitas;
+    }
 }

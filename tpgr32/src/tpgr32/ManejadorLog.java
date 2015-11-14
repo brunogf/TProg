@@ -5,35 +5,36 @@
  */
 package tpgr32;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Stack;
 
 /**
  *
  * @author spesamosca
  */
 public class ManejadorLog implements IObserver{
-    private Set<DataLog> logs_;
+    private Stack<DataLog> logs_;
     private Map<Integer,Servicio> topVisitados_;
     private static ManejadorLog instancia_ = null;
     
     
     public ManejadorLog(){
-        logs_ = new HashSet<>();
+        logs_ = new Stack<DataLog>();
         topVisitados_ = new HashMap<>();
     }
     
-    static ManejadorLog getInstance() {
+    static ManejadorLog getInstance(){
         if (instancia_ == null) {
             instancia_ = new ManejadorLog();
         }
         return instancia_;
     }
     
-    public Set<DataLog> getLogs(){
+    public Stack<DataLog> getLogs(){
         return logs_;
     }
     
@@ -66,7 +67,7 @@ public class ManejadorLog implements IObserver{
     
     public void agregarLog(DataLog log){
         if (logs_.size() < 10000){            
-            logs_.add(log);
+            logs_.push(log);
         }
     }
     
@@ -77,19 +78,7 @@ public class ManejadorLog implements IObserver{
         else{
             topVisitados_.put(9-topVisitados_.size(),serv);
             actualizar();
-        }       
-        /*Integer key = 10 - topVisitados_.size();
-        Iterator it = topVisitados_.keySet().iterator();
-        while (it.hasNext()){ // DONDE ARRANCA EL ITERADOR SI TENGO ELEMENTOS SOLO EN EL KEY 7 8 9 POR EJEMPLO???
-            Servicio servi = (Servicio) it.next();
-            if (key != 9){
-                if (servi.getVisitas() > topVisitados_.get(key+1).getVisitas()){ 
-                    topVisitados_.put(key,topVisitados_.get(key+1));
-                    topVisitados_.put(key+1,servi);
-                }
-            }
-            key++;
-        }*/              
+        }             
     }
     
     public void agregarVisitaATopVisitado(Servicio ser){
