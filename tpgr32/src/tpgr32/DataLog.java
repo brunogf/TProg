@@ -22,11 +22,13 @@ public class DataLog {
     private String URL_;
     private String OS_;
     private Date fecha_;
-
+    private static int nroActual_ = 0;
+        
     public DataLog(){}
-    public DataLog(int nro, String ip, String browser, String url, String OS, Date fecha)
+    public DataLog(String ip, String browser, String url, String OS, Date fecha)
     {
-	nro_ = nro;
+	nro_ = nroActual_;
+        nroActual_++;
         ip_ = ip;
         browser_ = browser;
         URL_ = url;

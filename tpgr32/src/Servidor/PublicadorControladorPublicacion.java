@@ -11,9 +11,13 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileReader;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -401,27 +405,11 @@ public class PublicadorControladorPublicacion {
      }
      
     @WebMethod
-    public void agregarLog(DataLog log, String nombre, String proveedor){
+    public void agregarLog(String  IP, String browser, String URL, String SO, String fecha, String nombre, String proveedor) throws ParseException{
+        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");       
+        DataLog log = new DataLog(IP, browser, URL, SO, df.parse(fecha));
         FabricaControladores.getInstancia().getControladorPublicacion().agregarLog(log,nombre,proveedor);        
     }
     
-    @WebMethod
-    public DataServicioBean[] listarTopServicios(){
-        Map<Integer, DataServicio> mapDS = FabricaControladores.getInstancia().getControladorPublicacion().listarTopServicios();                
-        DataServicioBean[] dtsbean = null;
-             for(int k = 0; k<=9 ; k++){
-                if (mapDS.containsKey(k)){
-                    DataServicio dts = mapDS.get(9-k);
-                    String[] cats;
-                    cats = new String[dts.getCategorias().size()];
-                    int iter2 = 0;
-                    for (String categoria : dts.getCategorias()){
-                        cats[iter2] = categoria;
-                        iter2++;
-                    }
-                    dtsbean[k] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(), cats, dts.getCantVisitas());                  
-                }
-             }                     
-        return dtsbean;
-    }
+    
 }

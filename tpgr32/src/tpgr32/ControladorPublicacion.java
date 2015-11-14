@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Stack;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -375,6 +376,10 @@ public class ControladorPublicacion implements IControladorPublicacion{
             }
         }
         return mapTVDS;        
+    }
+    
+    public Stack<DataLog> listarLogs(){
+        return ManejadorLog.getInstance().getLogs();
     }
     
 }

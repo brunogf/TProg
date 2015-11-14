@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.Set;
 import java.awt.Image;
 import java.util.Map;
+import java.util.Stack;
 import javax.swing.tree.DefaultTreeModel;
 /**
  *
@@ -49,4 +50,5 @@ public interface IControladorPublicacion {
     public CatTree getCatTree();
     public void agregarLog(DataLog log, String nombre, String proveedor); 
     public Map<Integer, DataServicio> listarTopServicios();
+    public Stack<DataLog> listarLogs();
 }
