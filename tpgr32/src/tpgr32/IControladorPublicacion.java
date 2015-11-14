@@ -46,4 +46,5 @@ public interface IControladorPublicacion {
     public Set<DataPublicacion> buscarPublicacion(String criterio);
     public Set<DataPublicacion> buscarPublicacionCompleta(String criterio);
     public CatTree getCatTree();
+    public void agregarLog(DataLog log, String nombre, String proveedor); 
 }

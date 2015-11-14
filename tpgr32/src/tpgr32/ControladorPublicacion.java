@@ -334,20 +334,35 @@ public class ControladorPublicacion implements IControladorPublicacion{
        return raiz;
    }
    
-   public void agregarVisita(Servicio ser){
+   public void agregarVisita(String nombre, String proveedor){
        ManejadorLog ml = ManejadorLog.getInstance();
-       if (ml.servicioEnTopVisitados(ser.getNombre(), ser.getProveedor().getNombre())){
-           ml.agregarVisitaATopVisitado(ser);
-       }
-       else{
-       /*    ManejadorUsuario mu = ManejadorUsuario.getInstance();
+       ManejadorUsuario mu = ManejadorUsuario.getInstance();
        Proveedor p = mu.encontrarProveedor(proveedor);
        Publicacion pub = p.encontrarPublicacion(nombre);
-       if (pub instanceof Servicio) POR SI ME PASAN EL NOMBRE Y PROVEEDOR EN VEZ DE EL SERVICIO COMO PARAMETRO*/
-           ser.agregarVisita();
-           if (ser.getVisitas() >= ml.getVisitasServicioMenosVisitado()){
-               ml.agregarTopVisitado(ser);
-           }
+       if (pub instanceof Servicio){
+            Servicio ser = (Servicio) pub;
+            if (ml.servicioEnTopVisitados(ser.getNombre(), ser.getProveedor().getNombre())){
+                ml.agregarVisitaATopVisitado(ser);
+            }
+            else{               
+                 ser.agregarVisita();
+                 if (ser.getVisitas() >= ml.getVisitasServicioMenosVisitado()){
+                     ml.agregarTopVisitado((Servicio) pub);
+                 }            
+            }
        }
-   }
+    }
+   
+   public void agregarLog(DataLog log, String nombre, String proveedor){
+       ManejadorLog ml = ManejadorLog.getInstance();
+       ml.agregarLog(log);
+       if (nombre != null && proveedor != null){
+           agregarVisita(nombre, proveedor);
+       }
+    }
+    
+    
+    
+   
+   
 }

@@ -20,6 +20,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.swing.tree.DefaultTreeModel;
 import javax.xml.ws.Endpoint;
 import tpgr32.CatTree;
+import tpgr32.DataLog;
 import tpgr32.DataPromocion;
 import tpgr32.DataPublicacion;
 import tpgr32.DataServicio;
@@ -27,6 +28,7 @@ import tpgr32.DataServicioBean;
 import tpgr32.DataUbicacion;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorPublicacion;
+import tpgr32.Servicio;
 
 /**
  *
@@ -396,5 +398,10 @@ public class PublicadorControladorPublicacion {
          }
          return dtsba;
      }
-    
-}
+     
+    @WebMethod
+    public void agregarLog(DataLog log, String nombre, String proveedor){
+        FabricaControladores.getInstancia().getControladorPublicacion().agregarLog(log,nombre,proveedor);        
+    }
+
+  }
