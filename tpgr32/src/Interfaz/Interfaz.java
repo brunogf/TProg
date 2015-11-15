@@ -5365,22 +5365,6 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuRegistrarReservaActionPerformed
 
     private void infoRegistroMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoRegistroMenuItemActionPerformed
-        /*DefaultTableModel log = (DefaultTableModel) inf.
-        DefaultTableModel pub = (DefaultTableModel) InfoReservaPublicacionesTable.getModel();
-        while (InfoReservaReservasTable.getRowCount() > 0) {
-            res.removeRow(0);
-        }
-        while (InfoReservaPublicacionesTable.getRowCount() > 0) {
-            pub.removeRow(0);
-        }
-
-        IControladorReserva cr = fabrica.getControladorReserva();
-        List<DataReserva> reservas = cr.listarReservas();
-        DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        for (DataReserva dr : reservas) {
-            res.addRow(new Object[]{dr.getNum(), cr.getInfoClienteReserva(dr.getNum()).getNickname(), dr.getStringEstado(), df.format(dr.getCreacion()), dr.getPrecioTotal()});
-        }
-        */
         PanelCentral.removeAll();
         JInternalFrame inf = new TopServiciosInternalFrame();
         PanelCentral.add(inf);

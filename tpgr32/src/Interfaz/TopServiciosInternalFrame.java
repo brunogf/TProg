@@ -6,6 +6,9 @@
 package Interfaz;
 
 import java.util.Map;
+import javax.swing.JInternalFrame;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 import tpgr32.DataLog;
 import tpgr32.DataServicio;
@@ -64,8 +67,8 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
         TopServiciosLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         TopServiciosTable = new javax.swing.JTable();
-        TopServiciosAceptarButton = new javax.swing.JButton();
-        TopServiciosCancelarButton = new javax.swing.JButton();
+        TopServiciosCerrarButton = new javax.swing.JButton();
+        TopServiciosActualizarButton = new javax.swing.JButton();
 
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -109,9 +112,19 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(TopServiciosTable);
 
-        TopServiciosAceptarButton.setText("Aceptar");
+        TopServiciosCerrarButton.setText("Cerrar");
+        TopServiciosCerrarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TopServiciosCerrarButtonActionPerformed(evt);
+            }
+        });
 
-        TopServiciosCancelarButton.setText("Cancelar");
+        TopServiciosActualizarButton.setText("Actualizar");
+        TopServiciosActualizarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TopServiciosActualizarButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InfoAccesosPanelLayout = new javax.swing.GroupLayout(InfoAccesosPanel);
         InfoAccesosPanel.setLayout(InfoAccesosPanelLayout);
@@ -125,12 +138,12 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                     .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
                         .addGap(158, 158, 158)
                         .addComponent(TopServiciosLabel))
-                    .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addComponent(TopServiciosAceptarButton)
-                            .addGap(24, 24, 24)
-                            .addComponent(TopServiciosCancelarButton))
+                    .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InfoAccesosPanelLayout.createSequentialGroup()
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TopServiciosActualizarButton)
+                            .addGap(69, 69, 69)
+                            .addComponent(TopServiciosCerrarButton))
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InfoAccesosPanelLayout.createSequentialGroup()
                             .addGap(18, 18, 18)
                             .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,8 +164,8 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TopServiciosAceptarButton)
-                    .addComponent(TopServiciosCancelarButton))
+                    .addComponent(TopServiciosCerrarButton)
+                    .addComponent(TopServiciosActualizarButton))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -161,13 +174,31 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void TopServiciosActualizarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TopServiciosActualizarButtonActionPerformed
+        JPanel PanelCentral;
+        PanelCentral = (JPanel)SwingUtilities.getAncestorOfClass(JPanel.class, this);
+        PanelCentral.removeAll();
+        JInternalFrame inf = new TopServiciosInternalFrame();
+        PanelCentral.add(inf);
+        PanelCentral.repaint();
+        PanelCentral.revalidate();
+    }//GEN-LAST:event_TopServiciosActualizarButtonActionPerformed
+
+    private void TopServiciosCerrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TopServiciosCerrarButtonActionPerformed
+        JPanel jp;
+        jp = (JPanel)SwingUtilities.getAncestorOfClass(JPanel.class, this);
+        jp.remove(this);
+        jp.repaint();
+        jp.revalidate();
+    }//GEN-LAST:event_TopServiciosCerrarButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InfoAccesosPanel;
     private javax.swing.JLabel LogsLabel;
     private javax.swing.JTable LogsTable;
-    private javax.swing.JButton TopServiciosAceptarButton;
-    private javax.swing.JButton TopServiciosCancelarButton;
+    private javax.swing.JButton TopServiciosActualizarButton;
+    private javax.swing.JButton TopServiciosCerrarButton;
     private javax.swing.JLabel TopServiciosLabel;
     private javax.swing.JTable TopServiciosTable;
     private javax.swing.JScrollPane jScrollPane1;
