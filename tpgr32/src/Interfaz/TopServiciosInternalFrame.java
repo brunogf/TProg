@@ -36,12 +36,15 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
         for (int k=9; k>=0; k--){
             if (mapDS.containsKey(k)){
                 DataServicio ds = mapDS.get(k);
-                top.addRow(new Object[]{k, ds.getNombre(), ds.getProveedor(), ds.getCantVisitas()});
+                top.addRow(new Object[]{10-k, ds.getNombre(), ds.getProveedor(), ds.getCantVisitas()});
             }
-        }       
+        }
+        
         Map<Integer,DataLog> mapDL = cp.listarLogs();
-        for (int k = mapDL.size()-1; k>=0; k--){
-            log.addRow(new Object[]{mapDL.get(k).getNro(), mapDL.get(k).getIp(), mapDL.get(k).getUrl(), mapDL.get(k).getBrowser(), mapDL.get(k).getOs()});
+        int contFila = 1;
+        for (int k = 10000-mapDL.size(); k<=9999; k++){
+            log.addRow(new Object[]{contFila, mapDL.get(k).getIp(), mapDL.get(k).getUrl(), mapDL.get(k).getBrowser(), mapDL.get(k).getOs()});
+            contFila++;
         }             
     }
 

@@ -348,8 +348,8 @@ public class ControladorPublicacion implements IControladorPublicacion{
             }
             else{               
                  ser.agregarVisita();
-                 if (ser.getVisitas() >= ml.getVisitasServicioMenosVisitado()){
-                     ml.agregarTopVisitado((Servicio) pub);
+                 if (ser.getVisitas() >= ml.getVisitasServicioMenosVisitado()){                     
+                    ml.agregarTopVisitado((Servicio) pub);
                  }            
             }
        }
@@ -358,7 +358,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
    public void agregarLog(DataLog log, String nombre, String proveedor){
        ManejadorLog ml = ManejadorLog.getInstance();
        ml.agregarLog(log);
-       if (nombre.equals("") && proveedor.equals("")){
+       if (!nombre.equals("") && !proveedor.equals("")){
            agregarVisita(nombre, proveedor);
        }
     }

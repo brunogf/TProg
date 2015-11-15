@@ -42,7 +42,11 @@ public class ManejadorLog implements IObserver{
     }
     
     public int getVisitasServicioMenosVisitado(){
-        return topVisitados_.get(0).getVisitas();
+        int visitas = 0;
+        if (topVisitados_.containsKey(0)){
+            visitas = topVisitados_.get(0).getVisitas();
+        }
+        return visitas;
     }
     
     public int getCantidadLogs(){
@@ -51,14 +55,15 @@ public class ManejadorLog implements IObserver{
     
     public boolean servicioEnTopVisitados(String nombreServicio, String proveedorServicio){
         boolean servicioEnTop = false;
-        Iterator it = topVisitados_.keySet().iterator();
-        while (it.hasNext()){
-            Servicio ser = (Servicio) it.next();
+        int k = 9;
+        while (topVisitados_.containsKey(k) && k>=0){
+            Servicio ser = topVisitados_.get(k);
             String nombre = ser.getNombre();
             String prov = ser.getProveedor().getNombre();
-            if ((nombre == nombreServicio) && (prov == proveedorServicio)){
+            if ((nombreServicio.equals(nombre)) && (proveedorServicio).equals(prov)){
                 servicioEnTop = true;
             }
+            k--;
         }
         return servicioEnTop;
     }
@@ -66,7 +71,7 @@ public class ManejadorLog implements IObserver{
     
     public void agregarLog(DataLog log){
         if (logs_.size() < 10000){            
-            logs_.put(logs_.size(), log);
+            logs_.put(9999-logs_.size(), log);
         }
     }
     
@@ -82,31 +87,33 @@ public class ManejadorLog implements IObserver{
     
     public void agregarVisitaATopVisitado(Servicio ser){
         Iterator it = topVisitados_.keySet().iterator();
-        while (it.hasNext()){
-            Servicio servi = (Servicio) it.next();
+        int k = 9;
+        while (topVisitados_.containsKey(k) && k>=0){
+            Servicio servi = (Servicio) topVisitados_.get(k);
             if ((servi.getNombre() == ser.getNombre()) &&
                (servi.getProveedor().getNombre() == ser.getProveedor().getNombre())){
                 servi.agregarVisita();
                 actualizar();
             }                        
-                        
+            k--;           
         }
     }           
     
     
     public void actualizar(){
-        Integer key = 0;
-        Iterator it = topVisitados_.keySet().iterator();
-        while (it.hasNext()){
-            Servicio servi = (Servicio) it.next();
-            if (key != 9){
-                if (servi.getVisitas() > topVisitados_.get(key+1).getVisitas()){ 
-                        topVisitados_.put(key,topVisitados_.get(key+1));
-                        topVisitados_.put(key+1,servi);
+        int k = 0;
+        while (k<=9){
+            if (topVisitados_.containsKey(k)){           
+                Servicio servi = topVisitados_.get(k);
+                if (k != 9){
+                    if (servi.getVisitas() > topVisitados_.get(k+1).getVisitas()){ 
+                            topVisitados_.put(k,topVisitados_.get(k+1));
+                            topVisitados_.put(k+1,servi);
+                    }
                 }
             }
-            key++;
-        }
+            k++;
+        }      
     }
     
 }
