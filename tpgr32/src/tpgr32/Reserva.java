@@ -131,42 +131,20 @@ public class Reserva {
             estado_ = Estado.Facturada;
             //NOTIFICAR A CLIENTE Y CREAR COLUMNA EN DTB!
             //DATABASE 
-            EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("tpgr32PU");
-            EntityManager em = emf.createEntityManager();
-            em.getTransaction().begin();
-            Facturas factura = new Facturas();
-            factura.setFechaGenerada(this.fecha_creacion_);
-            factura.setMontoTotal(precio_total_);
-            factura.setNickCliente(cliente_.getNickname());
-            factura.setNroReserva(numero_);
-            
+            ManejadorFacturas mfc = ManejadorFacturas.getInstancia();
             try{
-                for(ReservaPublicacion rsp : rp_){
-                    ParDPD pdpd = rsp.infoReservaPublicacion();
-                    PublicacionFactura pubf = new PublicacionFactura();
-                    pubf.setCant(pdpd.getDd().getCant());
-                    pubf.setFactura(factura);
-                    pubf.setFechaFin(pdpd.getDd().getFechaFin());
-                    pubf.setFechaInicio(pdpd.getDd().getFechaIni());
-                    pubf.setNickProveedor(pdpd.getDpub().getProveedor());
-                    pubf.setNombre(pdpd.getDpub().getNombre());
-                    if(pdpd.getDpub() instanceof DataServicio){
-                        pubf.setPrecio(((DataServicio)pdpd.getDpub()).getPrecio());
-                        pubf.setTipo("Servicio");
+                idFactura = mfc.agregarFactura(fecha_creacion_, precio_total_, cliente_.getNickname(), numero_);
+                if (idFactura != -1){
+                    for(ReservaPublicacion rsp : rp_){
+                        ParDPD pdpd = rsp.infoReservaPublicacion();
+                        if(pdpd.getDpub() instanceof DataServicio)
+                            mfc.agregarPublicacionAFactura(idFactura, pdpd.getDd().getCant(), pdpd.getDd().getFechaIni(), pdpd.getDd().getFechaFin(), pdpd.getDpub().getProveedor(), pdpd.getDpub().getNombre(), "Servicio",((DataServicio)pdpd.getDpub()).getPrecio());
+                        else if(pdpd.getDpub() instanceof DataPromocion)
+                            mfc.agregarPublicacionAFactura(idFactura, pdpd.getDd().getCant(), pdpd.getDd().getFechaIni(), pdpd.getDd().getFechaFin(), pdpd.getDpub().getProveedor(), pdpd.getDpub().getNombre(), "Promocion",((DataPromocion)pdpd.getDpub()).getPrecioTotal());
                     }
-                    else if(pdpd.getDpub() instanceof DataPromocion){
-                        pubf.setPrecio(((DataPromocion)pdpd.getDpub()).getPrecioTotal());
-                        pubf.setTipo("Promocion");
-                    }
-                    em.persist(pubf);
                 }
-                em.persist(factura);
-                em.getTransaction().commit();
-                idFactura = factura.getId();
             }catch(Exception e){
                 System.out.print(e.getMessage());
-            }finally{
-                em.close();
             }
             // Recipient's email ID needs to be mentioned.
             String to = cliente_.getCorreoElectronico().toLowerCase();
@@ -241,7 +219,8 @@ public class Reserva {
                 
                 Message = Message + "-Precio total: $" + String.format("%.2f", precio_total_) + "\n";
                 
-                Message = Message + " Puedes ver la factura siguiendo este link: <a href='http://localhost:8080/t2tpgr32/VerFactura?id=" + factura.getId() + "'>Ver factura</a>\n";
+                if(idFactura != -1)
+                    Message = Message + " Puedes ver la factura siguiendo este link: <a href='http://localhost:8080/t2tpgr32/VerFactura?id=" + idFactura + "'>Ver factura</a>\n";
                 
                 Message = Message + "\n\nGracias por preferirnos,\nSaludos.\nHelp4Traveling";
                

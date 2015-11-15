@@ -192,17 +192,9 @@ public class ControladorReserva implements IControladorReserva{
     
     public byte[] obtenerFactura(int id){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ManejadorFacturas mfc = ManejadorFacturas.getInstancia();
         try{
-            EntityManagerFactory emf = javax.persistence.Persistence.createEntityManagerFactory("tpgr32PU");
-            EntityManager em = emf.createEntityManager();
-            //Busco la factura en la DB
-            TypedQuery<Facturas> query1 = em.createQuery("SELECT f FROM Facturas f WHERE f.id = " + String.valueOf(id),Facturas.class);
-            List<Facturas> lista1 = query1.getResultList();
-            Facturas factura = null;
-            if (lista1.size() < 1)
-                throw new IllegalArgumentException("No se encontro la factura");
-            for(Facturas fac : lista1)
-                factura = fac;
+            Facturas factura = mfc.encontrarFactura(id);
             Document document = new Document();
             PdfWriter.getInstance(document, baos);//Creo PDF en ByteArray
             document.open();
@@ -220,8 +212,7 @@ public class ControladorReserva implements IControladorReserva{
             infoFactura = infoFactura + "Fecha: " + df.format(factura.getFechaGenerada()) + "\n";
             
             //Busco todas los servicios de la factura en DB
-            TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Servicio' AND p.factura.id = " + String.valueOf(factura.getId()),PublicacionFactura.class);
-            List<PublicacionFactura> lista = query.getResultList();
+            List<PublicacionFactura> lista = mfc.encontrarServiciosFactura(id);
             document.add(new Paragraph(infoFactura));
             String infoPub = "";
             if (lista.size() > 0){
@@ -241,8 +232,7 @@ public class ControladorReserva implements IControladorReserva{
                 }
             }
             
-            query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Promocion' AND p.factura.id = " + String.valueOf(factura.getId()),PublicacionFactura.class);
-            lista = query.getResultList();
+            lista = mfc.encontrarPromocionesFactura(id);
             if(lista.size() > 0){
                 fuente.setSize(18);
                 parrafo = new Paragraph("Promociones",fuente);

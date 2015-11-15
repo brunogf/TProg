@@ -6,8 +6,11 @@
 package tpgr32;
 
 import java.awt.Image;
+import java.text.ParseException;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 import javax.swing.tree.DefaultTreeModel;
 import org.junit.After;
 import org.junit.AfterClass;
