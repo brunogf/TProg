@@ -358,7 +358,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
    public void agregarLog(DataLog log, String nombre, String proveedor){
        ManejadorLog ml = ManejadorLog.getInstance();
        ml.agregarLog(log);
-       if (nombre != null && proveedor != null){
+       if (nombre.equals("") && proveedor.equals("")){
            agregarVisita(nombre, proveedor);
        }
     }
@@ -378,7 +378,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
         return mapTVDS;        
     }
     
-    public Stack<DataLog> listarLogs(){
+    public Map<Integer,DataLog> listarLogs(){
         return ManejadorLog.getInstance().getLogs();
     }
     

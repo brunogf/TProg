@@ -10,20 +10,19 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
 
 /**
  *
  * @author spesamosca
  */
 public class ManejadorLog implements IObserver{
-    private Stack<DataLog> logs_;
+    private Map<Integer,DataLog> logs_;
     private Map<Integer,Servicio> topVisitados_;
     private static ManejadorLog instancia_ = null;
     
     
     public ManejadorLog(){
-        logs_ = new Stack<DataLog>();
+        logs_ = new HashMap<>();
         topVisitados_ = new HashMap<>();
     }
     
@@ -34,7 +33,7 @@ public class ManejadorLog implements IObserver{
         return instancia_;
     }
     
-    public Stack<DataLog> getLogs(){
+    public Map<Integer,DataLog> getLogs(){
         return logs_;
     }
     
@@ -67,7 +66,7 @@ public class ManejadorLog implements IObserver{
     
     public void agregarLog(DataLog log){
         if (logs_.size() < 10000){            
-            logs_.push(log);
+            logs_.put(logs_.size(), log);
         }
     }
     

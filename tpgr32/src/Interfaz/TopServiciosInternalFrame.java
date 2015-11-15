@@ -7,6 +7,7 @@ package Interfaz;
 
 import java.util.Map;
 import javax.swing.table.DefaultTableModel;
+import tpgr32.DataLog;
 import tpgr32.DataServicio;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorPublicacion;
@@ -20,18 +21,16 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form TopServiciosInternalFrame
      */
-    public TopServiciosInternalFrame() {
+    public TopServiciosInternalFrame(){
         initComponents();
         DefaultTableModel log = (DefaultTableModel) LogsTable.getModel();
         DefaultTableModel top = (DefaultTableModel) TopServiciosTable.getModel();
-        while (LogsTable.getRowCount() > 0) {
+        while (LogsTable.getRowCount() > 0){
             log.removeRow(0);
-        }
-        
+        }       
         while (TopServiciosTable.getRowCount() > 0) {
             top.removeRow(0);
         }
-
         IControladorPublicacion cp = FabricaControladores.getInstancia().getControladorPublicacion();
         Map<Integer, DataServicio> mapDS = cp.listarTopServicios();
         for (int k=9; k>=0; k--){
@@ -39,9 +38,11 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                 DataServicio ds = mapDS.get(k);
                 top.addRow(new Object[]{k, ds.getNombre(), ds.getProveedor(), ds.getCantVisitas()});
             }
-        }
-        
-       
+        }       
+        Map<Integer,DataLog> mapDL = cp.listarLogs();
+        for (int k = mapDL.size()-1; k>=0; k--){
+            log.addRow(new Object[]{mapDL.get(k).getNro(), mapDL.get(k).getIp(), mapDL.get(k).getUrl(), mapDL.get(k).getBrowser(), mapDL.get(k).getOs()});
+        }             
     }
 
     /**
