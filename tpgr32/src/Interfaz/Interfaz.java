@@ -24,6 +24,7 @@ import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeSelectionModel;
 import java.awt.event.*;
 import java.io.File;
+import java.io.FileInputStream;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.Icon;
 import javax.swing.JInternalFrame;
@@ -74,8 +75,7 @@ public class Interfaz extends javax.swing.JFrame {
     private IControladorReserva crAltaReserva;
 
     public Interfaz() {
-        PublicadorControladorUsuario pcu = new PublicadorControladorUsuario();
-        pcu.publicar();
+        (new PublicadorControladorUsuario()).publicar();
         (new PublicadorControladorPublicacion()).publicar();
         (new PublicadorControladorReserva()).publicar();
         initComponents();

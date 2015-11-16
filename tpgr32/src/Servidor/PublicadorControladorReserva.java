@@ -8,12 +8,14 @@ package Servidor;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Properties;
 import java.util.Set;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
@@ -43,11 +45,12 @@ public class PublicadorControladorReserva {
     
     @WebMethod(exclude = true)
     public void publicar(){
-        String srv = "";
+        String srv = "http://";
+        Properties config = new Properties();
         try{
-            BufferedReader in = new BufferedReader(new FileReader("server.txt"));
-            srv = in.readLine();
-            in.close();
+            FileInputStream input = new FileInputStream("server.properties");
+            config.load(input);
+            srv = srv + config.getProperty("host") +":"+ config.getProperty("port");
         }catch(Exception e){
             srv = "http://localhost:9128";
         }

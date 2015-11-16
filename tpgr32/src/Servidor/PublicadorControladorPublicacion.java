@@ -10,12 +10,14 @@ import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Properties;
 import java.util.Set;
 import java.util.Stack;
 import javax.imageio.ImageIO;
@@ -50,11 +52,12 @@ public class PublicadorControladorPublicacion {
     
     @WebMethod(exclude = true)
     public void publicar(){
-        String srv = "";
+        String srv = "http://";
+        Properties config = new Properties();
         try{
-            BufferedReader in = new BufferedReader(new FileReader("server.txt"));
-            srv = in.readLine();
-            in.close();
+            FileInputStream input = new FileInputStream("server.properties");
+            config.load(input);
+            srv = srv + config.getProperty("host") +":"+ config.getProperty("port");
         }catch(Exception e){
             srv = "http://localhost:9128";
         }

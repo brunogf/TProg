@@ -12,11 +12,13 @@ import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import java.util.Set;
 import javax.imageio.ImageIO;
 import javax.jws.WebMethod;
@@ -45,11 +47,12 @@ public class PublicadorControladorUsuario {
     
     @WebMethod(exclude = true)
     public void publicar(){
-        String srv = "";
+        String srv = "http://";
+        Properties config = new Properties();
         try{
-            BufferedReader in = new BufferedReader(new FileReader("server.txt"));
-            srv = in.readLine();
-            in.close();
+            FileInputStream input = new FileInputStream("server.properties");
+            config.load(input);
+            srv = srv + config.getProperty("host") +":"+ config.getProperty("port");
         }catch(Exception e){
             srv = "http://localhost:9128";
         }
