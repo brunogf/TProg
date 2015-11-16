@@ -184,30 +184,18 @@ public class Reserva {
                Message = Message + "--Detalles de la compra\n";
                for(ReservaPublicacion rsp : rp_){
                    ParDPD pdpd = rsp.infoReservaPublicacion();
-                   boolean flag2 = false;
                    if(pdpd.getDpub() instanceof DataServicio){
-                       if (!flag2){
-                           Message = Message + "-Servicios:\n";
-                           flag2 = true;
-                       }
-                       Message = Message + "   -Nombre: " + pdpd.getDpub().getNombre();
+                       Message = Message + "-Nombre: " + pdpd.getDpub().getNombre();
+                       Message = Message + " -Tipo: Servicio";
                        Message = Message + " -Cantidad: " + Integer.toString(pdpd.getDd().getCant());
                        Message = Message + " -$" + String.format("%.2f",(pdpd.getDd().getCant() * ((DataServicio)pdpd.getDpub()).getPrecio()));
                        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
                        DataUsuario dtu = cu.infoProveedor(pdpd.getDpub().getProveedor());
-                       
                        Message = Message + " -Proveedor: " + dtu.getNombre() + " " + dtu.getApellido() + "\n";
                    }
-               }
-                for(ReservaPublicacion rsp : rp_){
-                   ParDPD pdpd = rsp.infoReservaPublicacion();
-                   boolean flag2 = false;
                    if(pdpd.getDpub() instanceof DataPromocion){
-                       if (!flag2){
-                           Message = Message + "-Promociones:\n";
-                           flag2 = true;
-                       }
-                       Message = Message + "   -Nombre: " + pdpd.getDpub().getNombre();
+                       Message = Message + "-Nombre: " + pdpd.getDpub().getNombre();
+                       Message = Message + " -Tipo: Promoción";
                        Message = Message + " -Cantidad: " + Integer.toString(pdpd.getDd().getCant());
                        Message = Message + " -$" + String.format("%.2f",(pdpd.getDd().getCant() * ((DataPromocion)pdpd.getDpub()).getPrecioTotal()));
                        IControladorUsuario cu = FabricaControladores.getInstancia().getControladorUsuario();
@@ -215,7 +203,8 @@ public class Reserva {
                        
                        Message = Message + " -Proveedor: " + dtu.getNombre() + " " + dtu.getApellido() + "\n";
                    }
-                }
+               }
+                
                 
                 Message = Message + "-Precio total: $" + String.format("%.2f", precio_total_) + "\n";
                 

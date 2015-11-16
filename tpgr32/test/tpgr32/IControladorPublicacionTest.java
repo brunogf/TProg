@@ -246,6 +246,10 @@ public class IControladorPublicacionTest {
         {
             return null;
         }
+        
+        public void agregarLog(DataLog log, String nombre, String proveedor){}
+    public Map<Integer, DataServicio> listarTopServicios(){return null;}
+    public Map<Integer,DataLog> listarLogs(){return null;}
     }
     
 }

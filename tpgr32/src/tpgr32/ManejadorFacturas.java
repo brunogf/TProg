@@ -5,6 +5,7 @@
  */
 package tpgr32;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -53,26 +54,34 @@ public class ManejadorFacturas {
     
     public Facturas encontrarFactura(int id) throws IllegalArgumentException{
         EntityManager em = emf.createEntityManager();  
+        List<Facturas> lista1 = null;
+        try{
         TypedQuery<Facturas> query1 = em.createQuery("SELECT f FROM Facturas f WHERE f.id = " + String.valueOf(id),Facturas.class);
-        List<Facturas> lista1 = query1.getResultList();
+        lista1 = query1.getResultList();
+        }catch(Exception e){System.out.print(e.getMessage());
+            lista1 = new ArrayList<Facturas>();
+        };
         Facturas factura = null;
         if (lista1.size() < 1)
             throw new IllegalArgumentException("No se encontro la factura");
         for(Facturas fac : lista1)
             factura = fac;
+        
         return factura;
     }
     
     public List<PublicacionFactura> encontrarServiciosFactura(int idFactura){
         EntityManager em = emf.createEntityManager();  
         TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Servicio' AND p.factura.id = " + String.valueOf(idFactura),PublicacionFactura.class);
-        return query.getResultList();
+        List<PublicacionFactura> resultado = query.getResultList();
+        return resultado;
     }
     
     public List<PublicacionFactura> encontrarPromocionesFactura(int idFactura){
         EntityManager em = emf.createEntityManager();  
-        TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Servicio' AND p.factura.id = " + String.valueOf(idFactura),PublicacionFactura.class);
-        return query.getResultList();
+        TypedQuery<PublicacionFactura> query = em.createQuery("SELECT p FROM PublicacionFactura p WHERE p.tipo = 'Promocion' AND p.factura.id = " + String.valueOf(idFactura),PublicacionFactura.class);
+        List<PublicacionFactura> resultado = query.getResultList();
+        return resultado;
     }
     
     public void agregarPublicacionAFactura(int factura, int cant, Date fini, Date ffin, String nickProveedor, String nombrePub, String tipo, float precio) throws IllegalArgumentException{
