@@ -5,6 +5,7 @@
  */
 package tpgr32;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -135,5 +136,13 @@ public class Proveedor extends Usuario {
         }
         return idFactura;
     }
-    
+
+    Set<DataReserva> listarReservas() {
+        Set<Publicacion> pubs = new HashSet(publicaciones_.values());
+        Set<DataReserva> reservas = new HashSet();
+        for (Publicacion p:pubs){
+            reservas.addAll(p.obtenerInfoReservas());
+        }            
+        return reservas;
+    }   
 }

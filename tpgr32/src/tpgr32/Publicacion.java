@@ -5,6 +5,7 @@
  */
 package tpgr32;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -62,4 +63,13 @@ public abstract class Publicacion {
         return idFactura;
     }
 
+    Set<DataReserva> obtenerInfoReservas() {
+        Set<DataReserva> reservas = new HashSet();
+        for (ReservaPublicacion rp:rp_){
+            Reserva r = rp.getReserva();
+            DataReserva dr = r.infoReserva();
+            reservas.add(dr);
+        }
+        return reservas;
+    }
 }

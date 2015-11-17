@@ -114,6 +114,14 @@ public class ControladorUsuario implements IControladorUsuario {
         Proveedor prov = mUsuario.encontrarProveedor(nick);
         return prov.listarPublicaciones();
     }
+    
+    public Set<DataReserva> listarReservasProveedor(String nick) {
+        //Lista las reservas que le hicieron al proveedor identificado por nick. 
+        
+        ManejadorUsuario mUsuario = ManejadorUsuario.getInstance();
+        Proveedor prov = mUsuario.encontrarProveedor(nick);
+        return prov.listarReservas();
+    }
 
     public int comprobarUsuario(String usuario, String password) {
         return ManejadorUsuario.getInstance().comprobarUsuario(usuario, password);

@@ -29,6 +29,7 @@ import tpgr32.DataCliente;
 import tpgr32.DataProveedor;
 import tpgr32.DataProveedorBean;
 import tpgr32.DataPublicacion;
+import tpgr32.DataReserva;
 import tpgr32.DataUsuario;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorUsuario;
@@ -202,6 +203,19 @@ public class PublicadorControladorUsuario {
        }
        return adtp;
     }
+    
+    public DataReserva[] listarReservasProveedor(String nick){
+       IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
+       Set<DataReserva> reservas = cusr.listarReservasProveedor(nick);
+       DataReserva[] adtr = new DataReserva[reservas.size()];
+       int i = 0;
+       for(DataReserva dtr : reservas){
+           adtr[i] = dtr;
+           i++;
+       }
+       return adtr;
+    }
+    
     
     @WebMethod
     public byte[] getImagenDelUsuario(String nombre){
