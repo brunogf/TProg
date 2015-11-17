@@ -55,7 +55,11 @@ public class PublicadorControladorPublicacion {
         String srv = "http://";
         Properties config = new Properties();
         try{
-            FileInputStream input = new FileInputStream("server.properties");
+            FileInputStream input;
+            if(System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
+                input = new FileInputStream(System.getProperty("user.home") + "/Documents/server.properties");
+            else
+                input = new FileInputStream(System.getProperty("user.home") + "/server.properties");
             config.load(input);
             srv = srv + config.getProperty("host") +":"+ config.getProperty("port");
         }catch(Exception e){
