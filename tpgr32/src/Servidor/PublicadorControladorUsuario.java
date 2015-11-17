@@ -204,6 +204,7 @@ public class PublicadorControladorUsuario {
        return adtp;
     }
     
+    @WebMethod
     public DataReserva[] listarReservasProveedor(String nick){
        IControladorUsuario cusr = FabricaControladores.getInstancia().getControladorUsuario();
        Set<DataReserva> reservas = cusr.listarReservasProveedor(nick);
