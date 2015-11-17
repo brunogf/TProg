@@ -50,7 +50,7 @@ public class PublicadorControladorReserva {
         try{
             FileInputStream input;
             if(System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
-                input = new FileInputStream(System.getProperty("user.home") + "/Documents/server.properties");
+                input = new FileInputStream(System.getProperty("user.home") + "/Quick Order/Documents/server.properties");
             else
                 input = new FileInputStream(System.getProperty("user.home") + "/server.properties");
             config.load(input);
