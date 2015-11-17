@@ -136,6 +136,10 @@ public class IControladorUsuarioTest {
         public Set<DataPublicacion> listarPublicacionesProveedor(String nick) {
             return null;
         }
+        
+        public Set<DataReserva> listarReservasProveedor(String nick) {
+            return null;
+        }
 
         public Image getImagenDelUsuario(String nombre) {
             return null;
