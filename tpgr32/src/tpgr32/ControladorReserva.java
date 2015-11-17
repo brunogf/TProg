@@ -266,4 +266,10 @@ public class ControladorReserva implements IControladorReserva{
         return baos.toByteArray();
     }
     
+    public int obtenerFacturaReserva(int nro){
+        Reserva res = ManejadorReserva.getInstance().encontrarReserva(nro);
+        if (res != null)
+            return res.getFactura();
+        return -1;
+    }
 }

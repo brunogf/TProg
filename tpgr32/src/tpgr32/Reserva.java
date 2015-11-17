@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package tpgr32;
+import java.io.FileInputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -20,12 +21,13 @@ import javax.persistence.EntityManagerFactory;
 public class Reserva {
     private static int id=1;
     
-    private int numero_; 
+    private int numero_;
     private Date fecha_creacion_; 
     private Estado estado_;
     private float precio_total_; //calculado
     private Cliente cliente_;
     private Set<ReservaPublicacion> rp_;
+    private int factura_;
       
     
     public Reserva(Estado estado, Cliente cliente){
@@ -35,7 +37,7 @@ public class Reserva {
         this.precio_total_=0;//se calcula cada vez que se agrega una publicacion
         this.cliente_=cliente;
         this.rp_=new HashSet<>();
-        
+        factura_ = -1;
         id++;
     }
     
@@ -57,6 +59,11 @@ public class Reserva {
     public Date getFechaCreacion(){
         return fecha_creacion_;
     }
+    
+    public int getFactura(){
+        return factura_;
+    }
+    
     public void setFechaCreacion(Date f)
     {
         fecha_creacion_=f;
@@ -142,6 +149,7 @@ public class Reserva {
                         else if(pdpd.getDpub() instanceof DataPromocion)
                             mfc.agregarPublicacionAFactura(idFactura, pdpd.getDd().getCant(), pdpd.getDd().getFechaIni(), pdpd.getDd().getFechaFin(), pdpd.getDpub().getProveedor(), pdpd.getDpub().getNombre(), "Promocion",((DataPromocion)pdpd.getDpub()).getPrecioTotal());
                     }
+                factura_ = idFactura;
                 }
             }catch(Exception e){
                 System.out.print(e.getMessage());
@@ -150,20 +158,64 @@ public class Reserva {
             String to = cliente_.getCorreoElectronico().toLowerCase();
 
             // Sender's email ID needs to be mentioned
+            boolean configFlag = true;
+            Properties config = new Properties();
+            try{
+                FileInputStream input;
+                if(System.getProperty("os.name").toUpperCase().contains("WINDOWS"))
+                    input = new FileInputStream(System.getProperty("user.home") + "/Documents/server.properties");
+                else
+                    input = new FileInputStream(System.getProperty("user.home") + "/Quick Order/server.properties");
+                config.load(input);
+            }catch(Exception e){
+                configFlag = false;
+            }
             String from = "do_not_respond@h4t.com";
+            if(configFlag)
+                from = config.getProperty("dirEmailFacturas");
 
             // Assuming you are sending email from localhost
             String host = "localhost";
+            if(configFlag)
+                host = config.getProperty("emailSmtpHost");
 
             // Get system properties
             Properties properties = System.getProperties();
 
             // Setup mail server
             properties.setProperty("mail.smtp.host", host);
-
+            
+            //Protocolo
+            if(configFlag){
+                properties.setProperty("mail.smtp.auth", config.getProperty("emailAuthentification"));
+                properties.setProperty("mail.smtp.port", config.getProperty("emailPort"));
+                if(config.getProperty("emailProtocol").equals("tls"))
+                    properties.setProperty("mail.smtp.starttls.enable", "true");
+                else if(config.getProperty("emailProtocol").equals("ssl")){
+                    properties.setProperty("mail.smtp.socketFactory.class",
+				"javax.net.ssl.SSLSocketFactory");
+                    properties.setProperty("mail.smtp.port", config.getProperty("emailPort"));
+                }
+                
+            }
+          
+            Session session;
             // Get the default Session object.
-            Session session = Session.getDefaultInstance(properties);
-
+            if(configFlag){
+                if(config.getProperty("emailAuthentification").equals("true")){
+                    session = Session.getDefaultInstance(properties,
+			new javax.mail.Authenticator() {
+                                @Override
+				protected PasswordAuthentication getPasswordAuthentication() {
+					return new PasswordAuthentication(config.getProperty("usuarioEmail"),config.getProperty("passwordEmail"));
+				}
+			});
+                }
+                else
+                    session = Session.getDefaultInstance(properties); 
+            }
+            else
+                session = Session.getDefaultInstance(properties);
             try{
                // Create a default MimeMessage object.
                MimeMessage message = new MimeMessage(session);
@@ -219,7 +271,7 @@ public class Reserva {
                Transport.send(message);
                
             }catch (MessagingException mex) {
-               System.out.println("Error al enviar el correo... revisar el servidor.");
+               System.out.println("Error al enviar el correo... revisar el servidor.\n" + mex.getMessage());
             }
             
         }

@@ -33,4 +33,6 @@ public interface IControladorReserva {
     public void cambiarFechaCreacionReserva(Date fecha, int res);   
     public int facturarReserva(String nickname, int nro);
     public byte[] obtenerFactura(int id);
+    public int obtenerFacturaReserva(int nro);
+    
 }

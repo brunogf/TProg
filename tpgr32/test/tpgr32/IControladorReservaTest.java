@@ -163,6 +163,12 @@ public class IControladorReservaTest {
         public byte[] obtenerFactura(int id){
             return null;
         }
+        
+        public int obtenerFacturaReserva(int nro){
+        return -1;
     }
+    }
+    
+    
     
 }
