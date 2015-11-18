@@ -5,11 +5,15 @@
  */
 package tpgr32;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -141,8 +145,9 @@ public class Proveedor extends Usuario {
         Set<Publicacion> pubs = new HashSet(publicaciones_.values());
         Set<DataReserva> reservas = new HashSet();
         for (Publicacion p:pubs){
-            reservas.addAll(p.obtenerInfoReservas());
-        }            
+            reservas.addAll(p.obtenerInfoReservas(this.nickname, p.getNombre()));
+        }
+
         return reservas;
     }   
 }

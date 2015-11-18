@@ -278,5 +278,17 @@ public class Reserva {
         return idFactura;
         
     }
+
+    DataReserva infoReservaProveedorPublicacion(String proveedor, String publicacion) {
+        Set<ParDPD> conjDPD=new HashSet<>();
+        for (ReservaPublicacion rp:rp_){
+            ParDPD dpd=rp.infoReservaPublicacionPorProveedor(proveedor, publicacion);
+            conjDPD.add(dpd);
+        }
+        DataReserva dr=new DataReserva(numero_, fecha_creacion_, estado_, 
+            precio_total_, conjDPD, cliente_.getNickname());
+        
+        return dr;
+    }
     
 }
