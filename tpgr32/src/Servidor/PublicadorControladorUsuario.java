@@ -30,6 +30,8 @@ import tpgr32.DataProveedor;
 import tpgr32.DataProveedorBean;
 import tpgr32.DataPublicacion;
 import tpgr32.DataReserva;
+import tpgr32.DataServicio;
+import tpgr32.DataServicioBean;
 import tpgr32.DataUsuario;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorUsuario;
@@ -198,7 +200,19 @@ public class PublicadorControladorUsuario {
        DataPublicacion[] adtp = new DataPublicacion[sdtp.size()];
        int i = 0;
        for(DataPublicacion dtp : sdtp){
-           adtp[i] = dtp;
+           if (dtp instanceof DataServicio){
+               
+               DataServicio dts = (DataServicio)dtp;
+               String[] cats = new String[dts.getCategorias().size()];
+               int iter = 0;
+               for (String cat : dts.getCategorias()){
+                   cats[iter] = cat;
+                   iter++;
+               }
+               adtp[i] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas());
+               }
+           else
+                adtp[i] = dtp;
            i++;
        }
        return adtp;
