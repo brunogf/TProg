@@ -104,4 +104,14 @@ public class ReservaPublicacion {
         } 
         return null;
     }
+
+    ParDPD infoReservaPorProveedor(String nick) {
+        if (pub_.getProveedor().getNickname().equalsIgnoreCase(nick)){
+            DataDisponibilidad dtd = new DataDisponibilidad(cant_, fechaIni_, fechaFin_);
+            DataPublicacion dtp = pub_.infoPublicacion();
+            ParDPD dpd = new ParDPD(dtp, dtd);
+            return dpd;
+        }
+        return null;
+    }
 }

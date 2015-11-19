@@ -112,6 +112,10 @@ public class IControladorReservaTest {
         public DataReserva infoReserva(int num) {
             return null;
         }
+        
+        public DataReserva infoReservaProveedor(int nro, String nick){
+            return null;
+        }
 
         public List<DataReserva> listarReservas() {
             return null;

@@ -88,7 +88,17 @@ public class ControladorReserva implements IControladorReserva{
         ManejadorReserva mr=ManejadorReserva.getInstance();
         Reserva r=mr.encontrarReserva(nro);
         
+        
         return r.infoReserva();
+    }
+    
+    public DataReserva infoReservaProveedor(int nro, String nick){
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        ManejadorUsuario mu = ManejadorUsuario.getInstance();
+        Proveedor proveedor_ = mu.encontrarProveedor(nick);
+        
+        return r.infoReservaProveedor(nick);
     }
     
     public List<DataReserva> listarReservas(){

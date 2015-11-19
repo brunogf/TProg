@@ -19,6 +19,7 @@ public interface IControladorReserva {
     public void bajaReserva(int num) throws Exception;
     public int confirmarReserva();
     public DataReserva infoReserva(int num);
+    public DataReserva infoReservaProveedor(int nro, String nick);
     public List<DataReserva> listarReservas();
     public void seleccionarCliente(String nickname);
     public void seleccionarPublicacion(String nombre,
