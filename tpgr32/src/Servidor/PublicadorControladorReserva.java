@@ -30,7 +30,11 @@ import tpgr32.DataUsuario;
 import tpgr32.Estado;
 import tpgr32.FabricaControladores;
 import tpgr32.IControladorReserva;
+import tpgr32.ManejadorReserva;
+import tpgr32.ManejadorUsuario;
 import tpgr32.ParDPD;
+import tpgr32.Proveedor;
+import tpgr32.Reserva;
 
 /**
  *
@@ -137,6 +141,16 @@ public class PublicadorControladorReserva {
         }
         r.setParDPD(sdpd);
         return r;
+    }
+    
+    @WebMethod
+    public DataReserva infoReservaProveedor(int nro, String nick){
+        ManejadorReserva mr=ManejadorReserva.getInstance();
+        Reserva r=mr.encontrarReserva(nro);
+        ManejadorUsuario mu = ManejadorUsuario.getInstance();
+        Proveedor proveedor_ = mu.encontrarProveedor(nick);
+        
+        return r.infoReservaProveedor(nick);
     }
     
     @WebMethod
