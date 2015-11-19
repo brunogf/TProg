@@ -69,12 +69,12 @@ public abstract class Publicacion {
 
     Set<DataReserva> obtenerInfoReservas(String proveedor, String publicacion) {
         Set<DataReserva> reservas = new HashSet();
+
         for (ReservaPublicacion rp : rp_) {
             Reserva r = rp.getReserva();
             DataReserva dr = r.infoReservaProveedorPublicacion(proveedor, publicacion);
             reservas.add(dr);
         }
-                   
         return reservas;
     }
 }

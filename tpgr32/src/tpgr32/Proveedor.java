@@ -22,119 +22,111 @@ import java.util.Set;
  * @author Nicolás Rostán
  */
 public class Proveedor extends Usuario {
+
     private String nomEmpresa_;
     private String url_;
     private Map<String, Publicacion> publicaciones_;
-    
-    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url, String pass)
-    {
-	super(nom,apellido,nickName,cElec,f,pass);
-	nomEmpresa_ = empresa;
+
+    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f, String empresa, String url, String pass) {
+        super(nom, apellido, nickName, cElec, f, pass);
+        nomEmpresa_ = empresa;
         publicaciones_ = new HashMap<>();
-	url_ = url;
+        url_ = url;
     }
-    
-    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f,String empresa, String url, String img, String pass)
-    {
-	super(nom,apellido,nickName,cElec,f,pass);
-	nomEmpresa_ = empresa;
+
+    public Proveedor(String nom, String apellido, String nickName, String cElec, Date f, String empresa, String url, String img, String pass) {
+        super(nom, apellido, nickName, cElec, f, pass);
+        nomEmpresa_ = empresa;
         publicaciones_ = new HashMap<>();
         super.cambiarImagen(img);
-	url_ = url;
+        url_ = url;
     }
-    
-    public String getNombreEmpresa()
-    {
-	return nomEmpresa_;
+
+    public String getNombreEmpresa() {
+        return nomEmpresa_;
     }
-    
-    public String getURL()
-    {
-	return url_;
+
+    public String getURL() {
+        return url_;
     }
-    
-    public void setNombreEmpresa(String n)
-    {
-	nomEmpresa_ = n;
+
+    public void setNombreEmpresa(String n) {
+        nomEmpresa_ = n;
     }
-    
-    public void setURL(String u)
-    {
-	url_ = u;
+
+    public void setURL(String u) {
+        url_ = u;
     }
-    
-    public Publicacion encontrarPublicacion(String pub)
-    {
-	Publicacion p = publicaciones_.get(pub);
-	return p;
+
+    public Publicacion encontrarPublicacion(String pub) {
+        Publicacion p = publicaciones_.get(pub);
+        return p;
     }
-    
+
     // al retornar el dt del Proveedor ya le agrego los dtPublicaciones de sus Publicaciones
     @Override
-     public DataUsuario infoUsuario() {
-        DataProveedor dtProv = new DataProveedor(this.nickname,this.nombre,this.apellido,this.correoElec,this.fechaNacimiento,
-        this.nomEmpresa_,this.url_, this.imagen); 
-        for(String key : this.publicaciones_.keySet()) {
+    public DataUsuario infoUsuario() {
+        DataProveedor dtProv = new DataProveedor(this.nickname, this.nombre, this.apellido, this.correoElec, this.fechaNacimiento,
+                this.nomEmpresa_, this.url_, this.imagen);
+        for (String key : this.publicaciones_.keySet()) {
             Publicacion p = this.publicaciones_.get(key);
             dtProv.agregarPublicacion(p.infoPublicacion());
         }
-        return dtProv;     
+        return dtProv;
     }
-         
-    public void agregarPublicacion(Publicacion p){
+
+    public void agregarPublicacion(Publicacion p) {
         publicaciones_.put(p.getNombre(), p);
     }
-    
-    public DataServicio infoServicio(String nombre){
+
+    public DataServicio infoServicio(String nombre) {
         Publicacion pub = publicaciones_.get(nombre);
-	if (!(pub instanceof Servicio))
-	    throw new IllegalArgumentException("No se encontro el servicio");
-	Servicio ser = (Servicio)pub;
-        DataServicio servicio =(DataServicio) ser.infoPublicacionCompleto();
+        if (!(pub instanceof Servicio)) {
+            throw new IllegalArgumentException("No se encontro el servicio");
+        }
+        Servicio ser = (Servicio) pub;
+        DataServicio servicio = (DataServicio) ser.infoPublicacionCompleto();
         return servicio;
     }
-    
-    public Set<DataPublicacion> listarPublicaciones()
-    {
+
+    public Set<DataPublicacion> listarPublicaciones() {
         Set<DataPublicacion> publicaciones = new HashSet<>();
-        for(Map.Entry<String, Publicacion> entry : publicaciones_.entrySet())
-        {
+        for (Map.Entry<String, Publicacion> entry : publicaciones_.entrySet()) {
             publicaciones.add(entry.getValue().infoPublicacion());
         }
         return publicaciones;
     }
- 
+
     // servicios del proveedor
-    public Set<DataPublicacion> listarServicios()
-    {
-         Set<DataPublicacion> s = new HashSet<>();
-        for(String key : this.publicaciones_.keySet()) {
+    public Set<DataPublicacion> listarServicios() {
+        Set<DataPublicacion> s = new HashSet<>();
+        for (String key : this.publicaciones_.keySet()) {
             Publicacion p = this.publicaciones_.get(key);
             s.add(p.infoPublicacion());
         }
         return s;
     }
-    
-    public DataPromocion infoPromocion(String promo){
+
+    public DataPromocion infoPromocion(String promo) {
         Promocion p = (Promocion) encontrarPublicacion(promo);
         Set<DataServicio> servicios = p.getConjDataServicios();
-        DataPromocion dataP = new DataPromocion(p.getNombre(), p.getDescuento(), super.nickname, p.getPrecioTotal());             
-        for (DataServicio pub: servicios){             
-                    dataP.agregarServicio((DataServicio)pub);
-                }       
+        DataPromocion dataP = new DataPromocion(p.getNombre(), p.getDescuento(), super.nickname, p.getPrecioTotal());
+        for (DataServicio pub : servicios) {
+            dataP.agregarServicio((DataServicio) pub);
+        }
         return dataP;
     }
-  
+
     public DataPublicacion getInfoServicioCompleto(String nombre) {
-        Servicio p = (Servicio)this.publicaciones_.get(nombre);
+        Servicio p = (Servicio) this.publicaciones_.get(nombre);
         return p.infoPublicacionCompleto();
     }
-    
-    public int facturarReserva(int nro){
+
+    public int facturarReserva(int nro) {
         int idFactura = -1;
         Set<String> keys = publicaciones_.keySet();
         Iterator iter = keys.iterator();
-        while(iter.hasNext() && (idFactura == -1)) {
+        while (iter.hasNext() && (idFactura == -1)) {
             Publicacion p = this.publicaciones_.get(iter.next());
             idFactura = p.facturarReserva(nro);
         }
@@ -142,12 +134,33 @@ public class Proveedor extends Usuario {
     }
 
     Set<DataReserva> listarReservas() {
-        Set<Publicacion> pubs = new HashSet(publicaciones_.values());
-        Set<DataReserva> reservas = new HashSet();
-        for (Publicacion p:pubs){
+        Set<Publicacion> pubs = new HashSet(publicaciones_.values()); 
+        Set<DataReserva> reservas = new HashSet(); //set de datareservas, repetidas, cada una con un solo dpd asociado
+
+        for (Publicacion p : pubs) {
             reservas.addAll(p.obtenerInfoReservas(this.nickname, p.getNombre()));
         }
 
-        return reservas;
-    }   
+        Set<DataReserva> set_reservas = new HashSet();
+        boolean primeravez = true;
+
+        for (DataReserva dat1 : reservas) {
+            boolean entro = true;
+            for (DataReserva dat : set_reservas) {
+                if (dat.getNum() == dat1.getNum()) {//la reserva ya esta en el set
+                    dat.getdpd().addAll(dat1.getdpd());
+                    entro = false;
+                    break;
+                }
+            }
+            if (primeravez) {
+                set_reservas.add(dat1);
+                primeravez = false;
+            } else if (entro) {
+                set_reservas.add(dat1);
+            }
+        }
+
+        return set_reservas;
+    }
 }
