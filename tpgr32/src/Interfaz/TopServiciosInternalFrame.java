@@ -69,6 +69,8 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
         TopServiciosTable = new javax.swing.JTable();
         TopServiciosCerrarButton = new javax.swing.JButton();
         TopServiciosActualizarButton = new javax.swing.JButton();
+        URLLabel = new javax.swing.JLabel();
+        URL = new javax.swing.JLabel();
 
         getContentPane().setLayout(new java.awt.CardLayout());
 
@@ -86,6 +88,11 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        LogsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LogsTableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(LogsTable);
@@ -126,6 +133,8 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        URLLabel.setText("URL:");
+
         javax.swing.GroupLayout InfoAccesosPanelLayout = new javax.swing.GroupLayout(InfoAccesosPanel);
         InfoAccesosPanel.setLayout(InfoAccesosPanelLayout);
         InfoAccesosPanelLayout.setHorizontalGroup(
@@ -148,7 +157,13 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                             .addGap(18, 18, 18)
                             .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(URLLabel)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(URL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         InfoAccesosPanelLayout.setVerticalGroup(
@@ -158,7 +173,11 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                 .addComponent(LogsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(URLLabel)
+                    .addComponent(URL, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addComponent(TopServiciosLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,6 +211,11 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
         jp.revalidate();
     }//GEN-LAST:event_TopServiciosCerrarButtonActionPerformed
 
+    private void LogsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogsTableMouseClicked
+        int row = LogsTable.rowAtPoint(evt.getPoint());
+        URL.setText(LogsTable.getValueAt(row,2).toString());
+    }//GEN-LAST:event_LogsTableMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InfoAccesosPanel;
@@ -201,6 +225,8 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton TopServiciosCerrarButton;
     private javax.swing.JLabel TopServiciosLabel;
     private javax.swing.JTable TopServiciosTable;
+    private javax.swing.JLabel URL;
+    private javax.swing.JLabel URLLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
