@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Stack;
 import javax.swing.tree.DefaultTreeModel;
@@ -378,7 +379,7 @@ public class ControladorPublicacion implements IControladorPublicacion{
         return mapTVDS;        
     }
     
-    public Map<Integer,DataLog> listarLogs(){
+    public LinkedList<DataLog> listarLogs(){
         return ManejadorLog.getInstance().getLogs();
     }
     

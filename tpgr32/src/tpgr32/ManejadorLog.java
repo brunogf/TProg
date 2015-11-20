@@ -8,6 +8,7 @@ package tpgr32;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -16,13 +17,13 @@ import java.util.Map;
  * @author spesamosca
  */
 public class ManejadorLog implements IObserver{
-    private Map<Integer,DataLog> logs_;
+    private LinkedList<DataLog> logs_;
     private Map<Integer,Servicio> topVisitados_;
     private static ManejadorLog instancia_ = null;
     
     
     public ManejadorLog(){
-        logs_ = new HashMap<>();
+        logs_ = new LinkedList();
         topVisitados_ = new HashMap<>();
     }
     
@@ -33,7 +34,7 @@ public class ManejadorLog implements IObserver{
         return instancia_;
     }
     
-    public Map<Integer,DataLog> getLogs(){
+    public LinkedList<DataLog> getLogs(){
         return logs_;
     }
     
@@ -71,7 +72,11 @@ public class ManejadorLog implements IObserver{
     
     public void agregarLog(DataLog log){
         if (logs_.size() < 10000){            
-            logs_.put(9999-logs_.size(), log);
+            logs_.addFirst(log);
+        }
+        else{
+            logs_.removeLast();
+            logs_.add(log);
         }
     }
     

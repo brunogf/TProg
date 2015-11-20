@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -26,6 +28,7 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
      */
     public TopServiciosInternalFrame(){
         initComponents();
+        URLLabel.setVisible(false);
         DefaultTableModel log = (DefaultTableModel) LogsTable.getModel();
         DefaultTableModel top = (DefaultTableModel) TopServiciosTable.getModel();
         while (LogsTable.getRowCount() > 0){
@@ -43,12 +46,14 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
             }
         }
         
-        Map<Integer,DataLog> mapDL = cp.listarLogs();
+        LinkedList<DataLog> mapDL = cp.listarLogs();
+        Iterator it = mapDL.iterator();
         int contFila = 1;
-        for (int k = 10000-mapDL.size(); k<=9999; k++){
-            log.addRow(new Object[]{contFila, mapDL.get(k).getIp(), mapDL.get(k).getUrl(), mapDL.get(k).getBrowser(), mapDL.get(k).getOs()});
+        while (it.hasNext()){
+            DataLog dl = (DataLog) it.next();
+            log.addRow(new Object[]{contFila, dl.getIp(), dl.getUrl(), dl.getBrowser(), dl.getOs()});
             contFila++;
-        }             
+        }           
     }
 
     /**
@@ -133,7 +138,7 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
-        URLLabel.setText("URL:");
+        URLLabel.setText("URL");
 
         javax.swing.GroupLayout InfoAccesosPanelLayout = new javax.swing.GroupLayout(InfoAccesosPanel);
         InfoAccesosPanel.setLayout(InfoAccesosPanelLayout);
@@ -141,12 +146,6 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
             InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
                 .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
-                        .addGap(181, 181, 181)
-                        .addComponent(LogsLabel))
-                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(TopServiciosLabel))
                     .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InfoAccesosPanelLayout.createSequentialGroup()
                             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -156,14 +155,20 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InfoAccesosPanelLayout.createSequentialGroup()
                             .addGap(18, 18, 18)
                             .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(URLLabel)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(URL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addComponent(URL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(URLLabel))
+                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(LogsLabel))
+                    .addGroup(InfoAccesosPanelLayout.createSequentialGroup()
+                        .addGap(168, 168, 168)
+                        .addComponent(TopServiciosLabel)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         InfoAccesosPanelLayout.setVerticalGroup(
@@ -174,10 +179,10 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(URLLabel)
-                    .addComponent(URL, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addComponent(URLLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(URL, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TopServiciosLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,7 +190,7 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
                 .addGroup(InfoAccesosPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(TopServiciosCerrarButton)
                     .addComponent(TopServiciosActualizarButton))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         getContentPane().add(InfoAccesosPanel, "card2");
@@ -213,6 +218,7 @@ public class TopServiciosInternalFrame extends javax.swing.JInternalFrame {
 
     private void LogsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LogsTableMouseClicked
         int row = LogsTable.rowAtPoint(evt.getPoint());
+        URLLabel.setVisible(true);
         URL.setText(LogsTable.getValueAt(row,2).toString());
     }//GEN-LAST:event_LogsTableMouseClicked
 

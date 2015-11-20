@@ -8,6 +8,7 @@ package tpgr32;
 import java.awt.Image;
 import java.text.ParseException;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Set;
 import java.util.Stack;
@@ -249,7 +250,7 @@ public class IControladorPublicacionTest {
         
         public void agregarLog(DataLog log, String nombre, String proveedor){}
     public Map<Integer, DataServicio> listarTopServicios(){return null;}
-    public Map<Integer,DataLog> listarLogs(){return null;}
+    public LinkedList<DataLog> listarLogs(){return null;}
     }
     
 }
