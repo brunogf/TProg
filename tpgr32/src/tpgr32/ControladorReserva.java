@@ -282,4 +282,11 @@ public class ControladorReserva implements IControladorReserva{
             return res.getFactura();
         return -1;
     }
+    
+    public boolean proveedorFacturoReserva(String nick, int nro){
+        Reserva res = ManejadorReserva.getInstance().encontrarReserva(nro);
+        if (res != null)
+            return res.proveedorFacturo(nick);
+        return false;
+    }
 }

@@ -49,6 +49,10 @@ public class ReservaPublicacion {
     public String getNombrePublicacion() {
         return pub_.getNombre();
     }
+    
+    public String getNickProveedor(){
+        return pub_.getProveedor().getNickname();
+    }
 
     public Reserva getReserva() {
         return res_;

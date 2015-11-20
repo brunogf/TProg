@@ -35,5 +35,7 @@ public interface IControladorReserva {
     public int facturarReserva(String nickname, int nro);
     public byte[] obtenerFactura(int id);
     public int obtenerFacturaReserva(int nro);
+    public boolean proveedorFacturoReserva(String nick, int nro);
+    
     
 }

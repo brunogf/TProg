@@ -171,6 +171,7 @@ public class IControladorReservaTest {
         public int obtenerFacturaReserva(int nro){
         return -1;
     }
+        public boolean proveedorFacturoReserva(String nick, int nro){return false;}
     }
     
     

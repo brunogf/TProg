@@ -305,5 +305,19 @@ public class Reserva {
 
         return dr;
     }
+    
+    public boolean proveedorFacturo(String nick){
+        Iterator<ReservaPublicacion> iter = rp_.iterator();
+        boolean found = false;
+        boolean facturo = false;
+        while (iter.hasNext() && !found){
+            ReservaPublicacion aux = iter.next();
+            if (aux.getNickProveedor().toUpperCase() == nick.toUpperCase()){
+                found = true;
+                facturo = aux.estaFacturada();
+            }
+        }
+        return facturo;
+    }
 
 }
