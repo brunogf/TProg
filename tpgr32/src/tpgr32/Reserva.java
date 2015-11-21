@@ -22,6 +22,7 @@ import javax.persistence.EntityManagerFactory;
 public class Reserva {
 
     private static int id = 1;
+    private static Properties propiedades = null;
 
     private int numero_;
     private Date fecha_creacion_;
@@ -156,22 +157,29 @@ public class Reserva {
 
             // Sender's email ID needs to be mentioned
             boolean configFlag = true;
-            Properties config = new Properties();
-            try {
-                FileInputStream input;
-                if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")) {
-                    input = new FileInputStream(System.getProperty("user.home") + "/Documents/server.properties");
-                } else {
-                    input = new FileInputStream(System.getProperty("user.home") + "/Quick Order/server.properties");
-                }
-                config.load(input);
-            } catch (Exception e) {
+            if(propiedades== null)
                 configFlag = false;
+            Properties config;
+            if (!configFlag){
+                try {
+                    propiedades = new Properties();
+                    FileInputStream input;
+                    if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")) {
+                        input = new FileInputStream(System.getProperty("user.home") + "/Documents/server.properties");
+                    } else {
+                        input = new FileInputStream(System.getProperty("user.home") + "/Quick Order/server.properties");
+                    }
+                    propiedades.load(input);
+                } catch (Exception e) {
+                    configFlag = false;
+                }
             }
+            config = propiedades;
             String from = "do_not_respond@h4t.com";
             if (configFlag) {
                 from = config.getProperty("dirEmailFacturas");
             }
+
 
             // Assuming you are sending email from localhost
             String host = "localhost";
@@ -260,7 +268,10 @@ public class Reserva {
                 Message = Message + "-Precio total: $" + String.format("%.2f", precio_total_) + "\n";
 
                 if (idFactura != -1) {
-                    Message = Message + " Puedes ver la factura siguiendo este link: <a href='http://localhost:8080/t2tpgr32/VerFactura?id=" + idFactura + "'>Ver factura</a>\n";
+                    if(config != null)
+                        Message = Message + " Puedes ver la factura siguiendo este link: <a href='" + config.getProperty("t2url") + "/VerFactura?id=" + idFactura + "'>Ver factura</a>\n";
+                    else
+                        Message = Message + " Puedes ver la factura siguiendo este link: <a href='http://localhost:8080/t2tpgr32/VerFactura?id=" + idFactura + "'>Ver factura</a>\n";
                 }
 
                 Message = Message + "\n\nGracias por preferirnos,\nSaludos.\nHelp4Traveling";
