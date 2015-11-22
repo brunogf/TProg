@@ -323,7 +323,9 @@ public class Reserva {
         boolean facturo = false;
         while (iter.hasNext() && !found){
             ReservaPublicacion aux = iter.next();
-            if (aux.getNickProveedor().toUpperCase() == nick.toUpperCase()){
+            String nick1 = aux.getNickProveedor().toUpperCase();
+            
+            if (nick1.equals(nick.toUpperCase())){
                 found = true;
                 facturo = aux.estaFacturada();
             }
