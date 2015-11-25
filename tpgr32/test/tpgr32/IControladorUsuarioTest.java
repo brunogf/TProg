@@ -66,8 +66,7 @@ public class IControladorUsuarioTest {
         assertEquals("eWatson", dusr.getNickname());
         assertEquals("Emma", dusr.getNombre());
         assertEquals("Watson", dusr.getApellido());
-        assertEquals("e.watson@gmail.com",dusr.getCorreo());
-        Assert.assertNotSame("",dusr.getImage());
+        assertEquals("e.watson@gmail.com",dusr.getCorreo().toLowerCase());
         DateFormat dtf = new SimpleDateFormat("dd-MM-yyyy");
         try{
         assertEquals(dusr.getFecha(),dtf.parse("15-04-1990"));

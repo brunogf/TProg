@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Class-Path: lib/AbsoluteLayout.jar lib/jcalendar-1.4.jar lib/gson-2.3.
- 1.jar lib/hsqldb.jar lib/itextpdf-5.5.7.jar lib/javax.mail.jar lib/hi
- bernate-jpa-2.1-api-1.0.0.Final.jar
-Main-Class: Interfaz.Interfaz
-
