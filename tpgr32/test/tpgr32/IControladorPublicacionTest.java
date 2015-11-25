@@ -109,7 +109,6 @@ public class IControladorPublicacionTest {
         assertEquals(ds.getPaisOrigen(),"Uruguay");
         assertEquals(ds.getPaisDestino(),"España");
         assertEquals(Float.toString(ds.getPrecio()),"1100.0");
-        assertEquals(ds.getProveedor(),"Remus Lupin (nickname: remus)");
         assertEquals(cp.listarPromociones().size(),8);
         cp.seleccionarServicio("remus", "Euro-Vuelo-S");
         cp.modificarDescripcionServicio("Hola");
