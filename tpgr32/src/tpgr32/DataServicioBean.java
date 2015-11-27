@@ -29,12 +29,17 @@ public class DataServicioBean extends DataPublicacion{
     public DataServicioBean(){
         
     }
-    public DataServicioBean(String nombre, String descripcion, float precio, String proveedor, String[] categorias, int cantVisitas){
+    public DataServicioBean(String nombre, String descripcion, float precio, String proveedor,
+                            String[] categorias, int cantVisitas, String paisO, String paisD, String ciudadO, String ciudadD){
         super(nombre, proveedor);
 	descripcion_ = descripcion;
 	precio_ = precio;
 	categorias_= categorias;
         cantVisitas_ = cantVisitas;
+        paisOrigen_ = paisO;
+        paisDestino_ = paisD;
+        ciudadOrigen_ = ciudadO;
+        ciudadDestino_ = ciudadD;               
     }
     
     public void setImagenes(byte[][] imagenes){

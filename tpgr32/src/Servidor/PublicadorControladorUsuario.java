@@ -209,7 +209,8 @@ public class PublicadorControladorUsuario {
                    cats[iter] = cat;
                    iter++;
                }
-               adtp[i] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas());
+               adtp[i] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas(),
+                                              dts.getPaisOrigen(),dts.getPaisDestino(), dts.getCiudadOrigen(), dts.getCiudadDestino());
                }
            else
                 adtp[i] = dtp;

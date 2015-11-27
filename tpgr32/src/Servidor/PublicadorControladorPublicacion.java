@@ -149,8 +149,10 @@ public class PublicadorControladorPublicacion {
         for (String cat : dts.getCategorias()){
             cats[iter] = cat;
             iter++;
-        }
-        DataServicioBean dtsb = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(), cats, dts.getCantVisitas());
+        }       
+        DataServicioBean dtsb = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(),
+                                                     dts.getProveedor(), cats, dts.getCantVisitas(),dts.getPaisOrigen(),
+                                                     dts.getPaisDestino(), dts.getCiudadOrigen(), dts.getCiudadDestino());
         
         Set<Image> simg = dts.getImagenes();
         byte[][] imagenes = new byte[simg.size()][];
@@ -199,7 +201,8 @@ public class PublicadorControladorPublicacion {
             iter2++;
             }
             
-            ret[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas());
+            ret[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas(),
+                                             dts.getPaisOrigen(),dts.getPaisDestino(), dts.getCiudadOrigen(), dts.getCiudadDestino());
             
             iter2 = 0;                
             Set<Image> simg = dts.getImagenes();
@@ -239,7 +242,8 @@ public class PublicadorControladorPublicacion {
             iter2++;
             }
             
-            ret[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas());
+            ret[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(),cats, dts.getCantVisitas(),
+                                             dts.getPaisOrigen(),dts.getPaisDestino(), dts.getCiudadOrigen(), dts.getCiudadDestino());
             
             iter2 = 0;                
             Set<Image> simg = dts.getImagenes();
@@ -327,7 +331,8 @@ public class PublicadorControladorPublicacion {
                     cats[iter2] = categoria;
                 iter2++;
                 }
-                adtp[iter] = new DataServicioBean(dtp.getNombre(), ((DataServicio)dtp).getDescripcion(), ((DataServicio)dtp).getPrecio(),((DataServicio)dtp).getProveedor(), cats, ((DataServicio)dtp).getCantVisitas());
+                adtp[iter] = new DataServicioBean(dtp.getNombre(), ((DataServicio)dtp).getDescripcion(), ((DataServicio)dtp).getPrecio(),((DataServicio)dtp).getProveedor(), cats, ((DataServicio)dtp).getCantVisitas(),
+                                                 ((DataServicio)dtp).getPaisOrigen(),((DataServicio)dtp).getPaisDestino(), ((DataServicio)dtp).getCiudadOrigen(), ((DataServicio)dtp).getCiudadDestino());
             }
             else
                 adtp[iter] = dtp;
@@ -350,7 +355,8 @@ public class PublicadorControladorPublicacion {
                     cats[iter2] = categoria;
                 iter2++;
                 }
-                adtp[iter] = new DataServicioBean(dtp.getNombre(), ((DataServicio)dtp).getDescripcion(), ((DataServicio)dtp).getPrecio(),((DataServicio)dtp).getProveedor(), cats, ((DataServicio)dtp).getCantVisitas());
+                adtp[iter] = new DataServicioBean(dtp.getNombre(), ((DataServicio)dtp).getDescripcion(), ((DataServicio)dtp).getPrecio(),((DataServicio)dtp).getProveedor(), cats, ((DataServicio)dtp).getCantVisitas(),
+                                                  ((DataServicio)dtp).getPaisOrigen(),((DataServicio)dtp).getPaisDestino(), ((DataServicio)dtp).getCiudadOrigen(), ((DataServicio)dtp).getCiudadDestino());
                 //Si es necsario ver imagenes en datatypes de este metodo borrar comentario
                 /*
                 Set<Image> simg = ((DataServicio)dtp).getImagenes();
@@ -403,7 +409,8 @@ public class PublicadorControladorPublicacion {
                     cats[iter2] = categoria;
                 iter2++;
                 }
-                dtsba[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(), cats, dts.getCantVisitas());
+                dtsba[iter] = new DataServicioBean(dts.getNombre(), dts.getDescripcion(), dts.getPrecio(), dts.getProveedor(), cats, dts.getCantVisitas(),
+                dts.getPaisOrigen(),dts.getPaisDestino(), dts.getCiudadOrigen(), dts.getCiudadDestino());
                 iter++;
              }
              
